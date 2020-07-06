@@ -2,10 +2,28 @@ version: '3'
 services:
     php-apache:
         build: ./
+        container_name: 'dandoenwedat-web'
         ports:
             - 80:80
+        links: 
+            - database    
         volumes:
             - ./DocumentRoot:/var/www/html
             - ./config/apache/vhosts:/etc/apache2/sites-enabled
             - ./config/php/php.ini:/usr/local/etc/php/php.ini
             - ./config/apache/apache2.conf:/etc/apache2/apache2.conf
+            - ./logs/apache2:/var/log/apache2
+    database:
+        build: mysql:5.7
+        container_name: 'dandoenwedat-mysql'
+        restart: 'always'
+        ports:
+            - "127.0.0.1:3306"
+        volumes: 
+            - ./data/mysql}:/var/lib/mysql
+            - ./logs/mysql}:/var/log/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}

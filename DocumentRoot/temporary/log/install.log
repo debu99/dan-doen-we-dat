@@ -6752,3 +6752,108 @@ Stack trace:
 #11 /var/www/html/install/index.php(92): Zend_Application->run()
 #12 {main}
 
+2020-07-06T18:04:50+00:00 WARN (4): [2] "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? (/var/www/html/application/libraries/Zend/Form.php) [1173]
+Error Code: dcd2dc
+Stack trace:
+#0 /var/www/html/application/libraries/Zend/Loader.php(134): include_once()
+#1 /var/www/html/application/libraries/Zend/Loader.php(82): Zend_Loader::loadFile('Zend/Form.php', , 1)
+#2 /var/www/html/application/libraries/Zend/Loader/Autoloader.php(479): Zend_Loader::loadClass('Zend_Form')
+#3 /var/www/html/application/libraries/Zend/Loader/Autoloader.php(124): Zend_Loader_Autoloader->_autoload('Zend_Form')
+#4 (unknown file)(0): Zend_Loader_Autoloader::autoload('Zend_Form')
+#5 /var/www/html/application/libraries/Engine/Form.php(18): spl_autoload_call('Zend_Form')
+#6 /var/www/html/application/libraries/Zend/Loader.php(134): include_once('/var/www/html/application/librar...')
+#7 /var/www/html/application/libraries/Zend/Loader.php(82): Zend_Loader::loadFile('Engine/Form.php', , 1)
+#8 /var/www/html/application/libraries/Zend/Loader/Autoloader.php(479): Zend_Loader::loadClass('Engine_Form')
+#9 /var/www/html/application/libraries/Zend/Loader/Autoloader.php(124): Zend_Loader_Autoloader->_autoload('Engine_Form')
+#10 (unknown file)(0): Zend_Loader_Autoloader::autoload('Engine_Form')
+#11 /var/www/html/install/forms/License.php(19): spl_autoload_call('Engine_Form')
+#12 /var/www/html/application/libraries/Zend/Loader/Autoloader/Resource.php(201): include('/var/www/html/install/forms/Lice...')
+#13 /var/www/html/application/libraries/Zend/Loader/Autoloader.php(120): Zend_Loader_Autoloader_Resource->autoload('Install_Form_License')
+#14 (unknown file)(0): Zend_Loader_Autoloader::autoload('Install_Form_License')
+#15 /var/www/html/install/controllers/InstallController.php(48): spl_autoload_call('Install_Form_License')
+#16 /var/www/html/application/libraries/Zend/Controller/Action.php(516): InstallController->licenseAction()
+#17 /var/www/html/application/libraries/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('licenseAction')
+#18 /var/www/html/application/libraries/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#19 /var/www/html/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#20 /var/www/html/application/libraries/Zend/Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#21 /var/www/html/install/index.php(92): Zend_Application->run()
+#22 {main}
+
+2020-07-06T18:04:50+00:00 WARN (4): [2] "continue" targeting switch is equivalent to "break". Did you mean to use "continue 2"? (/var/www/html/application/libraries/Zend/Form.php) [1690]
+Error Code: 683291
+Stack trace:
+#0 /var/www/html/application/libraries/Zend/Loader.php(134): include_once()
+#1 /var/www/html/application/libraries/Zend/Loader.php(82): Zend_Loader::loadFile('Zend/Form.php', , 1)
+#2 /var/www/html/application/libraries/Zend/Loader/Autoloader.php(479): Zend_Loader::loadClass('Zend_Form')
+#3 /var/www/html/application/libraries/Zend/Loader/Autoloader.php(124): Zend_Loader_Autoloader->_autoload('Zend_Form')
+#4 (unknown file)(0): Zend_Loader_Autoloader::autoload('Zend_Form')
+#5 /var/www/html/application/libraries/Engine/Form.php(18): spl_autoload_call('Zend_Form')
+#6 /var/www/html/application/libraries/Zend/Loader.php(134): include_once('/var/www/html/application/librar...')
+#7 /var/www/html/application/libraries/Zend/Loader.php(82): Zend_Loader::loadFile('Engine/Form.php', , 1)
+#8 /var/www/html/application/libraries/Zend/Loader/Autoloader.php(479): Zend_Loader::loadClass('Engine_Form')
+#9 /var/www/html/application/libraries/Zend/Loader/Autoloader.php(124): Zend_Loader_Autoloader->_autoload('Engine_Form')
+#10 (unknown file)(0): Zend_Loader_Autoloader::autoload('Engine_Form')
+#11 /var/www/html/install/forms/License.php(19): spl_autoload_call('Engine_Form')
+#12 /var/www/html/application/libraries/Zend/Loader/Autoloader/Resource.php(201): include('/var/www/html/install/forms/Lice...')
+#13 /var/www/html/application/libraries/Zend/Loader/Autoloader.php(120): Zend_Loader_Autoloader_Resource->autoload('Install_Form_License')
+#14 (unknown file)(0): Zend_Loader_Autoloader::autoload('Install_Form_License')
+#15 /var/www/html/install/controllers/InstallController.php(48): spl_autoload_call('Install_Form_License')
+#16 /var/www/html/application/libraries/Zend/Controller/Action.php(516): InstallController->licenseAction()
+#17 /var/www/html/application/libraries/Zend/Controller/Dispatcher/Standard.php(308): Zend_Controller_Action->dispatch('licenseAction')
+#18 /var/www/html/application/libraries/Zend/Controller/Front.php(954): Zend_Controller_Dispatcher_Standard->dispatch(Zend_Controller_Request_Http, Zend_Controller_Response_Http)
+#19 /var/www/html/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#20 /var/www/html/application/libraries/Zend/Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#21 /var/www/html/install/index.php(92): Zend_Application->run()
+#22 {main}
+
+2020-07-06T18:04:52+00:00 NOTICE (5): [8] compact(): Undefined variable: extras (/var/www/html/application/libraries/Zend/View/Helper/HeadLink.php) [404]
+Error Code: b4ea2c
+Stack trace:
+#0 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(404): compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras')
+#1 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(172): Zend_View_Helper_HeadLink->createDataStylesheet(Array)
+#2 /var/www/html/install/layouts/scripts/default.tpl(31): Zend_View_Helper_HeadLink->__call('prependStylesheet', Array)
+#3 /var/www/html/application/libraries/Zend/View.php(157): include('/var/www/html/install/layouts/sc...')
+#4 /var/www/html/application/libraries/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/install/layouts/sc...')
+#5 /var/www/html/application/libraries/Zend/Layout.php(796): Zend_View_Abstract->render()
+#6 /var/www/html/application/libraries/Zend/Layout/Controller/Plugin/Layout.php(143): Zend_Layout->render()
+#7 /var/www/html/application/libraries/Zend/Controller/Plugin/Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Zend_Controller_Request_Http)
+#8 /var/www/html/application/libraries/Zend/Controller/Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Zend_Controller_Request_Http)
+#9 /var/www/html/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 /var/www/html/application/libraries/Zend/Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /var/www/html/install/index.php(92): Zend_Application->run()
+#12 {main}
+
+2020-07-06T18:04:52+00:00 NOTICE (5): [8] compact(): Undefined variable: extras (/var/www/html/application/libraries/Zend/View/Helper/HeadLink.php) [404]
+Error Code: 1985af
+Stack trace:
+#0 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(404): compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras')
+#1 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(172): Zend_View_Helper_HeadLink->createDataStylesheet(Array)
+#2 /var/www/html/install/layouts/scripts/default.tpl(32): Zend_View_Helper_HeadLink->__call('prependStylesheet', Array)
+#3 /var/www/html/application/libraries/Zend/View.php(157): include('/var/www/html/install/layouts/sc...')
+#4 /var/www/html/application/libraries/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/install/layouts/sc...')
+#5 /var/www/html/application/libraries/Zend/Layout.php(796): Zend_View_Abstract->render()
+#6 /var/www/html/application/libraries/Zend/Layout/Controller/Plugin/Layout.php(143): Zend_Layout->render()
+#7 /var/www/html/application/libraries/Zend/Controller/Plugin/Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Zend_Controller_Request_Http)
+#8 /var/www/html/application/libraries/Zend/Controller/Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Zend_Controller_Request_Http)
+#9 /var/www/html/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 /var/www/html/application/libraries/Zend/Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /var/www/html/install/index.php(92): Zend_Application->run()
+#12 {main}
+
+2020-07-06T18:04:52+00:00 NOTICE (5): [8] compact(): Undefined variable: extras (/var/www/html/application/libraries/Zend/View/Helper/HeadLink.php) [404]
+Error Code: ee5912
+Stack trace:
+#0 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(404): compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras')
+#1 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(172): Zend_View_Helper_HeadLink->createDataStylesheet(Array)
+#2 /var/www/html/install/layouts/scripts/default.tpl(33): Zend_View_Helper_HeadLink->__call('prependStylesheet', Array)
+#3 /var/www/html/application/libraries/Zend/View.php(157): include('/var/www/html/install/layouts/sc...')
+#4 /var/www/html/application/libraries/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/install/layouts/sc...')
+#5 /var/www/html/application/libraries/Zend/Layout.php(796): Zend_View_Abstract->render()
+#6 /var/www/html/application/libraries/Zend/Layout/Controller/Plugin/Layout.php(143): Zend_Layout->render()
+#7 /var/www/html/application/libraries/Zend/Controller/Plugin/Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Zend_Controller_Request_Http)
+#8 /var/www/html/application/libraries/Zend/Controller/Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Zend_Controller_Request_Http)
+#9 /var/www/html/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 /var/www/html/application/libraries/Zend/Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /var/www/html/install/index.php(92): Zend_Application->run()
+#12 {main}
+
