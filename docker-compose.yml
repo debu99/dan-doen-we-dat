@@ -1,0 +1,10 @@
+version: '3'
+services:
+    php-apache:
+        image: php:7.4-apache
+        ports:
+            - 80:80
+        volumes:
+            - ./DocumentRoot:/var/www/html
+            - ./config/apache/vhosts:/etc/apache2/sites-enabled/default.conf
+            - ./config/php/php.ini:/usr/local/etc/php/php.ini
