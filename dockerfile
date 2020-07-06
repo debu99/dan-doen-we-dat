@@ -39,7 +39,7 @@ RUN docker-php-ext-install pdo_mysql && \
     docker-php-ext-install exif
 
 # # Enable apache modules
-# RUN a2enmod rewrite headers
+RUN a2enmod rewrite headers
 
 # Cleanup
 RUN rm -rf /usr/src/*

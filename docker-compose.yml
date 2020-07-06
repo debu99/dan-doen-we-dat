@@ -14,16 +14,16 @@ services:
             - ./config/apache/apache2.conf:/etc/apache2/apache2.conf
             - ./logs/apache2:/var/log/apache2
     database:
-        build: mysql:5.7
+        image: mysql:5.7.30
         container_name: 'dandoenwedat-mysql'
         restart: 'always'
         ports:
-            - "127.0.0.1:3306"
+            - "3306:3306"
         volumes: 
             - ./data/mysql}:/var/lib/mysql
             - ./logs/mysql}:/var/log/mysql
         environment:
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-            MYSQL_DATABASE: ${MYSQL_DATABASE}
-            MYSQL_USER: ${MYSQL_USER}
-            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_ROOT_PASSWORD: "root"
+            MYSQL_DATABASE: dandoenwedat
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
