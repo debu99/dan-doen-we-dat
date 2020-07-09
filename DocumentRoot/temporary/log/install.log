@@ -3647,3 +3647,105 @@ Stack trace:
 #11 /var/www/html/install/index.php(92): Zend_Application->run()
 #12 {main}
 
+2020-07-09T12:39:47+00:00 NOTICE (5): [8] compact(): Undefined variable: extras (/var/www/html/application/libraries/Zend/View/Helper/HeadLink.php) [404]
+Error Code: 68facc
+Stack trace:
+#0 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(404): compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras')
+#1 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(172): Zend_View_Helper_HeadLink->createDataStylesheet(Array)
+#2 /var/www/html/install/layouts/scripts/default.tpl(31): Zend_View_Helper_HeadLink->__call('prependStylesheet', Array)
+#3 /var/www/html/application/libraries/Zend/View.php(157): include('/var/www/html/install/layouts/sc...')
+#4 /var/www/html/application/libraries/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/install/layouts/sc...')
+#5 /var/www/html/application/libraries/Zend/Layout.php(796): Zend_View_Abstract->render()
+#6 /var/www/html/application/libraries/Zend/Layout/Controller/Plugin/Layout.php(143): Zend_Layout->render()
+#7 /var/www/html/application/libraries/Zend/Controller/Plugin/Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Zend_Controller_Request_Http)
+#8 /var/www/html/application/libraries/Zend/Controller/Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Zend_Controller_Request_Http)
+#9 /var/www/html/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 /var/www/html/application/libraries/Zend/Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /var/www/html/install/index.php(92): Zend_Application->run()
+#12 {main}
+
+2020-07-09T12:39:47+00:00 NOTICE (5): [8] compact(): Undefined variable: extras (/var/www/html/application/libraries/Zend/View/Helper/HeadLink.php) [404]
+Error Code: 9d8e37
+Stack trace:
+#0 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(404): compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras')
+#1 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(172): Zend_View_Helper_HeadLink->createDataStylesheet(Array)
+#2 /var/www/html/install/layouts/scripts/default.tpl(32): Zend_View_Helper_HeadLink->__call('prependStylesheet', Array)
+#3 /var/www/html/application/libraries/Zend/View.php(157): include('/var/www/html/install/layouts/sc...')
+#4 /var/www/html/application/libraries/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/install/layouts/sc...')
+#5 /var/www/html/application/libraries/Zend/Layout.php(796): Zend_View_Abstract->render()
+#6 /var/www/html/application/libraries/Zend/Layout/Controller/Plugin/Layout.php(143): Zend_Layout->render()
+#7 /var/www/html/application/libraries/Zend/Controller/Plugin/Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Zend_Controller_Request_Http)
+#8 /var/www/html/application/libraries/Zend/Controller/Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Zend_Controller_Request_Http)
+#9 /var/www/html/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 /var/www/html/application/libraries/Zend/Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /var/www/html/install/index.php(92): Zend_Application->run()
+#12 {main}
+
+2020-07-09T12:39:47+00:00 NOTICE (5): [8] compact(): Undefined variable: extras (/var/www/html/application/libraries/Zend/View/Helper/HeadLink.php) [404]
+Error Code: 5aa82a
+Stack trace:
+#0 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(404): compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras')
+#1 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(172): Zend_View_Helper_HeadLink->createDataStylesheet(Array)
+#2 /var/www/html/install/layouts/scripts/default.tpl(33): Zend_View_Helper_HeadLink->__call('prependStylesheet', Array)
+#3 /var/www/html/application/libraries/Zend/View.php(157): include('/var/www/html/install/layouts/sc...')
+#4 /var/www/html/application/libraries/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/install/layouts/sc...')
+#5 /var/www/html/application/libraries/Zend/Layout.php(796): Zend_View_Abstract->render()
+#6 /var/www/html/application/libraries/Zend/Layout/Controller/Plugin/Layout.php(143): Zend_Layout->render()
+#7 /var/www/html/application/libraries/Zend/Controller/Plugin/Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Zend_Controller_Request_Http)
+#8 /var/www/html/application/libraries/Zend/Controller/Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Zend_Controller_Request_Http)
+#9 /var/www/html/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 /var/www/html/application/libraries/Zend/Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /var/www/html/install/index.php(92): Zend_Application->run()
+#12 {main}
+
+2020-07-09T12:40:01+00:00 NOTICE (5): [8] compact(): Undefined variable: extras (/var/www/html/application/libraries/Zend/View/Helper/HeadLink.php) [404]
+Error Code: 19638d
+Stack trace:
+#0 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(404): compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras')
+#1 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(172): Zend_View_Helper_HeadLink->createDataStylesheet(Array)
+#2 /var/www/html/install/layouts/scripts/default.tpl(31): Zend_View_Helper_HeadLink->__call('prependStylesheet', Array)
+#3 /var/www/html/application/libraries/Zend/View.php(157): include('/var/www/html/install/layouts/sc...')
+#4 /var/www/html/application/libraries/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/install/layouts/sc...')
+#5 /var/www/html/application/libraries/Zend/Layout.php(796): Zend_View_Abstract->render()
+#6 /var/www/html/application/libraries/Zend/Layout/Controller/Plugin/Layout.php(143): Zend_Layout->render()
+#7 /var/www/html/application/libraries/Zend/Controller/Plugin/Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Zend_Controller_Request_Http)
+#8 /var/www/html/application/libraries/Zend/Controller/Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Zend_Controller_Request_Http)
+#9 /var/www/html/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 /var/www/html/application/libraries/Zend/Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /var/www/html/install/index.php(92): Zend_Application->run()
+#12 {main}
+
+2020-07-09T12:40:01+00:00 NOTICE (5): [8] compact(): Undefined variable: extras (/var/www/html/application/libraries/Zend/View/Helper/HeadLink.php) [404]
+Error Code: 90a70c
+Stack trace:
+#0 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(404): compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras')
+#1 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(172): Zend_View_Helper_HeadLink->createDataStylesheet(Array)
+#2 /var/www/html/install/layouts/scripts/default.tpl(32): Zend_View_Helper_HeadLink->__call('prependStylesheet', Array)
+#3 /var/www/html/application/libraries/Zend/View.php(157): include('/var/www/html/install/layouts/sc...')
+#4 /var/www/html/application/libraries/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/install/layouts/sc...')
+#5 /var/www/html/application/libraries/Zend/Layout.php(796): Zend_View_Abstract->render()
+#6 /var/www/html/application/libraries/Zend/Layout/Controller/Plugin/Layout.php(143): Zend_Layout->render()
+#7 /var/www/html/application/libraries/Zend/Controller/Plugin/Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Zend_Controller_Request_Http)
+#8 /var/www/html/application/libraries/Zend/Controller/Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Zend_Controller_Request_Http)
+#9 /var/www/html/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 /var/www/html/application/libraries/Zend/Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /var/www/html/install/index.php(92): Zend_Application->run()
+#12 {main}
+
+2020-07-09T12:40:01+00:00 NOTICE (5): [8] compact(): Undefined variable: extras (/var/www/html/application/libraries/Zend/View/Helper/HeadLink.php) [404]
+Error Code: dfb30e
+Stack trace:
+#0 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(404): compact('rel', 'type', 'href', 'media', 'conditionalStylesheet', 'extras')
+#1 /var/www/html/application/libraries/Zend/View/Helper/HeadLink.php(172): Zend_View_Helper_HeadLink->createDataStylesheet(Array)
+#2 /var/www/html/install/layouts/scripts/default.tpl(33): Zend_View_Helper_HeadLink->__call('prependStylesheet', Array)
+#3 /var/www/html/application/libraries/Zend/View.php(157): include('/var/www/html/install/layouts/sc...')
+#4 /var/www/html/application/libraries/Zend/View/Abstract.php(888): Zend_View->_run('/var/www/html/install/layouts/sc...')
+#5 /var/www/html/application/libraries/Zend/Layout.php(796): Zend_View_Abstract->render()
+#6 /var/www/html/application/libraries/Zend/Layout/Controller/Plugin/Layout.php(143): Zend_Layout->render()
+#7 /var/www/html/application/libraries/Zend/Controller/Plugin/Broker.php(333): Zend_Layout_Controller_Plugin_Layout->postDispatch(Zend_Controller_Request_Http)
+#8 /var/www/html/application/libraries/Zend/Controller/Front.php(965): Zend_Controller_Plugin_Broker->postDispatch(Zend_Controller_Request_Http)
+#9 /var/www/html/application/libraries/Zend/Application/Bootstrap/Bootstrap.php(105): Zend_Controller_Front->dispatch()
+#10 /var/www/html/application/libraries/Zend/Application.php(384): Zend_Application_Bootstrap_Bootstrap->run()
+#11 /var/www/html/install/index.php(92): Zend_Application->run()
+#12 {main}
+
