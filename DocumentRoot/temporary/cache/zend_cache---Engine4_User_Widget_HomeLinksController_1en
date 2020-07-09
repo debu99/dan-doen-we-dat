@@ -1,0 +1,23 @@
+a:2:{i:0;s:1120:"<div class="home-links-user">
+    <div class="image">
+        <a  href="/profile/administrator"><img src="/public/user/f0/02/59c6556c86a874372d7c3bc7acfa484e.jpg" alt="" class="thumb_icon item_photo_user "></a>    </div>
+    <div class="user">
+        <a  href="/profile/administrator">dan + doen + we + dat </a>    </div>
+</div>
+
+<div class="quicklinks">
+  
+<ul>
+      <li>
+      <a  href="/activity/notifications" class="buttonlink menu_user_home user_home_updates" style="" target="">View Recent Updates</a>    </li>
+      <li>
+      <a  href="/profile/1" class="buttonlink menu_user_home user_home_view" style="" target="">View My Profile</a>    </li>
+      <li>
+      <a  href="/members/edit/profile" class="buttonlink icon_edit menu_user_home user_home_edit" style="" target="">Edit My Profile</a>    </li>
+      <li>
+      <a  href="/members" class="buttonlink menu_user_home user_home_friends" style="" target="">Browse Members</a>    </li>
+      <li>
+      <a  href="/invite" class="buttonlink menu_user_home user_home_invite" style="" target="">Invite Friends</a>    </li>
+  </ul>
+</div>
+";i:1;N;}

@@ -16,3 +16,10 @@ PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
 [Thu Jul 09 15:17:43.658115 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
 [Thu Jul 09 15:32:11.015687 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
 AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.208.3. Set the 'ServerName' directive globally to suppress this message
+Cannot load Xdebug - it was already loaded
+PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+PHP Warning:  Module 'exif' already loaded in Unknown on line 0
+PHP Warning:  Module 'mysqli' already loaded in Unknown on line 0
+PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[Thu Jul 09 17:36:46.109837 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.7 configured -- resuming normal operations
+[Thu Jul 09 17:36:46.110155 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
