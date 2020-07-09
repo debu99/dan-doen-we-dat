@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.net/license/
  * @version    $Id: AdminLanguageController.php 9760 2012-08-13 23:35:28Z matthew $
  * @author     Jung
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.net/license/
  */
 class Core_AdminLanguageController extends Core_Controller_Action_Admin

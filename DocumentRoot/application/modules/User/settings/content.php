@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: content.php 9868 2013-02-12 21:50:45Z shaun $
  * @author     John

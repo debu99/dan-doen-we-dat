@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: stats.tpl 9747 2012-07-26 02:08:08Z john $
  * @author     Jung
@@ -83,17 +83,7 @@
           <?php echo $this->translate('None') ?>
         <?php endif ?>
       </span>
-    </li>
-    <li>
-      <?php echo $this->translate('Do Not Sell My Personal Information:'); ?>
-      <span>
-        <?php if($this->user->donotsellinfo == 1) { ?>
-          <?php echo $this->htmlImage($baseURL . 'application/modules/Core/externals/images/admin/check.png'); ?>
-        <?php } else { ?>
-          <?php echo $this->htmlImage($baseURL . 'application/modules/Core/externals/images/admin/uncheck.png'); ?>
-        <?php } ?>
-      </span>
-    </li>
+    </li>    
   </ul>
   <br/>
   <button type="submit" onclick="parent.Smoothbox.close();return false;" name="close_button" value="Close">Close</button>

@@ -1082,7 +1082,8 @@ class Zend_Http_Client
                     throw new Zend_Http_Client_Exception('Adapter does not support streaming');
                 }
             }
-
+           
+         //   var_dump($this->method);var_dump($uri);var_dump($this->config['httpversion']);var_dump($headers);var_dump($body);die;
             $this->last_request = $this->adapter->write($this->method,
                 $uri, $this->config['httpversion'], $headers, $body);
 

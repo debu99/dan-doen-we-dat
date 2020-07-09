@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: get-cover-photo.tpl 9747 2012-07-26 02:08:08Z john $
  * @author     Alex
@@ -12,11 +12,7 @@
 ?>
 
 <?php $levelId = $this->user->level_id;
-  $userId = $this->user->user_id;
-  
-  $coverphoto = Engine_Api::_()->authorization()->getPermission($levelId, 'user', 'coverphoto');
-  $coverphoto = $coverphoto ? Engine_Api::_()->core()->getFileUrl($coverphoto) : '';
-  ?>
+  $userId = $this->user->user_id;?>
 <?php if (empty($this->uploadDefaultCover)) : ?>
   <?php if (Engine_Api::_()->authorization()->isAllowed('user', $this->user, 'coverphotoupload') && $this->photo) : ?>
     <div class="profile_cover_photo cover_photo_wap b_dark">
@@ -32,10 +28,6 @@
           </div>
         </div>
       <?php endif; ?>
-    </div>
-  <?php elseif (!empty($coverphoto)) : ?>
-    <div class="profile_cover_photo cover_photo_wap b_dark">
-      <img src="<?php echo $coverphoto; ?>" align="left" class="cover_photo" style="top:<?php echo $this->topPosition?>px" />
     </div>
   <?php elseif (!empty($coverId = Engine_Api::_()->getApi("settings", "core")
           ->getSetting("usercoverphoto.preview.level.id.$levelId"))) : ?>

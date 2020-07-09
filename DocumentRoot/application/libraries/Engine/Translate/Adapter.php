@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_Translate
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2017 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Adapter.php 2017-02-6 02:08:08Z john $
  * @todo       documentation
@@ -13,7 +13,7 @@
 /**
  * @category   Engine
  * @package    Engine_Translate
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2017 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 abstract class Engine_Translate_Adapter extends Zend_Translate_Adapter

@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Update.php 10249 2014-05-30 22:38:38Z andres $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Activity_Form_Admin_Settings_Emoticon_Update extends Engine_Form

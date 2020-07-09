@@ -3,7 +3,7 @@
 /**
  * @package     Engine_Core
  * @version     $Id: index.php 9764 2012-08-17 00:04:31Z matthew $
- * @copyright   Copyright (c) 2006-2020 Webligo Developments
+ * @copyright   Copyright (c) 2008 Webligo Developments
  * @license     http://www.socialengine.com/license/
  */
 abstract class Engine_Boot_Abstract

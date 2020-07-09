@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_View
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: ViewMore.php 10053 2013-06-12 02:12:53Z john $
  */
@@ -12,7 +12,7 @@
 /**
  * @category   Engine
  * @package    Engine_View
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Engine_View_Helper_ViewMore extends Zend_View_Helper_HtmlElement

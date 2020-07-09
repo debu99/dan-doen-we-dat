@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Fields
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: field-create.tpl 10110 2013-10-31 02:04:11Z andres $
  * @author     John

@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Install
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: ManageController.php 9747 2012-07-26 02:08:08Z john $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Install
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class ManageController extends Zend_Controller_Action
@@ -984,11 +984,9 @@ class ManageController extends Zend_Controller_Action
                             $actionSummary[$packageKey][$dest] = 'added';
                             break;
 
-                        case 'different':
-                        case 'different_different':
-                          break;
-
                         case 'added_added':
+                        case 'different_different':
+                        case 'different':
                         case 'replace':
                             $vfs->put($dest, $source);
                             $actionSummary[$packageKey][$dest] = 'replaced';

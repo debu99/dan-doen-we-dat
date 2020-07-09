@@ -4307,30 +4307,3 @@ button.upgrade_theme_button {
 	overflow: hidden;
 	font-size: .9em;
 }
-#global_page_user-admin-fields-index #global_content{
-	position:relative;
-}
-.admin_loading_icon {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(255, 255, 255, 0.3);
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.admin_manage_listings, .admin_manage_news {
-	float: left;
-	width: 200px;
-	position: relative;
-	font-weight:600;
-	margin-bottom: 20px;
-}
-.layout_core_admin_news,
-.layout_core_admin_featured_products{
-	clear:both;
-}

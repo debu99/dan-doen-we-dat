@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: AdminStatsController.php 9812 2012-11-01 02:14:01Z matthew $
  * @author     Jung
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Core_AdminStatsController extends Core_Controller_Action_Admin

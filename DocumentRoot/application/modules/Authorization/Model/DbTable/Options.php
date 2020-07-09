@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Authorization
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    https://www.socialengine.com/license/
  * @version    $Id: Options.php 9747 2012-07-26 02:08:08Z john $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Authorization
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    https://www.socialengine.com/license/
  */
 class Authorization_Model_DbTable_Options extends Engine_Db_Table

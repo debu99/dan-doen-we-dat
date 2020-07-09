@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: _browseUsers.tpl 9979 2013-03-19 22:07:33Z john $
  * @author     John
@@ -87,13 +87,13 @@
           <?php if( isset($viewerId) && $viewerId != $user->getIdentity() ): ?>
             <div class='browsemembers_results_links'>
               <?php echo $this->userFriendship($user) ?>
-              <?php if($viewer->isAllowed('user', 'block') && !in_array($user->getIdentity(), $this->blockedUserIds) ) :?>
+              <?php if( !in_array($user->getIdentity(), $this->blockedUserIds) ) :?>
                 <?php echo '<a href ="'. $this->url(array(
                 'controller' => 'block',
                 'action' => 'add',
                 'user_id' => $user->getIdentity()
                 ),'user_extended',true)
-                . '" class = "buttonlink icon_user_block smoothbox">'. $this->translate("Block Member") . '</a>'; ?>
+                . '" class = "buttonlink icon_user_block smoothbox"> Block Member </a>'; ?>
              <?php endif; ?>
             </div>
           <?php endif; ?>

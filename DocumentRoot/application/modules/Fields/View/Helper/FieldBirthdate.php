@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Fields
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: FieldBirthdate.php 10038 2013-04-11 22:01:49Z john $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Fields
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @author     John
  */

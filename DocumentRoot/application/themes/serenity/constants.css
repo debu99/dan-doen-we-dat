@@ -43,7 +43,6 @@ DEFAULT STYLES FOR THIS THEME
   theme_topbar_menu_link_size: 1em;
   theme_topbar_menu_link_background_color: transparent;
   theme_topbar_menu_link_background_color_hover:$serenity_mainmenu_links_hover_background_color;
-	theme_topbar_menu_font_family:$serenity_mainmenu_fontfamily;
   theme_topbar_menu_border: none;
   theme_topbar_minimenu_border: none;
   theme_topbar_minimenu_link_size: 100%;
@@ -62,7 +61,7 @@ DEFAULT STYLES FOR THIS THEME
   TEXT & LINKS
   These values affect the size and colors of your text and links throughout your layout.
   */
-  theme_font_family:$serenity_body_fontfamily;
+  theme_font_family: Source Sans Pro, sans-serif;
   theme_font_size: 15px;
   theme_font_color: $serenity_font_color;
   theme_font_color_light:$serenity_font_color_light;
@@ -88,7 +87,6 @@ DEFAULT STYLES FOR THIS THEME
   These colors are applied to borders around or within boxes that have a background color,
   like widgets.
   */
-	theme_box_header_font_family:$serenity_heading_fontfamily;
   theme_foreground_border_color: transparent;
   theme_foreground_border_color_light: transparent;
   theme_foreground_background_color: $serenity_box_background_color;
@@ -126,7 +124,6 @@ DEFAULT STYLES FOR THIS THEME
   These colors are applied to the button-style tab menus which are often shown
   on browse pages.
   */
-	theme_buttontabs_font_family:$serenity_tab_fontfamily;
 	theme_buttontabs_font_color: $serenity_font_color;
 	theme_buttontabs_font_color_hover: $serenity_button_font_color;
 	theme_buttontabs_font_color_active: $serenity_button_font_color;
@@ -149,7 +146,7 @@ DEFAULT STYLES FOR THIS THEME
   theme_tabs_font_color_active:$serenity_button_font_color;
   theme_tabs_background_color_active: $serenity_button_background_color;
   theme_tabs_background_color_hover: $serenity_theme_color;
-  theme_tabs_font_family:$serenity_tab_fontfamily;
+
   /*
   LISTS
   These colors are applied to some lists, especially in pull-down menus.

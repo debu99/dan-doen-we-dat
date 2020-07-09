@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Network
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @author     Sami
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Network
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Network_Model_Network extends Core_Model_Item_Abstract 

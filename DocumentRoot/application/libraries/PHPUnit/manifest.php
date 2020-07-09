@@ -2,7 +2,7 @@
   'package' => array(
     'type' => 'library',
     'name' => 'phpunit',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
     'revision' => '$Revision: 10111 $',
     'path' => 'application/libraries/PHPUnit',
     'repository' => 'socialengine.com',

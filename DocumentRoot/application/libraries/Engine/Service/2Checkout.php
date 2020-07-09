@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_Service_2Checkout
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: 2Checkout.php 10234 2014-05-22 16:25:59Z andres $
  * @author     John Boehr <j@webligo.com>
@@ -13,7 +13,7 @@
 /**
  * @category   Engine
  * @package    Engine_Service_2Checkout
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Engine_Service_2Checkout extends Zend_Service_Abstract

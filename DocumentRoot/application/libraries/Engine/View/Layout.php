@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_View
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2017 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 

@@ -3,7 +3,7 @@
 /**
  * @package     Engine_Boot
  * @version     $Id: boot.php 2018-06-20 00:04:31Z $
- * @copyright   Copyright (c) 2006-2020 Webligo Developments
+ * @copyright   Copyright (c) 2008 Webligo Developments
  * @license     http://www.socialengine.com/license/
  */
 class Engine_Boot

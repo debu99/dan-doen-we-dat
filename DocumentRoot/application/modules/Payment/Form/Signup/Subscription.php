@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Payment
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Subscription.php 10154 2014-04-08 18:47:01Z lucas $
  * @author     John Boehr <j@webligo.com>
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Payment
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Payment_Form_Signup_Subscription extends Engine_Form

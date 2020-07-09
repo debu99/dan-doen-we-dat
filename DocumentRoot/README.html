@@ -92,7 +92,7 @@
   <body>
 
     <div class="logo">
-      <img src="application/modules/Core/externals/images/admin_logo.png" alt="SocialEngine 5" title="SocialEngine 5" />
+      <img src="application/modules/Core/externals/images/admin_logo.png" alt="SocialEngine 4" title="SocialEngine 4" />
     </div>
 
     <div class="content">
@@ -101,7 +101,7 @@
 
       <h1 id="Getting-Started">Getting Started<a href="#Getting-Started" class="wiki-anchor">&para;</a></h1>
 
-      <p>This documentation describes how to get started with SocialEngine 5.</p>
+      <p>This documentation describes how to get started with SocialEngine 4.</p>
 
       <br />
 
@@ -125,8 +125,6 @@
             <ul>
               <li>gd2<span>(image processing)</span></li>
               <li>curl<span>(fetching URLs)</span></li>
-			  <li>IntlChar (required for Unicode characters support for mobile apps)</span></li>
-			  <li>Imagick (ImageMagick) required for gif image support and mobile device image rotation</span></li>
             </ul>
           </li>
           <li>PHP memory limit: 32M+</li>
@@ -135,8 +133,8 @@
         <h3 id="Recommended">Recommended<a href="#Recommended" class="wiki-anchor">&para;</a></h3>
         <ul>
           <li>Apache-based VPS or dedicated web server</li>
-          <li>PHP 7.2</li>
-          <li>MySQL 5.7 or newer</li>
+          <li>PHP 5.26 or newer</li>
+          <li>MySQL 5.0 or newer</li>
           <li>crontab</li>
         </ul>
         <h3 id="Optional">Optional<a href="#Optional" class="wiki-anchor">&para;</a></h3>
@@ -170,8 +168,8 @@
         <ul>
           <li>VPS or dedicated server - budget/shared servers may not handle a high volume of users chatting at the same time</li>
         </ul>
-        <h3 id="How-do-I-check-if-my-host-is-compatible-with-SocialEngine5">How do I check if my host is compatible with SocialEngine5?<a href="#How-do-I-check-if-my-host-is-compatible-with-SocialEngine5" class="wiki-anchor">&para;</a></h3>
-        <p>Most modern hosting providers are compatible with SocialEngine5 but if in doubt you can contact them directly and refer them to this page.</p>
+        <h3 id="How-do-I-check-if-my-host-is-compatible-with-SocialEngine4">How do I check if my host is compatible with SocialEngine4?<a href="#How-do-I-check-if-my-host-is-compatible-with-SocialEngine4" class="wiki-anchor">&para;</a></h3>
+        <p>Most modern hosting providers are compatible with SocialEngine4 but if in doubt you can contact them directly and refer them to this page.</p>
       </div>
 
       <br />
@@ -190,7 +188,7 @@
         <h3 id="Installation-Instructions">Instructions<a href="#Installation-Instructions" class="wiki-anchor">&para;</a></h3>
 
         <ol>
-          <li>In order to install SocialEngine5, you need four pieces of information. If you don't have any of these, please contact your hosting provider and ask them for assistance.
+          <li>In order to install SocialEngine4, you need four pieces of information. If you don't have any of these, please contact your hosting provider and ask them for assistance.
             <ul>
               <li>MySQL Server Address (often "localhost", "127.0.0.1", or the server IP address)</li>
               <li>MySQL Database Name</li>
@@ -198,7 +196,7 @@
               <li>MySQL Password</li>
             </ul>
           </li>
-          <li>Download the SocialEngine5 ZIP file and extract it to your computer.</li>
+          <li>Download the SocialEngine4 ZIP file and extract it to your computer.</li>
           <li>Upload all of the files to your hosting account (it can exist either in the root HTML directory, or a subdirectory).
             <ul>
               <li>If you are using a Unix server (or Unix variant, like Linux, OS X, FreeBSD, etc.) you must set the permissions (CHMOD) of the following directories and files to 777:
@@ -245,7 +243,7 @@
         
         <ol>
           <li>Download each of the plugin TAR files you wish to install.</li>
-          <li>Log into your SocialEngine 5 site and access the Admin area.</li>
+          <li>Log into your SocialEngine 4 site and access the Admin area.</li>
           <li>Access the <em>Manage</em> menu and click on <em>Packages &amp; Plugins</em>.</li>
           <li>Click on the <em>Install New Packages</em> link, then on the <em>Add Packages</em> link.</li>
           <li>Select the TAR files you download in step 1</li>
@@ -258,7 +256,7 @@
       
       <h2 id="Upgrading">Upgrading SocialEngine<a href="#Upgrading" class="wiki-anchor">&para;</a></h2>
       <div class="indent">
-        <p>SocialEngine 5 supports upgrades via our package manager.</p>
+        <p>SocialEngine 4 supports upgrades via our package manager.</p>
         
         
         <h3 id="Upgrading-Video">Video<a href="#Upgrading-Video" class="wiki-anchor">&para;</a></h3>
@@ -270,10 +268,10 @@
         <h4 id="Upgrading-from-Beta3">Upgrading from SE4 Beta3<a href="#Upgrading-from-Beta3" class="wiki-anchor">&para;</a></h4>
         <ol>
           <li>Download the Package Manager from the <a href="http://www.socialengine.com/client" target="_blank">SocialEngine Clients</a> area.</li>
-          <li>Decompress the upgrade files, then upload them to the root of your SocialEngine 5 website.  You'll notice the directories will be similar; overwrite any existing files with the uploaded ones.</li>
+          <li>Decompress the upgrade files, then upload them to the root of your SocialEngine 4 website.  You'll notice the directories will be similar; overwrite any existing files with the uploaded ones.</li>
           <li>Change the permission of <code>/application/packages/</code> to (CHMOD) 777, as well as all the files within that directory.</li>
-          <li>Log into the Admin area of your SocialEngine 5 website, then click <em>Manage > Plugins</em>, or on the <em>Upgrade to RC1</em> link.</li>
-          <li>Follow the step-by-step wizard to upgrade the core components of SocialEngine 5.</li>
+          <li>Log into the Admin area of your SocialEngine 4 website, then click <em>Manage > Plugins</em>, or on the <em>Upgrade to RC1</em> link.</li>
+          <li>Follow the step-by-step wizard to upgrade the core components of SocialEngine 4.</li>
           <li>If you have any plugins installed, please see the instructions below on upgrading plugins.</li>
         </ol>
         -->
@@ -281,7 +279,7 @@
         <h4 id="Upgrading-Instructions">Instructions<a href="#Upgrading-Instructions" class="wiki-anchor">&para;</a></h4>
         <ol>
           <li>Download the latest Core available from your <a href="http://www.socialengine.com/client" target="_blank">SocialEngine Clients area</a>.</li>
-          <li>Log into your SocialEngine 5 site and access the Admin area.</li>
+          <li>Log into your SocialEngine 4 site and access the Admin area.</li>
           <li>Access the <em>Manage</em> menu and click on <em>Packages &amp; Plugins</em>.</li>
           <li>Click on the <em>Install New Packages</em> link, then on the <em>Add Packages</em> link.</li>
           <li>Select the Core file you download in step 1.  After the file is uploaded, a <em>Continue</em> button will appear at the bototm of the page.
@@ -300,16 +298,16 @@
         
         <h3 id="Tools">Tools<a href="#Tools" class="wiki-anchor">&para;</a></h3>
 
-        While the following are not necessary for modifying SocialEngine 5, we recommend the following tools for your development environment.
+        While the following are not necessary for modifying SocialEngine 4, we recommend the following tools for your development environment.
         <ul>
           <li>Netbeans IDE ( <a class="external" href="http://netbeans.org/features/php/">http://netbeans.org/features/php/</a> )</li>
-          <li>Set SocialEngine5 to be in "Development" mode (see <code>Admin &gt; Settings &gt; General Settings</code>).  This prevents the use of caching, while also enables error messages to be displayed to the front-end interface.</li>
+          <li>Set SocialEngine4 to be in "Development" mode (see <code>Admin &gt; Settings &gt; General Settings</code>).  This prevents the use of caching, while also enables error messages to be displayed to the front-end interface.</li>
         </ul>
 
 
         <h3 id="Structure">Structure<a href="#Structure" class="wiki-anchor">&para;</a></h3>
 
-        <p>SocialEngine5 is based on the Zend Framework, and is built in an MVC (Model-View-Controller) structure.  It is also built with modularity in mind.</p>
+        <p>SocialEngine4 is based on the Zend Framework, and is built in an MVC (Model-View-Controller) structure.  It is also built with modularity in mind.</p>
 
 
         The directory structure is as follows:
@@ -393,7 +391,7 @@
       </div>
 
       <div class="copyright">
-        ©2020 Webligo Developments
+        ©2010 Webligo Developments
       </div>
       
     </div>

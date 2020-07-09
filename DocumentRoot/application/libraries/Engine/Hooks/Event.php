@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_Hooks
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Event.php 9747 2012-07-26 02:08:08Z john $
  */
@@ -12,7 +12,7 @@
 /**
  * @category   Engine
  * @package    Engine_Hooks
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Engine_Hooks_Event implements Iterator

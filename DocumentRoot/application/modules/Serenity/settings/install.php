@@ -37,10 +37,6 @@ class Serenity_Installer extends Engine_Package_Installer_Module {
       'serenity_button_font_color'  => '#FFFFFF',
       'serenity_button_border_color'  => '#03598f',
       'serenity_comments_background_color'  => '#fff',
-			'serenity_body_fontfamily' => '"Source Sans Pro"',
-      'serenity_heading_fontfamily' => '"Source Sans Pro"',
-      'serenity_mainmenu_fontfamily' => '"Source Sans Pro"',
-      'serenity_tab_fontfamily' => '"Source Sans Pro"',
     );
     $this->readWriteXML('', '', $default_constants);
     

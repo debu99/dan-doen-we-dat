@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_Application
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Api.php 10218 2014-05-15 15:43:12Z mfeineman $
  */
@@ -12,7 +12,7 @@
 /**
  * @category   Engine
  * @package    Engine_Application
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 abstract class Engine_Application_Module_Api

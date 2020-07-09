@@ -6,7 +6,7 @@ return array (
     'type' => 'module',
     'name' => 'serenity',
     'sku' => 'serenity',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
     'dependencies' => array(
       array(
         'type' => 'module',

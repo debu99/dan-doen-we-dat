@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Messages
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Conversation.php 10009 2013-03-26 23:25:57Z jung $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Messages
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Messages_Model_Conversation extends Core_Model_Item_Abstract

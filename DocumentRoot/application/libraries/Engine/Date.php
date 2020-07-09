@@ -4,14 +4,14 @@
  *
  * @category   Engine
  * @package    Engine_Date
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 
 /**
  * @category   Engine
  * @package    Engine_Date
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Engine_Date

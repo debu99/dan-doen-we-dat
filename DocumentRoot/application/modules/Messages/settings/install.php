@@ -4,7 +4,7 @@
  *
  * @category   Application_Extensions
  * @package    Messages
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: install.php 9902 2013-02-14 02:35:41Z shaun $
  * @author     John Boehr <john@socialengine.com>
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Extensions
  * @package    Messages
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Messages_Installer extends Engine_Package_Installer_Module

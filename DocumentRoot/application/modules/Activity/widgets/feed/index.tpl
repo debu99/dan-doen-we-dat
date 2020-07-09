@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: index.tpl 10018 2013-03-27 01:36:15Z john $
  * @author     John
@@ -206,9 +206,9 @@ endif; ?>
                 </a>
                 <div class="privacy_pulldown_contents_wrapper">
                   <div class="privacy_pulldown_contents">
-                    <ul id="privacylist">
+                    <ul>
                       <?php foreach( $this->privacyList as $key => $value ): ?>
-                        <li class="<?php echo ( $key == $this->defaultPrivacy ? 'activity_tab_active' : 'activity_tab_unactive' ) ?>" id="privacy_list_<?php echo $key ?>" onclick="setPrivacyValue('<?php echo $key ?>', '<?php echo $this->string()->escapeJavascript($this->translate($value)); ?>', 'activity_icon_feed_<?php echo $key ?>')" title="<?php echo $this->translate("Share with %s", $value); ?>" >
+                        <li class="<?php echo ( $key == $this->defaultPrivacy ? 'activity_tab_active' : 'activity_tab_unactive' ) ?>" id="privacy_list_<?php echo $key ?>" onmousedown="setPrivacyValue('<?php echo $key ?>', '<?php echo $this->string()->escapeJavascript($this->translate($value)); ?>', 'activity_icon_feed_<?php echo $key ?>')" title="<?php echo $this->translate("Share with %s", $value); ?>" >
                           <i class="privacy_pulldown_icon activity_icon_feed_<?php echo $key ?>"></i>
                           <div><?php echo $this->translate($value); ?></div>
                           </li>
@@ -217,14 +217,14 @@ endif; ?>
                         <li class="sep"></li>
                       <?php endif;?>
                       <?php foreach( $this->networkList as $key => $value ): ?>
-                        <li class="<?php echo ( $key == $this->defaultPrivacy ? 'activity_tab_active' : 'activity_tab_unactive' ) ?>" id="privacy_list_<?php echo $key ?>" onclick="setPrivacyValue('<?php echo $key ?>', '<?php echo $this->string()->escapeJavascript($this->translate($value)); ?>', 'activity_icon_feed_network')" title="<?php echo $this->translate("Share with %s", $value); ?>" >
+                        <li class="<?php echo ( $key == $this->defaultPrivacy ? 'activity_tab_active' : 'activity_tab_unactive' ) ?>" id="privacy_list_<?php echo $key ?>" onmousedown="setPrivacyValue('<?php echo $key ?>', '<?php echo $this->string()->escapeJavascript($this->translate($value)); ?>', 'activity_icon_feed_network')" title="<?php echo $this->translate("Share with %s", $value); ?>" >
                           <i class="privacy_pulldown_icon activity_icon_feed_network"></i>
                           <div><?php echo $this->translate($value); ?></div>
                         </li>
                       <?php endforeach; ?>
                       <?php if(count($this->networkList) > 1): ?>
                         <li class="sep"></li>
-                        <li onclick="showMultiNetworks();">
+                        <li onmousedown="showMultiNetworks();">
                           <i class="privacy_pulldown_icon activity_icon_feed_network"></i>
                           <div><?php echo $this->translate("Multiple Networks"); ?></div>
                         </li>
@@ -242,59 +242,6 @@ endif; ?>
     </form>
 
     <script type="text/javascript">
-      var li = scriptJquery('#privacylist > li');
-      var liSelected;
-      scriptJquery(window).on('keydown', function(e) {
-        if(scriptJquery('#privacy_pulldown').hasClass('privacy_pulldown_active')) {
-          if (e.which === 13) {
-            scriptJquery(liSelected).trigger('click');
-          }
-          var selected;
-          if(e.which === 40){
-            if(liSelected) {
-              liSelected.removeClass('activity_tab_active').addClass('activity_tab_unactive');
-              next = liSelected.next();
-              if(next && next.hasClass('sep')) {
-                next = next.next();
-              }
-              if(next.length > 0){
-                liSelected = next.removeClass('activity_tab_unactive').addClass('activity_tab_active');
-                selected = next.text();
-              } else {
-                liSelected = li.eq(0).removeClass('activity_tab_unactive').addClass('activity_tab_active');
-                selected = li.eq(0).text();
-              }
-            } else { console.log('last');
-              liSelected = li.eq(0).removeClass('activity_tab_active').addClass('activity_tab_unactive');
-              next = liSelected.next();
-              next.addClass('activity_tab_active');
-              liSelected = next;
-              selected = li.eq(0).text();
-            }
-          } else if(e.which === 38) {
-            if(liSelected){
-              liSelected.removeClass('activity_tab_active').addClass('activity_tab_unactive');
-              next = liSelected.prev();
-              if(next && next.hasClass('sep')) {
-                next = next.prev();
-              }
-              if(next.length > 0) {
-                liSelected = next.removeClass('activity_tab_unactive').addClass('activity_tab_active');
-                selected = next.text();
-              } else {
-                liSelected = li.last().addClass('activity_tab_active');
-                selected = li.last().text()
-              }
-            } else {
-              liSelected = li.eq(0).removeClass('activity_tab_active').addClass('activity_tab_unactive');
-              last = li.last();
-              liSelected = li.last().addClass('activity_tab_active');
-              selected = li.last().text();
-            }
-          }
-        }
-      });
-    
       var composeInstance;
       en4.core.runonce.add(function() {
         // @todo integrate this into the composer

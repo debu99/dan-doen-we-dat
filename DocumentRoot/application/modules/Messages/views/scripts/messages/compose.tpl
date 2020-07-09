@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Messages
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: compose.tpl 10224 2014-05-15 18:45:45Z lucas $
  * @author     John

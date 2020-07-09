@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: _activityText.tpl 9747 2012-07-26 02:08:08Z john $
  * @author     Jung
@@ -325,7 +325,7 @@ if ($attachUserTags) {
                      <?php echo $this->htmlLink($this->item($comment->poster_type, $comment->poster_id)->getHref(), $this->item($comment->poster_type, $comment->poster_id)->getTitle()); ?>
                    </span>
                    <span class="comments_body">
-                     <?php echo $this->viewMore(Engine_Text_Emoji::decode($comment->body)) ?>
+                     <?php echo $this->viewMore($comment->body) ?>
                    </span>
                    <ul class="comments_date">
                      <li class="comments_timestamp">

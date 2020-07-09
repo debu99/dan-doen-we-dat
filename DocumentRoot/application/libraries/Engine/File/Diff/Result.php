@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_File_Diff
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Result.php 10204 2014-05-08 14:09:34Z lucas $
  * @author     John Boehr <j@webligo.com>
@@ -13,7 +13,7 @@
 /**
  * @category   Engine
  * @package    Engine_File_Diff
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @author     John Boehr <j@webligo.com>
  */

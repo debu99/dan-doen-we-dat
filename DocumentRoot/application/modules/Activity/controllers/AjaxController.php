@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: AjaxController.php 9806 2012-10-30 23:54:12Z matthew $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Activity_AjaxController extends Core_Controller_Action_Standard

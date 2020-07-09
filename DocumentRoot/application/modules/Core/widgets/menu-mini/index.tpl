@@ -4,22 +4,13 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: index.tpl 9747 2012-07-26 02:08:08Z john $
  * @author     John
  */
 ?>
 <?php
-  $request = Zend_Controller_Front::getInstance()->getRequest();
-  $controllerName = $request->getControllerName();
-  $actionName = $request->getActionName();
-  $showSearch = true;
-  if($controllerName == 'signup') {
-    $showSearch = false;
-  } else if($actionName == 'login') {
-    $showSearch = false;
-  }
   $themes = Engine_Api::_()->getDbtable('themes', 'core')->fetchAll();
   $activeTheme = $themes->getRowMatching('active', 1);
   $manifest = APPLICATION_PATH . '/application/themes/' . $activeTheme->name . '/manifest.php';
@@ -34,10 +25,13 @@
       <?php
         $linkTitle = '';
         $subclass = '';
+
+        if( stripos($activeTheme->name, 'serenity') !== false || (isset($themeManifest['options']) && isset($themeManifest['options']['menu-icons'])) ) {
           $linkTitle = $this->translate(strip_tags($item->getLabel()));
           if( $this->showIcons ) {
             $subclass = ' show_icons';
           }
+        }
         $className = explode(' ', $item->class);
         $class = !empty($item->class) ? $item->class . $subclass : null;
       ?>
@@ -133,7 +127,6 @@
   </div>
 </span>
 
-<?php if(!empty($this->viewer->getIdentity())) { ?>
 
 <script type='text/javascript'>
 
@@ -143,10 +136,10 @@
         if($$(".updates_pulldown_active").length > 0)
           $$('.updates_pulldown_active').set('class', 'updates_pulldown');
 
-        if($("pulldown_message") && $("pulldown_message").style.display == 'block')
+        if($("pulldown_message").style.display == 'block')
           $("pulldown_message").style.display = 'none';
           
-        if($('minimenu_settings_content') && $('minimenu_settings_content').style.display == 'block')
+        if($('minimenu_settings_content').style.display == 'block')
           $('minimenu_settings_content').style.display = 'none';
       }
     });
@@ -156,21 +149,21 @@
     if($$(".updates_pulldown_active").length > 0)
       $$('.updates_pulldown_active').set('class', 'updates_pulldown');
       
-    if($('pulldown_message') && $('pulldown_message').style.display == 'block')
+    if($('pulldown_message').style.display == 'block')
       $('pulldown_message').style.display = 'none';
 
-    if($('minimenu_settings_content') && $('minimenu_settings_content').style.display == 'block')
+    if($('minimenu_settings_content').style.display == 'block')
       $('minimenu_settings_content').style.display = 'none';
     else
       $('minimenu_settings_content').style.display = 'block';
   }
 
   function showMessageBox() {
-    if($('minimenu_settings_content') && $('minimenu_settings_content').style.display == 'block')
+    if($('minimenu_settings_content').style.display == 'block')
       $('minimenu_settings_content').style.display = 'none';
     if($$(".updates_pulldown_active").length > 0)
       $$('.updates_pulldown_active').set('class', 'updates_pulldown');
-    if($('pulldown_message') && $('pulldown_message').style.display == 'block')
+    if($('pulldown_message').style.display == 'block')
       $('pulldown_message').style.display = 'none';
     else
       $('pulldown_message').style.display = 'block';
@@ -214,6 +207,19 @@
     notificationUpdater.start();
     window._notificationUpdater = notificationUpdater;
     <?php endif;?>
+
+    // combining mini-menu and search widget if next to each other
+    var menuElement = $('global_header').getElement('.layout_core_menu_mini');
+    var nextWidget = menuElement.getNext();
+    if( nextWidget && nextWidget.hasClass('layout_core_search_mini') ) {
+      nextWidget.removeClass('generic_layout_container').inject(menuElement, 'top');
+      return;
+    }
+    previousWidget = menuElement.getPrevious();
+    if( previousWidget && previousWidget.hasClass('layout_core_search_mini') ) {
+      previousWidget.removeClass('generic_layout_container').inject(menuElement, 'top');
+    }
+
   });
 
   var updateElement = $('core_menu_mini_menu').getElement('.core_mini_update');
@@ -233,7 +239,7 @@
   }
 
   var showNotifications = function() {
-    if($("pulldown_message") && $("pulldown_message").style.display == 'block')
+    if($("pulldown_message").style.display == 'block')
       $("pulldown_message").style.display = 'none';
     en4.activity.updateNotifications();
     new Request.HTML({
@@ -289,21 +295,3 @@
     }).send();
   };
 </script>
-<?php } ?>
-<?php if($showSearch) { ?>
-  <script type='text/javascript'>
-    en4.core.runonce.add(function() {
-      // combining mini-menu and search widget if next to each other
-      var menuElement = $('global_header').getElement('.layout_core_menu_mini');
-      var nextWidget = menuElement.getNext();
-      if( nextWidget && nextWidget.hasClass('layout_core_search_mini') ) {
-        nextWidget.removeClass('generic_layout_container').inject(menuElement, 'top');
-        return;
-      }
-      previousWidget = menuElement.getPrevious();
-      if( previousWidget && previousWidget.hasClass('layout_core_search_mini') ) {
-        previousWidget.removeClass('generic_layout_container').inject(menuElement, 'top');
-      }
-    });
-  </script>
-<?php } ?>

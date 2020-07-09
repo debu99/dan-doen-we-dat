@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: index.tpl 9747 2012-07-26 02:08:08Z john $
  * @author     John
@@ -143,7 +143,7 @@
           <span>
             <?php echo $this->htmlLink($member->getHref(), $member->getTitle()) ?>
           </span>
-          <?php echo $this->getHelper('getActionContent')->smileyToEmoticons($member->status); ?>
+          <?php echo $member->status; ?>
         </div>
 
         <?php /* if( $this->viewer()->isSelf($this->subject()) && Engine_Api::_()->getApi('settings', 'core')->getSetting('user.friends.lists')): // BEGIN LIST CODE ?>

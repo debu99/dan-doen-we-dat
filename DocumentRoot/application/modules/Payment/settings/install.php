@@ -4,7 +4,7 @@
  *
  * @category   Application_Extensions
  * @package    Music
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: install.php 9878 2013-02-13 03:18:43Z shaun $
  * @author     Steve
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Extensions
  * @package    Music
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Payment_Installer extends Engine_Package_Installer_Module

@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: index.tpl 9747 2012-07-26 02:08:08Z john $
  * @author     John
@@ -37,48 +37,48 @@
 </div>
 <script>
    function smallfont(obj){
-       scriptJquery(obj).parent().parent().find('.active').removeClass('active');
-       scriptJquery(obj).parent().addClass('active');
-       scriptJquery('body').css({
+       jQuery1_12_4(obj).parent().parent().find('.active').removeClass('active');
+       jQuery1_12_4(obj).parent().addClass('active');
+       jQuery1_12_4('body').css({
         'font-size': '85%'
         });
-       scriptJquery.post("serenity/index/font",{size:"85%"},function (response) {
+       jQuery1_12_4.post(en4.core.baseUrl+"serenity/index/font",{size:"85%"},function (response) {
 
        })
 	};
 	function defaultfont(obj){
-        scriptJquery(obj).parent().parent().find('.active').removeClass('active');
-        scriptJquery(obj).parent().addClass('active');
-        scriptJquery('body').css({
+        jQuery1_12_4(obj).parent().parent().find('.active').removeClass('active');
+        jQuery1_12_4(obj).parent().addClass('active');
+        jQuery1_12_4('body').css({
         'font-size': '15px'
         });
-        scriptJquery.post("serenity/index/font",{size:""},function (response) {
+        jQuery1_12_4.post(en4.core.baseUrl+"serenity/index/font",{size:""},function (response) {
 
         })
 	};
 	function largefont(obj){
-        scriptJquery(obj).parent().parent().find('.active').removeClass('active');
-        scriptJquery(obj).parent().addClass('active');
-        scriptJquery('body').css({
+        jQuery1_12_4(obj).parent().parent().find('.active').removeClass('active');
+        jQuery1_12_4(obj).parent().addClass('active');
+        jQuery1_12_4('body').css({
         'font-size': '115%'
         });
-        scriptJquery.post("serenity/index/font",{size:"115%"},function (response) {
+        jQuery1_12_4.post(en4.core.baseUrl+"serenity/index/font",{size:"115%"},function (response) {
 
         })
 	};
 	function darkmode(obj){
-        scriptJquery(obj).parent().parent().find('.active').removeClass('active');
-        scriptJquery(obj).parent().addClass('active');
-        scriptJquery('body').addClass("dark_mode");
-        scriptJquery.post("serenity/index/mode",{mode:"dark_mode"},function (response) {
+        jQuery1_12_4(obj).parent().parent().find('.active').removeClass('active');
+        jQuery1_12_4(obj).parent().addClass('active');
+        jQuery1_12_4('body').addClass("dark_mode");
+        jQuery1_12_4.post(en4.core.baseUrl+"serenity/index/mode",{mode:"dark_mode"},function (response) {
 
         })
 	};
 	function defmode(obj){
-        scriptJquery(obj).parent().parent().find('.active').removeClass('active');
-        scriptJquery(obj).parent().addClass('active');
-        scriptJquery('body').removeClass("dark_mode");
-        scriptJquery.post("serenity/index/mode",{mode:""},function (response) {
+        jQuery1_12_4(obj).parent().parent().find('.active').removeClass('active');
+        jQuery1_12_4(obj).parent().addClass('active');
+        jQuery1_12_4('body').removeClass("dark_mode");
+        jQuery1_12_4.post(en4.core.baseUrl+"serenity/index/mode",{mode:""},function (response) {
 
         })
 	};

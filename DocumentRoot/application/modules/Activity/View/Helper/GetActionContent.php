@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2016 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Item.php 9747 2016-12-06 02:08:08Z john $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2016 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Activity_View_Helper_GetActionContent extends Zend_View_Helper_Abstract

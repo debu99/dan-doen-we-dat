@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2016 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Categories.php 9747 2016-12-15 02:08:08Z john $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2016 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Core_Api_Categories extends Core_Api_Abstract

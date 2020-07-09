@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_View
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Locale.php 10031 2013-03-28 23:11:41Z john $
  * @todo       documentation
@@ -13,7 +13,7 @@
 /**
  * @category   Engine
  * @package    Engine_View
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Engine_View_Helper_Locale extends Zend_View_Helper_Abstract

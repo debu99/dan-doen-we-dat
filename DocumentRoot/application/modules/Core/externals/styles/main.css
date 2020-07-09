@@ -2398,17 +2398,6 @@ div.layout_core_menu_footer
 {
 	float: right;
 }
-.footer_left_links {
-	float: left;
-	margin-top: 8px;
-}
-[dir="rtl"] .footer_left_links {
-	float:right;
-}
-.footer_donotsell {
-	margin-top: 15px;
-	font-weight: 600;
-}
 .layout_core_menu_social_sites
 {
 	float: right;

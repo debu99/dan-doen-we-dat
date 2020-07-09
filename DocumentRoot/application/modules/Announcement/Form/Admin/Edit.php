@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Announcement
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Edit.php 9837 2012-11-29 01:12:35Z matthew $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Announcement
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Announcement_Form_Admin_Edit extends Engine_Form

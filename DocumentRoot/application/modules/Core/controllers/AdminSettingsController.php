@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: AdminSettingsController.php 10197 2014-05-05 21:09:21Z andres $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Core_AdminSettingsController extends Core_Controller_Action_Admin
@@ -130,7 +130,6 @@ class Core_AdminSettingsController extends Core_Controller_Action_Admin
         // Populate some settings
         $settings = Engine_Api::_()->getApi('settings', 'core');
         $config = (array) $settings->core_spam;
-        $config['recaptcha_version'] = $settings->core_spam_recaptcha_version;
 
         // Load all IPs
         $bannedIpsTable = Engine_Api::_()->getDbtable('BannedIps', 'core');
@@ -163,8 +162,6 @@ class Core_AdminSettingsController extends Core_Controller_Action_Admin
         if (_ENGINE_ADMIN_NEUTER) {
             $config['recaptchapublic'] = '**********';
             $config['recaptchaprivate'] = '**********';
-            $config['recaptchapublicv3'] = '**********';
-            $config['recaptchaprivatev3'] = '**********';
         }
 
         $form->populate($config);

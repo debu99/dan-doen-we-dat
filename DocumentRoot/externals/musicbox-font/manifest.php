@@ -3,7 +3,7 @@
   array (
     'type' => 'external',
     'name' => 'musicbox-font',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
 	'revision' => '$Revision: 9729 $',
     'path' => 'externals/musicbox-font',
 	'repository' => 'socialengine.com',

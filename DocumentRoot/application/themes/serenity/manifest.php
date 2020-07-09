@@ -3,7 +3,7 @@
   array (
     'type' => 'theme',
     'name' => 'serenity',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
     'revision' => '$Revision: 10113 $',
     'path' => 'application/themes/serenity',
     'repository' => 'socialengine.com',

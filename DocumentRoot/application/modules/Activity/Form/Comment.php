@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Comment.php 9800 2012-10-17 01:16:09Z richard $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Activity_Form_Comment extends Engine_Form
@@ -23,7 +23,7 @@ class Activity_Form_Comment extends Engine_Form
     $this->clearDecorators()
       ->addDecorator('FormElements')
       ->addDecorator('Form')
-      ->setAttrib('class', 'global_form')
+      ->setAttrib('class', null)
       ->setAction(Zend_Controller_Front::getInstance()->getRouter()->assemble(array(
           'module' => 'activity',
           'controller' => 'index',

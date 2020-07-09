@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_Form
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: FormFancyUpload.php 9881 2013-02-13 20:07:49Z john $
  */
@@ -12,7 +12,7 @@
 /**
  * @category   Engine
  * @package    Engine_Form
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Engine_Form_Decorator_FormFancyUpload extends Zend_Form_Decorator_Abstract

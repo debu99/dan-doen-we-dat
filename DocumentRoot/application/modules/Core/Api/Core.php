@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @author     John
  */
@@ -12,7 +12,7 @@
 /**
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Core_Api_Core extends Core_Api_Abstract
@@ -85,9 +85,9 @@ class Core_Api_Core extends Core_Api_Abstract
     public function getCaptchaOptions(array $params = array())
     {
         $spamSettings = Engine_Api::_()->getApi('settings', 'core')->core_spam;
-        $recaptchaVersionSettings = Engine_Api::_()->getApi('settings', 'core')->core_spam_recaptcha_version;
-        
-        if(empty($spamSettings['recaptchapublic']) && empty($spamSettings['recaptchaprivate']) && empty($spamSettings['recaptchapublicv3']) && empty($spamSettings['recaptchaprivatev3'])) {
+        if( (empty($spamSettings['recaptchaenabled']) ||
+            empty($spamSettings['recaptchapublic']) ||
+            empty($spamSettings['recaptchaprivate'])) ) {
             // Image captcha
             return array_merge(array(
                 'label' => 'Human Verification',
@@ -103,8 +103,8 @@ class Core_Api_Core extends Core_Api_Abstract
                     'font' => APPLICATION_PATH . '/application/modules/Core/externals/fonts/arial.ttf',
                 ),
             ), $params);
-        } else if($recaptchaVersionSettings == 1 && $spamSettings['recaptchaprivate'] && $spamSettings['recaptchapublic']) {
-            // Recaptcha v2
+        } else {
+            // Recaptcha
             return array_merge(array(
                 'label' => 'Human Verification',
                 'captcha' => 'ReCaptcha2',
@@ -117,39 +117,9 @@ class Core_Api_Core extends Core_Api_Abstract
                     'lang' => Zend_Registry::get('Locale')->getLanguage(),
                     'tabindex' => (isset($params['tabindex']) ? $params['tabindex'] : null ),
                     'ssl' => constant('_ENGINE_SSL'),   // Fixed Captcha does not work well when ssl is enabled on website
-                    //'onload' => 'en4CoreReCaptcha',
+                    'onload' => 'en4CoreReCaptcha',
                     'render' => 'explicit',
-                    //'loadJs' => 'en4.core.reCaptcha.loadJs'
-                ),
-            ), $params);
-        } else if($recaptchaVersionSettings == 0  && $spamSettings['recaptchaprivatev3'] && $spamSettings['recaptchapublicv3']) {
-            $script = "scriptJquery(document).ready(function() {
-            scriptJquery('#captcha-wrapper').hide();
-              scriptJquery('<input>').attr({ 
-                  name: 'recaptcha_response', 
-                  id: 'recaptchaResponse', 
-                  type: 'hidden', 
-              }).appendTo('.global_form'); 
-            });";
-            $view = Zend_Registry::isRegistered('Zend_View') ? Zend_Registry::get('Zend_View') : null;
-            $view->headScript()->appendScript($script);
-            
-            // Recaptcha v3
-            return array_merge(array(
-                //'label' => 'Human Verification',
-                'captcha' => 'ReCaptcha3',
-                'required' => true,
-                'captchaOptions' => array(
-                    'privkey' => $spamSettings['recaptchaprivatev3'],
-                    'pubkey' => $spamSettings['recaptchapublicv3'],
-                    //'theme' => 'light',
-                    //'size' => (isset($params['size']) ? $params['size'] : 'normal' ),
-                    //'lang' => Zend_Registry::get('Locale')->getLanguage(),
-                    //'tabindex' => (isset($params['tabindex']) ? $params['tabindex'] : null ),
-                    'ssl' => constant('_ENGINE_SSL'),   // Fixed Captcha does not work well when ssl is enabled on website
-                    //'onload' => 'en4CoreReCaptchaV3',
-                    //'render' => 'explicit',
-                    //'loadJs' => 'en4.core.reCaptcha.loadJs'
+                    'loadJs' => 'en4.core.reCaptcha.loadJs'
                 ),
             ), $params);
         }

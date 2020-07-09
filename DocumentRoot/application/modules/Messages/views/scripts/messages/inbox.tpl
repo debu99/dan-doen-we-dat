@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Messages
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: inbox.tpl 10095 2013-10-14 15:56:08Z guido $
  * @author     John

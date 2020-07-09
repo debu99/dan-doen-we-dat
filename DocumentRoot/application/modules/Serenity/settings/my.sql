@@ -1,8 +1,7 @@
 INSERT IGNORE INTO `engine4_core_menuitems` (`name`, `module`, `label`, `plugin`, `params`, `menu`, `submenu`, `order`) VALUES
 ("core_admin_main_serenity", "serenity", "Serenity Theme", "", '{"route":"admin_default","module":"serenity","controller":"settings"}', "core_admin_main", "", 999),
 ("serenity_admin_main_settings", "serenity", "Global Settings", "", '{"route":"admin_default","module":"serenity","controller":"settings"}', "serenity_admin_main", "", 1),
-("serenity_admin_main_styling", "serenity", "Color Schemes", "", '{"route":"admin_default","module":"serenity","controller":"settings", "action":"styling"}', "serenity_admin_main", "", 2),
-("serenity_admin_main_managefonts", "serenity", "Manage Fonts", "", '{"route":"admin_default","module":"serenity","controller":"settings", "action":"manage-fonts"}', "serenity_admin_main", "", 3);
+("serenity_admin_main_styling", "serenity", "Color Schemes", "", '{"route":"admin_default","module":"serenity","controller":"settings", "action":"styling"}', "serenity_admin_main", "", 2);
 
 DROP TABLE IF EXISTS `engine4_serenity_customthemes`;
 CREATE TABLE IF NOT EXISTS `engine4_serenity_customthemes` (

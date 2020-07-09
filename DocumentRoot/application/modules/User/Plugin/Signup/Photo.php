@@ -5,7 +5,7 @@
  *
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Photo.php 10214 2014-05-13 19:25:42Z lucas $
  * @author     John
@@ -14,7 +14,7 @@
 /**
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class User_Plugin_Signup_Photo extends Core_Plugin_FormSequence_Abstract

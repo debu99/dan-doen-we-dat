@@ -4,7 +4,7 @@
  *
  * @category   Application_Widget
  * @package    Rss
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Controller.php 9771 2012-08-30 22:21:00Z matthew $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Widget
  * @package    Rss
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * 
  * RSS Widget

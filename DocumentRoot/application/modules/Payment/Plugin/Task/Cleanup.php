@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Payment
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Cleanup.php 10098 2013-10-19 00:01:38Z jung $
  * @author     John Boehr <j@webligo.com>
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Payment
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Payment_Plugin_Task_Cleanup extends Core_Plugin_Task_Abstract

@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Edit.php 9747 2012-07-26 02:08:08Z john $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class User_Form_Admin_Manage_Edit extends Engine_Form
@@ -102,15 +102,11 @@ class User_Form_Admin_Manage_Edit extends Engine_Form
         $this->addElement('Checkbox', 'enabled', array(
             'label' => 'Enabled?',
         ));
-        $this->addElement('Checkbox', 'donotsellinfo', array(
-            'label' => 'Do Not Sell My Personal Information',
-        ));
+
         // Init disable email
         $this->addElement('Checkbox', 'disable_email', array(
             'label' => 'Disable all site emails?',
         ));
-        
-
 
         // Element: token
         $this->addElement('Hash', 'token');

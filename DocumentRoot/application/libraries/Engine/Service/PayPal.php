@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_Service_PayPal
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: PayPal.php 10231 2014-05-16 22:43:54Z andres $
  * @author     John Boehr <j@webligo.com>
@@ -13,7 +13,7 @@
 /**
  * @category   Engine
  * @package    Engine_Service_PayPal
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Engine_Service_PayPal extends Zend_Service_Abstract

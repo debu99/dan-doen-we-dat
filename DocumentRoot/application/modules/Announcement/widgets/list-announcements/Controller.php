@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Announcement
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Controller.php 10139 2014-03-11 13:49:08Z andres $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Announcement
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Announcement_Widget_ListAnnouncementsController extends Engine_Content_Widget_Abstract

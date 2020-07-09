@@ -182,21 +182,21 @@ class Engine_Captcha_ReCaptcha2 extends Zend_Captcha_Base
    * @return boolean
    */
   public function isValid($value, $context = null)
-  { 
+  {
     if($this->_submit != null)
       return $this->_submit;
    
-    if( !is_array($_POST) && !is_array($context) ) {
+    if( !is_array($value) && !is_array($context) ) {
       $this->_error(self::MISSING_VALUE);
        $this->_submit = false;
       return false;
     }
 
-    if( !is_array($_POST) && is_array($context) ) {
+    if( !is_array($value) && is_array($context) ) {
       $value = $context;
     }
 
-    if( empty($_POST[$this->_RESPONSE]) ) {
+    if( empty($value[$this->_RESPONSE]) ) {
       $this->_error(self::MISSING_VALUE);
        $this->_submit = false;
       return false;
@@ -204,7 +204,7 @@ class Engine_Captcha_ReCaptcha2 extends Zend_Captcha_Base
 
     $service = $this->getService();
 
-    $res = $service->verify($_POST[$this->_RESPONSE]);
+    $res = $service->verify($value[$this->_RESPONSE]);
 
     if( !$res ) {
       $this->_error(self::ERR_CAPTCHA);

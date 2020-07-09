@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Mail.php 10046 2013-05-28 20:16:16Z andres $
  * @author     Steve
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Core_Api_Mail extends Core_Api_Abstract
@@ -506,11 +506,6 @@ class Core_Api_Mail extends Core_Api_Abstract
                 }
                 $recipientEmail = $adminEmails;
                 $recipientName = '';
-            }
-            
-            if(_ENGINE_SSL) {
-              $bodyHtmlTemplate = str_replace("http://".$_SERVER['HTTP_HOST'],"https://".$_SERVER['HTTP_HOST'],$bodyHtmlTemplate);
-              $bodyTextTemplate = str_replace("http://".$_SERVER['HTTP_HOST'],"https://".$_SERVER['HTTP_HOST'],$bodyTextTemplate);
             }
 
             $mail = $this->create()

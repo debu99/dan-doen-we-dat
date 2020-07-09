@@ -16,7 +16,7 @@ return;
 //  'package' => array (
 //    'type' => 'widget',
 //    'name' => 'fancymenu',
-//    'version' => '5.1.0p1',
+//    'version' => '5.0.1',
 //    'path' => 'application/widgets/fancymenu',
 //    'title' => 'Fancy Menu',
 //    'description' => 'Displays a fancy menu for your site',
@@ -33,7 +33,7 @@ return;
 //  ),
 //  'type' => 'widget',
 //  'name' => 'fancymenu',
-//  'version' => '5.1.0p1',
+//  'version' => '5.0.1',
 //  'title' => 'Fancy Menu',
 //  'description' => 'Displays a fancy menu for your site',
 //  'category' => 'Widgets',

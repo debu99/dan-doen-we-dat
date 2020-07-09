@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Invite
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: sent.tpl 10180 2014-04-28 21:02:01Z lucas $
  * @author     Steve

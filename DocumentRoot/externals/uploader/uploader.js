@@ -65,13 +65,13 @@ Uploader = new Class ({
 
   uploadFile: function (obj, file, iteration, total) {
     var self = this;
-
+    
     //Upload file size check
     var FileSize = file.size / 1024 / 1024; // in MB
     if(FileSize > post_max_size) {
       return;
     }
-
+    
     if (this.alreadyUploaded(file)) {
       return self.processUploadError(file['name'] + ' already added.');
     }
@@ -125,7 +125,6 @@ Uploader = new Class ({
     if (this.uploadedFileArray.length === 0) {
       return false;
     }
-    return false;
     return this.uploadedFileArray.every(function (uploadedFile) {
       return uploadedFile === file.name;
     });

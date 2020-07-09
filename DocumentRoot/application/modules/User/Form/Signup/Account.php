@@ -5,7 +5,7 @@
  *
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @author     John
  */
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class User_Form_Signup_Account extends Engine_Form_Email
@@ -131,11 +131,11 @@ class User_Form_Signup_Account extends Engine_Form_Email
         'content' => '
           <div id="pswd_info">
             <ul>
-                <li id="passwordroutine_length" class="invalid"><span>'.$translate->translate("6 characters").'</span></li>
-                <li id="passwordroutine_capital" class="invalid"><span>'.$translate->translate("1 uppercase").'</span></li>
-                <li id="passwordroutine_lowerLetter" class="invalid"><span>'.$translate->translate("1 lowercase").'</span></li>
-                <li id="passwordroutine_number" class="invalid"><span>'.$translate->translate("1 number").'</span></li>
-                <li id="passwordroutine_specialcharacters" class="invalid"><span>'.$translate->translate("1 special").'</span><span class="special_char_ques"> <i class="far fa-question-circle"></i><div class="special_char_overlay">'.$translate->translate("Special Characters Allowed !#$%&*-?@^").'</div></span></li>
+                <li id="passwordroutine_length" class="invalid"><span>6 characters</span></li>
+                <li id="passwordroutine_capital" class="invalid"><span>1 uppercase</span></li>
+                <li id="passwordroutine_lowerLetter" class="invalid"><span>1 lowercase</span></li>
+                <li id="passwordroutine_number" class="invalid"><span>1 number</span></li>
+                <li id="passwordroutine_specialcharacters" class="invalid"><span>1 special</span><span class="special_char_ques"> <i class="far fa-question-circle"></i><div class="special_char_overlay">'.$translate->translate("Special Characters Allowed !#$%&*-?@^").'</div></span></li>
             </ul>
           </div>',
       ));

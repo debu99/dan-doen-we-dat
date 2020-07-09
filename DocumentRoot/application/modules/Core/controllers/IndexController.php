@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: IndexController.php 9747 2012-07-26 02:08:08Z john $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Core_IndexController extends Core_Controller_Action_Standard {
@@ -73,39 +73,5 @@ class Core_IndexController extends Core_Controller_Action_Standard {
   public function markAllReadMessagesAction() {
     $viewer_id = Engine_Api::_()->user()->getViewer()->getIdentity();
     Engine_Api::_()->getDbtable('recipients', 'messages')->update(array('inbox_read' => 1), array('`user_id` = ?' => $viewer_id));
-  }
-  
-  public function donotsellinfoAction() {
-  
-    $donotsellinfo = $this->_getParam('donotsellinfo', 0);
-    $donotsellinfo = (int)($donotsellinfo === 'true');
-    $viewer = Engine_Api::_()->user()->getViewer();
-    $viewer->donotsellinfo = $donotsellinfo;
-    $viewer->save();
-    
-    if($viewer->donotsellinfo == 1) {
-      echo json_encode(array('status' => 'true', 'error' => ''));die;
-    } else {
-      echo json_encode(array('status' => 'false', 'error' => ''));die;
-    }
-  }
-  
-  public function showadmincontentAction() {
-  
-    $showcontent = $this->_getParam('showcontent', 0);
-    $value = $this->_getParam('value');
-    $showcontent = (int)($showcontent === 'true');
-    
-    if($value == 1) {
-      $contentval = Engine_Api::_()->getApi('settings', 'core')->setSetting('core.storelisting', $showcontent);
-    } else {
-      $contentval = Engine_Api::_()->getApi('settings', 'core')->setSetting('core.newsupdates', $showcontent);
-    }
-
-    if($contentval == 1) {
-      echo json_encode(array('status' => 'true', 'error' => '', 'value' => 1));die;
-    } else {
-      echo json_encode(array('status' => 'false', 'error' => '', 'value' => 1));die;
-    }
   }
 }

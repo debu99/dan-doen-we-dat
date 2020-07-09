@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Payment
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: _signupSubscription.tpl 9804 2012-10-27 08:31:56Z pamela $
  * @author     John Boehr <j@webligo.com>

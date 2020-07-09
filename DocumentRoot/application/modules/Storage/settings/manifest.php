@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Storage
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: manifest.php 10267 2014-06-10 00:55:28Z lucas $
  * @author     John
@@ -14,7 +14,7 @@ return array(
   'package' => array(
     'type' => 'module',
     'name' => 'storage',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
     'revision' => '$Revision: 10267 $',
     'path' => 'application/modules/Storage',
     'repository' => 'socialengine.com',

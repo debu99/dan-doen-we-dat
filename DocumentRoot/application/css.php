@@ -2,7 +2,7 @@
 /**
  * @package     Engine_Core
  * @version     $Id: css.php 9747 2012-07-26 02:08:08Z john $
- * @copyright   Copyright (c) 2006-2020 Webligo Developments
+ * @copyright   Copyright (c) 2008 Webligo Developments
  * @license     http://www.socialengine.com/license/
  */
 

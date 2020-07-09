@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Payment
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: manifest.php 10171 2014-04-18 19:03:41Z mfeineman $
  * @author     John Boehr <j@webligo.com>
@@ -14,7 +14,7 @@ return array(
   'package' => array(
     'type' => 'module',
     'name' => 'payment',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
     'revision' => '$Revision: 10171 $',
     'path' => 'application/modules/Payment',
     'repository' => 'socialengine.com',

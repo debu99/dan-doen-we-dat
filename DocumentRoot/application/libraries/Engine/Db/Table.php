@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_Db
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Table.php 10189 2014-04-30 18:51:06Z andres $
  */
@@ -12,7 +12,7 @@
 /**
  * @category   Engine
  * @package    Engine_Db
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Engine_Db_Table extends Zend_Db_Table_Abstract

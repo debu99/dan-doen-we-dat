@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Fields
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: _jsAdmin.tpl 9747 2012-07-26 02:08:08Z john $
  * @author     John
@@ -222,7 +222,7 @@
     // Generate order structure
     var fieldOrder = [];
     var optionOrder = [];
-    scriptJquery('#global_content').append("<div class='admin_loading_icon' id='admin_loading_icon'><img src='application/modules/Core/externals/images/large-loading.gif' /></div>");
+
     // Fields (maps) order
     $$('.admin_field').each(function(el) {
       var ids = readIdentifiers(el.get('id'));
@@ -246,7 +246,6 @@
       },
       onSuccess : function(responseJSON, responseHTML) {
         //alert('Order saved!');
-          scriptJquery("#admin_loading_icon").remove();
       }
     });
 

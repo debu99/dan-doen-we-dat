@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_Payment
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Gateway.php 10229 2014-05-16 22:43:44Z andres $
  * @author     John Boehr <j@webligo.com>
@@ -13,7 +13,7 @@
 /**
  * @category   Engine
  * @package    Engine_Payment
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 abstract class Engine_Payment_Gateway
@@ -563,19 +563,19 @@ abstract class Engine_Payment_Gateway
           case Engine_Payment_Transaction::REGION:
             $value = $this->isSupportedRegion($value);
             if( !$value ) {
-              //continue;
+              continue;
             }
             break;
           case Engine_Payment_Transaction::LANGUAGE:
             $value = $this->isSupportedLanguage($value);
             if( !$value ) {
-              //continue;
+              continue;
             }
             break;
           case Engine_Payment_Transaction::CURRENCY:
             $value = $this->isSupportedCurrency($value);
             if( !$value ) {
-              //continue;
+              continue;
             }
             break;
         }

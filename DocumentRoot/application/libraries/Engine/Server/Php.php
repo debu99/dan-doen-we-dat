@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_Server_Php
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2016 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @author     Ali Mousavi <ali@socialengine.com>
  */

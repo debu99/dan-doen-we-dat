@@ -354,23 +354,23 @@ Version    : general.php 6570 2010-06-24 00:50:18Z shaun $
   </constant>
   <constant>
     <name>serenity_header_background_color</name>
-    <value>#03598f</value>
+    <value>#03598F</value>
   </constant>
   <constant>
     <name>serenity_mainmenu_background_color</name>
-    <value>#fff</value>
+    <value>#FFFFFF</value>
   </constant>
   <constant>
     <name>serenity_mainmenu_links_color</name>
-    <value>#000000</value>
+    <value>#909090</value>
   </constant>
   <constant>
     <name>serenity_mainmenu_links_hover_color</name>
-    <value>#fff</value>
+    <value>#FFFFFF</value>
   </constant>
   <constant>
     <name>serenity_mainmenu_links_hover_background_color</name>
-    <value>#fe4497</value>
+    <value>#FE4497</value>
   </constant>
   <constant>
     <name>serenity_minimenu_links_color</name>
@@ -378,7 +378,7 @@ Version    : general.php 6570 2010-06-24 00:50:18Z shaun $
   </constant>
   <constant>
     <name>serenity_minimenu_link_active_color</name>
-    <value>#fe4497</value>
+    <value>#FE4497</value>
   </constant>
   <constant>
     <name>serenity_footer_background_color</name>
@@ -394,19 +394,19 @@ Version    : general.php 6570 2010-06-24 00:50:18Z shaun $
   </constant>
   <constant>
     <name>serenity_footer_border_color</name>
-    <value>#e4e4e4</value>
+    <value>#E4E4E4</value>
   </constant>
   <constant>
     <name>serenity_theme_color</name>
-    <value>#03598f</value>
+    <value>#03598F</value>
   </constant>
   <constant>
     <name>serenity_body_background_color</name>
-    <value>#e6ecf0</value>
+    <value>#E6ECF0</value>
   </constant>
   <constant>
     <name>serenity_font_color</name>
-    <value>#5f727f</value>
+    <value>#5F727F</value>
   </constant>
   <constant>
     <name>serenity_font_color_light</name>
@@ -414,19 +414,19 @@ Version    : general.php 6570 2010-06-24 00:50:18Z shaun $
   </constant>
   <constant>
     <name>serenity_links_color</name>
-    <value>#444f5d</value>
+    <value>#444F5D</value>
   </constant>
   <constant>
     <name>serenity_links_hover_color</name>
-    <value>#03598f</value>
+    <value>#03598F</value>
   </constant>
   <constant>
     <name>serenity_headline_color</name>
-    <value>#1c2735</value>
+    <value>#1C2735</value>
   </constant>
   <constant>
     <name>serenity_border_color</name>
-    <value>#e2e4e6</value>
+    <value>#E2E4E6</value>
   </constant>
   <constant>
     <name>serenity_box_background_color</name>
@@ -438,23 +438,23 @@ Version    : general.php 6570 2010-06-24 00:50:18Z shaun $
   </constant>
   <constant>
     <name>serenity_input_background_color</name>
-    <value>#fff</value>
+    <value>#FFFFFF</value>
   </constant>
   <constant>
     <name>serenity_input_font_color</name>
-    <value>#5f727f</value>
+    <value>#5F727F</value>
   </constant>
   <constant>
     <name>serenity_input_border_color</name>
-    <value>#d7d8da</value>
+    <value>#D7D8DA</value>
   </constant>
   <constant>
     <name>serenity_button_background_color</name>
-    <value>#03598f</value>
+    <value>#03598F</value>
   </constant>
   <constant>
     <name>serenity_button_background_color_hover</name>
-    <value>#fe4497</value>
+    <value>#FE4497</value>
   </constant>
   <constant>
     <name>serenity_button_font_color</name>
@@ -462,10 +462,10 @@ Version    : general.php 6570 2010-06-24 00:50:18Z shaun $
   </constant>
   <constant>
     <name>serenity_button_border_color</name>
-    <value>#03598f</value>
+    <value>#03598F</value>
   </constant>
   <constant>
     <name>serenity_comments_background_color</name>
-    <value>#fff</value>
+    <value>#FFFFFF</value>
   </constant>
-</root>
+<constant><name>serenity_menu_tip_color</name><value>#03598F</value></constant></root>

@@ -4,7 +4,7 @@
  *
  * @category   Application_Extensions
  * @package    Payment
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: content.php 9995 2013-03-26 00:23:47Z alex $
  * @author     John

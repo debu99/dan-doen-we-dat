@@ -4,7 +4,7 @@
 //  array (
 //    'type' => 'external',
 //    'name' => 'fancymenu',
-//    'version' => '5.1.0p1',
+//    'version' => '5.0.1',
 //    'path' => 'externals/fancymenu',
 //    'title' => 'Fancy Menu',
 //    'description' => 'External assets for Fancy Menu Widget',

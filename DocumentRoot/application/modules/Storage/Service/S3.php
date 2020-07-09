@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Storage
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: S3.php 10235 2014-05-23 19:00:11Z lucas $
  * @author     John Boehr <j@webligo.com>
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Storage
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Storage_Service_S3 extends Storage_Service_Abstract

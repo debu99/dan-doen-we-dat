@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: default.tpl 10227 2014-05-16 22:43:27Z andres $
  * @author     John
@@ -82,10 +82,6 @@
             $request->getActionName();
     }
     ?>
-
-    <?php $controllerName = $request->getControllerName();?>
-    <?php $actionName = $request->getActionName(); ?>
-    
     <?php echo $this->headTitle()->toString()."\n" ?>
     <?php echo $this->headMeta()->toString()."\n" ?>
 
@@ -132,25 +128,7 @@
 
     <?php // TRANSLATE?>
     <?php $this->headScript()->prependScript($this->headTranslate()->toString()) ?>
-    
-    <?php 
-      $loginSignupPage = true;
-      $flagLoginSignup = false;
-      if(empty($this->viewer()->getIdentity())) {
-        $spamSettings = Engine_Api::_()->getApi('settings', 'core')->core_spam;
-        if(($spamSettings['recaptchaprivate'] && $spamSettings['recaptchapublic']) || ($spamSettings['recaptchaprivatev3'] && $spamSettings['recaptchapublicv3'])) {
-          if(empty($_SESSION['User_Plugin_Signup_Account']['data']) && empty($_SESSION['Payment_Subscription']['user_id']) && $controllerName == 'signup') {
-            $loginSignupPage = false;
-            $flagLoginSignup = true;
-          } else if($actionName == 'login') { 
-            $loginSignupPage = false;
-            $flagLoginSignup = true;
-          }
-        }
-      }
-    ?>
-    
-    <?php if($loginSignupPage) { ?>
+
     <?php // SCRIPTS?>
     <script type="text/javascript">if (window.location.hash == '#_=_')window.location.hash = '';</script>
     <script type="text/javascript">
@@ -210,26 +188,7 @@
     }
     ?>
     <?php echo $this->headScript()->toString()."\n" ?>
-    <?php } else if(empty($this->viewer()->getIdentity()) && !empty($flagLoginSignup)) { ?>
-      
-      <script src='<?php echo $staticBaseUrl . 'externals/jQuery/jquery.min.js'; ?>'></script>
-      <script src='https://www.google.com/recaptcha/api.js' async defer></script>
-      <?php 
-      $spamSettings = Engine_Api::_()->getApi('settings', 'core')->core_spam;
-      $recaptchaVersionSettings = Engine_Api::_()->getApi('settings', 'core')->core_spam_recaptcha_version;
-      if($recaptchaVersionSettings == 0  && $spamSettings['recaptchaprivatev3'] && $spamSettings['recaptchapublicv3']) { ?>
-        <script type="text/javascript">
-          scriptJquery(document).ready(function() {
-            scriptJquery('#captcha-wrapper').hide();
-            scriptJquery('<input>').attr({ 
-              name: 'recaptcha_response', 
-              id: 'recaptchaResponse', 
-              type: 'hidden', 
-            }).appendTo('.global_form'); 
-          });
-        </script>
-      <?php } ?>
-    <?php } ?>
+
 
 
     <?php echo $headIncludes ?>

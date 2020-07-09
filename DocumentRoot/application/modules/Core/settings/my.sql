@@ -3,7 +3,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @author     John
  */
@@ -1066,9 +1066,7 @@ INSERT IGNORE INTO `engine4_core_settings` (`name`, `value`) VALUES
 ('core.twitter.key', ''),
 ('core.twitter.secret', ''),
 ('user.support.links', 1),
-('serenity.changelanding', '1'),
-('core.storelisting', '1'),
-('core.newsupdates', '1');
+('serenity.changelanding', '1');
 
 
 -- --------------------------------------------------------

@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Announcement
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: index.tpl 10051 2013-06-11 23:36:56Z jung $
  * @author     Sami

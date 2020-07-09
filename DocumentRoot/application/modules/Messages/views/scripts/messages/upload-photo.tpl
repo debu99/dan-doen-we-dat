@@ -4,7 +4,7 @@
  *
  * @category   Application_Extensions
  * @package    Blog
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id$
  * @author     Jung

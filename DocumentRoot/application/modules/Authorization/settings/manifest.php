@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Authorization
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: manifest.php 10111 2013-10-31 05:05:49Z andres $
  * @author     John
@@ -14,7 +14,7 @@ return array(
   'package' => array(
     'type' => 'module',
     'name' => 'authorization',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
     'revision' => '$Revision: 10111 $',
     'path' => 'application/modules/Authorization',
     'repository' => 'socialengine.com',

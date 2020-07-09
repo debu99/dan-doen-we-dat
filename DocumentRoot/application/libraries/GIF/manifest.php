@@ -3,7 +3,7 @@ return array(
   'package' => array(
     'type' => 'library',
     'name' => 'gif',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
     'revision' => '$Revision: 10171 $',
     'path' => 'application/libraries/GIF',
     'repository' => 'socialengine.com',

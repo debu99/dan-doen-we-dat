@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Fields
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @author     John
  */
@@ -13,7 +13,7 @@ return array(
   'package' => array(
     'type' => 'module',
     'name' => 'fields',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
     'revision' => '$Revision: 10271 $',
     'path' => 'application/modules/Fields',
     'repository' => 'socialengine.com',

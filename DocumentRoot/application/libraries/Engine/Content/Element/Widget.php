@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_Content
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Widget.php 9999 2013-03-26 21:31:27Z jung $
  */
@@ -12,7 +12,7 @@
 /**
  * @category   Engine
  * @package    Engine_Content
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Engine_Content_Element_Widget extends Engine_Content_Element_Abstract

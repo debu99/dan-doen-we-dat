@@ -78,7 +78,7 @@
 "Change Password";"Change Password"
 "Old Password";"Old Password"
 "New Password";"New Password"
-"Password must be at least 6 characters and contain one upper and one lower case letter, one number and one special character.";"Password must be at least 6 characters and contain one upper and one lower case letter, one number and one special character."
+"Password must be at least 6 characters and contain one upper and one lower case letter, one number and one special character. The password should contain special characters !#$%&*-?@^ only.";"Password must be at least 6 characters and contain one upper and one lower case letter, one number and one special character. The password should contain special characters !#$%&*-?@^ only."
 "It seems that you have used an old password. Choose a new password, to protect your account.";"It seems that you have used an old password. Choose a new password, to protect your account."
 "Passwords must be at least 6 characters in length.";"Passwords must be at least 6 characters in length."
 "New Password (again)";"New Password (again)"
@@ -695,11 +695,6 @@ Please login to the admin panel to aprovie this user.
 "Save Photo";"Save Photo"
 "%s (you)";"%s (you)"
 "Special Characters Allowed !#$%&*-?@^";"Special Characters Allowed !#$%&*-?@^"
-"6 characters";"6 characters"
-"1 uppercase";"1 uppercase"
-"1 lowercase";"1 lowercase"
-"1 number";"1 number"
-"1 special";"1 special"
 
 "_EMAIL_USER_OTP_TITLE";"Two Step Authentication"
 "_EMAIL_USER_OTP_DESCRIPTION";"This email is sent to members of your site when they are signing up to verify 2 step authentication via email."
@@ -723,8 +718,3 @@ Verification Code: [code]
 [footer]"
 
 "ADMIN_ACTIVITY_TYPE_COVER_PHOTO_UPDATE";"When a user (subject) updates their profile cover photo."
-
-"Enter Details to Login";"Enter Details to Login"
-
-"Two Step Authentication";"Two Step Authentication"
-"Enter Verification Code";"Enter Verification Code"

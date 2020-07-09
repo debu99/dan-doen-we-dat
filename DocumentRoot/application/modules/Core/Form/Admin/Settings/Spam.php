@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @author     John
  */
@@ -12,7 +12,7 @@
 /**
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Core_Form_Admin_Settings_Spam extends Engine_Form
@@ -174,17 +174,6 @@ class Core_Form_Admin_Settings_Spam extends Engine_Form
       ),
       'value' => 1,
     ));
-    
-    $this->addElement('Radio', 'recaptcha_version', array(
-      'label' => 'ReCaptcha Version',
-      'description' => 'Choose from the below ReCaptcha Version which you want to enable on your site?',
-      'multiOptions' => array(
-          1 => 'reCAPTCHA v2',
-          0 => 'reCAPTCHA v3',
-      ),
-      'onchange' => 'recaptchaVersion(this.value);',
-      'value' => 1,
-    ));
 
     // recaptcha
     if( $translator ) {
@@ -195,9 +184,8 @@ class Core_Form_Admin_Settings_Spam extends Engine_Form
       $description = null;
     }
     
-    //recaptcha v2
     $this->addElement('Text', 'recaptchapublic', array(
-      'label' => 'ReCaptcha Public Key for v2',
+      'label' => 'ReCaptcha Public Key',
       'description' => $description,
       'filters' => array(
         'StringTrim',
@@ -208,36 +196,13 @@ class Core_Form_Admin_Settings_Spam extends Engine_Form
         ->setOption('escape', false);
     
     $this->addElement('Text', 'recaptchaprivate', array(
-      'label' => 'ReCaptcha Private Key for v2',
+      'label' => 'ReCaptcha Private Key',
       'description' => $description,
       'filters' => array(
         'StringTrim',
       ),
     ));
     $this->getElement('recaptchaprivate')
-        ->getDecorator('Description')
-        ->setOption('escape', false);
-        
-    //recaptcha v3
-    $this->addElement('Text', 'recaptchapublicv3', array(
-      'label' => 'ReCaptcha Public Key for v3',
-      'description' => $description,
-      'filters' => array(
-        'StringTrim',
-      ),
-    ));
-    $this->getElement('recaptchapublicv3')
-        ->getDecorator('Description')
-        ->setOption('escape', false);
-    
-    $this->addElement('Text', 'recaptchaprivatev3', array(
-      'label' => 'ReCaptcha Private Key for v3',
-      'description' => $description,
-      'filters' => array(
-        'StringTrim',
-      ),
-    ));
-    $this->getElement('recaptchaprivatev3')
         ->getDecorator('Description')
         ->setOption('escape', false);
     

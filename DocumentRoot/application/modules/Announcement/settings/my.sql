@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Announcement
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: my.sql 10150 2014-03-27 15:59:48Z andres $
  * @author     John

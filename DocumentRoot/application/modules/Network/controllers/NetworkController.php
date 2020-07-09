@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Network
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: NetworkController.php 9872 2013-02-13 00:31:37Z shaun $
  * @author     Sami
@@ -14,7 +14,7 @@
 /**
  * @category   Application_Core
  * @package    Network
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Network_NetworkController extends Core_Controller_Action_Standard

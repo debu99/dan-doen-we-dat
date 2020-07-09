@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_Translate
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Csv.php 9747 2012-07-26 02:08:08Z john $
  * @todo       documentation
@@ -13,7 +13,7 @@
 /**
  * @category   Engine
  * @package    Engine_Translate
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Engine_Translate_Parser_Csv implements Engine_Translate_Parser_Interface

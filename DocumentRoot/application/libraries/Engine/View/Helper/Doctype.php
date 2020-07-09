@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine_View
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2016 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Content.php 9747 2017-12-02 02:08:08Z john $
  * @todo       documentation

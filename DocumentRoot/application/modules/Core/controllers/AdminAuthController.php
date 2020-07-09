@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: AdminAuthController.php 9747 2012-07-26 02:08:08Z john $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Core_AdminAuthController extends Core_Controller_Action_Standard
@@ -63,8 +63,7 @@ class Core_AdminAuthController extends Core_Controller_Action_Standard
         if( !$viewer || !$viewer->getIdentity() ) {
           return $this->_helper->redirector->gotoRoute(array(), 'default', true);
         }
-        $isValidPassword = Engine_Api::_()->user()->checkCredential($viewer->getIdentity(), $password,$viewer);
-        if( !$isValidPassword ) {
+        if( $viewer->password != md5($staticSalt . $password . $viewer->salt) ) {
           $form->addError('Invalid login');
           return;
         } else {

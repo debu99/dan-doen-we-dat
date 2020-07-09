@@ -19,7 +19,7 @@ START TRANSACTION;
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6819 2010-07-22 18:59:16Z steve IDEND
  * @author     John
@@ -940,7 +940,7 @@ INSERT IGNORE INTO `engine4_core_themes` (`theme_id`, `name`, `title`, `descript
  *
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6590 2010-06-25 19:40:21Z john IDEND
  * @author     John
@@ -1210,7 +1210,7 @@ INSERT IGNORE INTO `engine4_core_settings` (`name`, `value`) VALUES
  *
  * @category   Application_Core
  * @package    Authorization
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6626 2010-06-29 02:19:32Z jung IDEND
  * @author     Steve
@@ -1359,7 +1359,7 @@ INSERT IGNORE INTO `engine4_core_menuitems` (`name`, `module`, `label`, `plugin`
  *
  * @category   Application_Extensions
  * @package    Album
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6804 2010-07-21 05:00:19Z john IDEND
  * @author     Sami
@@ -1563,7 +1563,7 @@ INSERT INTO `engine4_authorization_permissions` (`level_id`, `type`, `name`, `va
  *
  * @category   Application_Core
  * @package    Announcement
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6590 2010-06-25 19:40:21Z john IDEND
  * @author     John
@@ -1643,7 +1643,7 @@ INSERT INTO `engine4_authorization_permissions` (`level_id`, `type`, `name`, `va
  *
  * @category   Application_Extensions
  * @package    Blog
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6538 2010-06-23 22:55:51Z shaun IDEND
  * @author     Jung
@@ -1825,7 +1825,7 @@ INSERT IGNORE INTO `engine4_authorization_permissions` (`level_id`, `type`, `nam
  *
  * @category   Application_Extensions
  * @package    Chat
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6509 2010-06-22 23:49:13Z shaun IDEND
  * @author     John
@@ -2045,7 +2045,7 @@ INSERT IGNORE INTO `engine4_authorization_permissions` (`level_id`, `type`, `nam
  *
  * @category   Application_Extensions
  * @package    Classified
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6511 2010-06-23 00:09:51Z shaun IDEND
  * @author	   John
@@ -2408,7 +2408,7 @@ INSERT IGNORE INTO `engine4_authorization_permissions` (`level_id`, `type`, `nam
  *
  * @category   Application_Extensions
  * @package    Event
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 5999 2010-05-27 00:01:27Z szerrade IDEND
  * @author     Sami
@@ -2765,7 +2765,7 @@ INSERT IGNORE INTO `engine4_authorization_permissions` (`level_id`, `type`, `nam
  *
  * @category   Application_Core
  * @package    Fields
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6590 2010-06-25 19:40:21Z john IDEND
  * @author     John
@@ -2807,7 +2807,7 @@ INSERT IGNORE INTO `engine4_core_modules` (`name`, `title`, `description`, `vers
  *
  * @category   Application_Core
  * @package    Forum
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6590 2010-06-25 19:40:21Z john IDEND
  * @author     John
@@ -3136,7 +3136,7 @@ INSERT IGNORE INTO `engine4_authorization_permissions` VALUES
  *
  * @category   Application_Extensions
  * @package    Group
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6804 2010-07-21 05:00:19Z john IDEND
  * @author		 John
@@ -3507,7 +3507,7 @@ INSERT IGNORE INTO `engine4_authorization_permissions` (`level_id`, `type`, `nam
  *
  * @category   Application_Extensions
  * @package    HelloWorld
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6590 2010-06-25 19:40:21Z john IDEND
  * @author     John
@@ -3571,7 +3571,7 @@ INSERT IGNORE INTO `engine4_core_modules` (`name`, `title`, `description`, `vers
  *
  * @category   Application_Core
  * @package    Invite
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6590 2010-06-25 19:40:21Z john IDEND
  * @author     John
@@ -3641,7 +3641,7 @@ INSERT IGNORE INTO `engine4_core_settings` (`name`, `value`) VALUES
  *
  * @category   Application_Core
  * @package    Messages
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6519 2010-06-23 01:41:45Z shaun IDEND
  * @author     John
@@ -3775,7 +3775,7 @@ INSERT INTO `engine4_authorization_permissions` (`level_id`, `type`, `name`, `va
  *
  * @category   Application_Extensions
  * @package    Music
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6521 2010-06-23 01:48:34Z shaun IDEND
  * @author     Steve
@@ -3945,7 +3945,7 @@ INSERT IGNORE INTO `engine4_activity_actiontypes` (`type`, `module`, `body`, `en
  *
  * @category   Application_Core
  * @package    Network
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6590 2010-06-25 19:40:21Z john IDEND
  * @author     John
@@ -4052,7 +4052,7 @@ INSERT IGNORE INTO `engine4_activity_actiontypes` (`type`, `module`, `body`, `en
  *
  * @category   Application_Extensions
  * @package    Poll
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6804 2010-07-21 05:00:19Z john IDEND
  * @author     John
@@ -4231,7 +4231,7 @@ INSERT IGNORE INTO `engine4_activity_actiontypes` (`type`, `module`,  `body`,  `
  *
  * @category   Application_Core
  * @package    Storage
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6590 2010-06-25 19:40:21Z john IDEND
  * @author     John
@@ -4315,7 +4315,7 @@ INSERT INTO `engine4_core_modules` (`name`, `title`, `description`, `version`, `
  *
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6626 2010-06-29 02:19:32Z jung IDEND
  * @author     John
@@ -4867,7 +4867,7 @@ CREATE TABLE IF NOT EXISTS `engine4_user_fields_search` (
  *
  * @category   Application_Extensions
  * @package    Video
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    ID my.sql 6804 2010-07-21 05:00:19Z john IDEND
  * @author		 John

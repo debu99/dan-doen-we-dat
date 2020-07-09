@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @author     John
  */
@@ -64,7 +64,6 @@ CREATE TABLE `engine4_users` (
   `profileViews` VARCHAR(24) NOT NULL default 'everyone',
   `joinedDate` VARCHAR(24) NOT NULL default 'everyone',
   `friendsCount` VARCHAR(24) NOT NULL default 'everyone',
-  `donotsellinfo` TINYINT(1) NOT NULL DEFAULT '0',
   PRIMARY KEY  (`user_id`),
   UNIQUE KEY `EMAIL` (`email`),
   UNIQUE KEY `USERNAME` (`username`),

@@ -4,7 +4,7 @@
 *
 * @category   Application_Extensions
 * @package    Phpfoximporter
-* @copyright  Copyright 2006-2020 Webligo Developments
+* @copyright  Copyright 2006-2010 Webligo Developments
 * @license    http://www.socialengine.com/license/
 * @version    $Id: phpfox-instructions.tpl 2015-05-15 00:00:00Z john $
 * @author     John

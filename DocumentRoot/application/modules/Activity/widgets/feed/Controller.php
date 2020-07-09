@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Controller.php 9806 2012-10-30 23:54:12Z matthew $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Activity_Widget_FeedController extends Engine_Content_Widget_Abstract
@@ -139,16 +139,6 @@ class Activity_Widget_FeedController extends Engine_Content_Widget_Abstract
           // skip items with missing items
           if( !$action->getSubject() || !$action->getSubject()->getIdentity() ) continue;
           if( !$action->getObject() || !$action->getObject()->getIdentity() ) continue;
-          
-          //View Permission
-          if($action->getObject()) {
-            $object = $action->getObject();
-            if(!empty($action->attachment_count) && $action->getFirstAttachment()) {
-              $object = $action->getFirstAttachment()->item;
-            }
-            $viewPermission = $object->authorization()->isAllowed($viewer, 'view');
-            if(!$viewPermission) continue;
-          }
           // track/remove users who do too much (but only in the main feed)
           $actionObject = $action->getObject();
           if( empty($subject) ) {

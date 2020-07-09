@@ -5,7 +5,7 @@
  *
  * @category   Application_Core
  * @package    Authorization
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Edit.php 10086 2013-09-16 19:27:24Z andres $
  * @author     John
@@ -14,7 +14,7 @@
 /**
  * @category   Application_Core
  * @package    Authorization
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Authorization_Form_Admin_Level_Edit extends Authorization_Form_Admin_Level_Abstract
@@ -445,26 +445,10 @@ class Authorization_Form_Admin_Level_Edit extends Authorization_Form_Admin_Level
         ),
         'value' => 1,
       ]);
-      
-      //New File System Code
-      $covers = array('' => '');
-      $files = Engine_Api::_()->getDbTable('files', 'core')->getFiles(array('fetchAll' => 1, 'extension' => array('gif', 'jpg', 'jpeg', 'png')));
-      foreach( $files as $file ) {
-        $covers[$file->storage_path] = $file->name;
-      }
-      $view = Zend_Registry::isRegistered('Zend_View') ? Zend_Registry::get('Zend_View') : null;
-      $fileLink = $view->baseUrl() . '/admin/files/';
-      
-      $this->addElement('Select', 'coverphoto', array(
-        'label' => 'Default User Cover Photo',
-        'description' => 'Choose default user cover photo. [Note: You can add a new photo from the "File & Media Manager" section from here: <a target="_blank" href="' . $fileLink . '">File & Media Manager</a>. Leave the field blank if you do not want to change user default photo.]',
-        'multiOptions' => $covers,
-      ));
-      $this->coverphoto->addDecorator('Description', array('placement' => Zend_Form_Decorator_Abstract::PREPEND, 'escape' => false));
 
-//       $this->addElement('dummy', 'coverphoto_dummy', [
-//         'label' => 'Default User Cover Photo',
-//       ]);
+      $this->addElement('dummy', 'coverphoto_dummy', [
+        'label' => 'Default User Cover Photo',
+      ]);
 
         $this->addElement('FloodControl', 'activity_flood', array(
             'label' => 'Maximum Allowed Status Messages per Duration',
@@ -482,11 +466,11 @@ class Authorization_Form_Admin_Level_Edit extends Authorization_Form_Admin_Level
             'value' => array(0, 'minute'),
         ));
 
-//       $this->coverphoto_dummy->addDecorator('Description', [
-//         'placement' => 'PREPEND',
-//         'class' => 'description',
-//         'escape' => false
-//       ]);
+      $this->coverphoto_dummy->addDecorator('Description', [
+        'placement' => 'PREPEND',
+        'class' => 'description',
+        'escape' => false
+      ]);
 
       $this->messages_auth->getDecorator('Description')->setOption('placement', 'PREPEND');
     }

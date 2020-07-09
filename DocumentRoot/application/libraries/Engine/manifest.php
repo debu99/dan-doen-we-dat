@@ -4,7 +4,7 @@
  *
  * @category   Engine
  * @package    Engine
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @author     John Boehr <j@webligo.com>
  */
@@ -12,7 +12,7 @@ return array(
   'package' => array(
     'type' => 'library',
     'name' => 'engine',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
     'revision' => '$Revision: 10271 $',
     'path' => 'application/libraries/Engine',
     'repository' => 'socialengine.com',

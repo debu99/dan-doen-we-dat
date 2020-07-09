@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: _activityText.tpl 10194 2014-05-01 17:41:40Z mfeineman $
  * @author     Jung
@@ -150,7 +150,7 @@ $this->headLink()->appendStylesheet($this->layout()->staticBaseUrl . 'externals/
                       </div>
                       <div class='feed_item_link_desc'>
                         <?php $attachmentDescription = $attachment->item->getDescription()?>
-                        <?php if (strip_tags($action->body) != $attachmentDescription): ?>
+                        <?php if ($action->body != $attachmentDescription): ?>
                         <?php echo $this->viewMore($attachmentDescription) ?>
                         <?php endif; ?>
                       </div>
@@ -358,7 +358,7 @@ $this->headLink()->appendStylesheet($this->layout()->staticBaseUrl . 'externals/
                      <?php echo $this->htmlLink($this->item($comment->poster_type, $comment->poster_id)->getHref(), $this->item($comment->poster_type, $comment->poster_id)->getTitle()); ?>
                    </span>
                 <span class="comments_body">
-                     <?php echo $this->viewMore(Engine_Text_Emoji::decode($comment->body)) ?>
+                     <?php echo $this->viewMore($comment->body) ?>
                    </span>
                 <ul class="comments_date">
                   <li class="comments_timestamp">
@@ -416,14 +416,12 @@ $this->headLink()->appendStylesheet($this->layout()->staticBaseUrl . 'externals/
             <?php endforeach; ?>
             <?php endif; ?>
           </ul>
-          <?php if(!Engine_Api::_()->getApi('settings', 'core')->core_spam_comment ) { ?>
           <?php if( $canComment ) echo $this->commentForm->render() /*
           <form>
             <textarea rows='1'>Add a comment...</textarea>
             <button type='submit'>Post</button>
           </form>
           */ ?>
-          <?php } ?>
         </div>
         <script type="text/javascript">
             var attachComment = function(action_id){

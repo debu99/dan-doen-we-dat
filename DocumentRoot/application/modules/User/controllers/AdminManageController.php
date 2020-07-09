@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: AdminManageController.php 9919 2013-02-16 00:46:04Z matthew $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    User
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class User_AdminManageController extends Core_Controller_Action_Admin
@@ -86,7 +86,7 @@ class User_AdminManageController extends Core_Controller_Action_Admin
     $this->view->hideEmails = _ENGINE_ADMIN_NEUTER;
     $this->view->viewerId = Engine_Api::_()->user()->getViewer()->getIdentity();
     //$this->view->formDelete = new User_Form_Admin_Manage_Delete();
-    $this->view->emailResend = $isResendEmailEnable;
+    $this->view->emailResend = $isResendEmailEemanable;
 
     $this->view->openUser = (bool) ( $this->_getParam('open') && $paginator->getTotalItemCount() == 1 );
   }

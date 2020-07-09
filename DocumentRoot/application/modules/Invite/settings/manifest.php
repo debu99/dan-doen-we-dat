@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Invite
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: manifest.php 10194 2014-05-01 17:41:40Z mfeineman $
  * @author     Steve
@@ -14,7 +14,7 @@ return array(
   'package' => array(
     'type' => 'module',
     'name' => 'invite',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
     'revision' => '$Revision: 10194 $',
     'path' => 'application/modules/Invite',
     'repository' => 'socialengine.com',

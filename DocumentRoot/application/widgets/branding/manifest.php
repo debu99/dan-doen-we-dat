@@ -4,7 +4,7 @@
  *
  * @category   Application_Widget
  * @package    Branding
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @author     Charlotte
  */
@@ -12,7 +12,7 @@ return array(
   'package' => array(
     'type' => 'widget',
     'name' => 'branding',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
     'revision' => '$Revision: 9747 $',
     'path' => 'application/widgets/branding',
     'repository' => 'socialengine.com',
@@ -27,7 +27,7 @@ return array(
   // Backwards compatibility
   'type' => 'widget',
   'name' => 'branding',
-  'version' => '5.1.0p1',
+  'version' => '5.0.1',
   'revision' => '$Revision: 9747 $',
   'title' => 'SocialEngine Branding',
   'description' => 'Displays a "powered by SocialEngine" link.',

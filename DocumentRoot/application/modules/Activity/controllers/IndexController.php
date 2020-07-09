@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: IndexController.php 10194 2014-05-01 17:41:40Z mfeineman $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Activity
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Activity_IndexController extends Core_Controller_Action_Standard
@@ -605,11 +605,7 @@ class Activity_IndexController extends Core_Controller_Action_Standard
             }
             $actionOwner = Engine_Api::_()->getItemByGuid($action->subject_type."_".$action->subject_id);
             $body = $form->getValue('body');
-            $bodyEmojis = explode(' ', $body);
-            foreach($bodyEmojis as $bodyEmoji) {
-                $emojisCode = Engine_Text_Emoji::encode($bodyEmoji);
-                $body = str_replace($bodyEmoji,$emojisCode,$body);
-            }
+
             // Check authorization
             if (!Engine_Api::_()->authorization()->isAllowed($action->getCommentableItem(), null, 'comment')) {
                 throw new Engine_Exception('This user is not allowed to comment on this item.');

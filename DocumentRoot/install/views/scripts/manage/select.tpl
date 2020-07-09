@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Install
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: select.tpl 10181 2014-04-29 23:52:32Z andres $
  * @author     John

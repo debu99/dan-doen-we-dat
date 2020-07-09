@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Storage
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Files.php 9747 2012-07-26 02:08:08Z john $
  * @author     John Boehr <j@webligo.com>
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Storage
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 class Storage_Model_DbTable_Files extends Engine_Db_Table
@@ -186,14 +186,5 @@ class Storage_Model_DbTable_Files extends Engine_Db_Table
       '10737418240' => '10 GB',
       0 => 'Unlimited'
     );
-  }
-  
-  public function getServiceId($storage_path) {
-  
-    return $this->select()
-                ->from($this->info('name'), 'service_id')
-                ->where('storage_path =?', $storage_path)
-                ->query()
-                ->fetchColumn();
   }
 }

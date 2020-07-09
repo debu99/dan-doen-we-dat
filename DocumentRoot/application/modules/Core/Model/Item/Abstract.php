@@ -4,7 +4,7 @@
  *
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: Abstract.php 10240 2014-05-26 13:10:43Z lucas $
  * @author     John
@@ -13,7 +13,7 @@
 /**
  * @category   Application_Core
  * @package    Core
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  */
 abstract class Core_Model_Item_Abstract extends Engine_Db_Table_Row implements Core_Model_Item_Interface
@@ -747,16 +747,14 @@ abstract class Core_Model_Item_Abstract extends Engine_Db_Table_Row implements C
 
         // Get parent id
         $id = null;
-        if(isset($this->owner_id) && !empty($this->owner_id) ) {
-          $id = $this->owner_id;
-        } else if(isset($this->user_id) && !empty($this->user_id)) {
-          $id = $this->user_id;
+        if( !empty($this->owner_id) ) {
+            $id = $this->owner_id;
         } else {
-          $short_type = Engine_Api::typeToShort($type, Engine_Api::_()->getItemModule($type));
-          $prop = $short_type . '_id';
-          if( !empty($this->$prop) ) {
-              $id = $this->$prop;
-          }
+            $short_type = Engine_Api::typeToShort($type, Engine_Api::_()->getItemModule($type));
+            $prop = $short_type . '_id';
+            if( !empty($this->$prop) ) {
+                $id = $this->$prop;
+            }
         }
 
         if( null === $id ) {

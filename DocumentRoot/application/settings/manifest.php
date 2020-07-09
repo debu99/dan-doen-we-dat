@@ -2,7 +2,7 @@
 /**
  * SocialEngine
  *
- * @copyright  Copyright 2006-2020 Webligo Developments
+ * @copyright  Copyright 2006-2010 Webligo Developments
  * @license    http://www.socialengine.com/license/
  * @version    $Id: manifest.php 10064 2013-06-19 21:30:42Z john $
  */
@@ -11,7 +11,7 @@ return array(
   'package' => array(
     'type' => 'core',
     'name' => 'base',
-    'version' => '5.1.0p1',
+    'version' => '5.0.1',
     'revision' => '$Revision: 10064 $',
     'path' => '/',
     'repository' => 'socialengine.com',

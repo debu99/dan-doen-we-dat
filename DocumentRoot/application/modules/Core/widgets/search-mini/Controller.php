@@ -24,15 +24,6 @@ class Core_Widget_SearchMiniController extends Engine_Content_Widget_Abstract
         empty($headernonloggedinoptions) ? $this->setNoRender() : (!in_array('search', $headernonloggedinoptions)) ? $this->setNoRender() : '';
     }
     
-    $request = Zend_Controller_Front::getInstance()->getRequest();
-    $controllerName = $request->getControllerName();
-    $actionName = $request->getActionName();
-    if($controllerName == 'signup') {
-      return $this->setNoRender();
-    } else if($actionName == 'login') {
-      return $this->setNoRender();
-    }
-    
     $requireCheck = Engine_Api::_()->getApi('settings', 'core')->core_general_search;
     if( !$requireCheck && !Zend_Controller_Action_HelperBroker::getStaticHelper('RequireUser')->checkRequire() ) {
       $this->setNoRender();
