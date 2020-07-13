@@ -14,3 +14,13 @@ admin password: DanDoenWeDat!1
 
 # Admin
 Go to http://www.dandoenwedat.com/install/manage manually to lookup plugins
+
+# Permissions
+You must set the permissions (CHMOD) of the following directories and files to 777:
+/install/config/ (recursively; all directories and files contained within this must also be changed)
+/temporary/ (recursively; all directories and files contained within this must also be changed)
+/public/ (recursively; all directories and files contained within this must also be changed)
+/application/themes/ (recursively; all directories and files contained within this should also be changed)
+/application/packages/ (recursively; all directories and files contained within this should also be changed)
+/application/languages/ (recursively; all directories and files contained within this must also be changed)
+/application/settings/ (recursively; all files contained within this must also be changed)
