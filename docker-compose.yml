@@ -1,17 +1,16 @@
-version: '3'
+version: '3.1'
 services:
     php-apache:
+        image: piepongwong/php-apache-se:dev
         build: ./
         container_name: 'dandoenwedat-web'
         ports:
-            - 80:80
-        links: 
-            - database    
+            - 80:80 
         volumes:
             - ./DocumentRoot:/var/www/html
-            - ./config/apache/vhosts:/etc/apache2/sites-enabled
-            - ./config/php/php.ini:/usr/local/etc/php/php.ini
-            - ./config/apache/apache2.conf:/etc/apache2/apache2.conf
+            - ./devconfig/apache/vhosts:/etc/apache2/sites-enabled
+            - ./devconfig/php/php.ini:/usr/local/etc/php/php.ini
+            - ./devconfig/apache/apache2.conf:/etc/apache2/apache2.conf
             - ./logs/apache2:/var/log/apache2
     database:
         image: mysql:5.7.30
@@ -23,7 +22,15 @@ services:
             - ./data/mysql:/var/lib/mysql
             - ./logs/mysql:/var/log/mysql
         environment:
-            MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: dandoenwedat
             MYSQL_USER: root
-            MYSQL_PASSWORD: root
+            MYSQL_PASSWORD: /run/secrets/mysql_password
+            MYSQL_ROOT_PASSWORD: /run/secrets/mysql_root_password
+        secrets:
+            - mysql_password
+            - mysql_root_password
+secrets:
+    mysql_root_password:
+        file: ./secrets/mysql_root_password.txt
+    mysql_password:
+        file: ./secrets/mysql_password.txt

@@ -23,3 +23,110 @@ PHP Warning:  Module 'mysqli' already loaded in Unknown on line 0
 PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
 [Thu Jul 09 17:36:46.109837 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.7 configured -- resuming normal operations
 [Thu Jul 09 17:36:46.110155 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.22.0.3. Set the 'ServerName' directive globally to suppress this message
+Cannot load Xdebug - it was already loaded
+PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+PHP Warning:  Module 'exif' already loaded in Unknown on line 0
+PHP Warning:  Module 'mysqli' already loaded in Unknown on line 0
+PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[Mon Jul 13 10:57:01.766193 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Mon Jul 13 10:57:01.766369 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Jul 13 10:57:12.466349 2020] [php7:notice] [pid 16] [client 172.22.0.1:56178] PHP Fatal error:  Uncaught Zend_Cache_Exception: cache_dir "/var/www/html/temporary/cache" is not writable in /var/www/html/application/libraries/Zend/Cache.php:209\nStack trace:\n#0 /var/www/html/application/libraries/Zend/Cache/Backend/File.php(180): Zend_Cache::throwException('cache_dir "/var...')\n#1 /var/www/html/application/libraries/Zend/Cache/Backend/File.php(128): Zend_Cache_Backend_File->setCacheDir('/var/www/html/t...')\n#2 /var/www/html/application/libraries/Zend/Cache.php(153): Zend_Cache_Backend_File->__construct(Array)\n#3 /var/www/html/application/libraries/Zend/Cache.php(94): Zend_Cache::_makeBackend('File', Array, true, false)\n#4 /var/www/html/application/libraries/Engine/Cache.php(211): Zend_Cache::factory('core', 'File', Array, Array, false, true, false)\n#5 /var/www/html/application/modules/Core/Bootstrap.php(286): Engine_Cache::factory('core', 'File', Array, Array, false, true)\n#6 /var/www/html/application/libraries/Engine/Application/Bootstrap/Abstract.php(256): Core_Bootstrap->_initCache()\n#7 /var/www/html/ap in /var/www/html/application/libraries/Zend/Cache.php on line 209, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608277 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP Notice:  Failed saving metadata to metadataCache in /var/www/html/application/libraries/Zend/Db/Table/Abstract.php on line 839, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608318 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP Stack trace:, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608330 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP   1. {main}() /var/www/html/index.php:0, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608337 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP   2. Engine_Boot->boot() /var/www/html/index.php:24, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608343 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP   3. include() /var/www/html/boot.php:47, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608348 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP   4. Engine_Application->bootstrap() /var/www/html/application/index.php:222, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608354 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP   5. Core_Bootstrap->bootstrap() /var/www/html/application/libraries/Engine/Application.php:149, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608359 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP   6. Core_Bootstrap->_bootstrap() /var/www/html/application/libraries/Engine/Application/Bootstrap/Abstract.php:150, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608365 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP   7. Core_Bootstrap->_executeResource() /var/www/html/application/libraries/Engine/Application/Bootstrap/Abstract.php:207, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608370 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP   8. Core_Bootstrap->_initLog() /var/www/html/application/libraries/Engine/Application/Bootstrap/Abstract.php:256, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608376 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP   9. Engine_Api->getApi() /var/www/html/application/modules/Core/Bootstrap.php:354, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608381 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  10. Engine_Api->__call() /var/www/html/application/modules/Core/Bootstrap.php:354, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608387 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  11. Engine_Api->load() /var/www/html/application/libraries/Engine/Api.php:232, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608392 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  12. Engine_Loader->load() /var/www/html/application/libraries/Engine/Api.php:258, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608397 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  13. Core_Api_Settings->__construct() /var/www/html/application/libraries/Engine/Loader.php:163, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608402 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  14. Engine_Api->getDbtable() /var/www/html/application/modules/Core/Api/Settings.php:25, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608407 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  15. Engine_Api->__call() /var/www/html/application/modules/Core/Api/Settings.php:25, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608412 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  16. Engine_Api->load() /var/www/html/application/libraries/Engine/Api.php:232, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608417 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  17. Engine_Loader->load() /var/www/html/application/libraries/Engine/Api.php:258, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608422 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  18. Core_Model_DbTable_Settings->__construct() /var/www/html/application/libraries/Engine/Loader.php:163, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608439 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  19. Core_Model_DbTable_Settings->init() /var/www/html/application/libraries/Zend/Db/Table/Abstract.php:270, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608445 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  20. Core_Model_DbTable_Settings->_loadSettings() /var/www/html/application/modules/Core/Model/DbTable/Settings.php:36, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608450 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  21. Core_Model_DbTable_Settings->select() /var/www/html/application/modules/Core/Model/DbTable/Settings.php:209, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608455 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  22. Zend_Db_Table_Select->__construct() /var/www/html/application/libraries/Zend/Db/Table/Abstract.php:1019, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608459 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  23. Zend_Db_Table_Select->setTable() /var/www/html/application/libraries/Zend/Db/Table/Select.php:78, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608464 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  24. Core_Model_DbTable_Settings->info() /var/www/html/application/libraries/Zend/Db/Table/Select.php:100, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608469 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  25. Core_Model_DbTable_Settings->_setupPrimaryKey() /var/www/html/application/libraries/Zend/Db/Table/Abstract.php:983, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608474 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  26. Core_Model_DbTable_Settings->_setupMetadata() /var/www/html/application/libraries/Zend/Db/Table/Abstract.php:875, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:57:36.608479 2020] [php7:notice] [pid 17] [client 172.22.0.1:56180] PHP  27. trigger_error() /var/www/html/application/libraries/Zend/Db/Table/Abstract.php:839, referer: http://127.0.0.1/groups
+[Mon Jul 13 10:58:14.409495 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.22.0.3. Set the 'ServerName' directive globally to suppress this message
+Cannot load Xdebug - it was already loaded
+PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+PHP Warning:  Module 'exif' already loaded in Unknown on line 0
+PHP Warning:  Module 'mysqli' already loaded in Unknown on line 0
+PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[Mon Jul 13 10:58:16.122519 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Mon Jul 13 10:58:16.122598 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Jul 13 10:58:45.412353 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.22.0.3. Set the 'ServerName' directive globally to suppress this message
+Cannot load Xdebug - it was already loaded
+PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+PHP Warning:  Module 'exif' already loaded in Unknown on line 0
+PHP Warning:  Module 'mysqli' already loaded in Unknown on line 0
+PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[Mon Jul 13 10:58:47.119672 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Mon Jul 13 10:58:47.119787 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Jul 13 10:59:02.105132 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.23.0.3. Set the 'ServerName' directive globally to suppress this message
+Cannot load Xdebug - it was already loaded
+PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+PHP Warning:  Module 'exif' already loaded in Unknown on line 0
+PHP Warning:  Module 'mysqli' already loaded in Unknown on line 0
+PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[Mon Jul 13 10:59:13.593036 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Mon Jul 13 10:59:13.593116 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Jul 13 11:12:02.783086 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.23.0.3. Set the 'ServerName' directive globally to suppress this message
+Cannot load Xdebug - it was already loaded
+PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+PHP Warning:  Module 'exif' already loaded in Unknown on line 0
+PHP Warning:  Module 'mysqli' already loaded in Unknown on line 0
+PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[Mon Jul 13 11:12:08.862108 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Mon Jul 13 11:12:08.862201 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Jul 13 11:12:23.329947 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.23.0.3. Set the 'ServerName' directive globally to suppress this message
+Cannot load Xdebug - it was already loaded
+PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+PHP Warning:  Module 'exif' already loaded in Unknown on line 0
+PHP Warning:  Module 'mysqli' already loaded in Unknown on line 0
+PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[Mon Jul 13 11:12:48.450577 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Mon Jul 13 11:12:48.450683 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Jul 13 11:16:07.978914 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+PHP Warning:  Module 'exif' already loaded in Unknown on line 0
+PHP Warning:  Module 'mysqli' already loaded in Unknown on line 0
+PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[Mon Jul 13 11:16:09.705108 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Mon Jul 13 11:16:09.705179 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Jul 13 11:17:48.533912 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+PHP Warning:  Module 'pdo_sqlite' already loaded in Unknown on line 0
+PHP Warning:  Module 'exif' already loaded in Unknown on line 0
+PHP Warning:  Module 'mysqli' already loaded in Unknown on line 0
+PHP Warning:  Module 'pdo_mysql' already loaded in Unknown on line 0
+[Mon Jul 13 11:17:54.749712 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Mon Jul 13 11:17:54.749787 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Jul 13 11:19:18.387756 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+PHP Warning:  PHP Startup: Unable to load dynamic library 'exif' (tried: /usr/local/lib/php/extensions/no-debug-non-zts-20190902/exif (/usr/local/lib/php/extensions/no-debug-non-zts-20190902/exif: cannot open shared object file: No such file or directory), /usr/local/lib/php/extensions/no-debug-non-zts-20190902/exif.so (/usr/local/lib/php/extensions/no-debug-non-zts-20190902/exif.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_mysql' (tried: /usr/local/lib/php/extensions/no-debug-non-zts-20190902/pdo_mysql (/usr/local/lib/php/extensions/no-debug-non-zts-20190902/pdo_mysql: cannot open shared object file: No such file or directory), /usr/local/lib/php/extensions/no-debug-non-zts-20190902/pdo_mysql.so (/usr/local/lib/php/extensions/no-debug-non-zts-20190902/pdo_mysql.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_sqlite' (tried: /usr/local/lib/php/extensions/no-debug-non-zts-20190902/pdo_sqlite (/usr/local/lib/php/extensions/no-debug-non-zts-20190902/pdo_sqlite: cannot open shared object file: No such file or directory), /usr/local/lib/php/extensions/no-debug-non-zts-20190902/pdo_sqlite.so (/usr/local/lib/php/extensions/no-debug-non-zts-20190902/pdo_sqlite.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+PHP Warning:  Module 'mysqli' already loaded in Unknown on line 0
+[Mon Jul 13 11:46:00.107669 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Mon Jul 13 11:46:00.107769 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
