@@ -42,8 +42,6 @@ class Sesevent_EventController extends Core_Controller_Action_Standard {
     try {
       // Try attachment getting stuff
       $attachment = null;
-		
-    
       $attachment = Engine_Api::_()->getItem($type, $id);
 			if($attachment->host_type == 'site'){
 					$viewer = Engine_Api::_()->user()->getViewer();
