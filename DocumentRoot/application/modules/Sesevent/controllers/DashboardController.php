@@ -11,6 +11,8 @@
  */
 class Sesevent_DashboardController extends Core_Controller_Action_Standard {
   public function init() {
+    $viewer = Engine_Api::_()->user()->getViewer();
+    $level = Engine_Api::_()->getItem('authorization_level', $viewer->level_id);
     if (!$this->_helper->requireAuth()->setAuthParams('sesevent_event', null, 'view')->isValid())
       return;
     if (!$this->_helper->requireUser->isValid())
@@ -19,15 +21,16 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
     $event_id = Engine_Api::_()->getDbtable('events', 'sesevent')->getEventId($id);
     if ($event_id) {
       $event = Engine_Api::_()->getItem('sesevent_event', $event_id);
-      if ($event && $event->is_approved)
+      // if ($event && $event->is_approved)
         Engine_Api::_()->core()->setSubject($event);
-      else
-        return $this->_forward('requireauth', 'error', 'core');
+      // else
+      //   return $this->_forward('requireauth', 'error', 'core');
     } else
       return $this->_forward('requireauth', 'error', 'core');
 		if (!$this->_helper->requireAuth()->setAuthParams($event, null, 'edit')->isValid())
       return;
   }
+
   public function editAction() {
     $is_ajax = $this->view->is_ajax = $this->_getParam('is_ajax', null) ? $this->_getParam('is_ajax') : false;
     $this->view->event = $event = Engine_Api::_()->core()->getSubject();
@@ -516,9 +519,9 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
     $viewer = Engine_Api::_()->user()->getViewer();
     if (!($this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid() || $event->isOwner($viewer)))
       return;
-    if(!Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') || !Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')){
-			return $this->_forward('notfound', 'error', 'core');
-		}
+
+    $this->forwardToErrorPageIfTicketsNotAvailable();
+
     $userGateway = Engine_Api::_()->getDbtable('usergateways', 'sesevent')->getUserGateway(array('event_id' => $event->event_id,'gateway_type'=>$gateway_type,'enabled'=>true));
 		$settings = Engine_Api::_()->getApi('settings', 'core');
     $userGatewayEnable = $settings->getSetting('sesevent.userGateway', 'paypal');
@@ -641,9 +644,9 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
     $viewer = Engine_Api::_()->user()->getViewer();
     if (!($this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid() || $event->isOwner($viewer)))
       return;
-    if(!Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') || !Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')){
-			return $this->_forward('notfound', 'error', 'core');
-		}
+      
+    $this->forwardToErrorPageIfTicketsNotAvailable();
+
     $eventTicketDetails = Engine_Api::_()->getDbtable('tickets', 'sesevent')->getTicket(array('event_id' => $event->event_id));
     $this->view->form = $form = new Sesevent_Form_Dashboard_Searchsalereport();
     $value = array();
@@ -758,9 +761,9 @@ protected function exportFile($records) {
     $this->view->event = $event = Engine_Api::_()->core()->getSubject();
 
     $viewer = Engine_Api::_()->user()->getViewer();
-	  if(!Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') || !Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')){
-			return $this->_forward('notfound', 'error', 'core');
-		}
+
+    $this->forwardToErrorPageIfTicketsNotAvailable();
+
     if (!($this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid() || $event->isOwner($viewer)))
       return;
 
@@ -773,13 +776,14 @@ protected function exportFile($records) {
     $is_ajax_content = $this->view->is_ajax_content = $this->_getParam('is_ajax_content', null) ? $this->_getParam('is_ajax_content') : false;
     $this->view->event = $event = Engine_Api::_()->core()->getSubject();
     $viewer = Engine_Api::_()->user()->getViewer();
-    if (!($this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid() || $event->isOwner($viewer)))
+    if (
+      !($this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid() || $event->isOwner($viewer)))
       return;
     $viewer = Engine_Api::_()->user()->getViewer();
     $this->view->thresholdAmount = Engine_Api::_()->authorization()->getPermission($viewer, 'sesevent_event', 'event_threshold');
-    if(!Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') || !Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')){
-			return $this->_forward('notfound', 'error', 'core');
-		}
+
+    $this->forwardToErrorPageIfTicketsNotAvailable();
+    
     //get total amount of ticket sold in given event
 		$this->view->userGateway = Engine_Api::_()->getDbtable('usergateways', 'sesevent')->getUserGateway(array('event_id' => $event->event_id, 'user_id' => $viewer->user_id));
     $this->view->orderDetails = Engine_Api::_()->getDbtable('orders', 'sesevent')->getEventStats(array('event_id' => $event->event_id));
@@ -1013,9 +1017,7 @@ protected function exportFile($records) {
       $this->view->searchForm = $searchForm = new Sesevent_Form_ManageTickets();
     }
 
-	  if(!Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') || !Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')){
-			return $this->_forward('notfound', 'error', 'core');
-		}
+    $this->forwardToErrorPageIfTicketsNotAvailable();
 
     if (isset($_POST['searchParams']) && $_POST['searchParams'])
       parse_str($_POST['searchParams'], $searchArray);
@@ -1180,9 +1182,9 @@ protected function exportFile($records) {
     $viewer = Engine_Api::_()->user()->getViewer();
     if (!($this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid() || $event->isOwner($viewer)))
       return;
-    if(!Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') || !Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')){
-			return $this->_forward('notfound', 'error', 'core');
-		}
+
+    $this->forwardToErrorPageIfTicketsNotAvailable();
+
     $this->view->todaySale = Engine_Api::_()->getDbtable('orders', 'sesevent')->getSaleStats(array('stats' => 'today', 'event_id' => $event->event_id));
     $this->view->weekSale = Engine_Api::_()->getDbtable('orders', 'sesevent')->getSaleStats(array('stats' => 'week', 'event_id' => $event->event_id));
     $this->view->monthSale = Engine_Api::_()->getDbtable('orders', 'sesevent')->getSaleStats(array('stats' => 'month', 'event_id' => $event->event_id));
@@ -1192,9 +1194,9 @@ protected function exportFile($records) {
   }
 	public function searchTicketAction() {
     $is_ajax = $this->view->is_ajax = $this->_getParam('is_ajax', null) ? $this->_getParam('is_ajax') : false;
-    if(!Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') || !Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')){
-			return $this->_forward('notfound', 'error', 'core');
-		}
+    
+    $this->forwardToErrorPageIfTicketsNotAvailable();
+
     $is_ajax_content = $this->view->is_ajax_content = $this->_getParam('is_ajax_content', null) ? $this->_getParam('is_ajax_content') : false;
     $this->view->event = $event = Engine_Api::_()->core()->getSubject();
 		$this->view->order_id = $this->_getParam('dataAjax','');
@@ -1204,9 +1206,9 @@ protected function exportFile($records) {
   }
   public function manageOrdersAction() {
     $is_ajax = $this->view->is_ajax = $this->_getParam('is_ajax', null) ? $this->_getParam('is_ajax') : false;
-    if(!Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') || !Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')){
-			return $this->_forward('notfound', 'error', 'core');
-		}
+    
+    $this->forwardToErrorPageIfTicketsNotAvailable();
+    
     $is_ajax_content = $this->view->is_ajax_content = $this->_getParam('is_ajax_content', null) ? $this->_getParam('is_ajax_content') : false;
     $this->view->event = $event = Engine_Api::_()->core()->getSubject();
     $viewer = Engine_Api::_()->user()->getViewer();
@@ -1242,15 +1244,33 @@ protected function exportFile($records) {
     $form->currency->setValue($defaultCurrency);
   }
 
+  private function currentUserIsAllowedToMakeTickets(){
+    $viewer = Engine_Api::_()->user()->getViewer();
+    $level = Engine_Api::_()->getItem('authorization_level', $viewer->level_id);
+    $member_level_current_user = $level->flag;
+    $allowed_member_levels = array("superadmin", "admin");
+    $allowedToMakeTickets = in_array($member_level_current_user, $allowed_member_levels);
+    return $allowedToMakeTickets;
+  }
+
+  private function ticketsAreAvailable(){
+    if(!Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') || !Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')){
+			return false;
+    }
+    return $this->currentUserIsAllowedToMakeTickets();
+  }
+  
+  private function forwardToErrorPageIfTicketsNotAvailable(){
+    if(!$this->ticketsAreAvailable()) $this->_forward('notfound', 'error', 'core');
+  }
   public function createTicketAction() {
     $is_ajax_content = $this->view->is_ajax_content = $this->_getParam('is_ajax_content', null) ? $this->_getParam('is_ajax_content') : false;
     $this->view->event = $event = Engine_Api::_()->core()->getSubject();
     $viewer = Engine_Api::_()->user()->getViewer();
-    if (!($this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid() || $event->isOwner($viewer)))
-      return $this->_forward('notfound', 'error', 'core');
 
+    $this->forwardToErrorPageIfTicketsNotAvailable();
 
-     $this->view->event_timezone = array(
+    $this->view->event_timezone = array(
             'US/Pacific' => '(UTC-8) Pacific Time (US & Canada)',
             'US/Mountain' => '(UTC-7) Mountain Time (US & Canada)',
             'US/Central' => '(UTC-6) Central Time (US & Canada)',
@@ -1289,9 +1309,8 @@ protected function exportFile($records) {
 
     if (!empty($_POST))
       $form->populate($_POST);
-    if(!Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') || !Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')){
-			return $this->_forward('notfound', 'error', 'core');
-		}
+    $this->forwardToErrorPageIfTicketsNotAvailable();
+
 
     if (!$this->getRequest()->isPost())
       return;
@@ -1395,9 +1414,9 @@ protected function exportFile($records) {
     $viewer = Engine_Api::_()->user()->getViewer();
     if (!($this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid() || $event->isOwner($viewer)))
       return;
-    if(!Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') || !Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')){
-			return $this->_forward('notfound', 'error', 'core');
-		}
+
+    $this->forwardToErrorPageIfTicketsNotAvailable();
+    
     // Create form
     $this->view->form = $form = new Sesevent_Form_Dashboard_Printticketinfo();
 		 $form->populate($event->toArray());
