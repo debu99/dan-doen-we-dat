@@ -44,7 +44,7 @@ class Sesevent_Form_Create extends Engine_Form {
         return $this;
     }
     public function init() {
-//      echo '<pre>';print_r(Zend_Controller_Front::getInstance()->getRequest());die;
+
     if (Engine_Api::_()->core()->hasSubject('sesevent_event'))
       $event = Engine_Api::_()->core()->getSubject();
 		if($this->getSmoothboxType())
@@ -52,48 +52,52 @@ class Sesevent_Form_Create extends Engine_Form {
 		else
 			$hideClass = '';
 		$viewer = Engine_Api::_()->user()->getViewer();
-    //get current logged in user
+  
     $this->setTitle('Create New Event')
             ->setAttrib('id', 'sesevent_create_form')
 					  ->setAttrib('enctype', 'multipart/form-data')
             ->setMethod("POST")
             ->setAction(Zend_Controller_Front::getInstance()->getRouter()->assemble(array()));
-		if($this->getSmoothboxType())
-			$this->setAttrib('class','global_form sesevent_smoothbox_create');
+    
+    if($this->getSmoothboxType())
+      $this->setAttrib('class','global_form sesevent_smoothbox_create');
+      
     $settings = Engine_Api::_()->getApi('settings', 'core');
     $request = Zend_Controller_Front::getInstance()->getRequest();
     $moduleName = $request->getModuleName();
     $controllerName = $request->getControllerName();
     $actionName = $request->getActionName();
     // Title
-		 //UPLOAD PHOTO URL
-      $upload_url = Zend_Controller_Front::getInstance()->getRouter()->assemble(array('module' => 'sesbasic', 'controller' => 'index', 'action' => "upload-image"), 'default', true);
+    //UPLOAD PHOTO URL
+    $upload_url = Zend_Controller_Front::getInstance()->getRouter()->assemble(array('module' => 'sesbasic', 'controller' => 'index', 'action' => "upload-image"), 'default', true);
 
-      $allowed_html = 'strong, b, em, i, u, strike, sub, sup, p, div, pre, address, h1, h2, h3, h4, h5, h6, span, ol, li, ul, a, img, embed, br, hr';
+    $allowed_html = 'strong, b, em, i, u, strike, sub, sup, p, div, pre, address, h1, h2, h3, h4, h5, h6, span, ol, li, ul, a, img, embed, br, hr';
 
-      $editorOptions = array(
-          'upload_url' => $upload_url,
-          'html' => (bool) $allowed_html,
+    $editorOptions = array(
+        'upload_url' => $upload_url,
+        'html' => (bool) $allowed_html,
+    );
+
+    if (!empty($upload_url)) {
+
+      $editorOptions['editor_selector'] = 'tinymce';
+      $editorOptions['mode'] = 'specific_textareas';
+      $editorOptions['plugins'] = array(
+          'table', 'fullscreen', 'media', 'preview', 'paste',
+          'code', 'image', 'textcolor', 'jbimages', 'link'
       );
 
-      if (!empty($upload_url)) {
-				$editorOptions['editor_selector'] = 'tinymce';
-				$editorOptions['mode'] = 'specific_textareas';
-        $editorOptions['plugins'] = array(
-            'table', 'fullscreen', 'media', 'preview', 'paste',
-            'code', 'image', 'textcolor', 'jbimages', 'link'
-        );
-
-        $editorOptions['toolbar1'] = array(
-            'undo', 'redo', 'removeformat', 'pastetext', '|', 'code',
-            'media', 'image', 'jbimages', 'link', 'fullscreen',
-            'preview'
-        );
-      }
+      $editorOptions['toolbar1'] = array(
+          'undo', 'redo', 'removeformat', 'pastetext', '|', 'code',
+          'media', 'image', 'jbimages', 'link', 'fullscreen',
+          'preview'
+      );
+    }
 		if($settings->getSetting('sesevent.tinymce', 1))
 		    $tinymce = true;
 	    else
-		    $tinymce = false;
+        $tinymce = false;
+        
     $this->addElement('Text', 'title', array(
         'label' => 'Event Name',
         'autocomplete' => 'off',
@@ -108,7 +112,8 @@ class Sesevent_Form_Create extends Engine_Form {
             new Engine_Filter_Censor(),
         ),
     ));
-		 $custom_url_value = isset($event->custom_url) ? $event->custom_url : (isset($_POST["custom_url"]) ? $_POST["custom_url"] : "");
+
+		$custom_url_value = isset($event->custom_url) ? $event->custom_url : (isset($_POST["custom_url"]) ? $_POST["custom_url"] : "");
 		if($actionName !=  'edit'){
 			// Custom Url
 			$this->addElement('Dummy', 'custom_url_event', array(
@@ -121,17 +126,19 @@ class Sesevent_Form_Create extends Engine_Form {
 		    $eevecredescription = true;
 	    else
 		    $eevecredescription = false;
-    }elseif($actionName == 'edit') {
+    }else if($actionName == 'edit') {
 	    $eevecredescription = true;
     }
+
 		$descriptionMandatory= $settings->getSetting('sesevent.event.description', '1');
-		 if ($descriptionMandatory == 1) {
+		if ($descriptionMandatory == 1) {
 				$required = true;
 				$allowEmpty = false;
 			} else {
 				$required = false;
 				$allowEmpty = true;
-			}
+    }
+    
     if($eevecredescription) {
 				 $this->addElement('Textarea', 'description', array(
 	      'label' => 'Event Description',
@@ -148,36 +155,37 @@ class Sesevent_Form_Create extends Engine_Form {
 		/* Location Elements */
 		if(Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent_enable_location', 1)){
 
-		$locale = Zend_Registry::get('Zend_Translate')->getLocale();
-		$territories = Zend_Locale::getTranslationList('territory', $locale, 2);
-		asort($territories);
-		$countrySelect = '';
-		$countrySelected = '';
-		if(count($territories)){
-			$countrySelect = '<option value="">Choose Country</option>';
-			if(isset($event)){
-				$itemlocation = Engine_Api::_()->getDbtable('locations', 'sesbasic')->getLocationData('sesevent_event',$event->getIdentity());
-				if($itemlocation)
-					$countrySelected = $itemlocation->country;
-			}
-			foreach($territories as $key=>$valCon){
-				if($valCon == $countrySelected)
-					$countrySelect .= '<option value="'.$valCon.'" selected >'.$valCon.'</option>';
-				else
-					$countrySelect .= '<option value="'.$valCon.'" >'.$valCon.'</option>';
-			}
-		}
+      $locale = Zend_Registry::get('Zend_Translate')->getLocale();
+      $territories = Zend_Locale::getTranslationList('territory', $locale, 2);
+      asort($territories);
+      $countrySelect = '';
+      $countrySelected = '';
+      if(count($territories)){
+        $countrySelect = '<option value="">Choose Country</option>';
+        if(isset($event)){
+          $itemlocation = Engine_Api::_()->getDbtable('locations', 'sesbasic')->getLocationData('sesevent_event',$event->getIdentity());
+          if($itemlocation)
+            $countrySelected = $itemlocation->country;
+        }
+        foreach($territories as $key=>$valCon){
+          if($valCon == $countrySelected)
+            $countrySelect .= '<option value="'.$valCon.'" selected >'.$valCon.'</option>';
+          else
+            $countrySelect .= '<option value="'.$valCon.'" >'.$valCon.'</option>';
+        }
+      }
 
 		 $this->addElement('dummy', 'event_location', array(
 				'decorators' => array(array('ViewScript', array(
-										'viewScript' => 'application/modules/Sesevent/views/scripts/_location.tpl',
-										'class' => 'form element',
-										'event'=>isset($event) ? $event : '',
-										'countrySelect' => $countrySelect,
-										'itemlocation'=>isset($itemlocation) ? $itemlocation : '',
-								)))
+                  'viewScript' => 'application/modules/Sesevent/views/scripts/_location.tpl',
+                  'class' => 'form element',
+                  'event'=>isset($event) ? $event : '',
+                  'countrySelect' => $countrySelect,
+                  'itemlocation'=>isset($itemlocation) ? $itemlocation : '',
+        )))
 			));
-		}
+    }
+    
     if($actionName == 'create') {
 	    if($settings->getSetting('sesevent.eevecretimezone', 1))
 		    $eevecretimezone = true;
@@ -186,9 +194,9 @@ class Sesevent_Form_Create extends Engine_Form {
     } elseif($actionName == 'edit') {
 	    $eevecretimezone = true;
     }
-//    Zend_Controller_Front::getInstance()->getRequest()->getParam( 'restApi', null )
+
     $restapi=Zend_Controller_Front::getInstance()->getRequest()->getParam( 'restApi', null );
-     if ($restapi == 'Sesapi'){
+    if ($restapi == 'Sesapi'){
 
             $apitimezoneArray = array(
             'US/Pacific' => '(UTC-8) Pacific Time (US & Canada)',
@@ -274,7 +282,6 @@ class Sesevent_Form_Create extends Engine_Form {
             $this->addElement($start);
 
         }
-
      }
 
     if(isset($event) && empty($_POST)){
@@ -426,15 +433,15 @@ class Sesevent_Form_Create extends Engine_Form {
     } elseif($actionName == 'edit') {
 	    $eventcustom = true;
     }
-		  if($eventcustom) {
-        if(!empty($_GET['sesapi_platform']) && $_GET['sesapi_platform'] == 1){
-          $this->addElement('select', 'is_custom_term_condition', array(
-            'label' => 'Custom Term And Condition',
-            'description' => "",
-            'multiOptions' => array('1'=>'Yes','0'=>'No'),
-            'value' => '0',
-          ));
-      }else{
+		if($eventcustom) {
+      if(!empty($_GET['sesapi_platform']) && $_GET['sesapi_platform'] == 1){
+        $this->addElement('select', 'is_custom_term_condition', array(
+          'label' => 'Custom Term And Condition',
+          'description' => "",
+          'multiOptions' => array('1'=>'Yes','0'=>'No'),
+          'value' => '0',
+        ));
+      } else{
         // Custom Term And Condition
         $this->addElement('Checkbox', 'is_custom_term_condition', array(
             'label' => 'Custom Term And Condition',
@@ -442,22 +449,22 @@ class Sesevent_Form_Create extends Engine_Form {
         ));
       }
 			if($tinymce){
-	    //Overview
-	    $this->addElement('TinyMce', 'custom_term_condition', array(
-	        'label' => 'Term And Condition Description',
-					'class'=>'tinymce',
-					 'editorOptions' => $editorOptions,
-	    ));
-			}else{
+        //Overview
+        $this->addElement('TinyMce', 'custom_term_condition', array(
+            'label' => 'Term And Condition Description',
+            'class'=>'tinymce',
+            'editorOptions' => $editorOptions,
+        ));
+			} else {
 					 //Overview
-	    $this->addElement('Textarea', 'custom_term_condition', array(
+	      $this->addElement('Textarea', 'custom_term_condition', array(
 	        'label' => 'Term And Condition Description',
 	        'filters' => array(
 	            'StripTags',
 	            new Engine_Filter_Censor(),
 	            new Engine_Filter_EnableLinks(),
 	        ),
-	    ));
+	      ));
 			}
     }
 
@@ -469,18 +476,20 @@ class Sesevent_Form_Create extends Engine_Form {
     } elseif($actionName == 'edit') {
 	    $eevecretags = true;
     }
+
     if($eevecretags) {
-    //Tags
-    $this->addElement('Text', 'tags', array(
+      //Tags
+      $this->addElement('Text', 'tags', array(
         'label' => 'Tags (Keywords)',
         'autocomplete' => 'off',
         'description' => 'Separate tags with commas.',
         'filters' => array(
             new Engine_Filter_Censor(),
         ),
-    ));
-    $this->tags->getDecorator("Description")->setOption("placement", "append");
+      ));
+      $this->tags->getDecorator("Description")->setOption("placement", "append");
     }
+
 	  if($actionName == 'create') {
 	    if($settings->getSetting('sesevent.eevecremainphoto', 1))
 		    $eevecremainphoto = true;
@@ -507,11 +516,6 @@ class Sesevent_Form_Create extends Engine_Form {
 					'onchange'=>'handleFileBackgroundUpload(this,event_main_photo_preview)',
 			));
 			$this->photo->addValidator('Extension', false, 'jpg,png,gif,jpeg');
-
-
-
-
-
 
       $this->addElement('Dummy', 'photo-uploader', array(
 				'label' => 'Main Photo',
@@ -544,21 +548,21 @@ class Sesevent_Form_Create extends Engine_Form {
 			$valHostData['title'] = $view->string()->escapeJavascript($valHost['host_name']);
 			$offsitehost .= "<option value='".$valHost['host_id']."' data-src='".json_encode($valHostData,JSON_HEX_QUOT | JSON_HEX_TAG)."'>".$valHost['host_name']."</option>";
 		}
-	}
+  }
+  
 	if($restapi != 'Sesapi'){
-            $this->addElement('dummy', 'event_host', array(
-            'decorators' => array(array('ViewScript', array(
-            'viewScript' => 'application/modules/Sesevent/views/scripts/_hostCreate.tpl',
-            'class' => 'form element',
-            'offsitehost'=>$offsitehost,
-            'isEdit' =>$actionName != 'edit' ? 0 : 1,
-            'host_id' => isset($event) ? $event->host : '',
-							)))
-        ));
-        }
+      $this->addElement('dummy', 'event_host', array(
+        'decorators' => array(array('ViewScript', array(
+        'viewScript' => 'application/modules/Sesevent/views/scripts/_hostCreate.tpl',
+        'class' => 'form element',
+        'offsitehost'=>$offsitehost,
+        'isEdit' =>$actionName != 'edit' ? 0 : 1,
+        'host_id' => isset($event) ? $event->host : '',
+          )))
+    ));
+  }
 
-
-   if ($restapi == 'Sesapi'){
+  if ($restapi == 'Sesapi'){
     $offerArray = array(''=>'');
     if(count($offsitehostArr)){
       foreach($offsitehostArr  as $key=>$valHost){
@@ -574,77 +578,81 @@ class Sesevent_Form_Create extends Engine_Form {
     foreach( $select->getTable()->fetchAll($select) as $friend ) {
        $data[$friend->getIdentity()] = $friend->getTitle();
     }
+    
     $hostarray = array(
-        'choose_host' => 'Choose Host',
-        'new' => 'Add New',
+      'choose_host' => 'Choose Host',
+      'new' => 'Add New',
     );
-      $hostarraya = array(
-        '' => 'Please select type',
-        'offsite' => 'Off-Site',
-        'site' => 'On-Site',
-        'myself' => 'Myself',
-        );
-    $this->addElement('select', 'choose_host', array(
-        'label' => 'Organizer Name',
-        'description' => 'Choose Organizer?',
-        'multiOptions' => $hostarray,
-        'required' => false,
-        'value' => 'choose_host',
-    ));
-    $this->addElement('select', 'host_type', array(
-        'label' => 'Organizer Name',
-        'description' => 'Host Type',
-        'multiOptions' => $hostarraya,
-        'required' => false,
-        'value' => 'myself',
 
+    $hostarraya = array(
+      '' => 'Please select type',
+      'offsite' => 'Off-Site',
+      'site' => 'On-Site',
+      'myself' => 'Myself',
+    );
+
+    $this->addElement('select', 'choose_host', array(
+      'label' => 'Organizer Name',
+      'description' => 'Choose Organizer?',
+      'multiOptions' => $hostarray,
+      'required' => false,
+      'value' => 'choose_host',
     ));
-     $this->addElement('select', 'event_host', array(
-        'label' => 'Event Host',
-        'description' => 'Event Host',
-        'multiOptions' => $offerArray,
-        'required' => false,
-        'value' => '0',
+
+    $this->addElement('select', 'host_type', array(
+      'label' => 'Organizer Name',
+      'description' => 'Host Type',
+      'multiOptions' => $hostarraya,
+      'required' => false,
+      'value' => 'myself',
     ));
-     $this->addElement('select', 'selectonsitehost', array(
-        'label' => 'Event Site Host',
-        'description' => 'Event Host',
-        'multiOptions' => $data,
-        'required' => false,
-        'value' => '',
+    
+    $this->addElement('select', 'event_host', array(
+      'label' => 'Event Host',
+      'description' => 'Event Host',
+      'multiOptions' => $offerArray,
+      'required' => false,
+      'value' => '0',
+    ));
+    
+    $this->addElement('select', 'selectonsitehost', array(
+      'label' => 'Event Site Host',
+      'description' => 'Event Host',
+      'multiOptions' => $data,
+      'required' => false,
+      'value' => '',
     ));
 
     $this->addElement('text', 'host_name', array(
-        'label' => 'Host Name',
-        'required' => false,
-        'value' => '',
+      'label' => 'Host Name',
+      'required' => false,
+      'value' => '',
     ));
 
-
-     $this->addElement('text', 'host_email', array(
-        'label' => 'Host Email',
-        'required' => false,
-        'value' => '',
-
+    $this->addElement('text', 'host_email', array(
+      'label' => 'Host Email',
+      'required' => false,
+      'value' => '',
     ));
-      $this->addElement('text', 'host_phone', array(
-        'label' => 'Host Phone',
-        'required' => false,
-        'value' => '',
 
+    $this->addElement('text', 'host_phone', array(
+      'label' => 'Host Phone',
+      'required' => false,
+      'value' => '',
     ));
-       $this->addElement('text', 'host_description', array(
-        'label' => 'Host Description',
-        'required' => false,
-        'value' => '',
 
+    $this->addElement('text', 'host_description', array(
+      'label' => 'Host Description',
+      'required' => false,
+      'value' => '',
     ));
-        $this->addElement('file', 'host_photo', array(
-        'label' => 'Host Photo',
-        'required' => false,
-        'value' => '',
 
+    $this->addElement('file', 'host_photo', array(
+      'label' => 'Host Photo',
+      'required' => false,
+      'value' => '',
     ));
+
     if($_GET['sesapi_platform'] != 1){
       $this->addElement('Checkbox', 'include_social_links', array(
           'label' => 'Include Social Links',
@@ -686,29 +694,13 @@ class Sesevent_Form_Create extends Engine_Form {
         'label' => 'Host Google Plus URL',
         'required' => false,
         'value' => '',
-
     ));
-//    $this->addElement('text', 'twitter_url', array(
-//        'label' => 'Host Facebook URL',
-//        'required' => false,
-//        'value' => '',
-//
-//    ));
-//    $this->addElement('text', 'twitter_url', array(
-//        'label' => 'Host Facebook URL',
-//        'required' => false,
-//        'value' => '',
-//    ));
-}
-
-
-    if (Engine_Api::_()->authorization()->isAllowed('sesevent_event', $viewer, 'allow_levels')) {
+  }
+  if (Engine_Api::_()->authorization()->isAllowed('sesevent_event', $viewer, 'allow_levels')) {
 
         $levelOptions = array();
         $levelValues = array();
         foreach (Engine_Api::_()->getDbtable('levels', 'authorization')->fetchAll() as $level) {
-//             if($level->getTitle() == 'Public')
-//                 continue;
             $levelOptions[$level->level_id] = $level->getTitle();
             $levelValues[] = $level->level_id;
         }
@@ -719,7 +711,7 @@ class Sesevent_Form_Create extends Engine_Form {
             'description' => 'Choose the Member Levels to which this Event will be displayed. (Note: Hold down the CTRL key to select or de-select specific member levels.)',
             'value' => $levelValues,
         ));
-    }
+  }
 
     if (Engine_Api::_()->authorization()->isAllowed('sesevent_event', $viewer, 'allow_network')) {
       $networkOptions = array();
@@ -746,6 +738,7 @@ class Sesevent_Form_Create extends Engine_Form {
     $musicOptions = (array) Engine_Api::_()->authorization()->getAdapter('levels')->getAllowed('sesevent_event', $viewer, 'auth_music');
     $topicOptions = (array) Engine_Api::_()->authorization()->getAdapter('levels')->getAllowed('sesevent_event', $viewer, 'auth_topic');
     $ratingOptions = (array) Engine_Api::_()->authorization()->getAdapter('levels')->getAllowed('sesevent_event', $viewer, 'auth_rating');
+    
     if ($this->_parent_type == 'user') {
       $availableLabels = array(
           'everyone' => 'Everyone',
@@ -880,7 +873,6 @@ class Sesevent_Form_Create extends Engine_Form {
       }
     }
 
-
     // Search
     $this->addElement('Checkbox', 'search', array(
         'label' => 'People can search for this event',
@@ -896,7 +888,6 @@ class Sesevent_Form_Create extends Engine_Form {
 	        'value' => false
 	    ));
     }
-
 
     if($settings->getSetting('sesevent.rsvpevent', 1)) {
 	    // Approval
@@ -915,7 +906,6 @@ class Sesevent_Form_Create extends Engine_Form {
 	        'value' => true
 	    ));
     }
-
 
     if($actionName == 'create') {
 	    if($settings->getSetting('sesevent.draft', 1))
@@ -946,6 +936,7 @@ class Sesevent_Form_Create extends Engine_Form {
             'ViewHelper',
         ),
     ));
+
 		if(!$this->getSmoothboxType()){
 			$this->addElement('Cancel', 'cancel', array(
 					'label' => 'cancel',
@@ -956,7 +947,8 @@ class Sesevent_Form_Create extends Engine_Form {
 							'ViewHelper',
 					),
 			));
-		}else{
+		} else {
+
 			$this->addElement('Cancel', 'advanced_options', array(
         'label' => 'Show Advanced Settings',
         'link' => true,
@@ -966,10 +958,12 @@ class Sesevent_Form_Create extends Engine_Form {
         'decorators' => array(
             'ViewHelper'
         )
-    	));
+      ));
+      
 			$this->addElement('Dummy', 'brtag', array(
 					'content' => '<span style="margin-top:5px;"></span>',
-			));
+      ));
+      
 			$this->addElement('Cancel', 'cancel', array(
         'label' => 'cancel',
         'link' => true,
@@ -980,12 +974,13 @@ class Sesevent_Form_Create extends Engine_Form {
             'ViewHelper'
         )
     	));
-		}
-			$this->addDisplayGroup(array('submit', 'cancel'), 'buttons', array(
-					'decorators' => array(
-							'FormElements',
-							'DivDivDivWrapper',
-					),
-			));
+    }
+    
+    $this->addDisplayGroup(array('submit', 'cancel'), 'buttons', array(
+        'decorators' => array(
+            'FormElements',
+            'DivDivDivWrapper',
+        ),
+    ));
   }
 }

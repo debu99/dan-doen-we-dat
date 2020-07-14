@@ -11,20 +11,20 @@
  */
 class Sesevent_HostController extends Core_Controller_Action_Standard {
 	public function init() {
-    if (!$this->_helper->requireAuth()->setAuthParams('sesevent_event', null, 'view')->isValid())
-      return;
-    if (!$this->_helper->requireUser->isValid())
-      return;
-		$viewer = Engine_Api::_()->user()->getViewer();
-    $host_id = $this->_getParam('host_id', null);
-    $host = Engine_Api::_()->getItem('sesevent_host', $host_id);
-    if ($host) {
-      if ($viewer->getIdentity() == $host->owner_id || $viewer->level_id == 1 )
-        Engine_Api::_()->core()->setSubject($host);
-      else
-        return $this->_forward('requireauth', 'error', 'core');
-    } else
-      return $this->_forward('requireauth', 'error', 'core');
+		if (!$this->_helper->requireAuth()->setAuthParams('sesevent_event', null, 'view')->isValid())
+		return;
+		if (!$this->_helper->requireUser->isValid())
+		return;
+			$viewer = Engine_Api::_()->user()->getViewer();
+		$host_id = $this->_getParam('host_id', null);
+		$host = Engine_Api::_()->getItem('sesevent_host', $host_id);
+		if ($host) {
+		if ($viewer->getIdentity() == $host->owner_id || $viewer->level_id == 1 )
+			Engine_Api::_()->core()->setSubject($host);
+		else
+			return $this->_forward('requireauth', 'error', 'core');
+		} else
+		return $this->_forward('requireauth', 'error', 'core');
   }
   public function editAction() {
 		$host =  Engine_Api::_()->core()->getSubject();

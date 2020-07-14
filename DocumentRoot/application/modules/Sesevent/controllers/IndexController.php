@@ -438,11 +438,11 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
       $table = Engine_Api::_()->getDbtable('events', 'sesevent');
       $event = $table->createRow();
 
-        if(isset($values['levels']))
-            $values['levels'] = implode(',',$values['levels']);
+      if(isset($values['levels']))
+        $values['levels'] = implode(',',$values['levels']);
 
-        if(isset($values['networks']))
-            $values['networks'] = implode(',',$values['networks']);
+      if(isset($values['networks']))
+        $values['networks'] = implode(',',$values['networks']);
 
       if(!($values['is_sponsorship']))
         $values['is_sponsorship'] = 0;
