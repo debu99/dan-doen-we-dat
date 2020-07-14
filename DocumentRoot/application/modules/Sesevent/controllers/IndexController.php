@@ -1045,8 +1045,7 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
     // Set item count per page and current page number
     $paginator->setItemCountPerPage(20);
     $paginator->setCurrentPageNumber($page);
-   if( !$this->getRequest()->isPost() )
-   return;
+    if( !$this->getRequest()->isPost()) return;
     $blogIds = $_POST['blog'];
     $eventObject = Engine_Api::_()->getItem('sesevent_event', $event_id);
     foreach($blogIds as $blogId) {
@@ -1057,20 +1056,20 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
       $db->beginTransaction();
       try {
         $seseventblog = $table->createRow();
-	$seseventblog->blog_id = $blogId;
-	$seseventblog->event_id = $event_id;
-	$seseventblog->request_owner_event = 1;
-	$seseventblog->approved = 0;
-	$seseventblog->save();
-	$blogPageLink = '<a href="' . $item->getHref() . '">' . ucfirst($item->getTitle()) . '</a>';
-	// Send notifications for subscribers
-	Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification($owner, $viewer, $eventObject, 'sesblog_link_blog', array("blogPageLink" => $blogPageLink));
-	// Commit
-	$db->commit();
+        $seseventblog->blog_id = $blogId;
+        $seseventblog->event_id = $event_id;
+        $seseventblog->request_owner_event = 1;
+        $seseventblog->approved = 0;
+        $seseventblog->save();
+        $blogPageLink = '<a href="' . $item->getHref() . '">' . ucfirst($item->getTitle()) . '</a>';
+        // Send notifications for subscribers
+        Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification($owner, $viewer, $eventObject, 'sesblog_link_blog', array("blogPageLink" => $blogPageLink));
+        // Commit
+        $db->commit();
       }
       catch( Exception $e ) {
-	$db->rollBack();
-	throw $e;
+	      $db->rollBack();
+	      throw $e;
       }
     }
     $this->view->message = Zend_Registry::get('Zend_Translate')->_("Your changes have been saved.");
