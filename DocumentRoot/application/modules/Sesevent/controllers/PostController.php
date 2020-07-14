@@ -16,7 +16,7 @@ class Sesevent_PostController extends Core_Controller_Action_Standard {
       return;
 
     if (0 !== ($post_id = (int) $this->_getParam('post_id')) &&
-            null !== ($post = Engine_Api::_()->getItem('sesevent_post', $post_id))) {
+      null !== ($post = Engine_Api::_()->getItem('sesevent_post', $post_id))) {
       Engine_Api::_()->core()->setSubject($post);
     }
 
