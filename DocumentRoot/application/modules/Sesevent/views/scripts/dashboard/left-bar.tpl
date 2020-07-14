@@ -80,7 +80,14 @@
               <?php endif;?>
             </ul>
           </li>
-          <?php if(Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') && Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')): ?>
+          <?php 
+              $viewer = Engine_Api::_()->user()->getViewer();
+              $level = Engine_Api::_()->getItem('authorization_level', $viewer->level_id);
+              $member_level_current_user = $level->flag;
+              $allowed_member_levels = array("superadmin", "admin");
+              $allowedToMakeTickets = in_array($member_level_current_user, $allowed_member_levels);
+          ?>
+          <?php if($allowedToMakeTickets && Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventticket') && Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventticket.pluginactivated')): ?>
           <li class="sesbm">
             <?php $tickets = Engine_Api::_()->getDbtable('dashboards', 'sesevent')->getDashboardsItems(array('type' => 'tickets')); ?>
             <a href="#Ticket" class="sesbasic_dashboard_nopropagate"> <i class="tab-icon db_ticket"></i> <i class="tab-arrow fa fa-caret-down sesbasic_text_light"></i> <span><?php echo $this->translate($tickets->title); ?></span> </a>
