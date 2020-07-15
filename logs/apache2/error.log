@@ -1188,3 +1188,111 @@ Cannot load Xdebug - it was already loaded
 [Wed Jul 15 08:57:10.704181 2020] [php7:notice] [pid 41] [client 10.0.0.2:42168] PHP   2. Engine_Api::_sendFatalResponse() /var/www/html/application/libraries/Engine/Api.php:732, referer: http://www.dandoenwedat.com/events/home
 1594803430.704414: There was a problem sending 225 bytes on socket 9: Broken pipe
 1594809174.782383: There was a problem sending 225 bytes on socket 9: Broken pipe
+Cannot load Xdebug - it was already loaded
+[Wed Jul 15 12:12:29.805523 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Wed Jul 15 12:12:29.805633 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+1594822376.923101: There was a problem sending 213 bytes on socket 9: Broken pipe
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 7: Syntax error: Unterminated quoted string
+sh: 3: Syntax error: newline unexpected
+sh: 3: Syntax error: newline unexpected
+sh: 3: Syntax error: newline unexpected
+sh: 3: Syntax error: newline unexpected
+sh: 3: Syntax error: newline unexpected
+sh: 3: Syntax error: newline unexpected
+sh: 3: Syntax error: newline unexpected
+sh: 3: Syntax error: newline unexpected
+sh: 3: Syntax error: newline unexpected
+sh: 3: Syntax error: newline unexpected
+sh: 3: Syntax error: newline unexpected
+sh: 3: Syntax error: newline unexpected
+[Wed Jul 15 16:29:32.692845 2020] [php7:notice] [pid 21] [client 10.0.0.2:49176] PHP Fatal error:  Uncaught Zend_Db_Statement_Mysqli_Exception: Mysqli prepare error: MySQL server has gone away in /var/www/html/application/libraries/Zend/Db/Statement/Mysqli.php:77\nStack trace:\n#0 /var/www/html/application/libraries/Zend/Db/Statement.php(115): Zend_Db_Statement_Mysqli->_prepare('SELECT `engine4...')\n#1 /var/www/html/application/libraries/Zend/Db/Adapter/Mysqli.php(388): Zend_Db_Statement->__construct(Object(Zend_Db_Adapter_Mysqli), 'SELECT `engine4...')\n#2 /var/www/html/application/libraries/Zend/Db/Adapter/Abstract.php(479): Zend_Db_Adapter_Mysqli->prepare('SELECT `engine4...')\n#3 /var/www/html/application/libraries/Zend/Db/Table/Abstract.php(1577): Zend_Db_Adapter_Abstract->query('SELECT `engine4...')\n#4 /var/www/html/application/libraries/Zend/Db/Table/Abstract.php(1392): Zend_Db_Table_Abstract->_fetch(Object(Zend_Db_Table_Select))\n#5 /var/www/html/application/libraries/Zend/Db/Table/Abstract.php(1357): Zend_Db_Table_Abstract->fetchAll('((`engine4_core...')\n#6 /var/www/html/application/modules/Core/Model/ in /var/www/html/application/libraries/Zend/Db/Statement/Mysqli.php on line 77, referer: http://www.dandoenwedat.com/members/home
+[Wed Jul 15 16:29:32.692975 2020] [php7:notice] [pid 21] [client 10.0.0.2:49176] PHP Stack trace:, referer: http://www.dandoenwedat.com/members/home
+[Wed Jul 15 16:29:32.693006 2020] [php7:notice] [pid 21] [client 10.0.0.2:49176] PHP   1. Engine_Api::handleException($exception = *uninitialized*) /var/www/html/application/libraries/Engine/Api.php:0, referer: http://www.dandoenwedat.com/members/home
+[Wed Jul 15 16:29:32.693025 2020] [php7:notice] [pid 21] [client 10.0.0.2:49176] PHP   2. Engine_Api::_sendFatalResponse() /var/www/html/application/libraries/Engine/Api.php:732, referer: http://www.dandoenwedat.com/members/home

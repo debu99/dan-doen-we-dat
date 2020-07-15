@@ -74,7 +74,7 @@ class Sesevent_View_Helper_EventStartEndDates extends Engine_View_Helper_Locale 
       if( substr($options['locale']->__toString(), 0, 2) == 'en' && 
           $options['size'] == 'long' && 
           $options['type'] == 'datetime' ) {
-        $options['format'] = 'MMMM d, y h:mm a z';
+        	$options['format'] = 'MMMM d, y h:mm a z';
       } else {
         $options['format'] = Zend_Locale_Data::getContent($options['locale'], $options['type'], $options['size']);
       }
@@ -82,7 +82,7 @@ class Sesevent_View_Helper_EventStartEndDates extends Engine_View_Helper_Locale 
     // Hack for weird usage of L instead of M in Zend_Locale
     $options['format'] = str_replace('L', 'M', $options['format']);
 		//replace seconds string
-		$options['format'] = str_replace(':ss', '', $options['format']);
+	$options['format'] = str_replace(':ss', '', $options['format']);
     $str = $date->toString($options['format'], $options['locale']);
     $str = $this->convertNumerals($str, $options['locale']);
     return $str;

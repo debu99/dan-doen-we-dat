@@ -12,20 +12,20 @@
 class Sesevent_View_Helper_EventStartDate extends Sesevent_View_Helper_EventStartEndDates {
 
 	public function eventStartDate($sesevent){
+		if($sesevent == null) return;
+		$dt = new DateTime($sesevent->starttime);
+		$dt->setTimeZone(new DateTimeZone($sesevent->timezone));
 
-		setlocale(LC_ALL, 'Dutch');
+		$day = $dt->format("D");
+		$date = $dt->format("d");
+		$month = $dt->format("M");
+		$time = $dt->format("H:i");
 
-		$timeformat = Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent.datetimeformate', 'medium');
-		$starttime = $this->changeEventDateTime($sesevent->starttime,array('timezone'=>$sesevent->timezone,'size'=>$timeformat));
-		
-		$day = substr(date('l', strtotime($sesevent->starttime)),0,3);
-		$date = date('d', strtotime($sesevent->starttime));
-		$month = date('M', strtotime($sesevent->starttime));
-		$formattedHTML  = "<div class='seevent-cover-date'>";
-		$formattedHTML .=	"<h1 class='seevent-cover-date--day'>$day</h1>";
-		$formattedHTML .=	"<h1 class='seevent-cover-date--date'>$date</h1>";
-		$formattedHTML .= 	"<h1 class='seevent-cover-date--month'>$month</h1>";
-		$formattedHTML .= "</div>";
-		return $formattedHTML;
+		return array(
+			"day"=> $day, 
+			"date"=> $date, 
+			"month"=> $month,
+			"time"=> $time
+		);
 	}
 }

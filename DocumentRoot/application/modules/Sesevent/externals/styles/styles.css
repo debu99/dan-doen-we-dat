@@ -55,10 +55,9 @@
 }
 .sesevent_verified_sign:before{color:#93c33c;font-size:17px;}
 .sesevent_search_result{
-	border-bottom-width:1px;
 	font-weight:bold;
 	margin-bottom:10px;
-	padding:5px;
+	padding:20px 0;
 }
 .sesbasic_view_type + script + div > .sesevent_search_result{
 	margin-top:-45px;
@@ -4672,4 +4671,41 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 .sesbasic_item_grid_btns_wrap:hover .sesevent_grid_btns > a{
 	display:inline-block;
 	float:none;
+}
+
+
+.layout_sesevent_tabbed_events .sesbasic_tabs_container {
+	border: none;
+}
+
+.sesevents_list_view_wrapper .list-item {
+	display: flex;
+	justify-content: space-between;
+	}
+.sesevents_list_view_wrapper .list-item {
+	display: flex;
+	justify-content: space-between;
+}
+.sesevents_list_view_wrapper .list-item .list-item-date {
+	width: 30%;
+}
+.sesevents_list_view_wrapper .list-item-info--title--location h1, .sesevents_list_view_wrapper .list-item-info--title--location h3 {
+	padding: 5px;
+	margin: 0px;
+}  
+.sesevents_list_view_wrapper .list-item-info--title--location:hover {
+	margin-left: 30px;
+	transition: margin-left 1s;
+}
+.sesevents_list_view_wrapper .list-item.divider {
+	background-color: grey;
+	width: 100%;
+	margin: 10px 0;
+	border: solid 2px grey;
+}
+
+.sesevents_list_view_wrapper .list-item-info {
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
 }

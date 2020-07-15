@@ -171,7 +171,12 @@ if(isset($this->can_edit)){
           <?php } ?>
           <?php if(in_array('minimalisticCover',$this->show_criterias)){ ?>
             <div class="sesevent_minimalistic_cover">
-                <?php echo $this->eventStartDate($this->subject,$dateinfoParams); ?>
+            <?php $formattedDate =  $this->eventStartDate($this->subject,$dateinfoParams); ?>
+                <div class='seevent-cover-date'>
+                      <h1 class='seevent-cover-date--day'><?php echo $formattedDate["day"] ?></h1>
+                      <h1 class='seevent-cover-date--date'><?php echo $formattedDate["date"] ?></h1>
+                      <h1 class='seevent-cover-date--month'><?php echo $formattedDate["month"] ?></h1>
+                </div>
                 <div class="divider"></div>
                 <div>
                   <h1><?php echo $this->subject->getTitle(); ?></h1>

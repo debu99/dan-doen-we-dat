@@ -943,11 +943,10 @@ ul.sesbasic-autosuggest .autocompleter-choice:hover{
   background-color:transparent;
 }
 .sesbasic_view_type{
-  border-bottom:1px solid $theme_border_color;
 	margin-bottom:10px;
 	padding:5px 0;
-  position:relative;
-  z-index:1;
+	position:relative;
+	z-index:1;
 }
 .sesbasic_view_type h4{
 	padding:10px 0;
@@ -1619,7 +1618,6 @@ ul.sesbasic-autosuggest .autocompleter-choice:hover{
 
 /*Alphabetic Search*/
 .sesevent_search_result{
-	border-bottom-width:1px;
 	font-weight:bold;
 	margin-bottom:10px;
 	padding:5px;

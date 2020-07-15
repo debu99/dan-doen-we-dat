@@ -78,7 +78,8 @@
   <script type="text/javascript">$$('.sesbasic_view_type_<?php echo $randonNumber ?>').setStyle('display', 'block');</script>
   <?php } ?>
  <?php if( count($this->paginator) > 0 ): ?>
-  <?php foreach( $this->paginator as $event ): ?>
+  <?php $prevEvent; ?>
+  <?php foreach( $this->paginator as $key=>$event ): ?>
     <?php 
       if(strlen($event->getTitle()) > $this->list_title_truncation) {
 				$listViewTitle = mb_substr($event->getTitle(),0,($this->list_title_truncation-3)).'...';
@@ -525,72 +526,35 @@
 			$height = is_numeric($this->height) ? $this->height.'px' : $this->height;
 			$width = is_numeric($this->width) ? $this->width.'px' : $this->width;
     ?>
-    <?php $list = "<li class='sesevents_list_view sesbm sesbasic_clearfix sesbasic_bxs'>
-			<div class='sesevent_thumb sesevent_grid_btns_wrap' style='height:". $height.";width:". $width.";'>
-				<a href='".$href."' class='sesevent_thumb_img ses_tooltip' data-src=".$event->getGuid().">
-					<span style='background-image:url(".$imageURL.");'></span>
-        </a>";?>
-        <?php if(!$event->is_approved){ 
-					 $list  .=	 "<span class='sesevent_unapproved_label'>".$this->translate("Unapproved")."</span>";
-					 } ?>
-       <?php if(!$event->draft){ 
-        $list .=	 "<span class='sesevent_unpublished_label'>".$this->translate("Not Published")."</span>";
-        }
-        $list  .=
-			 " $shareOptionsListView
-        $labels
-      </div>
-      <div class=\"sesevents_list_info\">
-				".$eventListTitle." ";?>
-			<?php
-			if(isset($this->byActive)){
-       $list	.="<div class=\"sesevent_list_stats\">
-        	<span>
-          	<i class='fa fa-user sesbasic_text_light' title='".$this->translate('By')."'></i>	
-         		".$this->htmlLink($event->getOwner()->getHref(), $event->getOwner()->getTitle(), array('class' => 'thumbs_author'))."
-        	</span>
-        </div>"; 
-			}
-		?>
-     <?php
-			if(isset($this->hostActive)){
-      $list .=  "<div class=\"sesevent_list_stats\">
-        	<span>
-          	<i class='fa fa-male sesbasic_text_light' title='".$this->translate('Hosted By')."'></i>	
-         		".$this->htmlLink($host->getHref(), $host->getTitle(), array('class' => 'thumbs_author'))."
-        	</span>
-        </div>";
-			}
-		 ?>
-		<?php
-      $list .=   $location.$eventStartEndDate
-        ."
-        $showCategory
-        <div class=\"sesevent_list_stats\">
-         	".$statstics."
-        </div>";?>
-     <?php
-		 if(isset($this->listdescriptionActive)){
-      $list .=	"<div class=\"sesevent_list_des\">";
-      if(strlen(strip_tags($event->description)) > $this->list_description_truncation){ 
-					$list .=	 $this->viewMore($this->string()->stripTags($event->description),$this->list_description_truncation);
-      }
-      else {
-					$list .= $this->string()->truncate($this->string()->stripTags($event->description), $this->list_description_truncation);
-      }
-      $list .=	 "</div>";
-		 }
-		?>
-    
-		<?php		
-  if($event->authorization()->isAllowed(Engine_Api::_()->user()->getViewer(), 'edit')){
-     $list  .= '<div  class="sesevent_list_options"><a href="'.$this->url(array('event_id' => $event->custom_url,'action'=>'edit'), 'sesevent_dashboard', true).'"  title="'.$this->translate("Edit Event").'" class="sesbasic_button fa fa-edit"></i>'.$this->translate("Edit Event").'</a>';
-  }
-	if($event->authorization()->isAllowed(Engine_Api::_()->user()->getViewer(), 'delete')){
-		$list .= '<a class="sesbasic_button fa fa-trash" onclick="opensmoothboxurl('."'".$this->url(array('event_id' => $event->event_id,'action'=>'delete'), 'sesevent_specific', true)."'".');return false;"	href="javascript:;" title="'.$this->translate("Delete Event").'">'.$this->translate("Delete Event").'</a></div>';
-	}
-		$list .='</li>'; ?>
-    <?php $listViewData .= $list;?>
+    <!-- start list view item -->
+    <?php 
+      $currentFormattedDate = $this->eventStartDate($event);
+      $currentDateString = "{$currentFormattedDate['day']} {$currentFormattedDate['date']} {$currentFormattedDate['month']}";
+      
+      $prevFormattedDate = $this->eventStartDate($prevEvent);
+      $prevDateString = "{$prevFormattedDate['day']} {$prevFormattedDate['date']} {$prevFormattedDate['month']}";
+
+      $sameDate = $prevDateString == $currentDateString;
+      $listViewData .= 
+        ($key > 0 && !$sameDate? '<div class=\'list-item divider\'></div>':"")
+        ."<div class='list-item'>
+          <div class='list-item-date'>
+            <h1>".(!$sameDate? $currentDateString: '')."</h1>
+          </div>
+          <a href='{$event->getHref()}' class='list-item-info'>
+              <div class='list-item-info--title--location'>
+                  <h1>{$event->title}</h1>
+                  <h3>{$event->location}</h3>
+              </div>
+              <div class='list-item--time'>
+                <h1>{$currentFormattedDate['time']}</h1>
+              </div>
+          </a>
+        </div>
+        ";
+    ?>
+  <!-- end end list view item -->
+
     <?php $pinboardWidth =  is_numeric($this->pinboard_width) ? $this->pinboard_width.'px' : $this->pinboard_width ;
     $hostPinboard = '';
     if(isset($this->hostActive)){
@@ -601,6 +565,7 @@
         	</span>
         </div>";
 		 }
+
     $pinboard = "<li class=\"sesbasic_bxs sesbasic_pinboard_list_item_wrap new_image_pinboard_".$randonNumber."\" style='width:$pinboardWidth;'>
       <div class=\"sesbasic_pinboard_list_item sesbm\">
 			<div class=\"sesbasic_pinboard_list_item_top\">
@@ -928,11 +893,12 @@ $pinboard .= "<div class=\"sesbasic_pinboard_list_item_poster sesbasic_text_ligh
         //$locationArray[$counter]['description'] = $event->description;      
       $counter++;?>
     <?php endif;?>
+    <?php $prevEvent = $event ?>
   <?php endforeach; 
   ?>
   <div id="browse-widget_<?php echo $randonNumber;?>" class="sesevent_event_all_events sesevent_browse_listing">
   <?php if(isset($this->show_item_count) && $this->show_item_count){ ?>
-   <div class="sesbasic_clearfix sesbm sesevent_search_result" style="display:<?php !$this->is_ajax ? 'block' : 'none'; ?>" id="<?php echo !$this->is_ajax ? 'paginator_count_sesevent' : 'paginator_count_ajax_sesevent' ?>"><span id="total_item_count_sesevent" style="display:inline-block;"></span> <?php echo $this->translate(array('%s event found.', '%s events found.', $this->paginator->getTotalItemCount()), $this->locale()->toNumber($this->paginator->getTotalItemCount())); ?></div>
+   <div class="sesbasic_clearfix sesbm sesevent_search_result" style="display:<?php !$this->is_ajax ? 'block' : 'none'; ?>" id="<?php echo !$this->is_ajax ? 'paginator_count_sesevent' : 'paginator_count_ajax_sesevent' ?>"><span id="total_item_count_sesevent" style="display:inline-block;"></span> <?php echo $this->translate(array('%s event found', '%s events found', $this->paginator->getTotalItemCount()), $this->locale()->toNumber($this->paginator->getTotalItemCount())); ?></div>
    <?php } ?>
     <ul id="sesevent_masonry_view_<?php echo $randonNumber;?>" class="sesevent_list_flex_wrapper clear sesbasic_clearfix" <?php if($this->view_type != 'masonry'):?> style="display:none;"<?php endif;?>>
       <?php echo $masonryViewData;?>
