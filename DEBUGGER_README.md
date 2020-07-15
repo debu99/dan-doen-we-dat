@@ -2,6 +2,8 @@
 
 To make use of xdebug in the docker container, you have to correctly set `xdebug.remote_host=dockershostip` in `./config/php/php.ini`. On windows this is not equal to the regular ip address on the local network. It's the DockerNat also referred to as Ethernet adapter vEthernet (WSL) in ipconfig. To determine the host ip in wsl, run hostname -I.
 
+If you want to debug .tpl files in visual code, mark them as php in the bottom left.
+
 # Database setup
 host: database
 username: root
@@ -24,3 +26,6 @@ You must set the permissions (CHMOD) of the following directories and files to 7
 /application/packages/ (recursively; all directories and files contained within this should also be changed)
 /application/languages/ (recursively; all directories and files contained within this must also be changed)
 /application/settings/ (recursively; all files contained within this must also be changed)
+
+# Social Engine Info
+https://kb.scripttechs.com/creating-a-socialengine-widget/

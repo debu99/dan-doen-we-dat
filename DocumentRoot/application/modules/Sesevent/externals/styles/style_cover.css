@@ -3,14 +3,45 @@
 #global_page_sesevent-profile-index .layout_top .layout_middle{
 	overflow:visible;
 }
+
 .layout_sesevent_event_cover{
   background:none !important;
   padding:0 !important;
   border:0 !important;
   box-shadow:none !important;
 }
-.sesevent_cover_wrapper{
-  height:100%;
+.sesevent_minimalistic_cover {
+	display: flex;
+	justify-content: center;
+}
+
+.sesevent_minimalistic_cover h1 {
+	color: white;
+	font-size: 2.5em;
+	line-height: 0.60;
+	max-width: 25vw;
+	line-height: 0.8;
+}
+@media (max-width: 800px){
+	.sesevent_minimalistic_cover h1 {
+		max-width: 65vw;
+	}
+}
+.sesevent_minimalistic_cover .divider {
+	width: 5px;
+	background-color: white;
+	margin: 0 10px;
+}
+.sesevent_minimalistic_cover .seevent-cover-date--date {
+	font-size: 6em;
+}
+.sesevent_minimalistic_cover .seevent-cover-date {
+	display: flex;
+    flex-direction: column;
+	justify-content: center;
+}
+.sesevent_minimalistic_cover .seevent-cover-date h1 {
+	line-height: 0.8;
 }
 .sesevent_cover_container{
 	background-color:#aaa;

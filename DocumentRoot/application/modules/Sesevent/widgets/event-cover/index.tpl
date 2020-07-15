@@ -169,6 +169,15 @@ if(isset($this->can_edit)){
               <?php echo $this->eventStartEndDates($this->subject,$dateinfoParams); ?>
             </div>
           <?php } ?>
+          <?php if(in_array('minimalisticCover',$this->show_criterias)){ ?>
+            <div class="sesevent_minimalistic_cover">
+                <?php echo $this->eventStartDate($this->subject,$dateinfoParams); ?>
+                <div class="divider"></div>
+                <div>
+                  <h1><?php echo $this->subject->getTitle(); ?></h1>
+                </div>
+            </div>
+          <?php } ?>
             <?php if(in_array('location',$this->show_criterias) && $this->subject->location && Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent_enable_location', 1)){ ?>
             <div class="sesevent_cover_date clear sesbasic_clearfix sesevent_cover_location">
               <i title='<?php echo $this->translate("Location"); ?>' class="fas fa-map-marker-alt"></i>

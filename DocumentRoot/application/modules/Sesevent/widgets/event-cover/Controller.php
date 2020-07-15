@@ -14,12 +14,15 @@ class Sesevent_Widget_EventCoverController extends Engine_Content_Widget_Abstrac
 		$request = Zend_Controller_Front::getInstance()->getRequest();
 		$params = $request->getParams();
 		$this->view->actionA = $params['action'];
-    // Don't render this if not authorized
-    $viewer = Engine_Api::_()->user()->getViewer();
-    if (!Engine_Api::_()->core()->hasSubject('sesevent_event')) {
-      return $this->setNoRender();
-    }
-		$this->view->show_criterias = $this->_getParam('showCriterias',array('mainPhoto','hostedby','startEndDate','location','getDirection','addtocalender','bookNow','title','createdby','createdon'));
+		// Don't render this if not authorized
+		$viewer = Engine_Api::_()->user()->getViewer();
+		if (!Engine_Api::_()->core()->hasSubject('sesevent_event')) {
+		return $this->setNoRender();
+		}
+		if(in_array("minimalisticCover",  $this->_getParam('showCriterias'))) 
+			$this->view->show_criterias = array('minimalisticCover');
+		else 
+			$this->view->show_criterias = $this->_getParam('showCriterias',array('minimalisticCover','mainPhoto','hostedby','startEndDate','location','getDirection','addtocalender','bookNow','title','createdby','createdon'));
 		$this->view->show_calander = $this->_getParam('showCalander',array('google','yahoo','msn','outlook','ical'));
 		$this->view->tab = $this->_getParam('optionInsideOutside',1);
 		$this->view->height = $this->_getParam('height','500');
@@ -28,14 +31,12 @@ class Sesevent_Widget_EventCoverController extends Engine_Content_Widget_Abstrac
 			$this->view->padding = $this->_getParam('padding','');
 		}else
 			$this->view->padding = '';
-    // Get subject and check auth
-    
 
-    $this->view->socialshare_enable_plusicon = $this->_getParam('socialshare_enable_plusicon', 1);
-    $this->view->socialshare_icon_limit = $this->_getParam('socialshare_icon_limit', 2);
+    	$this->view->socialshare_enable_plusicon = $this->_getParam('socialshare_enable_plusicon', 1);
+    	$this->view->socialshare_icon_limit = $this->_getParam('socialshare_icon_limit', 2);
     
 		$this->view->photo = $this->_getParam('photo','mPhoto');
-    $subject = $this->view->subject = Engine_Api::_()->core()->getSubject('sesevent_event');
+    	$subject = $this->view->subject = Engine_Api::_()->core()->getSubject('sesevent_event');
 		$this->view->can_edit = $editOverview = $subject->authorization()->isAllowed($viewer, 'edit');		
 		$user = Engine_Api::_()->getItem('sesevent_host', $subject->host);
 		$params['href'] = $user->getHref();
@@ -44,9 +45,9 @@ class Sesevent_Widget_EventCoverController extends Engine_Content_Widget_Abstrac
 		$params['id'] = $user->getIdentity();
 		$params['description'] = $user->host_description;		
 		$sesevent_coverevent = Zend_Registry::isRegistered('sesevent_coverevent') ? Zend_Registry::get('sesevent_coverevent') : null;
-    if(empty($sesevent_coverevent)) {
-	    return $this->setNoRender();
-    }
+		if(empty($sesevent_coverevent)) {
+			return $this->setNoRender();
+		}
 		$this->view->eventTags = $subject->tags()->getTagMaps();
 		$this->view->host = $params;
 		$currentTime = time();
@@ -54,8 +55,7 @@ class Sesevent_Widget_EventCoverController extends Engine_Content_Widget_Abstrac
 			$this->view->noTicketAvailable = true;
 		}else{
 			//don't render widget if event ends
-			if(strtotime($subject->endtime) < strtotime($currentTime))
-			{
+			if(strtotime($subject->endtime) < strtotime($currentTime)){
 				$this->view->noTicketAvailable = true;
 			}else{
 				$params['event_id'] = $subject->event_id;
