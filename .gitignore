@@ -1,1 +1,12 @@
-./DocumentRoot/temporary
+./DocumentRoot/temporary/*.jpg
+
+./DocumentRoot/temporary/cache/**
+!./DocumentRoot/temporary/cache/.gitkeep
+
+!somefolder/.gitkeep 
+
+./DocumentRoot/temporary/log/**
+!./DocumentRoot/temporary/log/.gitkeep
+
+./DocumentRoot/temporary/scaffold/**
+!./DocumentRoot/temporary/scaffold/.gitkeep

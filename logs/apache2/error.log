@@ -1296,3 +1296,75 @@ sh: 3: Syntax error: newline unexpected
 [Wed Jul 15 16:29:32.692975 2020] [php7:notice] [pid 21] [client 10.0.0.2:49176] PHP Stack trace:, referer: http://www.dandoenwedat.com/members/home
 [Wed Jul 15 16:29:32.693006 2020] [php7:notice] [pid 21] [client 10.0.0.2:49176] PHP   1. Engine_Api::handleException($exception = *uninitialized*) /var/www/html/application/libraries/Engine/Api.php:0, referer: http://www.dandoenwedat.com/members/home
 [Wed Jul 15 16:29:32.693025 2020] [php7:notice] [pid 21] [client 10.0.0.2:49176] PHP   2. Engine_Api::_sendFatalResponse() /var/www/html/application/libraries/Engine/Api.php:732, referer: http://www.dandoenwedat.com/members/home
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 10:29:19.847174 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 10:29:19.847267 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 10:30:06.463884 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 10:30:10.959866 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 10:30:10.959968 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 10:34:27.901422 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 10:34:47.838239 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 10:34:47.838335 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 10:36:32.354988 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 10:36:37.355893 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 10:36:37.355989 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 10:36:46.999592 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 10:38:30.276782 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 10:38:30.276872 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 10:40:45.340658 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 10:41:25.804224 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 10:41:25.804346 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 10:45:29.918814 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 10:45:38.872984 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 10:45:38.873069 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 10:48:29.918977 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 10:48:34.766929 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 10:48:34.767048 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 10:53:32.447155 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 192.168.0.2. Set the 'ServerName' directive globally to suppress this message
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 10:53:39.756430 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 10:53:39.756601 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 11:01:17.922493 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 11:01:19.824678 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 11:01:19.824780 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 11:02:24.830243 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 11:02:32.367918 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 11:02:32.368058 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 11:07:16.815855 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 11:07:23.423946 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 11:07:23.424055 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 11:08:42.028501 2020] [php7:notice] [pid 18] [client 192.168.0.2:44216] PHP Parse error:  syntax error, unexpected 'ini_set' (T_STRING) in /var/www/html/index.php on line 9, referer: http://localhost/login/return_url/64-Lw%3D%3D
+[Fri Jul 17 11:08:43.415296 2020] [php7:notice] [pid 18] [client 192.168.0.2:44216] PHP Parse error:  syntax error, unexpected 'ini_set' (T_STRING) in /var/www/html/index.php on line 9, referer: http://localhost/login/return_url/64-Lw%3D%3D
+[Fri Jul 17 11:08:44.570546 2020] [php7:notice] [pid 18] [client 192.168.0.2:44216] PHP Parse error:  syntax error, unexpected 'ini_set' (T_STRING) in /var/www/html/index.php on line 9, referer: http://localhost/login/return_url/64-Lw%3D%3D
+[Fri Jul 17 11:29:41.349947 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 11:29:50.470455 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 11:29:50.470596 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 11:32:15.762735 2020] [mpm_prefork:notice] [pid 1] AH00171: Graceful restart requested, doing restart
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 11:32:15.792631 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 11:32:15.792694 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 11:32:22.712969 2020] [mpm_prefork:notice] [pid 1] AH00171: Graceful restart requested, doing restart
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 11:32:22.749119 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 11:32:22.749157 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Jul 17 11:43:22.055751 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Fri Jul 17 11:43:30.893976 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Fri Jul 17 11:43:30.894132 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Jul 21 10:16:14.586700 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully
+Cannot load Xdebug - it was already loaded
+[Tue Jul 21 15:42:48.908795 2020] [mpm_prefork:notice] [pid 1] AH00163: Apache/2.4.38 (Debian) PHP/7.4.8 configured -- resuming normal operations
+[Tue Jul 21 15:42:48.908917 2020] [core:notice] [pid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Jul 21 15:43:13.257036 2020] [mpm_prefork:notice] [pid 1] AH00170: caught SIGWINCH, shutting down gracefully

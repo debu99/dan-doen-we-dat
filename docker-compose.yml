@@ -1,6 +1,6 @@
 version: '3.1'
 services:
-    php-apache:
+    dandoenwedat:
         image: piepongwong/php-apache-se:dev
         build: ./
         container_name: 'dandoenwedat-web'
@@ -12,6 +12,13 @@ services:
             - ./devconfig/php/php.ini:/usr/local/etc/php/php.ini
             - ./devconfig/apache/apache2.conf:/etc/apache2/apache2.conf
             - ./logs/apache2:/var/log/apache2
+    # reverse-proxy:         
+    #     container_name: proxy
+    #     image: httpd:2.4
+    #     volumes:
+    #         - ./proxyconfig/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    #     ports:
+    #         - 80:80
     database:
         image: mysql:5.7.30
         container_name: dandoenwedat-mysql
