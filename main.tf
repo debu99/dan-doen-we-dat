@@ -9,6 +9,34 @@ resource "aws_key_pair" "ddwd" {
   public_key = file("~/.ssh/terraform.pub")
 }
 
+resource "aws_instance" "remote-desktop"  {
+  key_name      = aws_key_pair.ddwd.key_name
+  ami           = "ami-0ac80df6eff0e70b5"
+  instance_type = "t2.micro"
+  security_groups = ["remote-desktop-vnc-viewer"]
+  
+  connection {
+    type        = "ssh"
+    user        = "ubuntu"
+    private_key = file("~/.ssh/terraform")
+    host        = self.public_ip
+  }
+  
+  provisioner "file" {
+      source      = "./terraform_resources/vncserver"
+      destination = "~/vncserver"
+    }
+
+ provisioner "remote-exec" { 
+    inline = [
+      "sudo apt-get update && sudo apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal gnome-core -y",
+      "sudo apt-get update && sudo apt-get install vnc4server -y",
+      "sudo mv ~/vncserver /usr/bin/vncserver",
+      "sudo yes 'supersecurepw' | sudo vnc4server"
+    ]
+  }
+}
+
 resource "aws_instance" "ddwd" {
   key_name      = aws_key_pair.ddwd.key_name
   ami           = "ami-0ac80df6eff0e70b5"
