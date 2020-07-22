@@ -9,6 +9,8 @@ resource "aws_key_pair" "ddwd" {
   public_key = file("~/.ssh/terraform.pub")
 }
 
+# https://www.techrepublic.com/article/how-to-install-a-vnc-server-on-linux/
+# install chromium
 resource "aws_instance" "remote-desktop"  {
   key_name      = aws_key_pair.ddwd.key_name
   ami           = "ami-0ac80df6eff0e70b5"
@@ -22,17 +24,22 @@ resource "aws_instance" "remote-desktop"  {
     host        = self.public_ip
   }
   
-  provisioner "file" {
-      source      = "./terraform_resources/vncserver"
-      destination = "~/vncserver"
-    }
+  depends_on = [aws_instance.ddwd]
 
- provisioner "remote-exec" { 
+  provisioner "remote-exec" { 
     inline = [
-      "sudo apt-get update && sudo apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal gnome-core -y",
-      "sudo apt-get update && sudo apt-get install vnc4server -y",
-      "sudo mv ~/vncserver /usr/bin/vncserver",
-      "sudo yes 'supersecurepw' | sudo vnc4server"
+      "sudo apt-get update",
+      "sudo apt-get install chromium-browser -y",
+      "sudo apt-get update -y && sudo apt-get install xfce4 xfce4-goodies -y",
+      "sudo apt-get install tightvncserver -y",
+      "echo '#!/bin/bash\nxrdb $HOME/.Xresources\nstartxfce4 &' < ~/.vnc/xstartup",
+      "mkdir /home/ubuntu/.vnc",
+      "echo 'supersecurepw' | vncpasswd -f > /home/ubuntu/.vnc/passwd",
+      "chmod 0600 /home/ubuntu/.vnc/passwd",
+      "vncserver -y &",
+      "sudo su",
+      "sudo echo '${aws_instance.ddwd.public_ip} dandoenwedat.com' >> /etc/hosts",
+      "sudo echo '${aws_instance.ddwd.public_ip} www.dandoenwedat.com' >> /etc/hosts",
     ]
   }
 }
@@ -54,7 +61,7 @@ resource "aws_instance" "ddwd" {
     command = "echo ${aws_instance.ddwd.public_ip} > ip_address.txt"
   }
 
- provisioner "file" {
+  provisioner "file" {
     source      = "~/.ssh/ec2-github-access"
     destination = "~/.ssh/id_rsa"
   }
@@ -79,6 +86,7 @@ resource "aws_instance" "ddwd" {
       "sudo apt-get install docker -y", 
       "sudo docker swarm init",
       "cd dev-dan-doen-we-dat",
+      "sudo chmod -R 777 ~/dev-dan-doen-we-dat/DocumentRoot/temporary/{cache,log,scaffold}",
       "sudo docker stack deploy -c docker-compose.yml ddwd"
     ]
   }
