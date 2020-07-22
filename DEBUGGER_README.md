@@ -4,7 +4,9 @@ To make use of xdebug in the docker container, you have to correctly set `xdebug
 
 If you want to debug .tpl files in visual code, mark them as php in the bottom left.
 
+
 # Database setup
+in DocumentRoot/application/settings/database.php
 host: database
 username: root
 password: root
