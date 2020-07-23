@@ -9,38 +9,26 @@ resource "aws_key_pair" "ddwd" {
   public_key = file("~/.ssh/terraform.pub")
 }
 
-# https://www.techrepublic.com/article/how-to-install-a-vnc-server-on-linux/
-# install chromium
-resource "aws_instance" "remote-desktop"  {
-  key_name      = aws_key_pair.ddwd.key_name
-  ami           = "ami-0ac80df6eff0e70b5"
-  instance_type = "t2.micro"
-  security_groups = ["remote-desktop-vnc-viewer"]
-  
-  connection {
-    type        = "ssh"
-    user        = "ubuntu"
-    private_key = file("~/.ssh/terraform")
-    host        = self.public_ip
-  }
-  
-  depends_on = [aws_instance.ddwd]
+resource "aws_db_instance" "ddwd" {
+  allocated_storage    = 20
+  storage_type         = "gp2"
+  engine               = "mysql"
+  engine_version       = "5.7"
+  instance_class       = "db.t2.micro"
+  name                 = "dandoe_se"
+  username             = "piepongwong"
+  password             = "supersecurepw"
+  parameter_group_name = "default.mysql5.7"
+  publicly_accessible  = true
+  vpc_security_group_ids  = ["sg-0d12b65d9d5f6dc21"]
+  skip_final_snapshot = true
 
-  provisioner "remote-exec" { 
-    inline = [
-      "sudo apt-get update",
-      "sudo apt-get install chromium-browser -y",
-      "sudo apt-get update -y && sudo apt-get install xfce4 xfce4-goodies -y",
-      "sudo apt-get install tightvncserver -y",
-      "echo '#!/bin/bash\nxrdb $HOME/.Xresources\nstartxfce4 &' < ~/.vnc/xstartup",
-      "mkdir /home/ubuntu/.vnc",
-      "echo 'supersecurepw' | vncpasswd -f > /home/ubuntu/.vnc/passwd",
-      "chmod 0600 /home/ubuntu/.vnc/passwd",
-      "vncserver -y &",
-      "sudo su",
-      "sudo echo '${aws_instance.ddwd.public_ip} dandoenwedat.com' >> /etc/hosts",
-      "sudo echo '${aws_instance.ddwd.public_ip} www.dandoenwedat.com' >> /etc/hosts",
-    ]
+  tags = {
+    Name = "ddwd-prod"
+  }
+
+  provisioner "local-exec" {
+    command = "echo '\ndb_host=${aws_db_instance.ddwd.address}' >> .db.env"
   }
 }
 
@@ -48,7 +36,11 @@ resource "aws_instance" "ddwd" {
   key_name      = aws_key_pair.ddwd.key_name
   ami           = "ami-0ac80df6eff0e70b5"
   instance_type = "t2.micro"
-  security_groups = ["ddwd-test-environment"]
+  security_groups = ["ddwd-web-prod-environment"]
+  depends_on = [aws_db_instance.ddwd]
+  tags = {
+    Name = "ddwd-prod-web-node"
+  }
 
   connection {
     type        = "ssh"
@@ -59,6 +51,11 @@ resource "aws_instance" "ddwd" {
 
   provisioner "local-exec" {
     command = "echo ${aws_instance.ddwd.public_ip} > ip_address.txt"
+  }
+
+  provisioner "file" {
+    source      = ".db.env"
+    destination = "~/.env"
   }
 
   provisioner "file" {
@@ -76,7 +73,8 @@ resource "aws_instance" "ddwd" {
       "sudo apt-get update",
       "chmod 400 ~/.ssh/id_rsa",
       "sudo apt-get install git -y",
-      "git clone -b develop git@github.com:Piepongwong/dev-dan-doen-we-dat.git",
+      "git clone -b production git@github.com:Piepongwong/dev-dan-doen-we-dat.git",
+      "mv ~/.env ~/dev-dan-doen-we-dat/.db.env",
       "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y",
       "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -",
       "sudo apt-key fingerprint 0EBFCD88",
@@ -85,9 +83,11 @@ resource "aws_instance" "ddwd" {
       "sudo apt-get install docker-ce docker-ce-cli containerd.io -y",
       "sudo apt-get install docker -y", 
       "sudo docker swarm init",
-      "cd dev-dan-doen-we-dat",
+      "sudo apt install awscli",
+      "mkdir ~/dev-dan-doen-we-dat/DocumentRoot/temporary/{cache,log,scaffold}",
       "sudo chmod -R 777 ~/dev-dan-doen-we-dat/DocumentRoot/temporary/{cache,log,scaffold}",
-      "sudo docker stack deploy -c docker-compose.yml ddwd"
+      "cd ~/dev-dan-doen-we-dat",
+      "sudo docker stack deploy -c docker-compose-prod.yml ddwd"
     ]
   }
 }

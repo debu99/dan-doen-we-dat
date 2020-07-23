@@ -35,7 +35,10 @@ RUN apt-get update && \
 RUN docker-php-ext-install gd && \
     docker-php-ext-install mysqli 
 # # Enable apache modules
-RUN a2enmod rewrite headers
+RUN a2enmod rewrite headers && \
+    a2enmod ssl
 
+COPY ./.cert /home/.cert
 # Cleanup & changing permissions
 RUN rm -rf /usr/src/* 
+
