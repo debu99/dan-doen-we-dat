@@ -19,11 +19,6 @@ RUN apt-get -y update && \
     libzip-dev \
     libicu-dev && \
         apt-get -y --no-install-recommends install --fix-missing apt-utils 
-
-# Install xdebug
-RUN pecl install xdebug-2.8.0 && \
-    docker-php-ext-enable xdebug
-
 # Install imagick
 RUN apt-get update && \
     apt-get -y --no-install-recommends install --fix-missing libmagickwand-dev && \
@@ -34,11 +29,14 @@ RUN apt-get update && \
 # Other PHP7 Extensions
 RUN docker-php-ext-install gd && \
     docker-php-ext-install mysqli 
+    
 # # Enable apache modules
-RUN a2enmod rewrite headers && \
-    a2enmod ssl
+RUN a2enmod rewrite headers
+COPY ./DocumentRoot /var/www/html
+COPY ./devconfig/apache/vhosts /etc/apache2/sites-enabled
+COPY ./devconfig/php/php.ini /usr/local/etc/php/php.ini
+COPY ./devconfig/apache/apache2.conf /etc/apache2/apache2.conf
+COPY ./logs/apache2 /var/log/apache2
 
-COPY ./.cert /home/.cert
 # Cleanup & changing permissions
 RUN rm -rf /usr/src/* 
-

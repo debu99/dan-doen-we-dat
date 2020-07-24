@@ -7,55 +7,32 @@ services:
             --providers.docker.swarmMode=true
             --entrypoints.web.address=:80
             --entrypoints.websecure.address=:443
-            --certificatesresolvers.myresolver.acme.email=your-email@example.com
+            --certificatesresolvers.myresolver.acme.email=info@tech-savvy.io
             --certificatesresolvers.myresolver.acme.storage=acme.json
             --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
         ports:
-          - "443:443"
-          - "8080:8080"
+            - "80:80"
+            - "443:443"
+            - "8080:8080"
         volumes:
-          - "./letsencrypt:/letsencryptt"
-          - "/var/run/docker.sock:/var/run/docker.sock"
+            - "./letsencrypt:/letsencryptt"
+            - "/var/run/docker.sock:/var/run/docker.sock"
     dandoenwedat:
         image: piepongwong/php-apache-se:prod
-        build: ./
-        container_name: 'dandoenwedat-web'
-        environment:
-            db_host: database
-            db_username: root
-            db_password: root
-            db_database: dandoe_se5
         volumes:
             - ./DocumentRoot:/var/www/html
             - ./devconfig/apache/vhosts:/etc/apache2/sites-enabled
             - ./devconfig/php/php.ini:/usr/local/etc/php/php.ini
             - ./devconfig/apache/apache2.conf:/etc/apache2/apache2.conf
             - ./logs/apache2:/var/log/apache2
+        environment:
+            db_host: terraform-20200722111103101900000001.cfqoicjxtxsq.us-east-1.rds.amazonaws.com
+            db_username: piepongwong
+            db_password: supersecurepw
+            db_database: dandoe_se
         deploy:
             labels:
-                - traefik.http.routers.web.rule=Host(`web.localhost`)
+                - traefik.http.routers.web.rule=Host(`dandoenwedat.com`)
                 - traefik.http.routers.web.tls=true
                 - traefik.http.routers.web.tls.certresolver=myresolver
-                - traefik.http.services.web-service.loadbalancer.server.port=80        
-    database:
-        image: mysql:5.7.30
-        container_name: dandoenwedat-mysql
-        restart: 'always'
-        ports:
-            - "3306:3306"
-        volumes: 
-            - ./data/mysql:/var/lib/mysql
-            - ./logs/mysql:/var/log/mysql
-        environment:
-            MYSQL_DATABASE: dandoenwedat
-            MYSQL_USER: root
-            MYSQL_PASSWORD: /run/secrets/mysql_password
-            MYSQL_ROOT_PASSWORD: /run/secrets/mysql_root_password
-        secrets:
-            - mysql_password
-            - mysql_root_password
-secrets:
-    mysql_root_password:
-        file: ./secrets/mysql_root_password.txt
-    mysql_password:
-        file: ./secrets/mysql_password.txt
+                - traefik.http.services.web-service.loadbalancer.server.port=80
