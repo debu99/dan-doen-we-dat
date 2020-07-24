@@ -19,6 +19,7 @@ RUN apt-get -y update && \
     libzip-dev \
     libicu-dev && \
         apt-get -y --no-install-recommends install --fix-missing apt-utils 
+
 # Install imagick
 RUN apt-get update && \
     apt-get -y --no-install-recommends install --fix-missing libmagickwand-dev && \
@@ -30,13 +31,16 @@ RUN apt-get update && \
 RUN docker-php-ext-install gd && \
     docker-php-ext-install mysqli 
     
-# # Enable apache modules
+# Enable apache modules
 RUN a2enmod rewrite headers
+
+# Build with newest code
 COPY ./DocumentRoot /var/www/html
-COPY ./devconfig/apache/vhosts /etc/apache2/sites-enabled
-COPY ./devconfig/php/php.ini /usr/local/etc/php/php.ini
-COPY ./devconfig/apache/apache2.conf /etc/apache2/apache2.conf
-COPY ./logs/apache2 /var/log/apache2
+COPY ./prodconfig/php/php.ini /usr/local/etc/php/php.ini
+COPY ./prodconfig/apache/apache2.conf /etc/apache2/apache2.conf
 
 # Cleanup & changing permissions
-RUN rm -rf /usr/src/* 
+RUN rm -rf /usr/src/* && \
+    chmod -R 777  /var/www/html/temporary/cache && \
+    chmod -R 777 /var/www/html/temporary/log && \
+    chmod -R 777 /var/www/html/temporary/scaffold
