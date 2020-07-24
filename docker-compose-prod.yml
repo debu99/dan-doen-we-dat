@@ -15,24 +15,18 @@ services:
             - "443:443"
             - "8080:8080"
         volumes:
-            - "./letsencrypt:/letsencryptt"
+            - "./letsencrypt:/letsencrypt"
             - "/var/run/docker.sock:/var/run/docker.sock"
     dandoenwedat:
-        image: piepongwong/php-apache-se:prod
+        image: local-test-prod:test1
         volumes:
-            - ./DocumentRoot:/var/www/html
-            - ./devconfig/apache/vhosts:/etc/apache2/sites-enabled
-            - ./devconfig/php/php.ini:/usr/local/etc/php/php.ini
-            - ./devconfig/apache/apache2.conf:/etc/apache2/apache2.conf
-            - ./logs/apache2:/var/log/apache2
-        environment:
-            db_host: terraform-20200722111103101900000001.cfqoicjxtxsq.us-east-1.rds.amazonaws.com
-            db_username: piepongwong
-            db_password: supersecurepw
-            db_database: dandoe_se
+            - ./DocumentRoot/public:/var/www/html/public
+        env_file:
+            - .db.env
+            - .s3.env
         deploy:
             labels:
-                - traefik.http.routers.web.rule=Host(`dandoenwedat.com`)
+                - traefik.http.routers.web.rule=Host(`web.localhost`, `dandoenwedat.com`, `www.dandoenwedat.com`)
                 - traefik.http.routers.web.tls=true
                 - traefik.http.routers.web.tls.certresolver=myresolver
                 - traefik.http.services.web-service.loadbalancer.server.port=80
