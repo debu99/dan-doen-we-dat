@@ -40,6 +40,7 @@ COPY ./prodconfig/php/php.ini /usr/local/etc/php/php.ini
 COPY ./prodconfig/apache/apache2.conf /etc/apache2/apache2.conf
 
 # Cleanup & changing permissions
-RUN rm -rf /usr/src/* && chmod -R 777 /var/www/html/temporary/cache && \
+RUN rm -rf /usr/src/* && \
+    chmod -R 777  /var/www/html/temporary/cache && \
     chmod -R 777 /var/www/html/temporary/log && \
     chmod -R 777 /var/www/html/temporary/scaffold
