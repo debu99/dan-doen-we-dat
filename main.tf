@@ -80,7 +80,7 @@ resource "aws_instance" "ddwd" {
 
   provisioner "file" {
     source      = ".db.env"
-    destination = "~/.env"
+    destination = "~/.db.env"
   }
 
   provisioner "file" {
@@ -104,8 +104,8 @@ resource "aws_instance" "ddwd" {
       "chmod 400 ~/.ssh/id_rsa",
       "sudo apt-get install git -y",
       "git clone -b new-deploy-prod-config-try git@github.com:Piepongwong/dev-dan-doen-we-dat.git ddwd",
-      "mv ~/.db.env ~/dev-dan-doen-we-dat/.db.env",
-      "mv ~/.s3.env ~/dev-dan-doen-we-dat/.s3.env",
+      "mv ~/.db.env ~/ddwd/.db.env",
+      "mv ~/.s3.env ~/ddwd/.s3.env",
       "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y",
       "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -",
       "sudo apt-key fingerprint 0EBFCD88",
@@ -121,7 +121,7 @@ resource "aws_instance" "ddwd" {
       "echo '*/10 * * * * root aws s3 sync /home/ubuntu/ddwd/DocumentRoot/public s3://dandoenwedat-prod/public' >> ~/s3_aws_public_sync",
       "sudo mv  ~/s3_aws_public_sync /etc/cron.d/",
       "sudo docker swarm init",
-      "sudo docker stack deploy -c docker-compose-prod.yml ddwd"
+      "sudo docker stack deploy -c docker-compose.yml ddwd"
     ]
   }
 }
