@@ -17,7 +17,7 @@ services:
             - "./letsencrypt:/letsencrypt"
             - "/var/run/docker.sock:/var/run/docker.sock"
     dandoenwedat:
-        image: local-test-prod:test1
+        image: piepongwong/apache-php-se-prod:v1.0
         volumes:
             - ./DocumentRoot/public:/var/www/html/public
         env_file:
@@ -25,7 +25,7 @@ services:
             - .s3.env
         deploy:
             labels:
-                - traefik.http.routers.web.rule=Host(`web.localhost`, `dandoenwedat.com`, `www.dandoenwedat.com`)
+                - traefik.http.routers.web.rule=Host(`dandoenwedat.com`, `www.dandoenwedat.com`)
                 - traefik.http.routers.web.tls=true
                 - traefik.http.routers.web.tls.certresolver=myresolver
                 - traefik.http.services.web-service.loadbalancer.server.port=80

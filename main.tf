@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 resource "aws_key_pair" "ddwd" {
-  key_name   = "terraform"
+  key_name   = "terraform-prod"
   public_key = file("~/.ssh/terraform.pub")
 }
 
@@ -30,18 +30,46 @@ resource "aws_db_instance" "ddwd" {
     command = "echo '\ndb_host=${aws_db_instance.ddwd.address}' >> .db.env"
   }
 }
+resource "aws_iam_role" "ec2_s3_access" {
+  name = "ec2_s3_access"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Effect": "Allow",
+      "Sid": ""
+    }
+  ]
+}
+EOF
+
+  tags = {
+    tag-key = "tag-value"
+  }
+}
+
+resource "aws_iam_instance_profile" "ec2_s3_role" {
+  name = "ec2-s3-access"
+  role = "${aws_iam_role.ec2_s3_access.name}"
+}
 
 resource "aws_instance" "ddwd" {
   key_name      = aws_key_pair.ddwd.key_name
   ami           = "ami-0ac80df6eff0e70b5"
   instance_type = "t2.micro"
   security_groups = ["ddwd-web-prod-environment"]
+  iam_instance_profile = "${aws_iam_instance_profile.ec2_s3_role.name}"
+
   depends_on = [aws_db_instance.ddwd]
   tags = {
     Name = "ddwd-prod-web-node"
   }
-
-  iam_instance_profile  = "my-role"
 
   connection {
     type        = "ssh"
@@ -78,18 +106,21 @@ resource "aws_instance" "ddwd" {
       "git clone -b production git@github.com:Piepongwong/dev-dan-doen-we-dat.git ddwd",
       "mv ~/.db.env ~/dev-dan-doen-we-dat/.db.env",
       "mv ~/.s3.env ~/dev-dan-doen-we-dat/.s3.env",
+      "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y",
+      "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -",
+      "sudo apt-key fingerprint 0EBFCD88",
       "sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable'",
-      "sudo apt-get update",
+      "sudo apt-get update -y",
       "sudo apt-get install docker-ce docker-ce-cli containerd.io -y",
-      "sudo apt-get install docker -y", 
-      "sudo docker swarm init",
       "curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o 'awscliv2.zip'",
       "sudo apt install unzip -y",
       "unzip awscliv2.zip",
       "sudo ./aws/install",
       "rm awscliv2.zip",
-      "cd ~/dev-dan-doen-we-dat",
-      "echo '*/10 * * * * root aws s3 sync /home/ubuntu/ddwd/DocumentRoot/public s3://dandoenwedat-prod/public' >> /etc/cron.d/s3_aws_public_sync",
+      "cd ~/ddwd",
+      "echo '*/10 * * * * root aws s3 sync /home/ubuntu/ddwd/DocumentRoot/public s3://dandoenwedat-prod/public' >> ~/s3_aws_public_sync",
+      "sudo mv  ~/s3_aws_public_sync /etc/cron.d/",
+      "sudo docker swarm init",
       "sudo docker stack deploy -c docker-compose-prod.yml ddwd"
     ]
   }
