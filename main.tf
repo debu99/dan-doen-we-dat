@@ -16,13 +16,12 @@ resource "aws_db_instance" "ddwd" {
   engine_version       = "5.7"
   instance_class       = "db.t2.micro"
   name                 = "dandoe_se"
-  username             = "piepongwong"
-  password             = "supersecurepw"
+  username             =  var.DB_USER # use the same user as in .db.env
+  password             =  var.DB_PASSWORD # use the same password as in .db.env
   parameter_group_name = "default.mysql5.7"
   publicly_accessible  = true
   vpc_security_group_ids  = ["sg-0d12b65d9d5f6dc21"]
-  skip_final_snapshot = true
-
+  
   tags = {
     Name = "ddwd-prod"
   }
@@ -42,6 +41,8 @@ resource "aws_instance" "ddwd" {
     Name = "ddwd-prod-web-node"
   }
 
+  iam_instance_profile  = "my-role"
+
   connection {
     type        = "ssh"
     user        = "ubuntu"
@@ -49,13 +50,14 @@ resource "aws_instance" "ddwd" {
     host        = self.public_ip
   }
 
-  provisioner "local-exec" {
-    command = "echo ${aws_instance.ddwd.public_ip} > ip_address.txt"
-  }
-
   provisioner "file" {
     source      = ".db.env"
     destination = "~/.env"
+  }
+
+  provisioner "file" {
+    source      = ".s3.env"
+    destination = "~/.s3.env"
   }
 
   provisioner "file" {
@@ -73,21 +75,24 @@ resource "aws_instance" "ddwd" {
       "sudo apt-get update",
       "chmod 400 ~/.ssh/id_rsa",
       "sudo apt-get install git -y",
-      "git clone -b production git@github.com:Piepongwong/dev-dan-doen-we-dat.git",
-      "mv ~/.env ~/dev-dan-doen-we-dat/.db.env",
-      "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y",
-      "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -",
-      "sudo apt-key fingerprint 0EBFCD88",
+      "git clone -b production git@github.com:Piepongwong/dev-dan-doen-we-dat.git ddwd",
+      "mv ~/.db.env ~/dev-dan-doen-we-dat/.db.env",
+      "mv ~/.s3.env ~/dev-dan-doen-we-dat/.s3.env",
       "sudo add-apt-repository 'deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable'",
       "sudo apt-get update",
       "sudo apt-get install docker-ce docker-ce-cli containerd.io -y",
       "sudo apt-get install docker -y", 
       "sudo docker swarm init",
-      "sudo apt install awscli",
-      "mkdir ~/dev-dan-doen-we-dat/DocumentRoot/temporary/{cache,log,scaffold}",
-      "sudo chmod -R 777 ~/dev-dan-doen-we-dat/DocumentRoot/temporary/{cache,log,scaffold}",
+      "curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o 'awscliv2.zip'",
+      "sudo apt install unzip -y",
+      "unzip awscliv2.zip",
+      "sudo ./aws/install",
+      "rm awscliv2.zip",
       "cd ~/dev-dan-doen-we-dat",
+      "echo '*/10 * * * * root aws s3 sync /home/ubuntu/ddwd/DocumentRoot/public s3://dandoenwedat-prod/public' >> /etc/cron.d/s3_aws_public_sync",
       "sudo docker stack deploy -c docker-compose-prod.yml ddwd"
     ]
   }
 }
+
+
