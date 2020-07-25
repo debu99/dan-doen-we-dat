@@ -30,6 +30,20 @@ resource "aws_db_instance" "ddwd" {
     command = "echo '\ndb_host=${aws_db_instance.ddwd.address}' >> .db.env"
   }
 }
+resource "aws_s3_bucket" "ddwd" {
+  bucket = "ddwd-public-prod-bucket"
+  acl    = "public-read"
+
+  tags = {
+    Name        = "ddwd public dir"
+    Environment = "prod"
+  }
+  
+  provisioner "local-exec" {
+    command = "echo '\nds3_public_bucket=${aws_s3_bucket.ddwd.bucket_domain_name}' >> .s3.env"
+  }
+}
+
 resource "aws_iam_role" "ec2_s3_access" {
   name = "ec2_s3_access"
 
@@ -54,9 +68,30 @@ EOF
   }
 }
 
+resource "aws_iam_role_policy" "s3_bucket_policy" {
+  name = "ddwd_full_bucket_access"
+  role = aws_iam_role.ec2_s3_access.id
+  depends_on = [aws_s3_bucket.ddwd]
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "s3:*"
+      ],
+      "Effect": "Allow",
+      "Resource":"${aws_s3_bucket.ddwd.arn}*"
+    }
+  ]
+}
+EOF
+}
+
 resource "aws_iam_instance_profile" "ec2_s3_role" {
   name = "ec2-s3-access"
-  role = "${aws_iam_role.ec2_s3_access.name}"
+  role = aws_iam_role.ec2_s3_access.name
 }
 
 resource "aws_instance" "ddwd" {
@@ -64,9 +99,8 @@ resource "aws_instance" "ddwd" {
   ami           = "ami-0ac80df6eff0e70b5"
   instance_type = "t2.micro"
   security_groups = ["ddwd-web-prod-environment"]
-  iam_instance_profile = "${aws_iam_instance_profile.ec2_s3_role.name}"
-
-  depends_on = [aws_db_instance.ddwd]
+  iam_instance_profile = aws_iam_instance_profile.ec2_s3_role.name
+  depends_on = [aws_db_instance.ddwd , aws_s3_bucket.ddwd]
   tags = {
     Name = "ddwd-prod-web-node"
   }
@@ -118,7 +152,7 @@ resource "aws_instance" "ddwd" {
       "sudo ./aws/install",
       "rm awscliv2.zip",
       "cd ~/ddwd",
-      "echo '*/10 * * * * root aws s3 sync /home/ubuntu/ddwd/DocumentRoot/public s3://dandoenwedat-prod/public' >> ~/s3_aws_public_sync",
+      "echo '*/10 * * * * root aws s3 sync /home/ubuntu/ddwd/DocumentRoot/public s3://${aws_s3_bucket.ddwd.id}/public' >> ~/s3_aws_public_sync",
       "sudo mv  ~/s3_aws_public_sync /etc/cron.d/",
       "sudo docker swarm init",
       "sudo docker stack deploy -c docker-compose.yml ddwd"
