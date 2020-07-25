@@ -42,6 +42,27 @@ resource "aws_s3_bucket" "ddwd" {
   provisioner "local-exec" {
     command = "echo '\nds3_public_bucket=${aws_s3_bucket.ddwd.bucket_domain_name}' >> .s3.env"
   }
+  policy = <<POLICY
+{
+    "Version": "2012-10-17",
+    "Id": "BucketPolicy",
+    "Statement": [
+        {
+            "Sid": "AllAccess",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": [
+                "arn:aws:s3:::ddwd-public-prod-bucket",
+                "arn:aws:s3:::ddwd-public-prod-bucket/*"
+            ]
+        }
+    ]
+}
+POLICY
+
+
+
 }
 
 resource "aws_iam_role" "ec2_s3_access" {
@@ -82,7 +103,10 @@ resource "aws_iam_role_policy" "s3_bucket_policy" {
         "s3:*"
       ],
       "Effect": "Allow",
-      "Resource":"${aws_s3_bucket.ddwd.arn}*"
+      "Resource": [
+        "${aws_s3_bucket.ddwd.arn}",
+        "${aws_s3_bucket.ddwd.arn}/*"
+      ]
     }
   ]
 }
@@ -154,12 +178,12 @@ resource "aws_instance" "ddwd" {
       "sudo ./aws/install",
       "rm awscliv2.zip",
       "cd ~/ddwd",
-      "echo '*/10 * * * * root aws s3 sync /home/ubuntu/ddwd/DocumentRoot/public s3://${aws_s3_bucket.ddwd.id}/public' >> ~/s3_aws_public_sync",
-      "sudo mv  ~/s3_aws_public_sync /etc/cron.d/",
+      "echo '*/15 * * * * root /usr/local/bin/aws s3 sync /home/ubuntu/ddwd/DocumentRoot/public s3://${aws_s3_bucket.ddwd.id}/public' >> ~/s3awspublicsync",
+      "sudo mv ~/s3awspublicsync /etc/cron.d/",
+      "sudo chown root:root /etc/cron.d/s3awspublicsync",
+      "sudo chmod 644 /etc/cron.d/s3awspublicsync",
       "sudo docker swarm init",
       "sudo docker stack deploy -c docker-compose.yml ddwd"
     ]
   }
 }
-
-
