@@ -138,6 +138,8 @@ resource "aws_instance" "ddwd" {
       "chmod 400 ~/.ssh/id_rsa",
       "sudo apt-get install git -y",
       "git clone -b new-deploy-prod-config-try git@github.com:Piepongwong/dev-dan-doen-we-dat.git ddwd",
+      "echo 'local_ip=${self.public_ip}' >> .env",
+      "mv ~/.env ~/ddwd/.env",
       "mv ~/.db.env ~/ddwd/.db.env",
       "mv ~/.s3.env ~/ddwd/.s3.env",
       "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y",
