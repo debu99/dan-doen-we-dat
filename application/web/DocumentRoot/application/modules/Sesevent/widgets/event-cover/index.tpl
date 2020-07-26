@@ -178,7 +178,7 @@ if(isset($this->can_edit)){
                       <h1 class='seevent-cover-date--month'><?php echo $formattedDate["month"] ?></h1>
                 </div>
                 <div class="divider"></div>
-                <div>
+                <div class="seevent-cover-title">
                   <h1><?php echo $this->subject->getTitle(); ?></h1>
                 </div>
             </div>

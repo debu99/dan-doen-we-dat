@@ -11,5 +11,7 @@ application/web/DocumentRoot/temporary/scaffold/**
 
 application/data/**
 
+application/web/logs/apache2/**
+
 terraform/prod/.terraform
 terraform/dev/.terraform

@@ -17,9 +17,8 @@
 
 .sesevent_minimalistic_cover h1 {
 	color: white;
-	font-size: 2.5em;
-	line-height: 0.60;
-	max-width: 25vw;
+	font-size: 5em;
+	max-width: 30vw;
 	line-height: 0.8;
 }
 @media (max-width: 800px){
@@ -28,12 +27,17 @@
 	}
 }
 .sesevent_minimalistic_cover .divider {
-	width: 5px;
+	width: 15px;
 	background-color: white;
-	margin: 0 10px;
+	margin: 0 20px;
 }
 .sesevent_minimalistic_cover .seevent-cover-date--date {
 	font-size: 6em;
+}
+
+.seevent-cover-title {
+	display: flex;
+	align-items: center;
 }
 .sesevent_minimalistic_cover .seevent-cover-date {
 	display: flex;
@@ -41,9 +45,7 @@
 	justify-content: center;
 	text-align: center;
 }
-.sesevent_minimalistic_cover .seevent-cover-date h1 {
-	line-height: 0.8;
-}
+
 .sesevent_cover_container{
 	background-color:#aaa;
 	height:300px;
