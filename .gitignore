@@ -10,3 +10,5 @@ application/web/DocumentRoot/temporary/scaffold/**
 !application/web/DocumentRoot/temporary/scaffold/.gitkeep
 
 application/data/**
+
+terraform/prod/.terraform
