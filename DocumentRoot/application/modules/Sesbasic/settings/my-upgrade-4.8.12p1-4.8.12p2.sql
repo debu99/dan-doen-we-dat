@@ -1,2 +1,0 @@
-INSERT IGNORE INTO `engine4_core_menuitems` (`name`, `module`, `label`, `plugin`, `params`, `menu`, `submenu`, `order`) VALUES 
-('sesbasic_admin_main_currency', 'sesbasic', 'Manage Currency', '', '{"route":"admin_default","module":"sesbasic","controller":"settings","action":"currency"}', 'sesbasic_admin_main', '', 10);

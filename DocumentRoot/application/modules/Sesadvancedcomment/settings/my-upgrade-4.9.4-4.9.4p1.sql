@@ -1,2 +1,0 @@
-INSERT IGNORE INTO `engine4_activity_notificationtypes` (`type`, `module`, `body`, `is_request`, `handler`, `default`) VALUES
-('sesadvancedcomment_replycomment', 'sesadvancedcomment', '{item:$subject} replied to your comment on a {item:$object:$label}.', 0, '', 1);

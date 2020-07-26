@@ -1,1 +1,0 @@
-ALTER TABLE `engine4_sesadvancedcomment_emotiongalleries` ADD `enabled` TINYINT(1) NOT NULL DEFAULT "1";

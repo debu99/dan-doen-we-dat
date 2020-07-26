@@ -1,1 +1,0 @@
-INSERT IGNORE INTO `engine4_core_menuitems` (`name`, `module`, `label`, `plugin`, `params`, `menu`, `submenu`, `order`) VALUES ( 'sesgdpr_footer_consent', 'sesgdpr', 'Privacy Center', '', '{"route":"sesgdpr_view","module":"sesgdpr"}', 'core_footer', '', '3');
