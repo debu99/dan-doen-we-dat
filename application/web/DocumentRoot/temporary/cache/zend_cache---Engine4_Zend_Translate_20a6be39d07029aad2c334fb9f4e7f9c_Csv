@@ -1,0 +1,10 @@
+a:1:{s:2:"en";a:5:{s:44:"_EMAIL_SESEVENT_PAYMENT_TICKET_PENDING_TITLE";s:28:"Event Ticket Payment Pending";s:50:"_EMAIL_SESEVENT_PAYMENT_TICKET_PENDING_DESCRIPTION";s:106:"This is the email that gets sent to a member when they purchased ticket from event and payment is pending.";s:46:"_EMAIL_SESEVENT_PAYMENT_TICKET_PENDING_SUBJECT";s:31:"Your ticket payment is pending.";s:43:"_EMAIL_SESEVENT_PAYMENT_TICKET_PENDING_BODY";s:169:"[header]
+
+Your ticket payment is pending, awaiting completion of the transaction.
+Thank you for your patience.
+
+[event_title]
+[event_description]
+[object_link]
+
+[footer]";s:48:"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_CREATETICKET";s:25:"Creating an event ticket.";}}

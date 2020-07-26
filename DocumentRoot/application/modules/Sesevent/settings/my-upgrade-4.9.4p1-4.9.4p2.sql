@@ -1,1 +1,0 @@
-UPDATE `engine4_core_menuitems` SET `plugin` = 'Sesevent_Plugin_Menus::canViewMultipleCurrency' WHERE `engine4_core_menuitems`.`name` = 'sesevent_admin_main_currency';

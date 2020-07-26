@@ -1,1 +1,0 @@
-ALTER TABLE `engine4_announcement_announcements` ADD `memberlevel_condition` VARCHAR(10) NOT NULL DEFAULT 'AND', ADD `profiletype_condition` VARCHAR(10) NOT NULL DEFAULT 'AND';

@@ -1,1 +1,0 @@
-ALTER TABLE `engine4_sesfeedbg_backgrounds` ADD `featured` TINYINT(1) NOT NULL DEFAULT "0";
