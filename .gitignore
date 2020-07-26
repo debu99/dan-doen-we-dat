@@ -3,8 +3,6 @@
 ./application/web/DocumentRoot/temporary/cache/**
 !./application/web/DocumentRoot/temporary/cache/.gitkeep
 
-!somefolder/.gitkeep 
-
 ./application/web/DocumentRoot/temporary/log/**
 !./application/web/DocumentRoot/temporary/log/.gitkeep
 
