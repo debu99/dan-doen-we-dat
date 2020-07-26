@@ -9,4 +9,5 @@
 ./application/web/DocumentRoot/temporary/scaffold/**
 !./application/web/DocumentRoot/temporary/scaffold/.gitkeep
 
+ application/web/DocumentRoot/temporary/cache/**
 ./application/data/**
