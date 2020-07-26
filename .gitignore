@@ -1,13 +1,12 @@
-./application/web/DocumentRoot/temporary/*.jpg
+application/web/DocumentRoot/temporary/*.jpg
 
-./application/web/DocumentRoot/temporary/cache/**
-!./application/web/DocumentRoot/temporary/cache/.gitkeep
+application/web/DocumentRoot/temporary/cache/**
+!application/web/DocumentRoot/temporary/cache/.gitkeep
 
-./application/web/DocumentRoot/temporary/log/**
-!./application/web/DocumentRoot/temporary/log/.gitkeep
+application/web/DocumentRoot/temporary/log/**
+!application/web/DocumentRoot/temporary/log/.gitkeep
 
-./application/web/DocumentRoot/temporary/scaffold/**
-!./application/web/DocumentRoot/temporary/scaffold/.gitkeep
+application/web/DocumentRoot/temporary/scaffold/**
+!application/web/DocumentRoot/temporary/scaffold/.gitkeep
 
- application/web/DocumentRoot/temporary/cache/**
-./application/data/**
+application/data/**
