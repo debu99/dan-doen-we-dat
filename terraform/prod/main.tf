@@ -27,7 +27,7 @@ resource "aws_db_instance" "ddwd" {
   }
 
   provisioner "local-exec" {
-    command = "echo '\ndb_host=${aws_db_instance.ddwd.address}' >> .db.env"
+    command = "echo '\ndb_host=${aws_db_instance.ddwd.address}' >> ../../environment/prod/.db.env"
   }
 }
 resource "aws_s3_bucket" "ddwd" {
@@ -40,7 +40,7 @@ resource "aws_s3_bucket" "ddwd" {
   }
   
   provisioner "local-exec" {
-    command = "echo '\nds3_public_bucket=${aws_s3_bucket.ddwd.bucket_domain_name}' >> .s3.env"
+    command = "echo '\ns3_public_bucket=${aws_s3_bucket.ddwd.bucket_domain_name}' >> ../../environment/prod/.s3.env"
   }
   policy = <<POLICY
 {
@@ -60,8 +60,6 @@ resource "aws_s3_bucket" "ddwd" {
     ]
 }
 POLICY
-
-
 
 }
 
@@ -137,12 +135,12 @@ resource "aws_instance" "ddwd" {
   }
 
   provisioner "file" {
-    source      = ".db.env"
+    source      = "../../environment/prod/.db.env"
     destination = "~/.db.env"
   }
 
   provisioner "file" {
-    source      = ".s3.env"
+    source      = "../../environment/prod/.s3.env"
     destination = "~/.s3.env"
   }
 

@@ -20,8 +20,8 @@ services:
         volumes:
             - ./DocumentRoot/public:/var/www/html/public
         env_file:
-            - .db.env
-            - .s3.env
+            - ../../environment/prod/.db.env
+            - ../../environment/prod/.s3.env
         deploy:
             labels:
                 - traefik.http.routers.web.rule=Host(`${local_ip}`,`dandoenwedat.com`, `www.dandoenwedat.com`)

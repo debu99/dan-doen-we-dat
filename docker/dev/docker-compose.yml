@@ -7,11 +7,14 @@ services:
         ports:
             - 80:80 
         volumes:
-            - ../application/web:/var/www/html
-            - ../application/devconfig/apache/vhosts:/etc/apache2/sites-enabled
-            - ../application/devconfig/php/php.ini:/usr/local/etc/php/php.ini
-            - ../application/devconfig/apache/apache2.conf:/etc/apache2/apache2.conf
-            - ../application/logs/apache2:/var/log/apache2
+            - ../../application/web/DocumentRoot:/var/www/html
+            - ../../application/web/devconfig/apache/vhosts:/etc/apache2/sites-enabled
+            - ../../application/web/devconfig/php/php.ini:/usr/local/etc/php/php.ini
+            - ../../application/web/devconfig/apache/apache2.conf:/etc/apache2/apache2.conf
+            - ../../application/web/logs/apache2:/var/log/apache2
+        env_file:
+            - ../../environment/dev/.db.env
+            - ../../environment/dev/.s3.env    
     database:
         image: mysql:5.7.30
         container_name: dandoenwedat-mysql
@@ -19,17 +22,7 @@ services:
         ports:
             - "3306:3306"
         volumes: 
-            - ../application/data/mysql:/var/lib/mysql
-        environment:
-            MYSQL_DATABASE: dandoenwedat
-            MYSQL_USER: root
-            MYSQL_PASSWORD: /run/secrets/mysql_password
-            MYSQL_ROOT_PASSWORD: /run/secrets/mysql_root_password
-        secrets:
-            - mysql_password
-            - mysql_root_password
-secrets:
-    mysql_root_password:
-        file: ./secrets/mysql_root_password.txt
-    mysql_password:
-        file: ./secrets/mysql_password.txt
+            - ../../application/data/mysql:/var/lib/mysql
+        env_file:
+            - ../../environment/dev/.db.env
+            - ../../environment/dev/.s3.env
