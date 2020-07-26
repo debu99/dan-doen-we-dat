@@ -12,3 +12,4 @@ application/web/DocumentRoot/temporary/scaffold/**
 application/data/**
 
 terraform/prod/.terraform
+terraform/dev/.terraform
