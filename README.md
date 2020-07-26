@@ -31,3 +31,16 @@ You must set the permissions (CHMOD) of the following directories and files to 7
 
 # Social Engine Info
 https://kb.scripttechs.com/creating-a-socialengine-widget/
+
+# Release Procedure
+In root dir of project:
+```
+sudo docker build . -f docker/prod/dockerfile --tag piepongwong/apache-php-se-prod:vmajor:minor
+docker push --tag piepongwong/apache-php-se-prod:vmajor:minor
+docker tag digestofnewbuild piepongwong/apache-php-se-prod:latest
+docker push --tag piepongwong/apache-php-se-prod:latest
+ssh ubuntu@mangernode -i ~/.ssh/keyfile
+cd ddwd
+docker pull piepongwong/apache-php-se-prod:latest
+docker stack -c docker-compose.yml ddwd
+```
