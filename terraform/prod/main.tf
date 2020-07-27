@@ -180,6 +180,8 @@ resource "aws_instance" "ddwd" {
       "sudo mv ~/s3awspublicsync /etc/cron.d/",
       "sudo chown root:root /etc/cron.d/s3awspublicsync",
       "sudo chmod 644 /etc/cron.d/s3awspublicsync",
+      "sudo mkdir public",
+      "sudo chmod -R 777 public",
       "sudo docker swarm init",
       "sudo docker stack deploy -c docker-compose.yml ddwd"
     ]
