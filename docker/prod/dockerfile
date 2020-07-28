@@ -35,12 +35,11 @@ RUN docker-php-ext-install gd && \
 RUN a2enmod rewrite headers
 
 # Build with newest code
-COPY ../../application/web/DocumentRoot /var/www/html
-COPY ../../application/web/prodconfig/php/php.ini /usr/local/etc/php/php.ini
-COPY ../../application/web/prodconfig/apache/apache2.conf /etc/apache2/apache2.conf
+COPY ./application/web/DocumentRoot /var/www/html
+COPY ./application/web/prodconfig/php/php.ini /usr/local/etc/php/php.ini
+COPY ./application/web/prodconfig/apache/apache2.conf /etc/apache2/apache2.conf
 
 # Cleanup & changing permissions
 RUN rm -rf /usr/src/* && \
-    chmod -R 777  /var/www/html/temporary/cache && \
-    chmod -R 777 /var/www/html/temporary/log && \
-    chmod -R 777 /var/www/html/temporary/scaffold
+    chmod -R 777  /var/www/html/temporary/* && \
+    chmod -R 777  /var/www/html/public/*

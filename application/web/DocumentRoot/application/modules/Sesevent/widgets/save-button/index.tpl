@@ -26,6 +26,7 @@ function saveButton(id, type) {
 		'contentId': contentId
 	},
 	onSuccess: function(responseJSON) {
+		debugger
 	if (responseJSON.save_id) {
 		if ($(type + '_saveunsavehidden_' + id))
 			$(type + '_saveunsavehidden_' + id).value = responseJSON.save_id;

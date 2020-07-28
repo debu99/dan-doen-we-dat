@@ -2333,7 +2333,13 @@ if (empty($hasWidget)) {
       'order' => 29,
       'params' => '{"title":"People Also Liked","viewType":"list","gridInsideOutside":"in","mouseOver":"over","show_criteria":["title","location"],"grid_title_truncation":"45","list_title_truncation":"18","height":"180","width":"180","limit_data":"3","nomobile":"0","name":"sesevent.show-also-liked"}',
   ));
-
+  $db->insert('engine4_core_content', array(
+    'page_id' => $page_id,
+    'type' => 'widget',
+    'name' => 'sesevent.profile-join-leave',
+    'parent_content_id' => $right_id,
+    'order' => 30,
+));
 }
 
 //Browse Reviews Page

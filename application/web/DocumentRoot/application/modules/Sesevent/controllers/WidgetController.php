@@ -17,6 +17,13 @@ class Sesevent_WidgetController extends Core_Controller_Action_Standard {
       return $this->_helper->viewRenderer->setNoRender(true);
   }
 
+  public function profileJoinAction(){
+    $test = "la";
+  }
+  public function profileLeaveAction(){
+    $test = "la";
+  }
+
   public function profileRsvpAction() {
 
     $this->view->form = new Sesevent_Form_Rsvp();

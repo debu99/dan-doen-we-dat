@@ -1480,7 +1480,7 @@ Signup Date: [date]
   '_EMAIL_CORE_WELCOME_SUBJECT' => 'Welcome to the social network!',
   '_EMAIL_CORE_WELCOME_BODY' => '[header]
 
-Thank you for joining our social network. Click the following link and enter your information below to login:
+Thank you for joining our social network. Click the following link and enter your information below to loginnn:
 
 http://[host][object_link]
 
@@ -3616,6 +3616,7 @@ You have successfully purchased [point] credit points. Please check your transac
   'Create New Event' => 'Create New Event',
   'Edit Event' => 'Edit Event',
   'Join Event' => 'Join Event',
+  'Join Waiting List' => 'Join Waiting List',
   'Leave Event' => 'Leave Event',
   'Nobody has created an event yet.' => 'Nobody has created an event yet.',
   'Tip: %1$sClick here%2$s to create a event or %3$sbrowse%2$s for events to join!' => 'Tip: %1$sClick here%2$s to create a event or %3$sbrowse%2$s for events to join!',
@@ -3661,7 +3662,9 @@ You have successfully purchased [point] credit points. Please check your transac
     0 => '%s person',
     1 => '%s people',
   ),
+  'leave' => 'leave',
   'attending' => 'attending',
+  'attending' => 'attend',
   'maybe attending' => 'maybe attending',
   'not attending' => 'not attending',
   'Attending' => 'Attending',
@@ -3671,6 +3674,7 @@ You have successfully purchased [point] credit points. Please check your transac
   'Upcoming Events' => 'Upcoming Events',
   'Search Guests' => 'Search Guests',
   'No photos have been uploaded to this event yet.' => 'No photos have been uploaded to this event yet.',
+  'Joined Waiting List' => 'You\'ll be notified by mail when a spot opens up.',
   'Event left' => 'You are no longer a member of this event.',
   'Event joined' => 'You have successfully RSVPed to this event.',
   'Your invite request has been sent.' => 'Your invite request has been sent.',
@@ -4803,5 +4807,16 @@ Verification Code: [code]
   '_EMAIL_CORE_VERIFICATION_BODYHTML' => '[header]<br> <br> Thank you for joining dan+doen+we+dat network. To verify your email address and continue, please click the following link:<br> http://[host][object_link]<br> <br> Email: [email]<br> <br> [footer]',
   '_EMAIL_FOOTER_BODYHTML' => 'Best Regards,<br>dan+doen+we+dat | redactie',
   '_EMAIL_CORE_WELCOME_BODYHTML' => '[header]<br> <br> Thank you for joining our social network. Click the following link and enter your information below to login:<br> <br> http://[host][object_link]<br> <br> Email: [email]<br> <br> [footer]',
+
+  
+    "_EMAIL_JOIN_LEAVE_TITLE";"JOIN LEAVE"
+    "_EMAIL_JOIN_LEAVE_DESCRIPTION";"This is the email that gets sent to the admin when a member contact through GDPR form in the Privacy Center."
+    "_EMAIL_JOIN_LEAVE_SUBJECT";"[subject]."
+    "_EMAIL_JOIN_LEAVE_BODY";"[header]
+
+    [body]
+
+    [footer]"
+
 );
 ?>

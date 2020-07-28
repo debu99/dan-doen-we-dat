@@ -23,7 +23,7 @@ class Sesevent_Form_Member_Join extends Engine_Form {
         'allowEmpty' => false,
         'multiOptions' => array(
             2 => 'Attending',
-            1 => 'Maybe Attending',
+            // 1 => 'Maybe Attending',
             0 => 'Not Attending',
         //3 => 'Awaiting Reply',
         ),

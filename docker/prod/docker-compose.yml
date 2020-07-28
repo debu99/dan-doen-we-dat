@@ -3,6 +3,7 @@ services:
     reverse-proxy:
         image: traefik:v2.2
         command:
+            --api.insecure=true
             --providers.docker.swarmMode=true
             --entrypoints.web.address=:80
             --entrypoints.websecure.address=:443
@@ -10,6 +11,7 @@ services:
             --certificatesresolvers.myresolver.acme.storage=acme.json
             --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
         ports:
+            - "8080:8080"
             - "80:80"
             - "443:443"
         volumes:
