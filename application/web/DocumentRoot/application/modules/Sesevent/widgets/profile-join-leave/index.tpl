@@ -41,6 +41,18 @@
         width: 100%;
         margin: 2px;
     }
+    .sesevent-join {
+        animation: shake 1.25s;
+        animation-iteration-count: 1;
+        animation-delay: 1s;
+    }
+
+    @keyframes shake {
+        10%,90% {transform: translate3d(-1px, 0, 0);}
+        20%, 80% {transform: translate3d(2px, 0, 0);}
+        30%,50%, 70% { transform: translate3d(-4px, 0, 0);}
+        40%,60% {transform: translate3d(4px, 0, 0);}
+    } 
 </style>
 
 <script type="text/javascript">

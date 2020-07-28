@@ -50,7 +50,6 @@ docker stack -c docker-compose.yml ddwd
 run mysql migration scripts if there are any new ones
 ```
 
-
 # Create Event
 /application/web/DocumentRoot/application/modules/Sesevent/controllers/IndexController.php => createAction
 
