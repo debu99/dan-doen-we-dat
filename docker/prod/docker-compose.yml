@@ -18,7 +18,7 @@ services:
             - "./letsencrypt:/letsencrypt"
             - "/var/run/docker.sock:/var/run/docker.sock"
     dandoenwedat:
-        image: piepongwong/apache-php-se-prod:v1.0
+        image: piepongwong/apache-php-se-prod:v2.0
         volumes:
             - ./DocumentRoot/public:/var/www/html/public
         env_file:
