@@ -26,8 +26,10 @@ class Sesevent_Model_DbTable_Membership extends Core_Model_DbTable_Membership {
   }
 	
 	public function getMembership($params){
-		 $select = $this->select()->from($this->info('name'), array('*'))->where('resource_id =?',$params['event_id']);
-    if (isset($params['type']) && $params['type'] == 'attending') {
+		$select = $this->select()->from($this->info('name'), array('*'))->where('resource_id =?',$params['event_id']);
+    if (isset($params['type']) && $params['type'] == 'onwaitinglist') {
+      $select->where('active =?',1)->where('rsvp =?',5);  
+    } else if (isset($params['type']) && $params['type'] == 'attending') {
       $select->where('active =?',1)->where('rsvp =?',2);
     }else if (isset($params['type']) && $params['type'] == 'maybeattending') {
       $select->where('active =?',1)->where('rsvp =?',1);
@@ -43,5 +45,7 @@ class Sesevent_Model_DbTable_Membership extends Core_Model_DbTable_Membership {
 			$select->where('displayname LIKE "%'.$params['searchVal'].'%"');
 		}
     return Zend_Paginator::factory($select);
-	}
+  }
+  
+
 }

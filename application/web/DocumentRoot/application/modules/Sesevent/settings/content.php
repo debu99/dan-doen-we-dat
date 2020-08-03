@@ -2903,6 +2903,18 @@ return array(
 				'autoEdit' => true,
 				 'adminForm' => 'Sesevent_Form_Admin_Rsvp',
     ),
+
+    array(
+        'title' => 'SES - Advanced Events - Event Profile Join Leave Buttons',
+        'description' => 'Displays Join Leave event buttions',
+        'category' => 'SES - Advanced Events',
+        'type' => 'widget',
+        'name' => 'sesevent.profile-join-leave',
+        'requirements' => array(
+            'subject' => 'sesevent_event',
+        )
+    ),
+
     array(
         'title' => 'SES - Advanced Events - Event Title Status',
         'description' => 'Displays a event\'s title on it\'s profile.',

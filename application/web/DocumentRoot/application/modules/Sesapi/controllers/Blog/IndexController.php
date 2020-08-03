@@ -391,7 +391,7 @@ class Blog_IndexController extends Sesapi_Controller_Action_Standard {
 
     $blog_content = $blog->toArray();
 
-      $body = $this->replaceSrc($blog_content['body']);
+    $body = $this->replaceSrc($blog_content['body']);
     $blog_content['body'] = "<link href=\"".$this->getBaseUrl(true,'application/modules/Sesapi/externals/styles/tinymce.css')."\" type=\"text/css\" rel=\"stylesheet\">".($body);
     $blog_content['owner_title'] = Engine_Api::_()->getItem('user', $blog_content['owner_id'])->getTitle();
     $blog_content['resource_type'] = $blog->getType();

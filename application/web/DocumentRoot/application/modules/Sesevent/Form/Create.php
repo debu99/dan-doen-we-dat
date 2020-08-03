@@ -186,6 +186,8 @@ class Sesevent_Form_Create extends Engine_Form {
 			));
     }
     
+
+
     if($actionName == 'create') {
 	    if($settings->getSetting('sesevent.eevecretimezone', 1))
 		    $eevecretimezone = true;
@@ -696,6 +698,14 @@ class Sesevent_Form_Create extends Engine_Form {
         'value' => '',
     ));
   }
+
+  $this->addElement('text', 'max_participants', array(
+    'label' => 'Maximum Participants',
+    'required' => true,
+    'allowEmpty' => false,
+    'placeholder' => 'maximum participants',
+  ));
+  
   if (Engine_Api::_()->authorization()->isAllowed('sesevent_event', $viewer, 'allow_levels')) {
 
         $levelOptions = array();
@@ -982,5 +992,8 @@ class Sesevent_Form_Create extends Engine_Form {
             'DivDivDivWrapper',
         ),
     ));
+
+
+  
   }
 }

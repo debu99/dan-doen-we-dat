@@ -13,6 +13,18 @@
 <style>
 .sesevent_guest_photo img{height:100%;width:100%;}
 </style>
+<?php $host = Engine_Api::_()->getItem('user', $this->subject->user_id); ?>
+<ul class="sesbasic_clearfix sesbasic_bxs sesbasic_sidebar_block sesevent_guests_block">
+  <li class="sesbasic_clearfix">
+    <div class="sesevent_guests_block_heading sesbasic_clearfix sesbm">
+      <span class="sesevent_guests_block_heading_label floatL"><?php echo $this->translate("Host"); ?></span>
+    </div>
+    <div class="sesevent_guests_block_user" style="height:<?php echo $this->height.'px' ?>;width:<?php echo $this->width.'px' ?>">
+       <?php echo $this->htmlLink($host->getHref(), $this->itemPhoto($host, 'thumb.profile', $host->getTitle()), array('class' => 'sesevent_guest_photo')) ?>
+    </div>
+  </li>
+</ul>
+
 <ul class="sesbasic_clearfix sesbasic_bxs sesbasic_sidebar_block sesevent_guests_block">
  <?php if($this->attending->getTotalItemCount() > 0){ ?>
   <li class="sesbasic_clearfix">

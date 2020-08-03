@@ -65,3 +65,13 @@
 [body]
 
 [footer]"
+
+# content users:
+"_EMAIL_JOIN_LEAVE_TITLE";"JOIN LEAVE"
+"_EMAIL_JOIN_LEAVE_DESCRIPTION";"This is the email that gets sent to the admin when a member contact through GDPR form in the Privacy Center."
+"_EMAIL_JOIN_LEAVE_SUBJECT";"[subject]."
+"_EMAIL_JOIN_LEAVE_BODY";"[header]
+
+[body]
+
+[footer]"

@@ -426,6 +426,7 @@ class User_AuthController extends Core_Controller_Action_Standard
                     'controller' => 'edit',
                 ), 'user_extended', false);
             }
+
             // Just redirect to home
             return $this->_helper->redirector->gotoRoute(array('action' => 'home'), 'user_general', true);
         }

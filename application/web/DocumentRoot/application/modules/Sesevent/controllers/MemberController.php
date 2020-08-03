@@ -19,21 +19,82 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
 
     $this->_helper->requireUser();
     $this->_helper->requireSubject('sesevent_event');
-    /*
-      $this->_helper->requireAuth()->setAuthParams(
-      null,
-      null,
-      null
-      //'edit'
-      );
-     *
-     */
-  }
 
+  }
+  public function waitinglistAction(){
+    if (!$this->_helper->requireUser()->isValid())
+      return;
+    if (!$this->_helper->requireSubject()->isValid())
+      return;
+    if (!$this->_helper->requireAuth()->setAuthParams($subject, $viewer, 'view')->isValid())
+      return;
+
+    $viewer = Engine_Api::_()->user()->getViewer();
+    $event = Engine_Api::_()->core()->getSubject();
+
+    $db = $event->membership()->getReceiver()->getTable()->getAdapter();
+    $db->beginTransaction();
+    try {
+      $event->membership()
+      ->addMember($viewer)
+      ->setUserApproved($viewer);
+
+      $row = $event->membership()
+      ->getRow($viewer);
+
+      $row->rsvp = 5; //waitinglist
+      $row->save();
+      $db->commit();
+    }catch (Exception $e) {
+      $db->rollBack();
+      throw $e;
+    }
+
+    return $this->_forward('success', 'utility', 'core', array(
+      'messages' => array(Zend_Registry::get('Zend_Translate')->_('Joined list')),
+      'layout' => 'default-simple',
+      'parentRefresh' => true,  
+    ));
+  }
+  public function joinWidgetAction() {
+    $viewer = Engine_Api::_()->user()->getViewer();
+    $event = Engine_Api::_()->core()->getSubject();
+
+    // Check auth
+    if (!$this->_helper->requireUser()->isValid())
+      return;
+    if (!$this->_helper->requireSubject()->isValid())
+      return;
+    if (!$this->_helper->requireAuth()->setAuthParams($subject, $viewer, 'view')->isValid())
+      return;
+    if($event->getAttendingCount() >= $event->max_participants) 
+      return;
+
+    $db =$event->membership()->getReceiver()->getTable()->getAdapter();
+    $db->beginTransaction();
+    try {
+
+      if(!$event->membership()->isMember($viewer)) {
+       $event->membership()
+        ->addMember($viewer)
+        ->setUserApproved($viewer);
+      }
+
+      $row =$event->membership()
+      ->getRow($viewer);
+
+      $row->rsvp = 2; //attending
+      $row->save();
+      $db->commit();
+    }catch (Exception $e) {
+      $db->rollBack();
+      throw $e;
+    }
+}
   public function joinAction() {
     // Check resource approval
     $viewer = Engine_Api::_()->user()->getViewer();
-    $subject = Engine_Api::_()->core()->getSubject();
+   $event = Engine_Api::_()->core()->getSubject();
 
     // Check auth
     if (!$this->_helper->requireUser()->isValid())
@@ -43,10 +104,13 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
     if (!$this->_helper->requireAuth()->setAuthParams($subject, $viewer, 'view')->isValid())
       return;
 
+    if($event->getAttendingCount() >= $event->max_participants) 
+      return;
+
     if ($subject->membership()->isResourceApprovalRequired()) {
-      $row = $subject->membership()->getReceiver()
+      $row =$event->membership()->getReceiver()
               ->select()
-              ->where('resource_id = ?', $subject->getIdentity())
+              ->where('resource_id = ?',$event->getIdentity())
               ->where('user_id = ?', $viewer->getIdentity())
               ->query()
               ->fetch(Zend_Db::FETCH_ASSOC, 0);
@@ -60,25 +124,23 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
       }
     }
 
-    // Make form
     $this->view->form = $form = new Sesevent_Form_Member_Join();
-
     // Process form
     if ($this->getRequest()->isPost() && $form->isValid($this->getRequest()->getPost())) {
       $viewer = Engine_Api::_()->user()->getViewer();
-      $subject = Engine_Api::_()->core()->getSubject();
-      $db = $subject->membership()->getReceiver()->getTable()->getAdapter();
+     $event = Engine_Api::_()->core()->getSubject();
+      $db =$event->membership()->getReceiver()->getTable()->getAdapter();
       $db->beginTransaction();
 
       try {
-        $membership_status = $subject->membership()->getRow($viewer)->active;
+        $membership_status =$event->membership()->getRow($viewer)->active;
 
-        $subject->membership()
+       $event->membership()
                 ->addMember($viewer)
                 ->setUserApproved($viewer)
         ;
 
-        $row = $subject->membership()
+        $row =$event->membership()
                 ->getRow($viewer);
 
         $row->rsvp = $form->getValue('rsvp');
@@ -87,7 +149,7 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
         // Add activity if membership status was not valid from before
         if (!$membership_status) {
           $activityApi = Engine_Api::_()->getDbtable('actions', 'activity');
-          $action = $activityApi->addActivity($viewer, $subject, 'sesevent_join');
+          $action = $activityApi->addActivity($viewer,$event, 'sesevent_join');
         }
 
         $db->commit();
@@ -210,21 +272,23 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
     if (!$this->_helper->requireSubject()->isValid())
       return;
     $viewer = Engine_Api::_()->user()->getViewer();
-    $subject = Engine_Api::_()->core()->getSubject();
+    $event = Engine_Api::_()->core()->getSubject();
 
-    if ($subject->isOwner($viewer))
+    if ($event->isOwner($viewer))
       return;
 
     // Make form
     $this->view->form = $form = new Sesevent_Form_Member_Leave();
-
+    
     // Process form
     if ($this->getRequest()->isPost() && $form->isValid($this->getRequest()->getPost())) {
-      $db = $subject->membership()->getReceiver()->getTable()->getAdapter();
+      $this->notifyWaitingListIfSpothasBecomeAvailable();
+
+      $db = $event->membership()->getReceiver()->getTable()->getAdapter();
       $db->beginTransaction();
 
       try {
-        $subject->membership()->removeMember($viewer);
+        $event->membership()->removeMember($viewer);
         $db->commit();
       } catch (Exception $e) {
         $db->rollBack();
@@ -236,6 +300,60 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
                   'layout' => 'default-simple',
                   'parentRefresh' => true,
       ));
+    }
+  }
+
+  public function leaveWaitingListAction() {
+    // Check auth
+    if (!$this->_helper->requireUser()->isValid())
+      return;
+    if (!$this->_helper->requireSubject()->isValid())
+      return;
+    $viewer = Engine_Api::_()->user()->getViewer();
+    $event = Engine_Api::_()->core()->getSubject();
+
+    if ($event->isOwner($viewer))
+      return;
+
+    // // Make form
+    $this->view->form = $form = new Sesevent_Form_Member_LeaveWaitingList();
+    
+    // // Process form
+    if ($this->getRequest()->isPost() && $form->isValid($this->getRequest()->getPost())) {
+
+      $db = $event->membership()->getReceiver()->getTable()->getAdapter();
+      $db->beginTransaction();
+
+      try {
+        $event->membership()->removeMember($viewer);
+        $db->commit();
+      } catch (Exception $e) {
+        $db->rollBack();
+        throw $e;
+      }
+
+      return $this->_forward('success', 'utility', 'core', array(
+                  'messages' => array(Zend_Registry::get('Zend_Translate')->_('Event left')),
+                  'layout' => 'default-simple',
+                  'parentRefresh' => true,
+      ));
+    } 
+  }
+
+  public function notifyWaitingListIfSpothasBecomeAvailable(){
+    $viewer = Engine_Api::_()->user()->getViewer();
+    $event = Engine_Api::_()->core()->getSubject();
+
+    $eventWasFull = $event->getAttendingCount() >= $event->max_participants;
+    $memberWasholdingASpot = $event->membership()->getRow($viewer)->rsvp === 2; // 2 is attending
+    
+    if($eventWasFull && $memberWasholdingASpot) {
+      $event_url = $_SERVER['HTTP_HOST']."/event/".$event->custom_url;
+      $usersOnWaitingList = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id'=>$event->getIdentity(),'type'=>'onwaitinglist'));
+      foreach($usersOnWaitingList as $userWaiting){ 
+          $user = Engine_Api::_()->getItem('user', $userWaiting->user_id);
+          Engine_Api::_()->getApi('mail', 'core')->sendSystem($user, 'join_leave_spot_availability', array('event_url'=>$event_url,'event_title'=>$event->title));
+      }
     }
   }
 
@@ -323,7 +441,6 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
     if (!$this->_helper->requireSubject('sesevent_event')->isValid())
       return;
 
-    // Make form
     $this->view->form = $form = new Sesevent_Form_Member_Reject();
 
     // Process form
@@ -480,7 +597,6 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
       return;
     }
 
-
     // Process
     $table = $event->getTable();
     $db = $table->getAdapter();
@@ -495,12 +611,10 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
           continue;
         }
 
-        $event->membership()->addMember($friend)
-                ->setResourceApproved($friend);
+        $event->membership()->addMember($friend)->setResourceApproved($friend);
 
         $notifyApi->addNotification($friend, $viewer, $event, 'sesevent_invite');
       }
-
 
       $db->commit();
     } catch (Exception $e) {
