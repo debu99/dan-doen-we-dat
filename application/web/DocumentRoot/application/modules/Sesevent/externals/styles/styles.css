@@ -4686,6 +4686,10 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 	display: flex;
 	justify-content: space-between;
 }
+.sesevents_list_view_wrapper .list-item h1 {
+	font-size: 25px;
+	padding-top: 5px;
+}
 .sesevents_list_view_wrapper .list-item .list-item-date {
 	width: 30%;
 }

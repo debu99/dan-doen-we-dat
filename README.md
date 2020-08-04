@@ -38,18 +38,16 @@ https://kb.scripttechs.com/creating-a-socialengine-widget/
 # Release Procedure
 In root dir of project:
 ```
-sudo docker build -f ./docker/prod/dockerfile . --tag piepongwong/apache-php-se-prod:vmajor.minor
+sudo docker build -f ./docker/prod/dockerfile . --tag piepongwong/apache-php-se-prod:vmajor.minor --tag piepongwong/apache-php-se-prod:latest
 docker push piepongwong/apache-php-se-prod:vmajor:minor
-docker tag digestofnewbuild piepongwong/apache-php-se-prod:latest
-docker push --tag piepongwong/apache-php-se-prod:latest
+docker push piepongwong/apache-php-se-prod:latest
 ssh ubuntu@managernode -i ~/.ssh/keyfile
 cd ddwd
 docker pull piepongwong/apache-php-se-prod:latest
-docker stack -c docker-compose.yml ddwd
+docker stack deploy -c docker-compose.yml ddwd
 
 run mysql migration scripts if there are any new ones
 ```
->>>>>>> f-specific-leave-waitinglist-form
 
 # Create Event
 /application/web/DocumentRoot/application/modules/Sesevent/controllers/IndexController.php => createAction

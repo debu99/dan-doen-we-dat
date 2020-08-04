@@ -980,7 +980,7 @@ scriptJquery(document).on('change',"input[type='file']",function() {
   if(this.files.length > 0) {
     var FileSize = this.files[0].size / 1024 / 1024; // in MB
     if(FileSize > post_max_size) {
-      alert("The size of the file exceeds the limits set on the server.");
+      alert("The size of the file exceeds the limits set on the server.(12MB)");
       scriptJquery(this).val('');
     } else {
       if(scriptJquery(this).data('function')){

@@ -17,7 +17,7 @@
 
 .sesevent_minimalistic_cover h1 {
 	color: white;
-	font-size: 5em;
+	font-size: 4em;
 	max-width: 30vw;
 	line-height: 0.8;
 }
@@ -32,7 +32,7 @@
 	margin: 0 20px;
 }
 .sesevent_minimalistic_cover .seevent-cover-date--date {
-	font-size: 6em;
+	font-size: 10em;
 }
 
 .seevent-cover-title {
