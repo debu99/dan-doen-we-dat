@@ -52,7 +52,7 @@ class Sesevent_Form_Create extends Engine_Form {
 		else
 			$hideClass = '';
 		$viewer = Engine_Api::_()->user()->getViewer();
-  
+    
     $this->setTitle('Create New Event')
             ->setAttrib('id', 'sesevent_create_form')
 					  ->setAttrib('enctype', 'multipart/form-data')
@@ -61,7 +61,8 @@ class Sesevent_Form_Create extends Engine_Form {
     
     if($this->getSmoothboxType())
       $this->setAttrib('class','global_form sesevent_smoothbox_create');
-      
+    
+      $translate = Zend_Registry::get('Zend_Translate');  
     $settings = Engine_Api::_()->getApi('settings', 'core');
     $request = Zend_Controller_Front::getInstance()->getRequest();
     $moduleName = $request->getModuleName();
@@ -143,12 +144,9 @@ class Sesevent_Form_Create extends Engine_Form {
 				 $this->addElement('Textarea', 'description', array(
 	      'label' => 'Event Description',
 				'allowEmpty'=>$allowEmpty,
-				'required'=>$required,
-	      'filters' => array(
-	        'StripTags',
-	        new Engine_Filter_Censor(),
-	        new Engine_Filter_EnableLinks(),
-	      ),
+        'required'=>$required,
+        'class'=> $viewer->isAdmin()? 'tinymce': "",
+        'editorOptions' => $editorOptions,
 	    ));
 
     }
@@ -244,6 +242,7 @@ class Sesevent_Form_Create extends Engine_Form {
             'value' => '',
 
         ));
+
         if($_GET['sesapi_platform'] != 1){
 //             Start time
             $startdate = new Engine_Form_Element_Date('start_date');
@@ -257,6 +256,7 @@ class Sesevent_Form_Create extends Engine_Form {
             $start->setAllowEmpty(false);
             $start->setRequired(true);
             $this->addElement($start);
+
 
             // End time
             $enddate = new Engine_Form_Element_Date('end_date');
@@ -284,6 +284,7 @@ class Sesevent_Form_Create extends Engine_Form {
             $this->addElement($start);
 
         }
+
      }
 
     if(isset($event) && empty($_POST)){
@@ -318,7 +319,7 @@ class Sesevent_Form_Create extends Engine_Form {
 									'class' => 'form element',
 									'start_date'=>$start_date,
 									'end_date'=>$end_date,
-									'start_time'=>$start_time,
+                  'start_time'=>$start_time,
 									'end_time'=>$end_time,
 									'start_time_check'=>isset($event) ? 0 : 1,
 									'subject'=>isset($event) ? $event : '',
@@ -435,6 +436,7 @@ class Sesevent_Form_Create extends Engine_Form {
     } elseif($actionName == 'edit') {
 	    $eventcustom = true;
     }
+
 		if($eventcustom) {
       if(!empty($_GET['sesapi_platform']) && $_GET['sesapi_platform'] == 1){
         $this->addElement('select', 'is_custom_term_condition', array(
@@ -510,7 +512,6 @@ class Sesevent_Form_Create extends Engine_Form {
           $allowEmpty = true;
         }
 			$requiredClass = $required ? ' requiredClass' : '';
-			$translate = Zend_Registry::get('Zend_Translate');
 			//Main Photo
 			$this->addElement('File', 'photo', array(
 					'label' => 'Main Photo',
@@ -698,14 +699,68 @@ class Sesevent_Form_Create extends Engine_Form {
         'value' => '',
     ));
   }
-
+  $this->addElement('text', 'min_participants', array(
+    'label' => 'Minimum Participants',
+    'required' => true,
+    'allowEmpty' => false,
+    'placeholder' => 'minimum participants',
+    'validators' => $viewer->isAdmin()? array('Even'): array(
+      array('GreaterThan', true, array(0)),
+    )
+  ));
+  
   $this->addElement('text', 'max_participants', array(
     'label' => 'Maximum Participants',
     'required' => true,
     'allowEmpty' => false,
     'placeholder' => 'maximum participants',
+    'description' => $viewer->isAdmin()? '':'Regular users may not create events with more than 30 participants',
+    'validators' => $viewer->isAdmin()? array('Even'): array(
+      array('LessThan', true, array(30)),
+    )
   ));
+  // https://framework.zend.com/manual/1.12/en/zend.validate.set.html
+  $selectedAgeCategories = $actionName == "edit"? $event->getAgeCategoriesFromInterval(): array();
+  $allAgeCategories = array(
+    '18'=> '18-28',
+    '29'=> '29-39',
+    '40'=> '40-50',
+    '51'=> '51-61',
+    '62'=> '62-72',
+    '73'=> '73-88',
+  );
+  if($viewer->isAdmin()) {
+    $keyAgeCategoryUser = $viewer->getAgeCategory();
+    $selectedAgeCategories[$keyAgeCategoryUser] = $allAgeCategories[$keyAgeCategoryUser];
+    $this->addElement('MultiCheckbox', 'age_categories', array(
+      'description' => "test test test",
+      'multiOptions' => array($keyAgeCategoryUser=> $allAgeCategories[$keyAgeCategoryUser]),
+      'value' => array($keyAgeCategoryUser=> $allAgeCategories[$keyAgeCategoryUser]),
+      'class'=>$hideClass,
+    ));
+    $this->addElement('MultiCheckbox', 'age_categories', array(
+      'label' => $translate->translate('Age Categories'),
+      'multiOptions' => $allAgeCategories,
+      'required' => false,
+      'value' => $actionName == "edit"? $selectedAgeCategories: $allAgeCategories,
+      "disable"=> array($keyAgeCategoryUser),
+      "description" => $translate->translate('Your own age category can\'t be unchecked'),
+    ));
   
+    $this->addElement('Radio', 'gender_destribution', array(
+      'label' => $translate->translate('Gender Destribution'),
+      'multiOptions' => array(
+        'Undistributed' => "Undistributed",
+        'Ladies only' => "Ladies only",
+        'Men only' => "Men only",
+        '50/50' => "50/50"
+      ),
+      'required' => false,
+      'value' => 'Undistributed'
+    ));
+  }
+  
+
   if (Engine_Api::_()->authorization()->isAllowed('sesevent_event', $viewer, 'allow_levels')) {
 
         $levelOptions = array();
@@ -778,6 +833,29 @@ class Sesevent_Form_Create extends Engine_Form {
       $commentOptions = array_intersect_key($availableLabels, array_flip($commentOptions));
       $photoOptions = array_intersect_key($availableLabels, array_flip($photoOptions));
     }
+
+    $this->addElement('Checkbox', 'is_additional_costs', array(
+      'label' => 'Additional Costs',
+      'onchange' => 'additionalCostsToggle();',
+      'value' => 0
+    ));
+
+    $this->addElement('Text', 'additional_costs_amount', array(
+      'label' => 'Amount',
+      'value' => "0.00",
+      'class' => 'additional-costs-toggle',
+      'validators' => array(
+        "Float" 
+      )
+    ));
+
+    $this->addElement('TinyMce', 'additional_costs_description', array(
+      'label' => 'Additional Costs description',
+      'class'=>$viewer->isAdmin()? 'additional-costs-toggle': 'additional-costs-toggle',
+      'editorOptions' => $editorOptions,
+      'description' => "Specify what the costs are for and how it needs to be payed.",
+    ));
+
     // View
     if (!empty($viewOptions) && count($viewOptions) >= 1) {
       // Make a hidden field

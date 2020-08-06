@@ -317,6 +317,7 @@ class Fields_Controller_AdminAbstract extends Core_Controller_Action_Admin
       throw new Exception('only one left');
     }
 
+    
     // Check method/data
     if( !$this->getRequest()->isPost() ) {
       return;

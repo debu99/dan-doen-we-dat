@@ -25,6 +25,9 @@
 	width:0;
 	height:0;
 }
+#additional_costs_amount-wrapper, #additional_costs_description-wrapper {
+	display: none;
+}
 .sesevent_verified_label i:before{
 	color:#fff;
 	font-size:15px;

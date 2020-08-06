@@ -98,6 +98,13 @@ jqueryObjectOfSes('#check_custom_url_availability').click(function(){
       }
     });
   });
+
+function additionalCostsToggle(){
+	if(sesJqueryObject("#is_additional_costs").is(':checked'))
+    sesJqueryObject("#additional_costs_amount-wrapper, #additional_costs_description-wrapper").show();  // checked
+	else
+    sesJqueryObject("#additional_costs_amount-wrapper, #additional_costs_description-wrapper").hide();  // unchecked
+}
 //custom term and condition
 function customTermAndCondition(){
 	if(jqueryObjectOfSes("#is_custom_term_condition").is(':checked'))
@@ -108,7 +115,18 @@ function customTermAndCondition(){
 jqueryObjectOfSes('#is_custom_term_condition').bind('change', function () {
 	customTermAndCondition();
 });
+sesJqueryObject('#is_additional_costs').bind('change', function () {
+	additionalCostsToggle();
+});
 customTermAndCondition();
+additionalCostsToggle();
+
+<?php if(Engine_Api::_()->sesevent()->isMultiCurrencyAvailable()){ ?>
+	sesJqueryObject('#additional_costs_amount-element').append('<span class="fa fa-retweet sesevent_convert_icon sesbasic_link_btn" id="sesevent_currency_coverter" title="<?php echo $this->translate("Convert to %s",Engine_Api::_()->sesevent()->defaultCurrency());?>"></span>');
+	sesJqueryObject('#additional_costs_amount-label').append('<span> (<?php echo Engine_Api::_()->sesevent()->defaultCurrency(); ?>)</span>');
+<?php }else{ ?>
+	sesJqueryObject('#additional_costs_amount-label').append('<span> (<?php echo Engine_Api::_()->sesevent()->defaultCurrency(); ?>)</span>');
+<?php } ?>
 
 jqueryObjectOfSes(document).ready(function(){
 	jqueryObjectOfSes('#subcat_id-wrapper').css('display' , 'none');

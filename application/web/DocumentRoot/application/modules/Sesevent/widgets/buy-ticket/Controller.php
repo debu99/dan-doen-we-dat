@@ -11,6 +11,8 @@
  */
 class Sesevent_Widget_BuyTicketController extends Engine_Content_Widget_Abstract {
   public function indexAction() {
+		$viewer = Engine_Api::_()->user()->getViewer();
+
 		$this->view->type = $this->_getParam('type','button');
 		//check sevent_event subject,if not then no need to render widget.
 		if(Engine_Api::_()->core()->hasSubject('sesevent_event'))
@@ -36,7 +38,7 @@ class Sesevent_Widget_BuyTicketController extends Engine_Content_Widget_Abstract
 			//return $this->setNoRender();
 		}
 		//check validation event ticket 
-		if(!count($ticket) && $this->view->type == 'button')
+		if(!$viewer->userIsInAgeRange($event) || !count($ticket) && $this->view->type == 'button')
 			return $this->setNoRender();
 		else if(!count($ticket))
 			$this->view->noTicketAvailable = true;

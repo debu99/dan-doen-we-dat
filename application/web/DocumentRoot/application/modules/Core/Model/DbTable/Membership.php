@@ -171,6 +171,7 @@ abstract class Core_Model_DbTable_Membership extends Engine_Db_Table
    */
   public function removeMember(Core_Model_Item_Abstract $resource, User_Model_User $user)
   {
+    $genderUser = $user->getGender()['label'];
     $this->_isSupportedType($resource);
     $row = $this->getRow($resource, $user);
 
@@ -182,9 +183,28 @@ abstract class Core_Model_DbTable_Membership extends Engine_Db_Table
     if( isset($resource->member_count) && $row->active )
     {
       $resource->member_count--;
-      $resource->save();
     }
 
+    if( isset($resource->member_count) )
+    {
+      $resource->member_count--;
+    }
+    
+    if(isset($resource->female_count) && $genderUser == "Female" )
+    {
+      $resource->female_count--;
+    }
+
+    if( isset($resource->male_count) && $genderUser == "Male" )
+    {
+      $resource->male_count--;
+    }
+
+    if( isset($resource->other_count) && $genderUser == "Other" )
+    {
+      $resource->other_count--;
+    }
+    $resource->save();
     $row->delete();
 
     return $this;
@@ -254,6 +274,7 @@ abstract class Core_Model_DbTable_Membership extends Engine_Db_Table
   {
     $this->_isSupportedType($resource);
     $row = $this->getRow($resource, $user);
+    $genderUser = $user->getGender()['label'];
 
     if( null === $row )
     {
@@ -269,9 +290,24 @@ abstract class Core_Model_DbTable_Membership extends Engine_Db_Table
         if( isset($resource->member_count) )
         {
           $resource->member_count++;
-          $resource->save();
+        }
+        
+        if(isset($resource->female_count) && $genderUser == "Female" )
+        {
+          $resource->female_count++;
+        }
+
+        if( isset($resource->male_count) && $genderUser == "Male" )
+        {
+          $resource->male_count++;
+        }
+
+        if( isset($resource->other_count) && $genderUser == "Other" )
+        {
+          $resource->other_count++;
         }
       } 
+      $resource->save();
       $this->_checkActive($resource, $user);
       $row->save();
     }

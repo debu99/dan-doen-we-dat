@@ -105,6 +105,8 @@ de % s pagina. Als je wilt dat alle leden in je community dezelfde functies en l
     0 => '%d lid',
     1 => '%d leden',
   ),
+  'Age Category'=> 'Leefttijdscategorieën',
+  "Age Category Description" => 'Je eigen leeftijdscategorie kan je niet deselecteren.',
   'Level Name' => 'Level Naam',
   'View Members' => 'Bekijk Leden',
   'AUTHORIZATION_FORM_ADMIN_LEVEL_EDIT_DESCRIPTION' => 'Geef wat informatie over dit nieuwe lidmaatschapsniveau. Onthoud dat ledenniveaus nuttig zijn om sommige leden meer privileges te geven of hen moderatie mogelijkheden te geven. Als je alleen verschillende profieltypen wilt maken (bijv. "Fans" en "Bands"), ga dan naar het gedeelte Profielvragen.',

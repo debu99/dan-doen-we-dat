@@ -17,6 +17,10 @@
  */
 class Engine_Form_Element_Integer extends Engine_Form_Element_Text
 {
+  // protected $_messageTemplates = array(
+  //   self::Integer => "'%value%' is not a floating point value"
+  // );
+
   public function init()
   {
     $this->addValidator('int');

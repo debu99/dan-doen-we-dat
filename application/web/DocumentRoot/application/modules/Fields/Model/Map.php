@@ -44,4 +44,11 @@ class Fields_Model_Map extends Fields_Model_Abstract
       ->getFieldsMeta($this->getTable()->getFieldType())
       ->getRowMatching('field_id', $this->child_id);
   }
+
+  public function getFieldBy()
+  {
+    return Engine_Api::_()->fields()
+      ->getFieldsMeta($this->getTable()->getFieldType())
+      ->getRowMatching('field_id', $this->field_id);
+  }
 }

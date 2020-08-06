@@ -14,19 +14,64 @@
   <div class="sesevent_profile_info_row">
     <div class="sesevent_profile_info_head"><?php echo $this->translate("Basic Info"); ?></div>
     <ul class="sesevent_profile_info_row_info">
-      <li class="sesbasic_clearfix">
+      <!-- <li class="sesbasic_clearfix">
         <span><?php echo $this->translate("Created by"); ?></span>
         <span><a href="<?php echo $this->subject->getOwner()->getHref(); ?>"><?php echo $this->subject->getOwner()->getTitle(); ?></a></span>
-      </li>
+      </li> -->
       <?php $host = Engine_Api::_()->getItem('sesevent_host', $this->subject->host);; ?>
       <li class="sesbasic_clearfix">
         <span><?php echo $this->translate("Hosted by"); ?></span>
         <span><a href="<?php echo $host->getHref(); ?>"><?php echo $host->getTitle(); ?></a></span>
+
       </li>
-      <li class="sesbasic_clearfix">
+      <!-- <li class="sesbasic_clearfix">
         <span><?php echo $this->translate("Created on"); ?></span>
         <span><?php echo $this->translate('%1$s', $this->timestamp($this->subject->creation_date)); ?></span>
+      </li> -->
+      
+      <li class="sesbasic_clearfix">
+          <span>
+            <i title="Location" class="fas fa-map-marker-alt sesbasic_text_light"></i>&nbsp;&nbsp;<?php echo $this->translate("Location") ?>
+          </span>
+          <span><?php echo $this->short_location ?></span>
       </li>
+      <?php if($this->gender_destribution) {?>
+        <li class="sesbasic_clearfix">
+          <span>
+            <i class="fa fa-venus-mars"></i>&nbsp;&nbsp;<?php echo $this->translate("Gender") ?>
+          </span>
+          <span><?php echo $this->gender_destribution ?></span>
+        </li>
+      <?php }?>  
+
+      <li class="sesbasic_clearfix">
+        <span>
+          <i class="fa fa-calendar-alt"></i>&nbsp;&nbsp;&nbsp;<?php echo $this->translate("Age") ?>
+        </span>
+        <span><?php echo $this->age_from . " - " . $this->age_to . " " . $this->translate("year")?></span>
+      </li>
+      <li class="sesbasic_clearfix">
+        <span>
+          <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Participants
+        </span>
+          <span><?php echo "Min. " . $this->min_participants. " - " . "Max. " . $this->max_participants?></span>
+      </li>
+    </span>
+      <?php if($this->additional_costs) {?>
+        <li class="sesbasic_clearfix">
+          <span>
+            <?php echo $this->translate("Costs") ?>
+          </span>
+          <span><?php echo $this->additional_costs_amount_currency . " " . $this->additional_costs_amount ?></span>
+        </li>
+        <li class="sesbasic_clearfix">
+          <span>
+            <?php echo $this->translate("Costs Description") ?>
+          </span>
+          <span><?php echo $this->additional_costs_description ?></span>
+        </li>
+      <?php }?>  
+
       <li class="sesbasic_clearfix">
         <span><?php echo $this->translate("Stats"); ?></span>
         <span>
@@ -47,9 +92,22 @@
       </li>
      <?php if(Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent_enable_location', 1)){ ?>
       <li class="sesbasic_clearfix">
-        <span><?php echo $this->translate("Where"); ?></span>
-        <span> <a href='<?php echo $this->url(array('resource_id' => $this->subject->event_id,'resource_type'=>'sesevent_event','action'=>'get-direction'), 'sesbasic_get_direction', true); ?>' class="openSmoothbox"><?php echo $this->subject->location; ?> </a> </span>
+        <?php if($this->isAttending) { ?>
+          <span><?php echo $this->translate("Where"); ?></span>
+          <span> <a href='<?php echo $this->url(array('resource_id' => $this->subject->event_id,'resource_type'=>'sesevent_event','action'=>'get-direction'), 'sesbasic_get_direction', true); ?>' class="openSmoothbox"><?php echo $this->location; ?> </a> </span>
+        <?php } else { ?>
+          <span>
+            <?php echo $this->translate("Where"); ?>
+          </span>
+          <span><i class="fas fa-lock"></i>      <?php echo $this->translate("This will become visible after you've joined.")?></span>
+        <?php } ?>
       </li>
+        <?php if($this->venue && $this->isAttending) { ?>
+        <li class="sesbasic_clearfix">
+          <span><?php echo $this->translate("Venue"); ?></span>
+          <span><?php echo $this->venue ?> </span>
+        </li>
+        <?php } ?>
       <?php } ?>
     </ul>
   </div>

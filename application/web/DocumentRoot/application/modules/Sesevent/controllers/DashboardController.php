@@ -139,6 +139,22 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
       $form->addError(Zend_Registry::get('Zend_Translate')->_('Timezone is a required field.'));
       return;
     }
+
+    if($values['is_additional_costs'] == ''){
+      $values['is_additional_costs'] = 0;
+      $values['additional_costs_amount'] = 0;
+      $values['additional_costs_description'] = null;
+      $values['additional_costs_amount_currency'] = null;
+    }
+    else if(isset($values['additional_costs_amount'])){
+      $values['additional_costs_amount'] = floatval(str_replace(",", ".", $values['additional_costs_amount']));
+      $values['additional_costs_amount_currency'] = Engine_Api::_()->sesbasic()->getCurrentCurrency();
+    }
+    if(isset($values['age_categories'])) {
+      $age_categories = Sesevent_Model_Event::getAgeCategoriesToInterval($values['age_categories']);
+      $values['age_category_from'] = $age_categories['from'];
+      $values['age_category_to'] = $age_categories['to'];
+    }
     // Convert times
     $oldTz = date_default_timezone_get();
     date_default_timezone_set($values['timezone']);
@@ -147,6 +163,8 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
     date_default_timezone_set($oldTz);
     $values['starttime'] = date('Y-m-d H:i:s', $start);
     $values['endtime'] = date('Y-m-d H:i:s', $end);
+
+    
     if (strtotime($values['starttime']) > strtotime($values['endtime'])) {
       $form->addError(Zend_Registry::get('Zend_Translate')->_('Start Time must be less than End Time.'));
       return;
@@ -1134,6 +1152,14 @@ protected function exportFile($records) {
       $form->addError($this->view->translate("Event ticket end date must be less than event end date."));
       return;
     }
+
+    $startTime = new DateTime($values['starttime']);
+    $endTime = new DateTime($values['endtime']);
+    
+    if(!$viewer->isAdmin() && (int)$endTime->diff($startTime)->format("%a") > 1) {
+      $form->addError(Zend_Registry::get('Zend_Translate')->_("Regular members can't create events that take more than 1 day."));
+      return;
+    }
     if (!$form->isValid($this->getRequest()->getPost()) || $is_ajax_content)
       return;
     $db = Engine_Api::_()->getDbtable('tickets', 'sesevent')->getAdapter();
@@ -1481,4 +1507,7 @@ protected function exportFile($records) {
     $event->save();
     return $this->_helper->redirector->gotoRoute(array('action' => 'backgroundphoto', 'event_id' => $event->custom_url), "sesevent_dashboard", true);
   }
+  // TO DO => REMOVE DUPLICATION , method also in indexcontroller
+
+
 }

@@ -13,19 +13,19 @@
 .sesevent_minimalistic_cover {
 	display: flex;
 	justify-content: center;
+	padding: 5px;
 }
 
 .sesevent_minimalistic_cover h1 {
 	color: white;
 	font-size: 4em;
-	max-width: 30vw;
+	max-width: 50vw;
 	line-height: 0.8;
 }
-@media (max-width: 800px){
-	.sesevent_minimalistic_cover h1 {
-		max-width: 65vw;
-	}
+.seevent-cover-title h1 {
+	word-break: break-word;
 }
+
 .sesevent_minimalistic_cover .divider {
 	width: 15px;
 	background-color: white;
@@ -45,7 +45,15 @@
 	justify-content: center;
 	text-align: center;
 }
-
+@media (max-width: 800px){
+	.sesevent_minimalistic_cover h1 {
+		max-width: 65vw;
+		font-size: 1.7em;
+	}
+	.sesevent_minimalistic_cover .seevent-cover-date--date {
+		font-size: 7em;
+	}
+}
 .sesevent_cover_container{
 	background-color:#aaa;
 	height:300px;

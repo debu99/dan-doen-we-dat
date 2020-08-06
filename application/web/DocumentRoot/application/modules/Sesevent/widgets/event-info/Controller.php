@@ -13,12 +13,47 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
 
   public function indexAction() {
     // Get subject and check auth
+    $viewer = Engine_Api::_()->user()->getViewer();
     $subject = Engine_Api::_()->core()->getSubject('sesevent_event');
     if (!$subject) {
       return $this->setNoRender();
     }
     $this->view->subject = $subject;
     $this->view->eventTags = $subject->tags()->getTagMaps();
-  }
 
+    $isAttending = $subject->membership()->getRow($viewer)->rsvp === 2;;
+    $this->view->isAttending = $isAttending;
+
+    $this->view->age_from = $subject->age_category_from;
+    $this->view->age_to = $subject->age_category_to;
+    $this->view->max_participants = $subject->max_participants;
+    $this->view->min_participants = $subject->min_participants;
+
+    $this->view->short_location = $this->shortLocation($subject->location);
+    $this->view->location = $isAttending? $subject->location: $this->shortLocation($subject->location);
+    $this->view->venue = strlen($subject->venue_name) > 0? $subject->venue_name: false;
+
+
+    if($subject->is_additional_costs) {
+      $this->view->additional_costs = true;
+      $this->view->additional_costs_amount = $subject->additional_costs_amount;
+      $this->view->additional_costs_amount_currency = $subject->additional_costs_amount_currency;
+      $this->view->additional_costs_description = $subject->additional_costs_description;
+    }
+
+    if($subject->gender_destribution === "Ladies only" || $subject->gender_destribution === "Men only") 
+      $this->view->gender_destribution = $subject->gender_destribution;
+    else 
+     $this->view->gender_destribution = false;
+    }
+    function shortLocation($location){
+
+      $splitLocation = explode(",",$location);
+      $locationLength = count($splitLocation);
+      if(count($splitLocation) === 1){
+        return trim($splitLocation[0]);
+      } else {
+        return trim($splitLocation[$locationLength - 2]) . ", " . trim($splitLocation[$locationLength-1]);
+      }
+    }
 }

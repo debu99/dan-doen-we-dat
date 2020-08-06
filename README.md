@@ -43,8 +43,7 @@ docker push piepongwong/apache-php-se-prod:vmajor:minor
 docker push piepongwong/apache-php-se-prod:latest
 ssh ubuntu@managernode -i ~/.ssh/keyfile
 cd ddwd
-docker pull piepongwong/apache-php-se-prod:latest
-docker stack deploy -c docker-compose.yml ddwd
+ckdocker stack deploy -c docker-compose.yml ddwd
 
 run mysql migration scripts if there are any new ones
 ```
@@ -129,3 +128,34 @@ Incomplete. Methods of models seem to be callable by using $subject->nameofmetho
 
 ## Forms 
 Forms have the following naming convention: ModuleName_Form_Controller_FormNameCamelCased. Example: `Sesevent_Form_Member_LeaveWaitingList`. They alos should have view.tpl in the view directory of the controller. The file should be kebab cased, for example? leave-waiting-list.tpl.
+
+## TDD
+In web container run, for example:
+```
+phpunit --bootstrap /var/www/html/index.php /var/www/html/application/modules/Sesevent/tests/IndexControllerTest.php
+```
+
+## Profile Fields
+Most profile fields are dynamically set through 
+/application/web/DocumentRoot/application/modules/Fields/views/helpers/AdminFieldMeta.php in 
+`dandoe_se5`.`engine4_user_fields_meta` and `dandoe_se5`.`engine4_user_fields_values`
+
+$db = Engine_Db_Table::getDefaultAdapter();
+
+$birthDate = $db->select()
+            ->from('engine4_user_fields_meta')
+            ->where('type = ?', 'birthdate')
+            ->query()
+            ->fetch(); 
+$birthDateFieldId = $birthDate['field_id'];
+
+$birthDayUser = $db->select()
+            ->from('engine4_user_fields_values')
+            ->where('item_id = ?', 1) // user_id
+             ->where('field_id = ?', 6) // field_id
+            ->query()
+            ->fetch();
+
+
+## TODO
+Clean up code duplication in Event.php and member/indexController ageCategories

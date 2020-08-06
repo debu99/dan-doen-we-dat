@@ -335,7 +335,8 @@ class Sesevent_Model_Event extends Core_Model_Item_Abstract {
               ->limit(1)
               ->query()
               ->fetchColumn();
-	}	
+  }	
+  
   public function getSingletonAlbum() {
     $table = Engine_Api::_()->getItemTable('sesevent_album');
     $select = $table->select()
@@ -418,7 +419,8 @@ class Sesevent_Model_Event extends Core_Model_Item_Abstract {
 			 $defaultPhoto =  'application/modules/Sesevent/externals/images/event-cover.jpg';
 		 }
      return Engine_Api::_()->sesevent()->getFileUrl($defaultPhoto);
-	}
+  }
+  
   public function getPhotoUrl($type = NULL) {
     $photo_id = $this->photo_id;
     if ($photo_id) {
@@ -434,5 +436,59 @@ class Sesevent_Model_Event extends Core_Model_Item_Abstract {
 		 $settings = Engine_Api::_()->getApi('settings', 'core');
 		 $defaultPhoto = Engine_Api::_()->sesevent()->getFileUrl($settings->getSetting('sesevent_event_default_photo', 'application/modules/Sesevent/externals/images/nophoto_event_thumb_profile.png'));
      return $defaultPhoto;
+  }
+
+  public function getAgeCategoriesFromInterval(){
+    return $this->getIntervalToAgeCategories(array(
+      'from' => $this['age_category_from'],
+      'to' => $this['age_category_to']
+    ));
+  }
+
+  public static function getIntervalToAgeCategories($interval){
+    if($interval == null) return null;
+
+    $categories = array(
+      '18'=> '18-28',
+      '29'=> '29-39',
+      '40'=> '40-50',
+      '51'=> '51-61',
+      '62'=> '62-72',
+      '73'=> '73-88',
+    );
+    $filteredCategories = $categories;
+    foreach($categories as $key => $value) {
+      if((int)$key < $interval['from'] || (int)$key > $interval['to']) unset($filteredCategories[$key]);
+    }
+    return $filteredCategories;
+  }
+
+  public static function getAgeCategoriesToInterval($categories){      
+    $standardRange = 10;
+    $from = 99;
+    $to = 0;
+
+    foreach($categories as $category){
+      if((int)$category <= $from) $from = $category;
+      if((int)$category + $standardRange >= $to) $to = $category + $standardRange;
+      if((int)$category === 73) $to = 88; // last category is an exception and has a range of 15
+    };
+
+    return Sesevent_Model_Event::addUsersAgeCategoryToInterval(array(
+      'from'=> $from,
+      'to' => $to
+    ));
+  }
+
+  
+  public static function addUsersAgeCategoryToInterval($interval){
+    $viewer = Engine_Api::_()->user()->getViewer();
+    $age = $viewer->getAgeCategory();
+
+    if($age < $interval['from']) $interval['from'] = $age;
+    if($age + 10 > $interval['to']) $interval['to'] = $age + 10;
+    if($age == 73) $interval['to'] = 88;
+
+    return $interval;
   }
 }

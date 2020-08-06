@@ -33,6 +33,15 @@
 <div id="event_error_time-wrapper" class="form-wrapper" style="display:none;">
   <div class="form-element tip"><span id="event_error_time-element"></span></div>
 </div>
+
+<?php 
+	 $viewer = Engine_Api::_()->user()->getViewer();
+	 $isAdmin = $viewer->isAdmin();
+	 if(!$isAdmin) {
+?>
+	<p class="description">* <?php echo $this->translate("Regular users can't create events that take longer than a day.") ?></p>
+<?php } ?>
+
 <script type="application/javascript">
 
  en4.core.runonce.add(function() {

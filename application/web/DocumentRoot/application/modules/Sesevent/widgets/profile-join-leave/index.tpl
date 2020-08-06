@@ -1,25 +1,28 @@
 <span class="sesevent-join-leave">
     <?php 
-        if($this->isLoggedIn && !$this->isFull && !$this->isAttending){
-            echo '<button class="sesevent-join">'.$this->translate('Join Event').'</button>';
-        }
         if(!$this->isLoggedIn) {
             echo '<a href="login"><button>Login to Join</button></a>';
-        }
-        else if($this->isFull && !$this->isOnWaitingList && !$this->isAttending) {
-                echo '<a href="/events/member/waitinglist/event_id/'.$this->subject()->event_id.'" class="buttonlink smoothbox menu_sesevent_profile sesevent_profile_member" style="" target="">
-                        <button>'.$this->translate('Join Waiting List').'</button>
-                </a>';  
-        }
-        else if($this->isOnWaitingList) {
-            echo '<a href="/events/member/leave-waiting-list/event_id/'.$this->subject()->event_id.'" class="buttonlink smoothbox menu_sesevent_profile sesevent_profile_member" style="" target="">
-                    <button>'.$this->translate('Leave Waiting List').'</button>
-                </a>';
-        }    
-        else if($this->isAttending){
-            echo '<a href="/events/member/leave/event_id/'.$this->subject()->event_id.'" class="buttonlink smoothbox menu_sesevent_profile sesevent_profile_member" style="" target="">
-                    <button>'.$this->translate('Leave Event').'</button>
-                </a>';
+        } else {
+
+            if($this->isLoggedIn && !$this->isFull && !$this->isAttending){
+                echo '<button class="sesevent-join">'.$this->translate('Join Event').'</button>';
+            }
+
+            else if($this->isFull && !$this->isOnWaitingList && !$this->isAttending) {
+                    echo '<a href="/events/member/waitinglist/event_id/'.$this->subject()->event_id.'" class="buttonlink smoothbox menu_sesevent_profile sesevent_profile_member" style="" target="">
+                            <button>'.$this->translate('Join Waiting List').'</button>
+                    </a>';  
+            }
+            else if($this->isOnWaitingList) {
+                echo '<a href="/events/member/leave-waiting-list/event_id/'.$this->subject()->event_id.'" class="buttonlink smoothbox menu_sesevent_profile sesevent_profile_member" style="" target="">
+                        <button>'.$this->translate('Leave Waiting List').'</button>
+                    </a>';
+            }    
+            else if($this->isAttending){
+                echo '<a href="/events/member/leave/event_id/'.$this->subject()->event_id.'" class="buttonlink smoothbox menu_sesevent_profile sesevent_profile_member" style="" target="">
+                        <button>'.$this->translate('Leave Event').'</button>
+                    </a>';
+            }
         }
     ?>
     <div class="loading">

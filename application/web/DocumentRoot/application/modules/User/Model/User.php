@@ -657,4 +657,85 @@ class User_Model_User extends Core_Model_Item_Abstract
     parent::_readData($spec);
   }
 
+  public function getBirthdate(){
+    
+      $db = Engine_Db_Table::getDefaultAdapter();
+
+      $birthDate = $db->select()
+                  ->from('engine4_user_fields_meta')
+                  ->where('type = ?', 'birthdate')
+                  ->query()
+                  ->fetch(); 
+      $birthDateFieldId = $birthDate['field_id'];
+
+      $birthDayUser = $db->select()
+            ->from('engine4_user_fields_values')
+            ->where('item_id = ?',$this->getIdentity()) // user_id
+             ->where('field_id = ?',  $birthDateFieldId) // field_id
+            ->query()
+            ->fetch();
+
+      return $birthDayUser['value'];
+  }
+  public function getAge($birthday){
+    $first_date = new DateTime($this->getBirthdate());
+    $second_date = new DateTime("now");
+    $ageInYears = $first_date->diff($second_date)->y;
+    return $ageInYears;
+  }
+
+  public function getAgeCategory(){
+    $ageCategories = array(
+      '18'=> '18-28',
+      '29'=> '29-39',
+      '40'=> '40-50',
+      '51'=> '51-61',
+      '62'=> '62-72',
+      '73'=> '73-88',
+    );
+    $ageUser = $this->getAge($this->getBirthdate());
+    foreach($ageCategories as $key => $value){
+      if($ageUser >= (int)$key && 
+        ($ageUser <= (int)$key + 10 || ($ageUser >= 73 && $ageUser <= 88))) return $key;
+    }
+  }
+
+  public function userIsInAgeRange($event){
+    $age =  $this->getAge($this->getBirthdate());
+
+    if(!isset($event->age_category_from) || !isset($event->age_category_to)) return true;
+    return $age >= $event->age_category_from && $age <= $event->age_category_to;
+  }
+
+
+  public function getGender(){
+    
+    $db = Engine_Db_Table::getDefaultAdapter();
+
+    $gender = $db->select()
+                ->from('engine4_user_fields_meta')
+                ->where('type = ?', 'gender')
+                ->query()
+                ->fetch(); 
+    $genderFieldId = $gender['field_id'];
+
+    $genderUser = $db->select()
+          ->from('engine4_user_fields_values')
+          ->where('item_id = ?',$this->getIdentity()) // user_id
+           ->where('field_id = ?',  $genderFieldId) // field_id
+          ->query()
+          ->fetch();
+    
+    $genderMap = $db->select()
+          ->from('engine4_user_fields_options')
+          ->where('option_id = ?',$genderUser['value']) // user_id
+           ->where('field_id = ?',  $genderFieldId) // field_id
+          ->query()
+          ->fetch();
+          
+    return array(
+        "label"=> $genderMap['label'],
+        "option_id"=> $genderUser['value']
+    );
+}
 }
