@@ -145,6 +145,11 @@ resource "aws_instance" "ddwd" {
   }
 
   provisioner "file" {
+    source      = "../../environment/prod/.smtp.env"
+    destination = "~/.smtp.env"
+  }
+
+  provisioner "file" {
     source      = "~/.ssh/ec2-github-access"
     destination = "~/.ssh/id_rsa"
   }
@@ -164,6 +169,7 @@ resource "aws_instance" "ddwd" {
       "mv ~/.env ~/ddwd/.env",
       "mv ~/.db.env ~/ddwd/.db.env",
       "mv ~/.s3.env ~/ddwd/.s3.env",
+      "mv ~/.smtp.env ~/ddwd/.smtp.env",
       "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y",
       "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -",
       "sudo apt-key fingerprint 0EBFCD88",

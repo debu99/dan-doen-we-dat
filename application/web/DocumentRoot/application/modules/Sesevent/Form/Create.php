@@ -704,7 +704,7 @@ class Sesevent_Form_Create extends Engine_Form {
     'required' => true,
     'allowEmpty' => false,
     'placeholder' => 'minimum participants',
-    'validators' => $viewer->isAdmin()? array('Even'): array(
+    'validators' => $viewer->isAdmin()? array(): array(
       array('GreaterThan', true, array(0)),
     )
   ));
@@ -715,7 +715,7 @@ class Sesevent_Form_Create extends Engine_Form {
     'allowEmpty' => false,
     'placeholder' => 'maximum participants',
     'description' => $viewer->isAdmin()? '':'Regular users may not create events with more than 30 participants',
-    'validators' => $viewer->isAdmin()? array('Even'): array(
+    'validators' => $viewer->isAdmin()? array(): array(
       array('LessThan', true, array(30)),
     )
   ));

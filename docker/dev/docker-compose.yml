@@ -29,6 +29,7 @@ services:
         env_file:
             - ../../environment/dev/.db.env
             - ../../environment/dev/.s3.env    
+            - ../../environment/dev/.smtp.env
         environment:
             - local_ip=127.0.0.1
         deploy:

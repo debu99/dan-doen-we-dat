@@ -33,11 +33,12 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
     $this->view->location = $isAttending? $subject->location: $this->shortLocation($subject->location);
     $this->view->venue = strlen($subject->venue_name) > 0? $subject->venue_name: false;
 
+    $curArr = Zend_Locale::getTranslationList('CurrencySymbol');
 
     if($subject->is_additional_costs) {
       $this->view->additional_costs = true;
       $this->view->additional_costs_amount = $subject->additional_costs_amount;
-      $this->view->additional_costs_amount_currency = $subject->additional_costs_amount_currency;
+      $this->view->additional_costs_amount_currency = $curArr[$subject->additional_costs_amount_currency];
       $this->view->additional_costs_description = $subject->additional_costs_description;
     }
 
@@ -46,6 +47,7 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
     else 
      $this->view->gender_destribution = false;
     }
+    
     function shortLocation($location){
 
       $splitLocation = explode(",",$location);

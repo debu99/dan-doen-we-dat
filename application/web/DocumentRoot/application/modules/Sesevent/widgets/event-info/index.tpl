@@ -31,7 +31,7 @@
       
       <li class="sesbasic_clearfix">
           <span>
-            <i title="Location" class="fas fa-map-marker-alt sesbasic_text_light"></i>&nbsp;&nbsp;<?php echo $this->translate("Location") ?>
+            <i title="Location" class="fas fa-map-marker-alt sesbasic_text_light"></i>&nbsp;&nbsp;&nbsp;<?php echo $this->translate("Location") ?>
           </span>
           <span><?php echo $this->short_location ?></span>
       </li>
@@ -48,7 +48,7 @@
         <span>
           <i class="fa fa-calendar-alt"></i>&nbsp;&nbsp;&nbsp;<?php echo $this->translate("Age") ?>
         </span>
-        <span><?php echo $this->age_from . " - " . $this->age_to . " " . $this->translate("year")?></span>
+        <span><?php echo $this->age_from . " - " . $this->age_to . " " . $this->translate("year")[0]?></span>
       </li>
       <li class="sesbasic_clearfix">
         <span>
@@ -60,7 +60,7 @@
       <?php if($this->additional_costs) {?>
         <li class="sesbasic_clearfix">
           <span>
-            <?php echo $this->translate("Costs") ?>
+            <i class="fas fa-euro-sign"></i>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->translate("Costs") ?>
           </span>
           <span><?php echo $this->additional_costs_amount_currency . " " . $this->additional_costs_amount ?></span>
         </li>
@@ -73,7 +73,8 @@
       <?php }?>  
 
       <li class="sesbasic_clearfix">
-        <span><?php echo $this->translate("Stats"); ?></span>
+
+        <span><i class="fas fa-chart-bar"></i>&nbsp;&nbsp;<?php echo $this->translate("Stats"); ?></span>
         <span>
           <span><?php echo $this->translate(array('<b>%s</b> Like', '<b>%s</b> Likes', $this->subject->like_count), $this->locale()->toNumber($this->subject->like_count)) ?>, </span>
           <span><?php echo $this->translate(array('<b>%s</b> Comment', '<b>%s</b> Comments', $this->subject->comment_count), $this->locale()->toNumber($this->subject->comment_count)) ?>, </span>
@@ -107,6 +108,13 @@
           <span><?php echo $this->translate("Venue"); ?></span>
           <span><?php echo $this->venue ?> </span>
         </li>
+        <?php } else if($this->venue) { ?>
+        <li> 
+          <span>
+            <?php echo $this->translate("Venue"); ?>
+          </span>
+          <span><i class="fas fa-lock"></i>     <?php echo $this->translate("This will become visible after you've joined.")?></span>
+        </li>  
         <?php } ?>
       <?php } ?>
     </ul>
