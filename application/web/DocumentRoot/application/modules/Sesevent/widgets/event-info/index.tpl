@@ -54,7 +54,7 @@
         <span>
           <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Participants
         </span>
-          <span><?php echo "Min. " . $this->min_participants. " - " . "Max. " . $this->max_participants?></span>
+          <span><?php echo "Min. " . $this->min_participants. " - " . "Max. " . $this->max_participants . "  | " . $this->translate("Available") . ": " . $this->available_spots?></span>
       </li>
     </span>
       <?php if($this->additional_costs) {?>
