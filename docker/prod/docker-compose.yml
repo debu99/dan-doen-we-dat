@@ -3,7 +3,6 @@ services:
     reverse-proxy:
         image: traefik:v2.2
         command:
-            --api.insecure=true
             --providers.docker.swarmMode=true
             --entrypoints.web.address=:80
             --entrypoints.websecure.address=:443
@@ -11,7 +10,6 @@ services:
             --certificatesresolvers.myresolver.acme.storage=acme.json
             --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
         ports:
-            - "8080:8080"
             - "80:80"
             - "443:443"
         volumes:
@@ -20,14 +18,18 @@ services:
     dandoenwedat:
         image: piepongwong/apache-php-se-prod:latest
         volumes:
-            - ./DocumentRoot/public:/var/www/html/public
+            - ./public:/var/www/html/public
         env_file:
             - ../../environment/prod/.db.env
             - ../../environment/prod/.s3.env
-            - ../../environment/dev/.smtp.env
+            - ../../environment/prod/.smtp.env
         deploy:
             labels:
                 - traefik.http.routers.web.rule=Host(`${local_ip}`,`dandoenwedat.com`, `www.dandoenwedat.com`)
                 - traefik.http.routers.web.tls=true
                 - traefik.http.routers.web.tls.certresolver=myresolver
                 - traefik.http.services.web-service.loadbalancer.server.port=80
+                - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+                - traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)
+                - traefik.http.routers.redirs.entrypoints=web
+                - traefik.http.routers.redirs.middlewares=redirect-to-https

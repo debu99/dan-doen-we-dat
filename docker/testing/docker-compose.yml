@@ -7,6 +7,9 @@ services:
             --providers.docker.swarmMode=true
             --entrypoints.web.address=:80
             --entrypoints.websecure.address=:443
+            --entrypoints.web.http.redirections.entryPoint.to=websecure
+            --entrypoints.web.http.redirections.entryPoint.scheme=https
+            --entrypoints.web.http.redirections.entrypoint.permanent=true
             --certificatesresolvers.myresolver.acme.email=info@tech-savvy.io
             --certificatesresolvers.myresolver.acme.storage=acme.json
             --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
@@ -18,12 +21,13 @@ services:
             - "./letsencrypt:/letsencrypt"
             - "/var/run/docker.sock:/var/run/docker.sock"
     dandoenwedat:
-        image: piepongwong/apache-php-se-prod:v1.31
+        image: piepongwong/apache-php-se-prod:latest
         volumes:
             - ./DocumentRoot/public:/var/www/html/public
         env_file:
             - ../../environment/dev/.db.env
             - ../../environment/dev/.s3.env
+            - ../../environment/dev/.smtp.env
         deploy:
             labels:
                 - traefik.http.routers.web.rule=Host(`${local_ip}`,`dandoenwedat.com`, `www.dandoenwedat.com`)
@@ -41,3 +45,4 @@ services:
         env_file:
             - ../../environment/dev/.db.env
             - ../../environment/dev/.s3.env
+            
