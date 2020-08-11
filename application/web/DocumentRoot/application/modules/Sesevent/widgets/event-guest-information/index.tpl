@@ -11,6 +11,15 @@
  */
 ?>
 <style>
+.sesevent_guests_block_user  {
+  overflow:hidden;
+}
+
+<?php if(!$this->isMember) { ?>
+  .attending .sesevent_guest_photo, .waiting .sesevent_guest_photo {
+    filter: blur(8px);
+  }
+<?php } ?>
 .sesevent_guest_photo img{height:100%;width:100%;}
 </style>
 <?php $host = Engine_Api::_()->getItem('user', $this->subject->user_id); ?>
@@ -39,7 +48,7 @@
   	foreach($this->attending as $userAttending){ 
     	 $user = Engine_Api::_()->getItem('user', $userAttending->user_id);
      ?>
-      <div class="sesevent_guests_block_user" style="height:<?php echo $this->height.'px' ?>;width:<?php echo $this->width.'px' ?>">
+      <div class="sesevent_guests_block_user attending" style="height:<?php echo $this->height.'px' ?>;width:<?php echo $this->width.'px' ?>">
        <?php echo $this->htmlLink($user->getHref(), $this->itemPhoto($user, 'thumb.profile', $user->getTitle()), array('class' => 'sesevent_guest_photo')) ?>
       </div>
     <?php 
@@ -105,7 +114,7 @@
   	foreach($this->onwaitinglist as $userWaiting){ 
     	 $user = Engine_Api::_()->getItem('user', $userWaiting->user_id);
      ?>
-      <div class="sesevent_guests_block_user" style="height:<?php echo $this->height.'px' ?>;width:<?php echo $this->width.'px' ?>">
+      <div class="sesevent_guests_block_user waiting" style="height:<?php echo $this->height.'px' ?>;width:<?php echo $this->width.'px' ?>">
        <?php echo $this->htmlLink($user->getHref(), $this->itemPhoto($user, 'thumb.profile', $user->getTitle()), array('class' => 'sesevent_guest_photo')) ?>
       </div>
     <?php 

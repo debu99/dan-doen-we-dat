@@ -13,6 +13,18 @@
 <?php $previousSubject = Engine_Api::_()->core()->hasSubject() ? Engine_Api::_()->core()->getSubject() : false; ?>
 
 <?php $buyTicket = ''; ?>
+<?php 
+  function shortLocation($location){
+
+    $splitLocation = explode(",",$location);
+    $locationLength = count($splitLocation);
+    if(count($splitLocation) === 1){
+      return trim($splitLocation[0]);
+    } else {
+      return trim($splitLocation[$locationLength - 2]) . ", " . trim($splitLocation[$locationLength-1]);
+    }
+  }
+?>
 <?php  if(!$this->is_ajax){ ?>
 <style>
 .displayFN{display:none !important;}
@@ -530,7 +542,7 @@
     <?php 
       $currentFormattedDate = $this->eventStartDate($event);
       $currentDateString = "{$currentFormattedDate['day']} {$currentFormattedDate['date']} {$currentFormattedDate['month']}";
-      
+      $shortLocation = shortLocation($event->location);
       $prevFormattedDate = $this->eventStartDate($prevEvent);
       $prevDateString = "{$prevFormattedDate['day']} {$prevFormattedDate['date']} {$prevFormattedDate['month']}";
 
@@ -544,7 +556,7 @@
           <a href='{$event->getHref()}' class='list-item-info'>
               <div class='list-item-info--title--location'>
                   <h1>{$event->title}</h1>
-                  <h3>{$event->location}</h3>
+                  <h3>{$shortLocation}</h3>
               </div>
               <div class='list-item--time'>
                 <h1>{$currentFormattedDate['time']}</h1>

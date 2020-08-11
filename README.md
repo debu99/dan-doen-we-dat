@@ -43,7 +43,7 @@ docker push piepongwong/apache-php-se-prod:vmajor:minor
 docker push piepongwong/apache-php-se-prod:latest
 ssh ubuntu@managernode -i ~/.ssh/keyfile
 cd ddwd
-ckdocker stack deploy -c docker-compose.yml ddwd
+docker stack deploy -c docker-compose.yml ddwd
 
 run mysql migration scripts if there are any new ones
 ```
@@ -160,6 +160,22 @@ $birthDayUser = $db->select()
 ## TODO
 Clean up code duplication in Event.php and member/indexController ageCategories
 
-## MYSQL Migration Scripts
-mysqldump --column-statistics=0 -h prodhost -u DANDOE_ROOT -p dandoe_se > ddwd.sql
-mysql -u root -P 3306 -h 127.0.0.1 -p dandoe_se5 < ddwd.sql
+## Upload Cover Photo
+https://www.dandoenwedat.com/user/coverphoto/upload-cover-photo/user_id/14/photoType/profile
+https://uifaces.co/
+
+        $this->setCoverPhoto($form->Filedata, null, $level_id);
+https://framework.zend.com/manual/1.12/en/zend.test.phpunit.html
+
+`dandoe_se5`.`engine4_users`
+`dandoe_se5`.`engine4_storage_files`
+
+_version3PasswordCrypt
+
+/home/piepongwong/dev-dan-doen-we-dat/application/web/DocumentRoot/application/modules/User/Form/Signup/Account.php
+
+
+/home/piepongwong/dev-dan-doen-we-dat/application/web/DocumentRoot/application/modules/User/controllers/SignupController.php
+12345Abc@
+
+password: d3v0SKZ2zBFwGAB48yjU@! hash: $2y$10$Npx3d3KXN1bMw5MYp8KSnegXb7CxLD.Kf1ho6yEoxEQudQAJBq27y salt: 1925740

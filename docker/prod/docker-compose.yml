@@ -19,6 +19,7 @@ services:
         image: piepongwong/apache-php-se-prod:latest
         volumes:
             - ./public:/var/www/html/public
+            - ./languages:/var/www/html/application/languages
         env_file:
             - ./environment/.db.env
             - ./environment/.s3.env

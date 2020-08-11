@@ -12,7 +12,7 @@
 ?>
 <div class='sesevent_profile_info sesbasic_clearfix sesbasic_bxs'>
   <div class="sesevent_profile_info_row">
-    <div class="sesevent_profile_info_head"><?php echo $this->translate("Basic Info"); ?></div>
+    <div class="sesevent_profile_info_head"><img class="sesbasic-category-icon" src="<?php echo $this->catIcon; ?>" /><h3> <?php echo $this->event_title;?></h3></div>
     <ul class="sesevent_profile_info_row_info">
       <!-- <li class="sesbasic_clearfix">
         <span><?php echo $this->translate("Created by"); ?></span>
@@ -20,7 +20,10 @@
       </li> -->
       <?php $host = Engine_Api::_()->getItem('sesevent_host', $this->subject->host);; ?>
       <li class="sesbasic_clearfix">
-        <span><?php echo $this->translate("Hosted by"); ?></span>
+        <span>
+          <i title="host" class="fas fa-user-tie sesbasic_text_light"></i>&nbsp;&nbsp;&nbsp;<?php echo $this->translate("Host") ?>
+        </span>
+        
         <span><a href="<?php echo $host->getHref(); ?>"><?php echo $host->getTitle(); ?></a></span>
 
       </li>
@@ -66,9 +69,9 @@
         </li>
         <li class="sesbasic_clearfix">
           <span>
-            <?php echo $this->translate("Costs Description") ?>
+            <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->translate("description") ?></small>
           </span>
-          <span><?php echo $this->additional_costs_description ?></span>
+          <span><small><?php echo $this->additional_costs_description ?></small></span>
         </li>
       <?php }?>  
 
@@ -85,7 +88,7 @@
     </ul>
   </div>
   <div class="sesevent_profile_info_row">
-    <div class="sesevent_profile_info_head"><?php echo $this->translate("When & Where"); ?></div>
+    <div class="sesevent_profile_info_head"><h3><?php echo $this->translate("When & Where"); ?></h3>&nbsp;&nbsp;<?php  echo  $this->isAttending? "": "<i class='fas fa-lock'></i>"; ?></div>
     <ul class="sesevent_profile_info_row_info">
       <li class="sesbasic_clearfix">
         <span><?php echo $this->translate("When"); ?></span>
@@ -103,65 +106,74 @@
           <span><i class="fas fa-lock"></i>      <?php echo $this->translate("This will become visible after you've joined.")?></span>
         <?php } ?>
       </li>
-        <?php if($this->venue && $this->isAttending) { ?>
-        <li class="sesbasic_clearfix">
-          <span><?php echo $this->translate("Venue"); ?></span>
-          <span><?php echo $this->venue ?> </span>
-        </li>
-        <?php } else if($this->venue) { ?>
-        <li> 
-          <span>
-            <?php echo $this->translate("Venue"); ?>
-          </span>
-          <span><i class="fas fa-lock"></i>     <?php echo $this->translate("This will become visible after you've joined.")?></span>
-        </li>  
+      <?php if($this->venue && $this->isAttending) { ?>
+          <li class="sesbasic_clearfix">
+            <span><?php echo $this->translate("Venue"); ?></span>
+            <span><?php echo $this->venue ?> </span>
+          </li>
+      <?php } else if($this->venue) { ?>
+          <li> 
+            <span>
+              <?php echo $this->translate("Venue"); ?>
+            </span>
+            <span><i class="fas fa-lock"></i>     <?php echo $this->translate("This will become visible after you've joined.")?></span>
+          </li>  
+      <?php } ?>
+
+      <?php if($this->meeting_point && $this->isAttending) { ?>
+          <li class="sesbasic_clearfix">
+            <span><?php echo $this->translate("Meeting Point"); ?></span>
+            <span><?php echo $this->meeting_point ?> </span>
+          </li>
+      <?php } else if($this->meeting_point) { ?>
+          <li> 
+            <span>
+              <?php echo $this->translate("Meeting Point"); ?>
+            </span>
+            <span><i class="fas fa-lock"></i>     <?php echo $this->translate("This will become visible after you've joined.")?></span>
+          </li>  
+      <?php } ?>
+
+      <?php if($this->meeting_time && $this->isAttending) { ?>
+          <li class="sesbasic_clearfix">
+            <span><?php echo $this->translate("Meeting Time"); ?></span>
+            <span><?php echo $this->meeting_time ?> </span>
+          </li>
+      <?php } else if($this->meeting_time) { ?>
+          <li> 
+            <span>
+              <?php echo $this->translate("Meeting Time"); ?>
+            </span>
+            <span><i class="fas fa-lock"></i>     <?php echo $this->translate("This will become visible after you've joined.")?></span>
+          </li>  
         <?php } ?>
+
+      <?php if($this->tel_host && $this->isAttending && $this->eventOngoing) { ?>
+          <li class="sesbasic_clearfix">
+            <span><?php echo $this->translate("Tel. Host"); ?></span>
+            <span><?php echo $this->tel_host ?> </span>
+          </li>
+        <?php } else if($this->tel_host && !$this->isAttending) { ?>
+          <li> 
+            <span>
+              <?php echo $this->translate("Tel. Host"); ?>
+            </span>
+            <span><i class="fas fa-lock"></i>     <?php echo $this->translate("This will become visible after you've joined.")?></span>
+          </li>  
+      <?php } else if($this->tel_host && !$this->eventOngoing) { ?>
+          <li> 
+            <span>
+              <?php echo $this->translate("Tel. Host"); ?>
+            </span>
+            <span><i class="fas fa-lock"></i>     <?php echo $this->translate("This event has expired.")?></span>
+          </li>  
       <?php } ?>
-    </ul>
-  </div>
-  <div class="sesevent_profile_info_row">
-    <div class="sesevent_profile_info_head"><?php echo $this->translate("Meta Info"); ?></div>
-    <ul class="sesevent_profile_info_row_info">
-      <?php if($this->subject->category_id){ ?>
-      <?php $category = Engine_Api::_()->getItem('sesevent_category',$this->subject->category_id); ?>
-       <?php if($category){ ?>
-        <li class="sesbasic_clearfix">
-          <span><?php echo $this->translate("Category"); ?></span>
-          <span><a href="<?php echo $category->getHref(); ?>"><?php echo $category->category_name; ?></a>
-          	<?php $subcategory = Engine_Api::_()->getItem('sesevent_category',$this->subject->subcat_id); ?>
-             <?php if($subcategory && $this->subject->subcat_id != 0){ ?>
-                &nbsp;&raquo;&nbsp;<a href="<?php echo $subcategory->getHref(); ?>"><?php echo $subcategory->category_name; ?></a>
-            <?php $subsubcategory = Engine_Api::_()->getItem('sesevent_category',$this->subject->subsubcat_id); ?>
-             <?php if($subsubcategory && $this->subject->subsubcat_id != 0){ ?>
-                &nbsp;&raquo;&nbsp;<a href="<?php echo $subsubcategory->getHref(); ?>"><?php echo $subsubcategory->category_name; ?></a>
-            <?php } ?>
-          <?php } ?></span>
-        </li>
-        <?php }          
-      } ?>
-      <?php if(count($this->eventTags)){ ?>
-        <li class="sesbasic_clearfix">
-          <span><?php echo $this->translate("Tags"); ?></span>
-          <span>
-            <?php 
-            	$counter = 1;
-            	 foreach($this->eventTags as $tag):
-                if($tag->getTag()->text != ''){ ?>
-                  <a href='javascript:void(0);' onclick='javascript:tagAction(<?php echo $tag->getTag()->tag_id; ?>,"<?php echo $tag->getTag()->text; ?>");'>#<?php echo $tag->getTag()->text ?></a>
-                  <?php if(count($this->eventTags) != $counter){ 
-                  	echo ",";	
-                   } ?>
-          <?php	 } 
-          		$counter++;
-              endforeach;  ?>
-          </span>
-        </li>
-      <?php } ?>
+    <?php } ?>  
     </ul>
   </div>
   <?php if( !empty($this->subject->description) ): ?>
   <div class="sesevent_profile_info_row">
-      <div class="sesevent_profile_info_head"><?php echo $this->translate("Details"); ?></div>
+      <div class="sesevent_profile_info_head"><h3><?php echo $this->translate("Description"); ?></h3></div>
       <ul class="sesevent_profile_info_row_info">
         <li class="sesbasic_clearfix"><?php echo nl2br($this->subject->description) ?></li>
       </ul>

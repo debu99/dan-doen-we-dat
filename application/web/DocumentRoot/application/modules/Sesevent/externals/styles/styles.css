@@ -1422,10 +1422,18 @@ ul.sesevent_profile_members{
 }
 .sesevent_profile_info_head{
   font-size:20px;
-  margin-bottom:10px;
+  margin-bottom:20px;
 }
 .sesevent_profile_info_row_info{
   margin-left:10px;
+}
+.sesevent_profile_info h3 {
+	display: inline;
+	font-weight: bold;
+	color:#444F5D;
+}
+.sesevent_profile_info .sesbasic-category-icon {
+	height: 26.25px;
 }
 [dir="rtl"] .sesevent_profile_info_row_info{
   margin-left:0;
@@ -1798,6 +1806,7 @@ div.sesevent_photo_view > div.comments{
 }
 .sesevent_create_form #location_options{
 	margin-bottom:15px;
+	margin-top:15px;
 }
 .sesevent_create_form #location_options a{
 	margin:0 10px 0 0;
@@ -1806,6 +1815,7 @@ div.sesevent_photo_view > div.comments{
 	margin:0 0 0 10px;
 }
 .sesevent_create_form #sesevent_location_data-wrapper{
+	display: inline-block;
 	padding:0 10px 0 0;
 	width:60%;
 }
@@ -4292,7 +4302,19 @@ body.sesevent_category_carousel .sesevent_slick_slider{
   font-size:17px;
 }
 /*TIP CSS START HERE*/
+#sesevent_create_form legend, #sesevent_create_form h3 {
+	font-size: 24px;
+	padding: .5em 0;
+	font-weight: bold;
+	color: #444F5D;
+}
 
+#sesevent_create_form fieldset {
+	padding-left: 2%;
+}
+#sesevent_create_form legend {
+	margin-left: -2%;
+}
 /*responsive css start*/
 @media (min-width:980px) and (max-width:1050px){
 /*header css*/

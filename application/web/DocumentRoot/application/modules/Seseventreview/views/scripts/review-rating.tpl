@@ -98,7 +98,7 @@ function validateForm(){
 		sesJqueryObject('#sesevent_review_form input, #sesevent_review_form select,#sesevent_review_form checkbox,#sesevent_review_form textarea,#sesevent_review_form radio').each(
 				function(index){
 						var input = sesJqueryObject(this);
-						if(sesJqueryObject(this).closest('div').parent().css('display') != 'none' && sesJqueryObject(this).closest('div').parent().find('.form-label').find('label').first().hasClass('required') && sesJqueryObject(this).prop('type') != 'hidden' && sesJqueryObject(this).closest('div').parent().attr('class') != 'form-elements'){	
+						if(sesJqueryObject(this).closest('div').parent().not('fieldset').css('display') != 'none' && sesJqueryObject(this).closest('div').parent().not('fieldset').find('.form-label').find('label').first().hasClass('required') && sesJqueryObject(this).prop('type') != 'hidden' && sesJqueryObject(this).closest('div').parent().not('fieldset').attr('class') != 'form-elements'){	
 						  if(sesJqueryObject(this).prop('type') == 'checkbox'){
 								value = '';
 								if(sesJqueryObject('input[name="'+sesJqueryObject(this).attr('name')+'"]:checked').length > 0) { 

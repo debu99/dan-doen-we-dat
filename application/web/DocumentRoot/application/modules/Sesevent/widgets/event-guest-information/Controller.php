@@ -16,10 +16,14 @@ class Sesevent_Widget_EventGuestInformationController extends Engine_Content_Wid
 		if (!$subject) {
 		return $this->setNoRender();
 		}
+
 		$this->view->guestCount = $this->_getParam('guestCount','1');
 		$this->view->height = $this->_getParam('height','45');
 		$this->view->width = $this->_getParam('width','40');
 		$this->view->subject = $subject;
+
+		$viewer = Engine_Api::_()->user()->getViewer();
+		$this->view->isMember = $subject->membership()->isMember($viewer);
 
 		$this->view->attending = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id'=>$subject->getIdentity(),'type'=>'attending'));
 		$this->view->notattending = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id'=>$subject->getIdentity(),'type'=>'notattending'));

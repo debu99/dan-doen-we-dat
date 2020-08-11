@@ -23,7 +23,7 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
 
     $isAttending = $subject->membership()->getRow($viewer)->rsvp === 2;;
     $this->view->isAttending = $isAttending;
-
+    $this->view->event_title = $subject->title;
     $this->view->age_from = $subject->age_category_from;
     $this->view->age_to = $subject->age_category_to;
     $this->view->max_participants = $subject->max_participants;
@@ -34,7 +34,9 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
     $this->view->short_location = $this->shortLocation($subject->location);
     $this->view->location = $isAttending? $subject->location: $this->shortLocation($subject->location);
     $this->view->venue = strlen($subject->venue_name) > 0? $subject->venue_name: false;
-
+    $category = Engine_Api::_()->getItem('sesevent_category',$subject->category_id);
+    $catIcon = Engine_Api::_()->storage()->get($category->cat_icon);
+    $this->view->catIcon =  $catIcon->getPhotoUrl('thumb.icon');
     $curArr = Zend_Locale::getTranslationList('CurrencySymbol');
 
     if($subject->is_additional_costs) {
@@ -44,11 +46,18 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
       $this->view->additional_costs_description = $subject->additional_costs_description;
     }
 
+    $this->view->meeting_point = $subject->meeting_point? $subject->meeting_point: false;
+    $this->view->meeting_time = $subject->meeting_time? $subject->meeting_time: false;
+    $this->view->tel_host = $subject->tel_host? $subject->tel_host: false;
+
+
+    $this->eventOngoing = strtotime($subject->endtime) > strtotime('now');
     if($subject->gender_destribution === "Ladies only" || $subject->gender_destribution === "Men only") 
       $this->view->gender_destribution = $subject->gender_destribution;
     else 
      $this->view->gender_destribution = false;
     }
+    
     
     function shortLocation($location){
 

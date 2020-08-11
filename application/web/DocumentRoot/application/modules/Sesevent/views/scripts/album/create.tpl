@@ -348,6 +348,7 @@ jqueryObjectOfSes(document).on('submit', '#form-upload',function(e) {
 		var validation = validateForm();
 		if(validation)
 		{
+			debugger
 			alert('<?php echo $this->translate("Please fill the red mark fields"); ?>');
 			if(typeof objectError != 'undefined'){
 			 var errorFirstObject = jqueryObjectOfSes(objectError).parent().parent();

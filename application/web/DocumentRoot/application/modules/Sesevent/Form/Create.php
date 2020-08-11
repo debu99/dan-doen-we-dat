@@ -62,7 +62,7 @@ class Sesevent_Form_Create extends Engine_Form {
     if($this->getSmoothboxType())
       $this->setAttrib('class','global_form sesevent_smoothbox_create');
     
-      $translate = Zend_Registry::get('Zend_Translate');  
+    $translate = Zend_Registry::get('Zend_Translate');  
     $settings = Engine_Api::_()->getApi('settings', 'core');
     $request = Zend_Controller_Front::getInstance()->getRequest();
     $moduleName = $request->getModuleName();
@@ -146,12 +146,320 @@ class Sesevent_Form_Create extends Engine_Form {
 				'allowEmpty'=>$allowEmpty,
         'required'=>$required,
         'class'=> $viewer->isAdmin()? 'tinymce': "",
-        'editorOptions' => $editorOptions,
+        'editorOptions' => $editorOptions
 	    ));
-
     }
-		/* Location Elements */
-		if(Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent_enable_location', 1)){
+     //Category
+   // $categories = Engine_Api::_()->getDbtable('categories', 'sesevent')->getCategoriesAssoc(array('member_levels' => 1));
+   $categories = Engine_Api::_()->getDbtable('categories', 'sesevent')->getCategoriesAssoc();
+   $event_id = Zend_Controller_Front::getInstance()->getRequest()->getParam('event_id', 0);
+   if (count($categories) > 0) {
+       $setting = Engine_Api::_()->getApi('settings', 'core');
+       $categorieEnable = $settings->getSetting('sesevent.category.enable', '1');
+       if ($categorieEnable == 1) {
+         $required = true;
+         $allowEmpty = false;
+       } else {
+         $required = false;
+         $allowEmpty = true;
+       }
+     $categories = array('' => 'Choose Category') + $categories;
+     $this->addElement('Select', 'category_id', array(
+         'label' => 'Category',
+         'multiOptions' => $categories,
+         'allowEmpty' => $allowEmpty,
+         'required' => $required,
+         'onchange' => "showSubCategory(this.value);showFields(this.value,1,this.class,this.class,'resets');",
+     ));
+     //Add Element: 2nd-level Category
+     $this->addElement('Select', 'subcat_id', array(
+         'label' => "2nd-level Category",
+         'allowEmpty' => true,
+         'required' => false,
+         'multiOptions' => array('0' => ''),
+         'registerInArrayValidator' => false,
+         'onchange' => "showSubSubCategory(this.value);showFields(this.value,1,this.class,this.class,'resets');"
+     ));
+     //Add Element: Sub Sub Category
+     $this->addElement('Select', 'subsubcat_id', array(
+         'label' => "3rd-level Category",
+         'allowEmpty' => true,
+         'registerInArrayValidator' => false,
+         'required' => false,
+         'multiOptions' => array('0' => ''),
+         'onchange' => 'showFields(this.value,1);showFields(this.value,1,this.class,this.class,"resets");'
+     ));
+
+     if($actionName == 'create') {
+	    if($settings->getSetting('sesevent.eevecremainphoto', 1))
+		    $eevecremainphoto = true;
+	    else
+		    $eevecremainphoto = false;
+    } elseif($actionName == 'edit') {
+	    $eevecremainphoto = false;
+    }
+		if($eevecremainphoto) {
+			$photoMandatory= $settings->getSetting('sesevent.mainphotomand', '1');
+			 if ($photoMandatory == 1) {
+          $required = true;
+          $allowEmpty = false;
+        } else {
+          $required = false;
+          $allowEmpty = true;
+        }
+			$requiredClass = $required ? ' requiredClass' : '';
+			//Main Photo
+			$this->addElement('File', 'photo', array(
+					'label' => 'Main Photo',
+					'onclick'=>'javascript:sesJqueryObject("#photo").val("")',
+					'onchange'=>'handleFileBackgroundUpload(this,event_main_photo_preview)',
+			));
+			$this->photo->addValidator('Extension', false, 'jpg,png,gif,jpeg');
+
+      $this->addElement('Dummy', 'photo-uploader', array(
+				'label' => 'Main Photo',
+        'content' => '<div id="dragandrophandlerbackground" class="sesevent_upload_dragdrop_content sesbasic_bxs'.$requiredClass.'"><div class="sesevent_upload_dragdrop_content_inner"><i class="fa fa-camera"></i><span class="sesevent_upload_dragdrop_content_txt">'.$translate->translate('Add photo for your event').'</span></div></div>'
+      ));
+      $this->addElement('Image', 'event_main_photo_preview', array(
+            'width' => 300,
+            'height' => 200,
+            'value' => '1',
+            'disable' => true,
+      ));
+      $this->addElement('Dummy', 'removeimage', array(
+        'content' => '<a class="icon_cancel form-link" id="removeimage1" style="display:none; "href="javascript:void(0);" onclick="removeImage();"><i class="far fa-trash"></i>'.$translate->translate('Remove').'</a>',
+      ));
+      $this->addElement('Hidden', 'removeimage2', array(
+        'value' => 1,
+        'order' => 10000000012,
+      ));
+    }
+  
+    $this->addDisplayGroup(array('title','custom_url_event','description', 'category_id','subcat_id','subsubcat_id','photo-uploader','event_main_photo_preview','photo'), "what", array("legend"=> "What"));
+
+    $this->addElement('text', 'min_participants', array(
+      'label' => 'Minimum Participants',
+      'required' => true,
+      'allowEmpty' => false,
+      'placeholder' => 'minimum participants',
+      'validators' => $viewer->isAdmin()? array(): array(
+        array('GreaterThan', true, array(0)),
+      )
+    ));
+    
+    $this->addElement('text', 'max_participants', array(
+      'label' => 'Maximum Participants',
+      'required' => true,
+      'allowEmpty' => false,
+      'placeholder' => 'maximum participants',
+      'description' => $viewer->isAdmin()? '':'Regular users may not create events with more than 30 participants',
+      'validators' => $viewer->isAdmin()? array(): array(
+        array('LessThan', true, array(30)),
+      )
+    ));
+    // https://framework.zend.com/manual/1.12/en/zend.validate.set.html
+    $selectedAgeCategories = $actionName == "edit"? $event->getAgeCategoriesFromInterval(): array();
+    $allAgeCategories = array(
+      '18'=> '18-28',
+      '29'=> '29-39',
+      '40'=> '40-50',
+      '51'=> '51-61',
+      '62'=> '62-72',
+      '73'=> '73-88',
+    );
+
+    $offsitehost = '';
+    $offsitehostArr = Engine_Api::_()->getDbTable('hosts', 'sesevent')->getHosts(array('nolimit'=>true,'owner_id'=>$viewer->getIdentity(),'type'=>'offsite'));
+     $view = Zend_Registry::isRegistered('Zend_View') ? Zend_Registry::get('Zend_View') : null;
+    if(count($offsitehostArr)){
+      foreach($offsitehostArr as $key=>$valHost){
+        $valHostData['id'] = $valHost['host_id'];
+        $host = Engine_Api::_()->getItem('sesevent_host',$valHostData['id']);
+        $valHostData['url'] = $valHost->getHref();
+        $valHostData['photo'] = $view->itemPhoto($host, "thumb.icon");
+        $valHostData['title'] = $view->string()->escapeJavascript($valHost['host_name']);
+        $offsitehost .= "<option value='".$valHost['host_id']."' data-src='".json_encode($valHostData,JSON_HEX_QUOT | JSON_HEX_TAG)."'>".$valHost['host_name']."</option>";
+      }
+    }
+    
+    if($restapi != 'Sesapi'){
+        $this->addElement('dummy', 'event_host', array(
+          'decorators' => array(array('ViewScript', array(
+          'viewScript' => 'application/modules/Sesevent/views/scripts/_hostCreate.tpl',
+          'class' => 'form element',
+          'offsitehost'=>$offsitehost,
+          'isEdit' =>$actionName != 'edit' ? 0 : 1,
+          'host_id' => isset($event) ? $event->host : '',
+            )))
+      ));
+    }
+  
+    if ($restapi == 'Sesapi'){
+      $offerArray = array(''=>'');
+      if(count($offsitehostArr)){
+        foreach($offsitehostArr  as $key=>$valHost){
+          $offerArray = array($valHost['host_id'] =>$view->string()->escapeJavascript($valHost['host_name']));
+        }
+      }else{
+          $offerArray = array('0' =>$view->string()->escapeJavascript('No host created by you yet.'));
+      }
+      $tablename = Engine_Api::_()->getDbtable('users', 'user');
+      $select = $tablename->select();
+      $select->limit(30);
+      $data = array(''=>'');
+      foreach( $select->getTable()->fetchAll($select) as $friend ) {
+         $data[$friend->getIdentity()] = $friend->getTitle();
+      }
+      
+      $hostarray = array(
+        'choose_host' => 'Choose Host',
+        'new' => 'Add New',
+      );
+  
+      $hostarraya = array(
+        '' => 'Please select type',
+        'offsite' => 'Off-Site',
+        'site' => 'On-Site',
+        'myself' => 'Myself',
+      );
+  
+      $this->addElement('select', 'choose_host', array(
+        'label' => 'Organizer Name',
+        'description' => 'Choose Organizer?',
+        'multiOptions' => $hostarray,
+        'required' => false,
+        'value' => 'choose_host',
+      ));
+      
+      $this->addElement('select', 'host_type', array(
+        'label' => 'Organizer Name',
+        'description' => 'Host Type',
+        'multiOptions' => $hostarraya,
+        'required' => false,
+        'value' => 'myself',
+      ));
+      
+      $this->addElement('select', 'event_host', array(
+        'label' => 'Event Host',
+        'description' => 'Event Host',
+        'multiOptions' => $offerArray,
+        'required' => false,
+        'value' => '0',
+      ));
+      
+      $this->addElement('select', 'selectonsitehost', array(
+        'label' => 'Event Site Host',
+        'description' => 'Event Host',
+        'multiOptions' => $data,
+        'required' => false,
+        'value' => '',
+      ));
+      
+      $this->addElement('text', 'host_name', array(
+        'label' => 'Host Name',
+        'required' => false,
+        'value' => '',
+      ));
+      
+      $this->addElement('text', 'host_email', array(
+        'label' => 'Host Email',
+        'required' => false,
+        'value' => '',
+      ));
+      
+      $this->addElement('text', 'host_phone', array(
+        'label' => 'Host Phone',
+        'required' => false,
+        'value' => '',
+      ));
+      
+      $this->addElement('text', 'host_description', array(
+        'label' => 'Host Description',
+        'required' => false,
+        'value' => '',
+      ));
+      
+      $this->addElement('file', 'host_photo', array(
+        'label' => 'Host Photo',
+        'required' => false,
+        'value' => '',
+      ));
+  
+      if($_GET['sesapi_platform'] != 1){
+        $this->addElement('Checkbox', 'include_social_links', array(
+            'label' => 'Include Social Links',
+        ));
+      }else{
+        $this->addElement('select', 'include_social_links', array(
+          'label' => 'Include Social Links',
+          'description' => "",
+          'multiOptions' => array('1'=>'Yes','0'=>'No'),
+          'required' => false,
+          'value' => '0',
+        ));
+      }
+      $this->addElement('text', 'facebook_url', array(
+          'label' => 'Host Facebook URL',
+          'required' => false,
+          'value' => '',
+  
+      ));
+     $this->addElement('text', 'twitter_url', array(
+          'label' => 'Host Twitter URL',
+          'required' => false,
+          'value' => '',
+  
+      ));
+      $this->addElement('text', 'website_url', array(
+          'label' => 'Host Website URL',
+          'required' => false,
+          'value' => '',
+  
+      ));
+     $this->addElement('text', 'linkdin_url', array(
+          'label' => 'Host LinkedIn URL',
+          'required' => false,
+          'value' => '',
+  
+      ));
+
+     $this->addElement('text', 'googleplus_url', array(
+          'label' => 'Host Google Plus URL',
+          'required' => false,
+          'value' => '',
+      ));
+    }
+    if($viewer->isAdmin()) {
+      $keyAgeCategoryUser = $viewer->getAgeCategory();
+      $selectedAgeCategories[$keyAgeCategoryUser] = $allAgeCategories[$keyAgeCategoryUser];
+
+      $this->addElement('MultiCheckbox', 'age_categories', array(
+        'label' => $translate->translate('Age Categories'),
+        'multiOptions' => $allAgeCategories,
+        'required' => false,
+        'value' => $actionName == "edit"? $selectedAgeCategories: $allAgeCategories,
+        "disable"=> array($keyAgeCategoryUser),
+        "description" => $translate->translate('Your own age category can\'t be unchecked'),
+      ));
+    
+      $this->addElement('Radio', 'gender_destribution', array(
+        'label' => $translate->translate('Gender Destribution'),
+        'multiOptions' => array(
+          'Undistributed' => "Undistributed",
+          'Ladies only' => "Ladies only",
+          'Men only' => "Men only",
+          '50/50' => "50/50"
+        ),
+        'required' => false,
+        'value' => 'Undistributed'
+      ));
+      $this->addDisplayGroup(array('choose_host','host_type','event_host','selectonsitehost','host_name','host_email','host_phone','host_description','host_photo','include_social_links','facebook_url','twitter_url','website_url','linkdin_url','googleplus_url','min_participants', 'max_participants','age_categories', 'gender_destribution'), "who", array("legend"=> "Who"));
+
+    } else {
+      $this->addDisplayGroup(array('choose_host','host_type','event_host','selectonsitehost','host_name','host_email','host_phone','host_description','host_photo','include_social_links','facebook_url','twitter_url','website_url','linkdin_url','googleplus_url','min_participants', 'max_participants'), "who", array("legend"=> "Who"));
+    }
+
+  if(Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent_enable_location', 1)){
 
       $locale = Zend_Registry::get('Zend_Translate')->getLocale();
       $territories = Zend_Locale::getTranslationList('territory', $locale, 2);
@@ -181,10 +489,9 @@ class Sesevent_Form_Create extends Engine_Form {
                   'countrySelect' => $countrySelect,
                   'itemlocation'=>isset($itemlocation) ? $itemlocation : '',
         )))
-			));
-    }
-    
-
+      ));
+      // display group is in the viewscript
+    }		
 
     if($actionName == 'create') {
 	    if($settings->getSetting('sesevent.eevecretimezone', 1))
@@ -282,7 +589,6 @@ class Sesevent_Form_Create extends Engine_Form {
             $start->setAllowEmpty(false);
             $start->setRequired(true);
             $this->addElement($start);
-
         }
 
      }
@@ -312,7 +618,7 @@ class Sesevent_Form_Create extends Engine_Form {
 			$end_date = date('m/d/Y',strtotime($_POST['end_date']));
 			$end_time = date('g:ia',strtotime($_POST['end_time']));
 		}
-
+    
 		$this->addElement('dummy', 'event_custom_datetimes', array(
 			'decorators' => array(array('ViewScript', array(
 									'viewScript' => 'application/modules/Sesevent/views/scripts/_customdates.tpl',
@@ -368,65 +674,88 @@ class Sesevent_Form_Create extends Engine_Form {
 									'event'=>isset($event) ? $event : '',
 									'viewer'=>$viewer,
 							)))
-    ));
+      ));
     }
-    //Category
-   // $categories = Engine_Api::_()->getDbtable('categories', 'sesevent')->getCategoriesAssoc(array('member_levels' => 1));
-    $categories = Engine_Api::_()->getDbtable('categories', 'sesevent')->getCategoriesAssoc();
-    $event_id = Zend_Controller_Front::getInstance()->getRequest()->getParam('event_id', 0);
-    if (count($categories) > 0) {
-        $setting = Engine_Api::_()->getApi('settings', 'core');
-        $categorieEnable = $settings->getSetting('sesevent.category.enable', '1');
-        if ($categorieEnable == 1) {
-          $required = true;
-          $allowEmpty = false;
-        } else {
-          $required = false;
-          $allowEmpty = true;
-        }
-      $categories = array('' => 'Choose Category') + $categories;
-      $this->addElement('Select', 'category_id', array(
-          'label' => 'Category',
-          'multiOptions' => $categories,
-          'allowEmpty' => $allowEmpty,
-          'required' => $required,
-          'onchange' => "showSubCategory(this.value);showFields(this.value,1,this.class,this.class,'resets');",
-      ));
-      //Add Element: 2nd-level Category
-      $this->addElement('Select', 'subcat_id', array(
-          'label' => "2nd-level Category",
-          'allowEmpty' => true,
-          'required' => false,
-          'multiOptions' => array('0' => ''),
-          'registerInArrayValidator' => false,
-          'onchange' => "showSubSubCategory(this.value);showFields(this.value,1,this.class,this.class,'resets');"
-      ));
-      //Add Element: Sub Sub Category
-      $this->addElement('Select', 'subsubcat_id', array(
-          'label' => "3rd-level Category",
-          'allowEmpty' => true,
-          'registerInArrayValidator' => false,
-          'required' => false,
-          'multiOptions' => array('0' => ''),
-          'onchange' => 'showFields(this.value,1);showFields(this.value,1,this.class,this.class,"resets");'
-      ));
 
-      $defaultProfileId = "0_0_" . $this->getDefaultProfileId();
-      $customFields = new Sesbasic_Form_Custom_Fields(array(
+    $this->addDisplayGroup(array('event_custom_datetimes','event_timezone_popup'), "when", array("legend"=> "When"));
+
+    $this->addElement('text', 'tel_host', array(
+      'label' => 'Tel. Host',
+      'required' => false,
+      'placeholder' => 'Telephone Number Host',
+      'description' => 'This will only be visible to people who\'ve joined the event',
+      'validators' => array(
+        array('Regex', true, array('/^\+{0,1}[0-9]{8,20}$/')),
+      )
+    ));
+
+    $this->addElement('text', 'meeting_time', array(
+      'label' => 'Meeting Time',
+      'required' => false,
+      'placeholder' => 'e.g. 12:00',
+      'description' => "Specify the time in the hh:mm format",
+      'validators' => array(
+        array('Regex', true, array('/^[0-9]{2}:[0-9]{2}$/')),
+      )
+    ));
+
+    $this->addElement('text', 'meeting_point', array(
+      'label' => 'Meeting Time',
+      'required' => false,
+      'placeholder' => 'e.g. In front of the cinema',
+      'description' => "Specify the meeting point in max 50 characters.",
+      'validators' => array(
+        array('StringLength', false, array("max" => 50)),
+      )
+    ));
+    $this->addDisplayGroup(array('tel_host','meeting_time','meeting_point'), "meeting", array("legend"=> "Meeting Point"));
+
+    
+    $this->addElement('Checkbox', 'is_additional_costs', array(
+      'label' => 'Additional Costs',
+      'onchange' => 'additionalCostsToggle();',
+      'value' => 0,
+    ));
+
+    $this->addElement('Text', 'additional_costs_amount', array(
+      'label' => 'Amount',
+      'value' => "0.00",
+      'class' => 'additional-costs-toggle',
+      'validators' => array(
+        "Float" 
+      )
+    ));
+
+    $this->addElement('TinyMce', 'additional_costs_description', array(
+      'label' => 'Additional Costs description',
+      'class'=>$viewer->isAdmin()? 'additional-costs-toggle': 'additional-costs-toggle',
+      'editorOptions' => $editorOptions,
+      'placeholder' => "e.g. Museum ticket, payable in cash",
+      'description' => "Specify what the costs are for and how it needs to be payed. Max. 100 characters.",
+      'validators' => array(
+        array('StringLength', false, array("max"=> 100)),
+      )
+
+    ));
+
+    $this->addDisplayGroup(array('is_additional_costs', 'additional_costs_amount','additional_costs_description'), "costs", array("legend"=> "Costs"));
+
+    $defaultProfileId = "0_0_" . $this->getDefaultProfileId();
+    $customFields = new Sesbasic_Form_Custom_Fields(array(
           'item' => isset($event) ? $event : 'sesevent_event',
           'decorators' => array(
               'FormElements'
       )));
-      $customFields->removeElement('submit');
-      if ($customFields->getElement($defaultProfileId)) {
+    $customFields->removeElement('submit');
+    if ($customFields->getElement($defaultProfileId)) {
         $customFields->getElement($defaultProfileId)
                 ->clearValidators()
                 ->setRequired(false)
                 ->setAllowEmpty(true);
-      }
-      $this->addSubForms(array(
-          'fields' => $customFields
-      ));
+    }
+    $this->addSubForms(array(
+        'fields' => $customFields
+    ));
     }
     if($actionName == 'create') {
 	    if($settings->getSetting('sesevent.eventcustom', 1))
@@ -493,273 +822,6 @@ class Sesevent_Form_Create extends Engine_Form {
       ));
       $this->tags->getDecorator("Description")->setOption("placement", "append");
     }
-
-	  if($actionName == 'create') {
-	    if($settings->getSetting('sesevent.eevecremainphoto', 1))
-		    $eevecremainphoto = true;
-	    else
-		    $eevecremainphoto = false;
-    } elseif($actionName == 'edit') {
-	    $eevecremainphoto = false;
-    }
-		if($eevecremainphoto) {
-			$photoMandatory= $settings->getSetting('sesevent.mainphotomand', '1');
-			 if ($photoMandatory == 1) {
-          $required = true;
-          $allowEmpty = false;
-        } else {
-          $required = false;
-          $allowEmpty = true;
-        }
-			$requiredClass = $required ? ' requiredClass' : '';
-			//Main Photo
-			$this->addElement('File', 'photo', array(
-					'label' => 'Main Photo',
-					'onclick'=>'javascript:sesJqueryObject("#photo").val("")',
-					'onchange'=>'handleFileBackgroundUpload(this,event_main_photo_preview)',
-			));
-			$this->photo->addValidator('Extension', false, 'jpg,png,gif,jpeg');
-
-      $this->addElement('Dummy', 'photo-uploader', array(
-				'label' => 'Main Photo',
-        'content' => '<div id="dragandrophandlerbackground" class="sesevent_upload_dragdrop_content sesbasic_bxs'.$requiredClass.'"><div class="sesevent_upload_dragdrop_content_inner"><i class="fa fa-camera"></i><span class="sesevent_upload_dragdrop_content_txt">'.$translate->translate('Add photo for your event').'</span></div></div>'
-      ));
-      $this->addElement('Image', 'event_main_photo_preview', array(
-            'width' => 300,
-            'height' => 200,
-            'value' => '1',
-            'disable' => true,
-      ));
-      $this->addElement('Dummy', 'removeimage', array(
-        'content' => '<a class="icon_cancel form-link" id="removeimage1" style="display:none; "href="javascript:void(0);" onclick="removeImage();"><i class="far fa-trash"></i>'.$translate->translate('Remove').'</a>',
-      ));
-      $this->addElement('Hidden', 'removeimage2', array(
-        'value' => 1,
-        'order' => 10000000012,
-      ));
-	}
-
-	$offsitehost = '';
-  $offsitehostArr = Engine_Api::_()->getDbTable('hosts', 'sesevent')->getHosts(array('nolimit'=>true,'owner_id'=>$viewer->getIdentity(),'type'=>'offsite'));
- 	$view = Zend_Registry::isRegistered('Zend_View') ? Zend_Registry::get('Zend_View') : null;
-	if(count($offsitehostArr)){
-		foreach($offsitehostArr as $key=>$valHost){
-			$valHostData['id'] = $valHost['host_id'];
-			$host = Engine_Api::_()->getItem('sesevent_host',$valHostData['id']);
-			$valHostData['url'] = $valHost->getHref();
-			$valHostData['photo'] = $view->itemPhoto($host, "thumb.icon");
-			$valHostData['title'] = $view->string()->escapeJavascript($valHost['host_name']);
-			$offsitehost .= "<option value='".$valHost['host_id']."' data-src='".json_encode($valHostData,JSON_HEX_QUOT | JSON_HEX_TAG)."'>".$valHost['host_name']."</option>";
-		}
-  }
-  
-	if($restapi != 'Sesapi'){
-      $this->addElement('dummy', 'event_host', array(
-        'decorators' => array(array('ViewScript', array(
-        'viewScript' => 'application/modules/Sesevent/views/scripts/_hostCreate.tpl',
-        'class' => 'form element',
-        'offsitehost'=>$offsitehost,
-        'isEdit' =>$actionName != 'edit' ? 0 : 1,
-        'host_id' => isset($event) ? $event->host : '',
-          )))
-    ));
-  }
-
-  if ($restapi == 'Sesapi'){
-    $offerArray = array(''=>'');
-    if(count($offsitehostArr)){
-      foreach($offsitehostArr  as $key=>$valHost){
-        $offerArray = array($valHost['host_id'] =>$view->string()->escapeJavascript($valHost['host_name']));
-      }
-    }else{
-        $offerArray = array('0' =>$view->string()->escapeJavascript('No host created by you yet.'));
-    }
-		$tablename = Engine_Api::_()->getDbtable('users', 'user');
-		$select = $tablename->select();
-		$select->limit(30);
-    $data = array(''=>'');
-    foreach( $select->getTable()->fetchAll($select) as $friend ) {
-       $data[$friend->getIdentity()] = $friend->getTitle();
-    }
-    
-    $hostarray = array(
-      'choose_host' => 'Choose Host',
-      'new' => 'Add New',
-    );
-
-    $hostarraya = array(
-      '' => 'Please select type',
-      'offsite' => 'Off-Site',
-      'site' => 'On-Site',
-      'myself' => 'Myself',
-    );
-
-    $this->addElement('select', 'choose_host', array(
-      'label' => 'Organizer Name',
-      'description' => 'Choose Organizer?',
-      'multiOptions' => $hostarray,
-      'required' => false,
-      'value' => 'choose_host',
-    ));
-
-    $this->addElement('select', 'host_type', array(
-      'label' => 'Organizer Name',
-      'description' => 'Host Type',
-      'multiOptions' => $hostarraya,
-      'required' => false,
-      'value' => 'myself',
-    ));
-    
-    $this->addElement('select', 'event_host', array(
-      'label' => 'Event Host',
-      'description' => 'Event Host',
-      'multiOptions' => $offerArray,
-      'required' => false,
-      'value' => '0',
-    ));
-    
-    $this->addElement('select', 'selectonsitehost', array(
-      'label' => 'Event Site Host',
-      'description' => 'Event Host',
-      'multiOptions' => $data,
-      'required' => false,
-      'value' => '',
-    ));
-
-    $this->addElement('text', 'host_name', array(
-      'label' => 'Host Name',
-      'required' => false,
-      'value' => '',
-    ));
-
-    $this->addElement('text', 'host_email', array(
-      'label' => 'Host Email',
-      'required' => false,
-      'value' => '',
-    ));
-
-    $this->addElement('text', 'host_phone', array(
-      'label' => 'Host Phone',
-      'required' => false,
-      'value' => '',
-    ));
-
-    $this->addElement('text', 'host_description', array(
-      'label' => 'Host Description',
-      'required' => false,
-      'value' => '',
-    ));
-
-    $this->addElement('file', 'host_photo', array(
-      'label' => 'Host Photo',
-      'required' => false,
-      'value' => '',
-    ));
-
-    if($_GET['sesapi_platform'] != 1){
-      $this->addElement('Checkbox', 'include_social_links', array(
-          'label' => 'Include Social Links',
-      ));
-    }else{
-      $this->addElement('select', 'include_social_links', array(
-        'label' => 'Include Social Links',
-        'description' => "",
-        'multiOptions' => array('1'=>'Yes','0'=>'No'),
-        'required' => false,
-        'value' => '0',
-      ));
-    }
-    $this->addElement('text', 'facebook_url', array(
-        'label' => 'Host Facebook URL',
-        'required' => false,
-        'value' => '',
-
-    ));
-   $this->addElement('text', 'twitter_url', array(
-        'label' => 'Host Twitter URL',
-        'required' => false,
-        'value' => '',
-
-    ));
-    $this->addElement('text', 'website_url', array(
-        'label' => 'Host Website URL',
-        'required' => false,
-        'value' => '',
-
-    ));
-   $this->addElement('text', 'linkdin_url', array(
-        'label' => 'Host LinkedIn URL',
-        'required' => false,
-        'value' => '',
-
-    ));
-   $this->addElement('text', 'googleplus_url', array(
-        'label' => 'Host Google Plus URL',
-        'required' => false,
-        'value' => '',
-    ));
-  }
-  $this->addElement('text', 'min_participants', array(
-    'label' => 'Minimum Participants',
-    'required' => true,
-    'allowEmpty' => false,
-    'placeholder' => 'minimum participants',
-    'validators' => $viewer->isAdmin()? array(): array(
-      array('GreaterThan', true, array(0)),
-    )
-  ));
-  
-  $this->addElement('text', 'max_participants', array(
-    'label' => 'Maximum Participants',
-    'required' => true,
-    'allowEmpty' => false,
-    'placeholder' => 'maximum participants',
-    'description' => $viewer->isAdmin()? '':'Regular users may not create events with more than 30 participants',
-    'validators' => $viewer->isAdmin()? array(): array(
-      array('LessThan', true, array(30)),
-    )
-  ));
-  // https://framework.zend.com/manual/1.12/en/zend.validate.set.html
-  $selectedAgeCategories = $actionName == "edit"? $event->getAgeCategoriesFromInterval(): array();
-  $allAgeCategories = array(
-    '18'=> '18-28',
-    '29'=> '29-39',
-    '40'=> '40-50',
-    '51'=> '51-61',
-    '62'=> '62-72',
-    '73'=> '73-88',
-  );
-  if($viewer->isAdmin()) {
-    $keyAgeCategoryUser = $viewer->getAgeCategory();
-    $selectedAgeCategories[$keyAgeCategoryUser] = $allAgeCategories[$keyAgeCategoryUser];
-    $this->addElement('MultiCheckbox', 'age_categories', array(
-      'description' => "test test test",
-      'multiOptions' => array($keyAgeCategoryUser=> $allAgeCategories[$keyAgeCategoryUser]),
-      'value' => array($keyAgeCategoryUser=> $allAgeCategories[$keyAgeCategoryUser]),
-      'class'=>$hideClass,
-    ));
-    $this->addElement('MultiCheckbox', 'age_categories', array(
-      'label' => $translate->translate('Age Categories'),
-      'multiOptions' => $allAgeCategories,
-      'required' => false,
-      'value' => $actionName == "edit"? $selectedAgeCategories: $allAgeCategories,
-      "disable"=> array($keyAgeCategoryUser),
-      "description" => $translate->translate('Your own age category can\'t be unchecked'),
-    ));
-  
-    $this->addElement('Radio', 'gender_destribution', array(
-      'label' => $translate->translate('Gender Destribution'),
-      'multiOptions' => array(
-        'Undistributed' => "Undistributed",
-        'Ladies only' => "Ladies only",
-        'Men only' => "Men only",
-        '50/50' => "50/50"
-      ),
-      'required' => false,
-      'value' => 'Undistributed'
-    ));
-  }
-  
 
   if (Engine_Api::_()->authorization()->isAllowed('sesevent_event', $viewer, 'allow_levels')) {
 
@@ -834,28 +896,7 @@ class Sesevent_Form_Create extends Engine_Form {
       $photoOptions = array_intersect_key($availableLabels, array_flip($photoOptions));
     }
 
-    $this->addElement('Checkbox', 'is_additional_costs', array(
-      'label' => 'Additional Costs',
-      'onchange' => 'additionalCostsToggle();',
-      'value' => 0
-    ));
-
-    $this->addElement('Text', 'additional_costs_amount', array(
-      'label' => 'Amount',
-      'value' => "0.00",
-      'class' => 'additional-costs-toggle',
-      'validators' => array(
-        "Float" 
-      )
-    ));
-
-    $this->addElement('TinyMce', 'additional_costs_description', array(
-      'label' => 'Additional Costs description',
-      'class'=>$viewer->isAdmin()? 'additional-costs-toggle': 'additional-costs-toggle',
-      'editorOptions' => $editorOptions,
-      'description' => "Specify what the costs are for and how it needs to be payed.",
-    ));
-
+    
     // View
     if (!empty($viewOptions) && count($viewOptions) >= 1) {
       // Make a hidden field
