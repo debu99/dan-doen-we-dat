@@ -1,6 +1,6 @@
 provider "aws" {
   profile = "default"
-  region  = "us-east-1"
+  region  = var.AWS_REGION
   shared_credentials_file = "~/.aws/credentials"
 }
 
@@ -15,23 +15,28 @@ resource "aws_db_instance" "ddwd" {
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t2.micro"
-  name                 = "dandoe_se"
+  name                 = "dandoe_se5"
   username             =  var.DB_USER # use the same user as in .db.env
   password             =  var.DB_PASSWORD # use the same password as in .db.env
   parameter_group_name = "default.mysql5.7"
   publicly_accessible  = true
-  vpc_security_group_ids  = ["sg-0d12b65d9d5f6dc21"]
-  
+  skip_final_snapshot = true
+  final_snapshot_identifier = "ddwd"
   tags = {
     Name = "ddwd-prod"
   }
 
   provisioner "local-exec" {
-    command = "echo '\ndb_host=${aws_db_instance.ddwd.address}' >> ../../environment/prod/.db.env"
+    command = "echo '\nMYSQL_HOST=${aws_db_instance.ddwd.address}' >> ../../environment/prod/.db.env"
   }
 }
+
+resource "random_id" "id" {
+	  byte_length = 8
+}
+
 resource "aws_s3_bucket" "ddwd" {
-  bucket = "ddwd-public-prod-bucket"
+  bucket = "ddwd-prod-${random_id.id.hex}"
   acl    = "public-read"
 
   tags = {
@@ -40,7 +45,7 @@ resource "aws_s3_bucket" "ddwd" {
   }
   
   provisioner "local-exec" {
-    command = "echo '\ns3_public_bucket=${aws_s3_bucket.ddwd.bucket_domain_name}' >> ../../environment/prod/.s3.env"
+    command = "echo '\ns3_public_bucket=${aws_s3_bucket.ddwd.bucket_domain_name}' >> ../../environment/${var.ENVIRONMENT}/.s3.env"
   }
   policy = <<POLICY
 {
@@ -53,8 +58,8 @@ resource "aws_s3_bucket" "ddwd" {
             "Principal": "*",
             "Action": "s3:GetObject",
             "Resource": [
-                "arn:aws:s3:::ddwd-public-prod-bucket",
-                "arn:aws:s3:::ddwd-public-prod-bucket/*"
+                "arn:aws:s3:::ddwd-prod-${random_id.id.hex}",
+                "arn:aws:s3:::ddwd-prod-${random_id.id.hex}/*"
             ]
         }
     ]
@@ -64,7 +69,7 @@ POLICY
 }
 
 resource "aws_iam_role" "ec2_s3_access" {
-  name = "ec2_s3_access"
+  name = "ddwd_ec2_s3_access"
 
   assume_role_policy = <<EOF
 {
@@ -116,11 +121,63 @@ resource "aws_iam_instance_profile" "ec2_s3_role" {
   role = aws_iam_role.ec2_s3_access.name
 }
 
+resource "aws_default_vpc" "default" {
+  tags = {
+    Name = "Default VPC"
+  }
+}
+
+resource "aws_security_group" "ec2" {
+  name = "ddwd-ec2-sg"
+
+  description = "EC2 security group (terraform-managed)"
+
+  ingress {
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    description = "MySQL"
+    cidr_blocks = [aws_default_vpc.default.cidr_block]
+  }
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    description = "Telnet"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    description = "HTTP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    description = "HTTPS"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
 resource "aws_instance" "ddwd" {
   key_name      = aws_key_pair.ddwd.key_name
-  ami           = "ami-0ac80df6eff0e70b5"
+  ami           = "ami-0668176b7d648cc1c"
   instance_type = "t2.micro"
-  security_groups = ["ddwd-web-prod-environment"]
+  vpc_security_group_ids = [aws_security_group.ec2.id]
+  
   iam_instance_profile = aws_iam_instance_profile.ec2_s3_role.name
   depends_on = [aws_db_instance.ddwd , aws_s3_bucket.ddwd]
   tags = {
@@ -135,23 +192,13 @@ resource "aws_instance" "ddwd" {
   }
 
   provisioner "file" {
-    source      = "../../environment/prod/.db.env"
-    destination = "~/.db.env"
+    source      = "../../environment/${var.ENVIRONMENT}"
+    destination = "~/environment"
   }
 
   provisioner "file" {
-    source      = "../../environment/prod/.s3.env"
-    destination = "~/.s3.env"
-  }
-
-  provisioner "file" {
-    source      = "../../environment/prod/.smtp.env"
-    destination = "~/.smtp.env"
-  }
-
-  provisioner "file" {
-    source      = "~/.ssh/ec2-github-access"
-    destination = "~/.ssh/id_rsa"
+    source      = "../../docker/${var.ENVIRONMENT}/docker-compose.yml"
+    destination = "~/docker-compose.yml"
   }
 
   provisioner "file" {
@@ -163,13 +210,7 @@ resource "aws_instance" "ddwd" {
     inline = [
       "sudo apt-get update",
       "chmod 400 ~/.ssh/id_rsa",
-      "sudo apt-get install git -y",
-      "git clone -b new-deploy-prod-config-try git@github.com:Piepongwong/dev-dan-doen-we-dat.git ddwd",
-      "echo 'local_ip=${self.public_ip}' >> .env",
-      "mv ~/.env ~/ddwd/.env",
-      "mv ~/.db.env ~/ddwd/.db.env",
-      "mv ~/.s3.env ~/ddwd/.s3.env",
-      "mv ~/.smtp.env ~/ddwd/.smtp.env",
+      "sudo echo 'local_ip=${self.public_ip}' >> ~/environment/prod/.env",
       "sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y",
       "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -",
       "sudo apt-key fingerprint 0EBFCD88",
@@ -180,16 +221,46 @@ resource "aws_instance" "ddwd" {
       "sudo apt install unzip -y",
       "unzip awscliv2.zip",
       "sudo ./aws/install",
-      "rm awscliv2.zip",
-      "cd ~/ddwd",
-      "echo '*/15 * * * * root /usr/local/bin/aws s3 sync /home/ubuntu/ddwd/DocumentRoot/public s3://${aws_s3_bucket.ddwd.id}/public' >> ~/s3awspublicsync",
+      "sudo rm awscliv2.zip",
+      "echo '*/15 * * * * root /usr/local/bin/aws s3 sync /home/ubuntu/public s3://${aws_s3_bucket.ddwd.id}/public' >> ~/s3awspublicsync",
       "sudo mv ~/s3awspublicsync /etc/cron.d/",
       "sudo chown root:root /etc/cron.d/s3awspublicsync",
       "sudo chmod 644 /etc/cron.d/s3awspublicsync",
-      "sudo mkdir public",
+      "mkdir public",
+      "mkdir letsencrypt",
       "sudo chmod -R 777 public",
       "sudo docker swarm init",
+      "echo '${var.DOCKER_PASSWORD}' | sudo docker login --username piepongwong --password-stdin",
+      "sudo docker pull piepongwong/apache-php-se-prod:latest",
       "sudo docker stack deploy -c docker-compose.yml ddwd"
     ]
   }
+}
+
+resource "aws_route53_zone" "ddwd" {
+  name = "dandoenwedat.com.com"
+}
+
+resource "aws_route53_record" "ddwd-www" {
+  zone_id = aws_route53_zone.ddwd.zone_id
+  name    = "www.dandoenwedat.com"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_instance.ddwd.public_ip]
+}
+
+resource "aws_route53_record" "ddwd" {
+  zone_id = aws_route53_zone.ddwd.zone_id
+  name    = "dandoenwedat.com"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_instance.ddwd.public_ip]
+}
+
+resource "aws_route53_record" "ddwd-all" {
+  zone_id = aws_route53_zone.ddwd.zone_id
+  name    = "*.dandoenwedat.com"
+  type    = "A"
+  ttl     = "300"
+  records = [aws_instance.ddwd.public_ip]
 }

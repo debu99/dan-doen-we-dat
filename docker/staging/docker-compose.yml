@@ -7,6 +7,7 @@ services:
             --providers.docker.swarmMode=true
             --entrypoints.web.address=:80
             --entrypoints.websecure.address=:443
+            --certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory
             --certificatesresolvers.myresolver.acme.email=info@tech-savvy.io
             --certificatesresolvers.myresolver.acme.storage=acme.json
             --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
@@ -26,9 +27,9 @@ services:
             - ../../application/web/devconfig/php/php.ini:/usr/local/etc/php/php.ini
             - ../../application/web/devconfig/apache/apache2.conf:/etc/apache2/apache2.conf
         env_file:
-            - ../../environment/dev/.db.env
-            - ../../environment/dev/.s3.env    
-            - ../../environment/dev/.smtp.env
+            - ./environment/dev/.db.env
+            - ./environment/dev/.s3.env    
+            - ./environment/dev/.smtp.env
         environment:
             - local_ip=127.0.0.1
         deploy:

@@ -159,3 +159,7 @@ $birthDayUser = $db->select()
 
 ## TODO
 Clean up code duplication in Event.php and member/indexController ageCategories
+
+## MYSQL Migration Scripts
+mysqldump --column-statistics=0 -h prodhost -u DANDOE_ROOT -p dandoe_se > ddwd.sql
+mysql -u root -P 3306 -h 127.0.0.1 -p dandoe_se5 < ddwd.sql
