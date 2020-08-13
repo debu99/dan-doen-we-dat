@@ -161,7 +161,7 @@ class Dummyusers_AdminSettingsController extends Core_Controller_Action_Admin {
 	
 			$userIdsImploded = implode(',',$userIds);
 			$db->query("DELETE FROM `dandoe_se5`.`engine4_user_fields_values` WHERE `item_id` IN ({$userIdsImploded})");
-			$db->query("DELETE FROM `dandoe_se5`.`engine4_storage_files` WHERE `parent_id` IN ({$userIdsImploded})");
+			$db->query("DELETE FROM `dandoe_se5`.`engine4_storage_files` WHERE `parent_id` IN ({$userIdsImploded}) AND  `user_id` IN ({$userIdsImploded}) AND `parent_type` = 'user'");
 			$db->query("DELETE FROM `dandoe_se5`.`engine4_users` WHERE `user_id` IN ({$userIdsImploded})");
 		}
 

@@ -40,7 +40,6 @@ services:
                 - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
                 - traefik.http.routers.redirs.rule=hostregexp(`{host:.+}`)
                 - traefik.http.routers.redirs.middlewares=redirect-to-https
-
     database:
         image: mysql:5.7.30
         container_name: dandoenwedat-mysql
