@@ -167,8 +167,6 @@ https://uifaces.co/
         $this->setCoverPhoto($form->Filedata, null, $level_id);
 https://framework.zend.com/manual/1.12/en/zend.test.phpunit.html
 
-`dandoe_se5`.`engine4_users`
-`dandoe_se5`.`engine4_storage_files`
 
 _version3PasswordCrypt
 
@@ -178,4 +176,66 @@ _version3PasswordCrypt
 /home/piepongwong/dev-dan-doen-we-dat/application/web/DocumentRoot/application/modules/User/controllers/SignupController.php
 12345Abc@
 
-password: d3v0SKZ2zBFwGAB48yjU@! hash: $2y$10$Npx3d3KXN1bMw5MYp8KSnegXb7CxLD.Kf1ho6yEoxEQudQAJBq27y salt: 1925740
+
+ https://www.dandoenwedat.com/user/auth/reset/code/5wxmrohg61c80084so04kgckc/uid/17
+
+
+function createDummyUser(user_id, email, firstname, lastname, about, gender = 1, about, wantToLearn, whenSomethingNew, currentCity, proffession){
+
+    inserUserAccount();
+    insertUserProfile();
+    insertUserProfileImage();
+
+}
+
+function createDummyUsers(json){
+
+    user_id_count = SELECT * FROM dandoe_se5.engine4_users ORDER BY `user_id` DESC LIMIT 1; // GET LAST USER (for auto incremented user_id)
+
+    male_counter = 0;
+    female_counter = 0;
+
+    forEach(
+        createDummyUser();
+    )
+}
+
+function insertUserAccount(){
+    `dandoe_se5`.`engine4_users`
+
+    password: d3v0SKZ2zBFwGAB48yjU@! hash: $2y$10$Sfa0sWgt40bMsYsa78cWtOht5zJWJLYyVKn8WFHfbcqS.LYkYIZm2 salt: 1925740
+
+    INSERT INTO `dandoe_se5`.`engine4_users` (`email`, `displayname`, `photo_id`, `password`, `salt`, `locale`, `language`, `timezone`, `search`, `show_profileviewers`, `level_id`, `invites_used`, `extra_invites`, `enabled`, `verified`, `approved`, `creation_date`, `creation_ip`, `modified_date`, `lastlogin_date`, `lastlogin_ip`, `member_count`, `view_count`, `comment_count`, `like_count`, `coverphoto`, `view_privacy`, `disable_email`, `disable_adminemail`, `login_attempt_count`, `lastLoginDate`, `lastUpdateDate`, `inviteeName`, `profileType`, `memberLevel`, `profileViews`, `joinedDate`, `friendsCount`) VALUES ('dandoenwedataws2@gmail.com', 'Klaas Vaak', '992', '$2y$10$Sfa0sWgt40bMsYsa78cWtOht5zJWJLYyVKn8WFHfbcqS.LYkYIZm2', '1925740', 'en', 'en', 'Europe/Berlin', '1', '1', '4', '0', '0', '1', '0', '1', '2020-08-11 21:07:48', ?, '2020-08-11 21:11:11', '2020-08-11 21:18:43', ?, '0', '0', '0', '0', '0', 'everyone', '0', '0', '0', 'everyone', 'everyone', 'everyone', 'everyone', 'everyone', 'everyone', 'everyone', 'everyone');
+}
+
+insertUserProfile(){
+    `dandoe_se5.engine4_user_fields_values;`
+    17	1	0	1
+    17	3	0	Jurgen
+    17	4	0	Tonneyck
+    17	5	0	2            //male
+    17	6	0	1990-3-31
+    17	12	0	Joy joy     // about    
+    17	14	0	swimming    // want to learn    
+    17	15	0	yesterday   // when something new
+    17	17	0	Amsterdam   // which city
+    17	18	0	associates
+    17	19	0	othr        // profession
+}
+
+function insertUserProfileImage(){
+    `dandoe_se5`.`engine4_storage_files`
+}
+
+           $dbGetInsert = Engine_Db_Table::getDefaultAdapter();
+
+              $dbGetInsert->query('INSERT INTO `engine4_sesadvancedactivity_hashtags` (`action_id`, `title`) VALUES ("'.$action->getIdentity().'", "'.$tag.'")');
+            }
+insertUser 
+insertProfile
+insertImages
+updateUserWithFileId
+
+
+Modules Permissions
+drwxr-xr-x piepongwong piepongwong

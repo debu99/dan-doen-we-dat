@@ -681,9 +681,9 @@ class Sesevent_Form_Create extends Engine_Form {
 
     $this->addElement('text', 'tel_host', array(
       'label' => 'Tel. Host',
-      'required' => false,
+      'required' => true,
       'placeholder' => 'Telephone Number Host',
-      'description' => 'This will only be visible to people who\'ve joined the event',
+      'description' => 'This will only be visible to people who\'ve joined the event.',
       'validators' => array(
         array('Regex', true, array('/^\+{0,1}[0-9]{8,20}$/')),
       )
@@ -740,6 +740,8 @@ class Sesevent_Form_Create extends Engine_Form {
 
     $this->addDisplayGroup(array('is_additional_costs', 'additional_costs_amount','additional_costs_description'), "costs", array("legend"=> "Costs"));
 
+
+
     $defaultProfileId = "0_0_" . $this->getDefaultProfileId();
     $customFields = new Sesbasic_Form_Custom_Fields(array(
           'item' => isset($event) ? $event : 'sesevent_event',
@@ -766,6 +768,10 @@ class Sesevent_Form_Create extends Engine_Form {
 	    $eventcustom = true;
     }
 
+    // $this->addDisplayGroup(array(), 'additional_settings', array("legend"=> 'Additional Settings'));
+    // $additionalSettingsGroup = $this->getDisplayGroup('additional_settings');
+
+    $optionalElementsForDisplayGroup = array();
 		if($eventcustom) {
       if(!empty($_GET['sesapi_platform']) && $_GET['sesapi_platform'] == 1){
         $this->addElement('select', 'is_custom_term_condition', array(
@@ -798,9 +804,11 @@ class Sesevent_Form_Create extends Engine_Form {
 	            new Engine_Filter_EnableLinks(),
 	        ),
 	      ));
-			}
+      }
+     $optionalElementsForDisplayGroup[] = 'is_custom_term_condition';
+     $optionalElementsForDisplayGroup[] = 'custom_term_condition';
     }
-
+    
     if($actionName == 'create') {
 	    if($settings->getSetting('sesevent.eevecretags', 1))
 		    $eevecretags = true;
@@ -821,6 +829,7 @@ class Sesevent_Form_Create extends Engine_Form {
         ),
       ));
       $this->tags->getDecorator("Description")->setOption("placement", "append");
+     $optionalElementsForDisplayGroup[] = 'tags';
     }
 
   if (Engine_Api::_()->authorization()->isAllowed('sesevent_event', $viewer, 'allow_levels')) {
@@ -838,6 +847,9 @@ class Sesevent_Form_Create extends Engine_Form {
             'description' => 'Choose the Member Levels to which this Event will be displayed. (Note: Hold down the CTRL key to select or de-select specific member levels.)',
             'value' => $levelValues,
         ));
+
+       $optionalElementsForDisplayGroup[] = 'levels';
+
   }
 
     if (Engine_Api::_()->authorization()->isAllowed('sesevent_event', $viewer, 'allow_network')) {
@@ -855,6 +867,9 @@ class Sesevent_Form_Create extends Engine_Form {
           'description' => 'Choose the Networks to which this Event will be displayed. (Note: Hold down the CTRL key to select or de-select specific networks.)',
           'value' => $networkValues,
       ));
+
+     $optionalElementsForDisplayGroup[] = 'networks';
+
     }
 
     // Privacy
@@ -913,6 +928,7 @@ class Sesevent_Form_Create extends Engine_Form {
         ));
         $this->auth_view->getDecorator('Description')->setOption('placement', 'append');
       }
+     $optionalElementsForDisplayGroup[] = 'auth_view';
     }
     // Comment
     if (!empty($commentOptions) && count($commentOptions) >= 1) {
@@ -931,6 +947,8 @@ class Sesevent_Form_Create extends Engine_Form {
         $this->auth_comment->getDecorator('Description')->setOption('placement', 'append');
       }
     }
+   $optionalElementsForDisplayGroup[] = 'auth_comment';
+
     // Photo
     if (!empty($photoOptions) && count($photoOptions) >= 1) {
       // Make a hidden field
@@ -947,6 +965,8 @@ class Sesevent_Form_Create extends Engine_Form {
         ));
         $this->auth_photo->getDecorator('Description')->setOption('placement', 'append');
       }
+     $optionalElementsForDisplayGroup[] = 'auth_photo';
+
     }
 
     //video
@@ -964,6 +984,7 @@ class Sesevent_Form_Create extends Engine_Form {
             'value' => key($videoOptions)
         ));
         $this->auth_video->getDecorator('Description')->setOption('placement', 'append');
+       $optionalElementsForDisplayGroup[] = 'auth_video';
       }
     }
 
@@ -982,6 +1003,7 @@ class Sesevent_Form_Create extends Engine_Form {
             'value' => key($musicOptions)
         ));
         $this->auth_music->getDecorator('Description')->setOption('placement', 'append');
+       $optionalElementsForDisplayGroup[] = 'auth_music';
       }
     }
     //topic
@@ -999,6 +1021,7 @@ class Sesevent_Form_Create extends Engine_Form {
             'value' => key($topicOptions)
         ));
         $this->auth_topic->getDecorator('Description')->setOption('placement', 'append');
+       $optionalElementsForDisplayGroup[] = 'auth_topic';
       }
     }
 
@@ -1008,14 +1031,15 @@ class Sesevent_Form_Create extends Engine_Form {
 				'class'=>$hideClass,
         'value' => True
     ));
-
+   $optionalElementsForDisplayGroup[] = 'search';
     if(Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventsponsorship') && Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventsponsorship.pluginactivated')) {
 			// Search
 	    $this->addElement('Checkbox', 'is_sponsorship', array(
 	        'label' => 'Do you want to enable sponsorship for this event',
 					'class'=>$hideClass,
 	        'value' => false
-	    ));
+      ));
+     $optionalElementsForDisplayGroup[] = 'is_sponsorship';
     }
 
     if($settings->getSetting('sesevent.rsvpevent', 1)) {
@@ -1024,7 +1048,8 @@ class Sesevent_Form_Create extends Engine_Form {
 	        'label' => 'People must be invited to RSVP for this event',
 					'class'=>$hideClass,
 	        'value' => false,
-	    ));
+      ));
+     $optionalElementsForDisplayGroup[] = 'approval';
     }
 
     if($settings->getSetting('sesevent.inviteguest', 1)) {
@@ -1033,7 +1058,8 @@ class Sesevent_Form_Create extends Engine_Form {
 	        'label' => 'Invited guests can invite other people as well',
 					'class'=>$hideClass,
 	        'value' => true
-	    ));
+      ));
+     $optionalElementsForDisplayGroup[] = 'auth_invite';
     }
 
     if($actionName == 'create') {
@@ -1053,9 +1079,9 @@ class Sesevent_Form_Create extends Engine_Form {
 	        'multiOptions' => array( '1' => 'Published','0' => 'Saved As Draft',),
 	        'value' => 1,
 	    ));
-			 $this->draft->getDecorator('Description')->setOption('placement', 'append');
+       $this->draft->getDecorator('Description')->setOption('placement', 'append');
+      $optionalElementsForDisplayGroup[] = 'draft';
     }
-
     // Buttons
     $this->addElement('Button', 'submit', array(
         'label' => 'Save Changes',
@@ -1065,7 +1091,6 @@ class Sesevent_Form_Create extends Engine_Form {
             'ViewHelper',
         ),
     ));
-
 		if(!$this->getSmoothboxType()){
 			$this->addElement('Cancel', 'cancel', array(
 					'label' => 'cancel',
@@ -1075,7 +1100,7 @@ class Sesevent_Form_Create extends Engine_Form {
 					'decorators' => array(
 							'ViewHelper',
 					),
-			));
+      ));
 		} else {
 
 			$this->addElement('Cancel', 'advanced_options', array(
@@ -1088,11 +1113,13 @@ class Sesevent_Form_Create extends Engine_Form {
             'ViewHelper'
         )
       ));
-      
+      $optionalElementsForDisplayGroup[] = 'advanced_options';
+
 			$this->addElement('Dummy', 'brtag', array(
 					'content' => '<span style="margin-top:5px;"></span>',
       ));
-      
+      $optionalElementsForDisplayGroup[] = 'brtag';
+
 			$this->addElement('Cancel', 'cancel', array(
         'label' => 'cancel',
         'link' => true,
@@ -1102,17 +1129,15 @@ class Sesevent_Form_Create extends Engine_Form {
         'decorators' => array(
             'ViewHelper'
         )
-    	));
+      ));
     }
-    
+    $this->addDisplayGroup($optionalElementsForDisplayGroup, 'additional_settings', array("legend"=> 'Additional Settings'));
+
     $this->addDisplayGroup(array('submit', 'cancel'), 'buttons', array(
         'decorators' => array(
             'FormElements',
             'DivDivDivWrapper',
         ),
     ));
-
-
-  
   }
 }

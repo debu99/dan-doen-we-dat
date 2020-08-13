@@ -36,7 +36,8 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
     $this->view->venue = strlen($subject->venue_name) > 0? $subject->venue_name: false;
     $category = Engine_Api::_()->getItem('sesevent_category',$subject->category_id);
     $catIcon = Engine_Api::_()->storage()->get($category->cat_icon);
-    $this->view->catIcon =  $catIcon->getPhotoUrl('thumb.icon');
+    if($catIcon)  $this->view->catIcon =  $catIcon->getPhotoUrl('thumb.icon');
+
     $curArr = Zend_Locale::getTranslationList('CurrencySymbol');
 
     if($subject->is_additional_costs) {

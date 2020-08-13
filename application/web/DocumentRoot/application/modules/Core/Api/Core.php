@@ -178,7 +178,8 @@ class Core_Api_Core extends Core_Api_Abstract
                 ->fetchColumn();
     if(!empty($result)) {
       $storage = Engine_Api::_()->getItem('storage_file', $result);
-      return $storage->map();
+      if($storage != null) return $storage->map();
+      else return $image;
     } else {
       return $image;
     }
