@@ -29,7 +29,7 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
     $this->view->max_participants = $subject->max_participants;
     $this->view->min_participants = $subject->min_participants;
     $attending = count(Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id'=>$subject->getIdentity(),'type'=>'attending')));
-    $this->view->available_spots = $subject->min_participants - $attending;
+    $this->view->available_spots = $subject->max_participants - $attending;
     
     $this->view->short_location = $this->shortLocation($subject->location);
     $this->view->location = $isAttending? $subject->location: $this->shortLocation($subject->location);

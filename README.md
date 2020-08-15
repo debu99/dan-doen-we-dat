@@ -43,6 +43,8 @@ docker push piepongwong/apache-php-se-prod:vmajor:minor
 docker push piepongwong/apache-php-se-prod:latest
 ssh ubuntu@managernode -i ~/.ssh/keyfile
 cd ddwd
+sudo su
+docker pull piepongwong/apache-php-se-prod:latest
 docker stack deploy -c docker-compose.yml ddwd
 
 run mysql migration scripts if there are any new ones

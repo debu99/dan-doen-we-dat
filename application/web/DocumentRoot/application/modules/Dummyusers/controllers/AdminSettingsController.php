@@ -66,7 +66,7 @@ class Dummyusers_AdminSettingsController extends Core_Controller_Action_Admin {
 	}
 	public function insertProfile($user, $user_id){
 		$db = Engine_Db_Table::getDefaultAdapter();
-		$genderCode = $user[`gender`] == 'male'? 2:3;
+		$genderCode = $user['gender'] == 'male'? 2:3;
 		$lastName = addslashes($user['lastname']);
 		$about = str_replace("'", "", $user['about']);
 		$city =str_replace("'", "", $user['city']);
