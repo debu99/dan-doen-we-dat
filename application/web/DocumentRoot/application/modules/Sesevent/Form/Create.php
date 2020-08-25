@@ -106,7 +106,7 @@ class Sesevent_Form_Create extends Engine_Form {
         'required' => true,
         'validators' => array(
             array('NotEmpty', true),
-            array('StringLength', false, array(1, 255)),
+            array('StringLength', false, array(1, 180)),
         ),
         'filters' => array(
             'StripTags',
@@ -241,9 +241,9 @@ class Sesevent_Form_Create extends Engine_Form {
       'label' => 'Minimum Participants',
       'required' => true,
       'allowEmpty' => false,
-      'placeholder' => 'minimum participants',
+      'placeholder' => 'minimum 2 participants',
       'validators' => $viewer->isAdmin()? array(): array(
-        array('GreaterThan', true, array(0)),
+        array('GreaterThan', true, array(1)),
       )
     ));
     
@@ -251,10 +251,9 @@ class Sesevent_Form_Create extends Engine_Form {
       'label' => 'Maximum Participants',
       'required' => true,
       'allowEmpty' => false,
-      'placeholder' => 'maximum participants',
-      'description' => $viewer->isAdmin()? '':'Regular users may not create events with more than 30 participants',
+      'placeholder' => $viewer->isAdmin()? 'maximum participants':'maximum 30 participants',
       'validators' => $viewer->isAdmin()? array(): array(
-        array('LessThan', true, array(30)),
+        array('LessThan', true, array(31)),
       )
     ));
     // https://framework.zend.com/manual/1.12/en/zend.validate.set.html
@@ -429,35 +428,33 @@ class Sesevent_Form_Create extends Engine_Form {
           'value' => '',
       ));
     }
-    if($viewer->isAdmin()) {
-      $keyAgeCategoryUser = $viewer->getAgeCategory();
-      $selectedAgeCategories[$keyAgeCategoryUser] = $allAgeCategories[$keyAgeCategoryUser];
 
-      $this->addElement('MultiCheckbox', 'age_categories', array(
-        'label' => $translate->translate('Age Categories'),
-        'multiOptions' => $allAgeCategories,
-        'required' => false,
-        'value' => $actionName == "edit"? $selectedAgeCategories: $allAgeCategories,
-        "disable"=> array($keyAgeCategoryUser),
-        "description" => $translate->translate('Your own age category can\'t be unchecked'),
-      ));
+    $keyAgeCategoryUser = $viewer->getAgeCategory();
+    $selectedAgeCategories[$keyAgeCategoryUser] = $allAgeCategories[$keyAgeCategoryUser];
     
-      $this->addElement('Radio', 'gender_destribution', array(
-        'label' => $translate->translate('Gender Destribution'),
-        'multiOptions' => array(
-          'Undistributed' => "Undistributed",
-          'Ladies only' => "Ladies only",
-          'Men only' => "Men only",
-          '50/50' => "50/50"
-        ),
-        'required' => false,
-        'value' => 'Undistributed'
-      ));
-      $this->addDisplayGroup(array('choose_host','host_type','event_host','selectonsitehost','host_name','host_email','host_phone','host_description','host_photo','include_social_links','facebook_url','twitter_url','website_url','linkdin_url','googleplus_url','min_participants', 'max_participants','age_categories', 'gender_destribution'), "who", array("legend"=> "Who"));
+    $this->addElement('MultiCheckbox', 'age_categories', array(
+      'label' => $translate->translate('Age Categories'),
+      'multiOptions' => $allAgeCategories,
+      'required' => false,
+      'value' => $actionName == "edit"? $selectedAgeCategories: $allAgeCategories,
+      "disable"=> $viewer->isAdmin()? array(): array($keyAgeCategoryUser),
+      "description" =>$viewer->isAdmin()? "": $translate->translate('Your own age category can\'t be unchecked'),
+    ));
+  
+    $this->addElement('Radio', 'gender_destribution', array(
+      'label' => $translate->translate('Gender Destribution'),
+      'multiOptions' => array(
+        'Undistributed' => "Undistributed",
+        'Ladies only' => "Ladies only",
+        'Men only' => "Men only",
+        '50/50' => "50/50"
+      ),
+      'required' => false,
+      'value' => 'Undistributed'
+    ));
+    $this->addDisplayGroup(array('choose_host','host_type','event_host','selectonsitehost','host_name','host_email','host_phone','host_description','host_photo','include_social_links','facebook_url','twitter_url','website_url','linkdin_url','googleplus_url','min_participants', 'max_participants','age_categories', 'gender_destribution'), "who", array("legend"=> "Who"));
 
-    } else {
-      $this->addDisplayGroup(array('choose_host','host_type','event_host','selectonsitehost','host_name','host_email','host_phone','host_description','host_photo','include_social_links','facebook_url','twitter_url','website_url','linkdin_url','googleplus_url','min_participants', 'max_participants'), "who", array("legend"=> "Who"));
-    }
+ 
 
   if(Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent_enable_location', 1)){
 
@@ -700,7 +697,7 @@ class Sesevent_Form_Create extends Engine_Form {
     ));
 
     $this->addElement('text', 'meeting_point', array(
-      'label' => 'Meeting Time',
+      'label' => 'Meeting Point',
       'required' => false,
       'placeholder' => 'e.g. In front of the cinema',
       'description' => "Specify the meeting point in max 50 characters.",
@@ -767,9 +764,6 @@ class Sesevent_Form_Create extends Engine_Form {
     } elseif($actionName == 'edit') {
 	    $eventcustom = true;
     }
-
-    // $this->addDisplayGroup(array(), 'additional_settings', array("legend"=> 'Additional Settings'));
-    // $additionalSettingsGroup = $this->getDisplayGroup('additional_settings');
 
     $optionalElementsForDisplayGroup = array();
 		if($eventcustom) {
@@ -1082,6 +1076,7 @@ class Sesevent_Form_Create extends Engine_Form {
        $this->draft->getDecorator('Description')->setOption('placement', 'append');
       $optionalElementsForDisplayGroup[] = 'draft';
     }
+
     // Buttons
     $this->addElement('Button', 'submit', array(
         'label' => 'Save Changes',
@@ -1131,8 +1126,19 @@ class Sesevent_Form_Create extends Engine_Form {
         )
       ));
     }
-    $this->addDisplayGroup($optionalElementsForDisplayGroup, 'additional_settings', array("legend"=> 'Additional Settings'));
 
+    $this->addDisplayGroup($optionalElementsForDisplayGroup, 'additional_settings', array("legend"=> 'Additional Settings'));
+    $this->addElement('Radio', 'has_agreed', array(
+      'value' => '0',
+      'multiOptions' => array(
+        '1' => "Yes",
+        '0' => "No",
+      ),
+      "label" => 'I agree with the <a href="https://dandoenwedat.com/pages/terms-of-service" target="_blank">terms and conditions</a> of dandoenwedat.',
+    ));
+
+    $this->has_agreed->addValidator(new Zend_Validate_Accepted());
+    $this->has_agreed->getDecorator('Label')->setOptions(array('escape' => false));
     $this->addDisplayGroup(array('submit', 'cancel'), 'buttons', array(
         'decorators' => array(
             'FormElements',

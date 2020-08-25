@@ -4712,12 +4712,12 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 	justify-content: space-between;
 }
 .sesevents_list_view_wrapper .list-item h1 {
-	font-size: 25px;
 	padding-top: 5px;
 }
 .sesevents_list_view_wrapper .list-item .list-item-date {
 	width: 30%;
 }
+
 .sesevents_list_view_wrapper .list-item-info--title--location h1, .sesevents_list_view_wrapper .list-item-info--title--location h3 {
 	padding: 5px;
 	margin: 0px;
@@ -4737,4 +4737,39 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 	width: 80%;
 	display: flex;
 	justify-content: space-between;
+}
+
+@media (max-width: 650px){
+	.sesevents_list_view_wrapper .list-item h1 {
+		padding: 0;
+	}
+	.sesevents_list_view_wrapper .list-item .list-item-date {
+		width: 15%;
+		text-align: center;
+		font-size: 0.9em;
+		margin-right: 5px;
+	}
+	.sesevents_list_view_wrapper .list-item .list-item-date h1 {
+		padding: 0;
+	}
+	.sesevents_list_view_wrapper .list-item {
+		font-size: 0.5em;
+		align-items: center;
+	}
+
+	.sesevents_list_view_wrapper .list-item .list-item-info--title--location {
+		margin-left: 5px;
+		max-width: 60vw;
+		line-height: 0.9;
+	}
+	.sesevents_list_view_wrapper .list-item .list-item-info--title--location h1 {
+		padding: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-height: 50px;
+	}
+
+	.sesevents_list_view_wrapper .list-item .list-item-info--title--location h3 {
+		padding: 0;
+	}
 }

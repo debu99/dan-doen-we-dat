@@ -558,10 +558,10 @@
                   <h1>{$event->title}</h1>
                   <h3>{$shortLocation}</h3>
               </div>
-              <div class='list-item--time'>
-                <h1>{$currentFormattedDate['time']}</h1>
-              </div>
           </a>
+          <div class='list-item--time'>
+            <h1>{$currentFormattedDate['time']}</h1>
+          </div>
         </div>
         ";
     ?>

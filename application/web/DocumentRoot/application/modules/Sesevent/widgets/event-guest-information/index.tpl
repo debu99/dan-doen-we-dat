@@ -15,7 +15,7 @@
   overflow:hidden;
 }
 
-<?php if(!$this->isMember) { ?>
+<?php if(!$this->isLoggedIn) { ?>
   .attending .sesevent_guest_photo, .waiting .sesevent_guest_photo {
     filter: blur(8px);
   }

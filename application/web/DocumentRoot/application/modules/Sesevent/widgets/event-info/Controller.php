@@ -14,6 +14,10 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
   public function indexAction() {
     // Get subject and check auth
     $viewer = Engine_Api::_()->user()->getViewer();
+
+    $isLoggedIn = $viewer->getIdentity() === 0 ? false: true;
+    $this->view->isLoggedIn = $isLoggedIn;
+    
     $subject = Engine_Api::_()->core()->getSubject('sesevent_event');
     if (!$subject) {
       return $this->setNoRender();
@@ -53,11 +57,14 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
 
 
     $this->eventOngoing = strtotime($subject->endtime) > strtotime('now');
-    if($subject->gender_destribution === "Ladies only" || $subject->gender_destribution === "Men only") 
+    if($subject->gender_destribution === "50/50" || 
+       $subject->gender_destribution === "Ladies only" || 
+       $subject->gender_destribution === "Men only"
+    ) 
       $this->view->gender_destribution = $subject->gender_destribution;
     else 
      $this->view->gender_destribution = false;
-    }
+  }
     
     
     function shortLocation($location){

@@ -42,5 +42,7 @@ COPY ./application/web/prodconfig/apache/apache2.conf /etc/apache2/apache2.conf
 # Cleanup & changing permissions
 RUN rm -rf /usr/src/* && \
     chmod -R 777  /var/www/html/temporary && \
+    mkdir /var/www/html/public/admin && \
     chmod -R 777  /var/www/html/public && \
+    chmod -R 777 /var/www/html/admin && \
     chmod -R 777  /var/www/html/application/languages
