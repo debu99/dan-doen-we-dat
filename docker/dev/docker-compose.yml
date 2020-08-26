@@ -18,7 +18,7 @@ services:
             - "./letsencrypt:/letsencrypt"
             - "/var/run/docker.sock:/var/run/docker.sock"
     dandoenwedat:
-        image: piepongwong/apache-php-se-dev:v1.1
+        image: piepongwong/apache-php-se-dev:v1.2
         container_name: 'dandoenwedat-web'
         volumes:
             - ../../application/web/DocumentRoot:/var/www/html
@@ -30,7 +30,8 @@ services:
             - ../../environment/dev/.s3.env    
             - ../../environment/dev/.smtp.env
         environment:
-            - local_ip=127.0.0.1
+            local_ip: =127.0.0.1
+            XDEBUG_CONFIG: remote_host=host.docker.internal 
         deploy:
             labels:
                 - traefik.http.routers.web.rule=Host(`localhost`,`dandoenwedat.com`, `www.dandoenwedat.com`)

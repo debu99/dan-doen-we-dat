@@ -42,7 +42,6 @@ sudo docker build -f ./docker/prod/dockerfile . --tag piepongwong/apache-php-se-
 docker push piepongwong/apache-php-se-prod:vmajor:minor
 docker push piepongwong/apache-php-se-prod:latest
 ssh ubuntu@managernode -i ~/.ssh/keyfile
-cd ddwd
 sudo su
 docker pull piepongwong/apache-php-se-prod:latest
 docker stack deploy -c docker-compose.yml ddwd

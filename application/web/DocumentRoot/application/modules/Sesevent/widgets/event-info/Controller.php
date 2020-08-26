@@ -55,7 +55,6 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
     $this->view->meeting_time = $subject->meeting_time? $subject->meeting_time: false;
     $this->view->tel_host = $subject->tel_host? $subject->tel_host: false;
 
-
     $this->eventOngoing = strtotime($subject->endtime) > strtotime('now');
     if($subject->gender_destribution === "50/50" || 
        $subject->gender_destribution === "Ladies only" || 
