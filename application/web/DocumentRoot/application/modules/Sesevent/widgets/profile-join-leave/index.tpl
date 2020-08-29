@@ -3,8 +3,13 @@
         if(!$this->isLoggedIn) {
             echo '<a href="login"><button>Login to Join</button></a>';
         } else {
-
-            if($this->isLoggedIn && !$this->isFull && !$this->isAttending){
+            if($this->showLadiesOnly) {
+                echo '<div type="button" class="ladies-only sesevent_event_status sesbasic_clearfix open">'.$this->translate('Ladies Only').'</div>';
+            } 
+            else if ($this->showMenOnly) {
+                echo '<div type="button" class="men-only sesevent_event_status sesbasic_clearfix open">'.$this->translate('Men Only').'</div>';
+            }
+            else if($this->isLoggedIn && !$this->isFull && !$this->isAttending){
                 echo '<button class="sesevent-join">'.$this->translate('Join Event').'</button>';
             }
 
@@ -32,6 +37,17 @@
 <span>
 
 <style>
+    .sesevent_event_status.sesbasic_clearfix.open.men-only {
+        background-color: #03598F;
+        border: 1px solid #03598F;
+        text-transform: uppercase;
+    }
+    .sesevent_event_status.sesbasic_clearfix.open.ladies-only {
+        background-color: #FE4497;
+        border: 1px solid #FE4497;
+        text-transform: uppercase;
+    }
+ 
     .sesevent-join-leave .loading {
         display: none;
     }

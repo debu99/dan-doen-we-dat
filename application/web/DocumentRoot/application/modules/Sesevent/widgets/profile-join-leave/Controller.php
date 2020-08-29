@@ -24,8 +24,8 @@ class Sesevent_Widget_ProfileJoinLeaveController extends Engine_Content_Widget_A
             $ticketSaleNotStarted = strtotime($tickets[0]->starttime) > strtotime('now');
         }
 
-        $this->view->showLadiesOnly =  $genderUser === "Male" && $event->gender_destribution && "Ladies only";
-        $this->view->showMenOnly =  $genderUser === "Female" && "Men only";
+        $this->view->showLadiesOnly =  $genderUser === "Male" && $event->gender_destribution == "Ladies only";
+        $this->view->showMenOnly =  $genderUser === "Female" && $event->gender_destribution == "Men only";
  
         $isHost =  $this->view->isLoggedIn && $event->user_id === $viewer->user_id;
         if($isHost || $eventHasTickets || !$this->view->userIsInAgeRange)$this->setNoRender();
@@ -37,12 +37,12 @@ class Sesevent_Widget_ProfileJoinLeaveController extends Engine_Content_Widget_A
         if(
             $event->gender_destribution === "50/50" && 
             $genderUser === "Male" && 
-            $event->male_count > 0.5 * $event->max_participants
+            $event->male_count >= 0.5 * $event->max_participants
         ) return true;
         else if (
             $event->gender_destribution === "50/50" && 
             $genderUser === "Female" && 
-            $event->female_count > 0.5 * $event->max_participants
+            $event->female_count >= 0.5 * $event->max_participants
         ) return true;
 
         return false;

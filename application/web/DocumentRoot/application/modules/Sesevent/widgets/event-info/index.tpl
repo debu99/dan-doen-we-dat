@@ -36,7 +36,7 @@
           <span>
             <i title="Location" class="fas fa-map-marker-alt sesbasic_text_light"></i>&nbsp;&nbsp;&nbsp;<?php echo $this->translate("Location") ?>
           </span>
-          <span><?php echo $this->short_location ?></span>
+          <span><?php echo  $this->shortLocation($this->location) ?></span>
       </li>
       <?php if($this->gender_destribution) {?>
         <li class="sesbasic_clearfix">

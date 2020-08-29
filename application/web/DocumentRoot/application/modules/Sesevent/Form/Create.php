@@ -716,7 +716,7 @@ class Sesevent_Form_Create extends Engine_Form {
 
     $this->addElement('Text', 'additional_costs_amount', array(
       'label' => 'Amount',
-      'value' => "0.00",
+      'placeholder' => "0.00",
       'class' => 'additional-costs-toggle',
       'validators' => array(
         "Float" 

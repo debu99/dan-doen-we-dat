@@ -41,7 +41,7 @@ In root dir of project:
 sudo docker build -f ./docker/prod/dockerfile . --tag piepongwong/apache-php-se-prod:vmajor.minor --tag piepongwong/apache-php-se-prod:latest
 docker push piepongwong/apache-php-se-prod:vmajor:minor
 docker push piepongwong/apache-php-se-prod:latest
-ssh ubuntu@managernode -i ~/.ssh/keyfile
+ssh ubuntu@managernode -i ~/.ssh/keyfile //ssh ubuntu@54.93.127.176 -i ~/.ssh/terraform
 sudo su
 docker pull piepongwong/apache-php-se-prod:latest
 docker stack deploy -c docker-compose.yml ddwd
