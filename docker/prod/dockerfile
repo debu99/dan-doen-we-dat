@@ -44,4 +44,5 @@ RUN rm -rf /usr/src/* && \
     chmod -R 777  /var/www/html/temporary && \
     chmod -R 777  /var/www/html/public && \
     chmod -R 777 /var/www/html/public/admin && \
-    chmod -R 777  /var/www/html/application/languages
+    chmod -R 777  /var/www/html/application/languages && \
+    chmod -R 777 /application/settings/cache.php 

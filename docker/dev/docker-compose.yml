@@ -24,6 +24,7 @@ services:
             - ../../application/web/DocumentRoot:/var/www/html
             - ../../application/web/devconfig/apache/vhosts:/etc/apache2/sites-enabled
             - ../../application/web/devconfig/php/php.ini:/usr/local/etc/php/php.ini
+            - ../../application/web/devconfig/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
             - ../../application/web/devconfig/apache/apache2.conf:/etc/apache2/apache2.conf
         env_file:
             - ../../environment/dev/.db.env
