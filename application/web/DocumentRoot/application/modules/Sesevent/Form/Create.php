@@ -1134,7 +1134,7 @@ class Sesevent_Form_Create extends Engine_Form {
         '1' => "Yes",
         '0' => "No",
       ),
-      "label" => 'I agree with the <a href="https://dandoenwedat.com/pages/terms-of-service" target="_blank">terms and conditions</a> of dandoenwedat.',
+      "label" => 'I agree with the <a href="https://dandoenwedat.com/pages/event-regulations" target="_blank">event regulations</a> of dandoenwedat.',
     ));
 
     $this->has_agreed->addValidator(new Zend_Validate_Accepted());

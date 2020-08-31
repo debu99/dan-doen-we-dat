@@ -32,6 +32,9 @@
 	color:#fff;
 	font-size:15px;
 }
+#has_agreed-wrapper a {
+	color: #03598F;
+}
 .sesevent_unapproved_label{
   background-color:#FFB239;
 }
