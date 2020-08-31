@@ -45,8 +45,14 @@ ssh ubuntu@managernode -i ~/.ssh/keyfile //ssh ubuntu@54.93.127.176 -i ~/.ssh/te
 sudo su
 docker pull piepongwong/apache-php-se-prod:latest
 docker stack deploy -c docker-compose.yml ddwd
-
 run mysql migration scripts if there are any new ones
+
+---
+
+for circle ci setup
+docker pull piepongwong/apache-php-se-prod:latest
+docker service update ddwd_dandoenwedat
+docker image prune
 ```
 
 # Create Event
