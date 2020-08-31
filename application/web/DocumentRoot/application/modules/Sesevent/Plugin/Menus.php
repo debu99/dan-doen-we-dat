@@ -170,16 +170,17 @@ class Sesevent_Plugin_Menus {
             ),
         );
       } else {
-        return array(
-            'label' => 'Join Event',
-            'class' => 'smoothbox sesevent_profile_join',
-            'route' => 'sesevent_extended',
-            'params' => array(
-                'controller' => 'member',
-                'action' => 'join',
-                'event_id' => $subject->getIdentity()
-            ),
-        );
+        return;
+        // return array(
+        //     'label' => 'Join Event',
+        //     'class' => 'smoothbox sesevent_profile_join',
+        //     'route' => 'sesevent_extended',
+        //     'params' => array(
+        //         'controller' => 'member',
+        //         'action' => 'join',
+        //         'event_id' => $subject->getIdentity()
+        //     ),
+        // );
       }
     }
     // Full member

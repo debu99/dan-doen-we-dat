@@ -291,7 +291,7 @@ if(isset($this->can_edit)){
              <?php  $viewer = Engine_Api::_()->user()->getViewer(); ?>
              <?php $row = $this->subject->membership()->getRow($viewer);
             if((null === $row) ){
-             if ($this->subject->membership()->isResourceApprovalRequired()) {
+             if ($this->subject->membership()->isResourceApprovalRequired() && !in_array('minimalisticCover',$this->show_criterias)) {
              ?>
               <div>
                 <a href="<?php echo $this->url(array('event_id' => $this->subject->event_id,'controller'=>'member','action'=>'request'), 'sesevent_extended', true); ?>" class="openSmoothbox sesbasic_link_btn">
@@ -299,7 +299,7 @@ if(isset($this->can_edit)){
                    <?php echo $this->translate("Request Invite"); ?>
                 </a>
               </div>
-             <?php }else{ ?>
+             <?php }else if (!in_array('minimalisticCover',$this->show_criterias)){ ?>
                <div>
                   <a href="<?php echo $this->url(array('event_id' => $this->subject->event_id,'controller'=>'member','action'=>'join'), 'sesevent_extended', true); ?>" class="openSmoothbox sesbasic_link_btn">
                     <i class="fa fa-check"></i>
