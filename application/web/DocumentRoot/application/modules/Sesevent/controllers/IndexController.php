@@ -73,6 +73,7 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
     $db = $event->getTable()->getAdapter();
     $db->beginTransaction();
     try {
+      
       $event->custom_term_condition = $_POST['custom_term_condition'];
       if (empty($_POST['custom_term_condition']))
         $event->is_custom_term_condition = 0;
@@ -555,6 +556,7 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
       // Add photo
       if (!empty($values['photo'])) {
         $event->setPhoto($form->photo);
+        $event['cover_photo'] = $event['photo_id'];
       }
       // Set auth
       $auth = Engine_Api::_()->authorization()->context;
