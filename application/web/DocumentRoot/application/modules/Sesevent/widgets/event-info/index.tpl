@@ -12,7 +12,7 @@
 ?>
 <div class='sesevent_profile_info sesbasic_clearfix sesbasic_bxs'>
   <div class="sesevent_profile_info_row">
-    <div class="sesevent_profile_info_head"><img class="sesbasic-category-icon" src="<?php echo $this->catIcon; ?>" /><h3> <?php echo $this->event_title;?></h3></div>
+    <div class="sesevent_profile_info_head"><h3> <?php echo $this->event_title;?></h3></div>
     <ul class="sesevent_profile_info_row_info">
       <!-- <li class="sesbasic_clearfix">
         <span><?php echo $this->translate("Created by"); ?></span>
