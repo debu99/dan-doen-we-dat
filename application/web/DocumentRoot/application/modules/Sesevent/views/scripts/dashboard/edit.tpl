@@ -98,6 +98,13 @@ jqueryObjectOfSes('#check_custom_url_availability').click(function(){
       }
     });
   });
+
+function additionalCostsToggle(){
+	if(sesJqueryObject("#is_additional_costs").is(':checked'))
+    sesJqueryObject("#additional_costs_amount-wrapper, #additional_costs_description-wrapper").show();  // checked
+	else
+    sesJqueryObject("#additional_costs_amount-wrapper, #additional_costs_description-wrapper").hide();  // unchecked
+}
 //custom term and condition
 function customTermAndCondition(){
 	if(jqueryObjectOfSes("#is_custom_term_condition").is(':checked'))
@@ -108,7 +115,18 @@ function customTermAndCondition(){
 jqueryObjectOfSes('#is_custom_term_condition').bind('change', function () {
 	customTermAndCondition();
 });
+sesJqueryObject('#is_additional_costs').bind('change', function () {
+	additionalCostsToggle();
+});
 customTermAndCondition();
+additionalCostsToggle();
+
+<?php if(Engine_Api::_()->sesevent()->isMultiCurrencyAvailable()){ ?>
+	sesJqueryObject('#additional_costs_amount-element').append('<span class="fa fa-retweet sesevent_convert_icon sesbasic_link_btn" id="sesevent_currency_coverter" title="<?php echo $this->translate("Convert to %s",Engine_Api::_()->sesevent()->defaultCurrency());?>"></span>');
+	sesJqueryObject('#additional_costs_amount-label').append('<span> (<?php echo Engine_Api::_()->sesevent()->defaultCurrency(); ?>)</span>');
+<?php }else{ ?>
+	sesJqueryObject('#additional_costs_amount-label').append('<span> (<?php echo Engine_Api::_()->sesevent()->defaultCurrency(); ?>)</span>');
+<?php } ?>
 
 jqueryObjectOfSes(document).ready(function(){
 	jqueryObjectOfSes('#subcat_id-wrapper').css('display' , 'none');
@@ -312,8 +330,9 @@ function validateForm(){
 		var errorPresent = false;
 		sesJqueryObject('#sesevent_create_form input, #sesevent_create_form select,#sesevent_create_form checkbox,#sesevent_create_form textarea,#sesevent_create_form radio').each(
 				function(index){
+
 						var input = sesJqueryObject(this);
-						if(sesJqueryObject(this).closest('div').parent().css('display') != 'none' && sesJqueryObject(this).closest('div').parent().find('.form-label').find('label').first().hasClass('required') && sesJqueryObject(this).prop('type') != 'hidden' && sesJqueryObject(this).closest('div').parent().attr('class') != 'form-elements'){	
+						if(sesJqueryObject(this).closest('div').parent().not('fieldset').css('display') != 'none' && sesJqueryObject(this).closest('div').parent().not('fieldset').find('.form-label').find('label').first().hasClass('required') && sesJqueryObject(this).prop('type') != 'hidden' && sesJqueryObject(this).closest('div').parent().not('fieldset').attr('class') != 'form-elements'){	
 						  if(sesJqueryObject(this).prop('type') == 'checkbox'){
 								value = '';
 								if(sesJqueryObject('input[name="'+sesJqueryObject(this).attr('name')+'"]:checked').length > 0) { 
@@ -370,6 +389,7 @@ sesJqueryObject('#sesevent_create_form').submit(function(e){
 					var validationFm = validateForm();
 					if(validationFm)
 					{
+						
 						alert('<?php echo $this->translate("Please fill the red mark fields"); ?>');
 						if(typeof objectError != 'undefined'){
 						 var errorFirstObject = sesJqueryObject(objectError).parent().parent();

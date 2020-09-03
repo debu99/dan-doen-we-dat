@@ -46,7 +46,6 @@ Uploader = new Class ({
         iteration++;
         self.uploadFile(self.uploadElement, this.files[i], iteration, total);
       }
-      //if(!valid) alert("The size of the file exceeds the limits set on the server.");
     });
     this.uploadElement.addEvent('click', function () {
       this.value = '';

@@ -11,6 +11,17 @@
  */
 ?>
 <style>
+.sesevent_guests_block_user  {
+  overflow:hidden;
+}
+
+<?php if(!$this->isLoggedIn) { ?>
+  .attending .sesevent_guest_photo, 
+  .waiting .sesevent_guest_photo,
+  .host .sesevent_guest_photo  {
+    filter: blur(8px);
+  }
+<?php } ?>
 .sesevent_guest_photo img{height:100%;width:100%;}
 </style>
 <?php $host = Engine_Api::_()->getItem('user', $this->subject->user_id); ?>
@@ -19,7 +30,7 @@
     <div class="sesevent_guests_block_heading sesbasic_clearfix sesbm">
       <span class="sesevent_guests_block_heading_label floatL"><?php echo $this->translate("Host"); ?></span>
     </div>
-    <div class="sesevent_guests_block_user" style="height:<?php echo $this->height.'px' ?>;width:<?php echo $this->width.'px' ?>">
+    <div class="sesevent_guests_block_user host" style="height: 60px;width:60px">
        <?php echo $this->htmlLink($host->getHref(), $this->itemPhoto($host, 'thumb.profile', $host->getTitle()), array('class' => 'sesevent_guest_photo')) ?>
     </div>
   </li>
@@ -39,7 +50,7 @@
   	foreach($this->attending as $userAttending){ 
     	 $user = Engine_Api::_()->getItem('user', $userAttending->user_id);
      ?>
-      <div class="sesevent_guests_block_user" style="height:<?php echo $this->height.'px' ?>;width:<?php echo $this->width.'px' ?>">
+      <div class="sesevent_guests_block_user attending" style="height:<?php echo $this->height.'px' ?>;width:<?php echo $this->width.'px' ?>">
        <?php echo $this->htmlLink($user->getHref(), $this->itemPhoto($user, 'thumb.profile', $user->getTitle()), array('class' => 'sesevent_guest_photo')) ?>
       </div>
     <?php 
@@ -61,7 +72,7 @@
   	foreach($this->maybeattending as $userAttending){ 
     	 $user = Engine_Api::_()->getItem('user', $userAttending->user_id);
      ?>
-      <div class="sesevent_guests_block_user" style="height:<?php echo $this->height.'px' ?>;width:<?php echo $this->width.'px' ?>">
+      <div class="sesevent_guests_block_user host" style="height:<?php echo $this->height.'px' ?>;width:<?php echo $this->width.'px' ?>">
         <?php echo $this->htmlLink($user->getHref(), $this->itemPhoto($user, 'thumb.profile', $user->getTitle()), array('class' => 'sesevent_guest_photo')) ?>
       </div>
     <?php 
@@ -92,6 +103,29 @@
   <?php } ?>
   </li>  
  <?php } ?>
+<?php if($this->onwaitinglist->getTotalItemCount() > 0){ ?>
+  <li class="sesbasic_clearfix">
+    <div class="sesevent_guests_block_heading sesbasic_clearfix sesbm">
+      <span class="sesevent_guests_block_heading_label floatL"><?php echo $this->translate("On Waiting List"); ?></span>
+    <?php if($this->onwaitinglist->getTotalItemCount() > $this->guestCount){ ?>
+      <a href="javascript:;" onclick="getGuestDetails('attending')" class="floatR sesevent_guests_block_heading_link"><?php echo $this->translate("See All"); ?> &raquo;</a>
+    <?php } ?>
+    </div>
+  <?php 
+  	$counterAttending = 0;
+  	foreach($this->onwaitinglist as $userWaiting){ 
+    	 $user = Engine_Api::_()->getItem('user', $userWaiting->user_id);
+     ?>
+      <div class="sesevent_guests_block_user waiting" style="height:<?php echo $this->height.'px' ?>;width:<?php echo $this->width.'px' ?>">
+       <?php echo $this->htmlLink($user->getHref(), $this->itemPhoto($user, 'thumb.profile', $user->getTitle()), array('class' => 'sesevent_guest_photo')) ?>
+      </div>
+    <?php 
+    	$counterAttending++;
+    if($counterAttending == $this->guestCount) break; ?>
+  <?php } ?>
+  </li>  
+ <?php } ?>
+
 </ul>
 <script type="application/javascript">
 function getGuestDetails(value){

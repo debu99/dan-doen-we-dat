@@ -1069,3 +1069,6 @@ Privacyreglement dan+doen+we+dat versie maart 2020
 "
 "_EMAIL_JOIN_LEAVE_SUBJECT";"Plekje vrij!"
 "_EMAIL_JOIN_LEAVE_BODYHTML";"Er is een plekje vrijgekomen!<br><br>[header]<br> <br> [body]<br> <br> [footer]"
+"_EMAIL_CORE_VERIFICATION_BODYHTML";"[header]<br> <br> Wat leuk dat je je hebt aangemeld bij dan+doen+we+dat Activiteiten en Uitgaan. Klik op de volgende link om uw e-mail adres te verifiëren: <br> http://[host][object_link]<br> <br> Email: [email]<br> <br> [footer]"
+"_EMAIL_CORE_VERIFICATION_BODYHTML";"[header]<br> <br>Wat leuk dat je je hebt aangemeld bij dan+doen+we+dat Activiteiten en Uitgaan. Klik op de volgende link om uw e-mail adres te verifiëren: <br> http://[host][object_link]<br> <br> Email: [email]<br> <br> [footer]"
+"_EMAIL_FOOTER_MEMBER_BODYHTML";"Groet,<br> dan+doen+we+dat | r e d a c t i e&nbsp;"

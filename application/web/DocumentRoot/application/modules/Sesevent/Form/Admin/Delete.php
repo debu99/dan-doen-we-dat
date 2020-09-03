@@ -10,5 +10,6 @@
  * @author     SocialEngineSolutions
  */
 class Sesevent_Form_Admin_Delete extends Engine_Form {
-  
+    public function init(){
+    }
 }

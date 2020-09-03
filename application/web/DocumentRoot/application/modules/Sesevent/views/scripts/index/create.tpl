@@ -56,6 +56,8 @@ Sessmoothbox.javascript.push("<?php echo $this->layout()->staticBaseUrl . 'appli
     </span>
   </div>
   <br/>
+
+
 <?php else:?>
 	<div class="sesevent_create_form">
   	<?php echo $this->form->render();?>
@@ -136,20 +138,33 @@ sesJqueryObject('#check_custom_url_availability').click(function(){
       }
     });
   });
-//custom term and condition
+
+function additionalCostsToggle(){
+	if(sesJqueryObject("#is_additional_costs").is(':checked'))
+    sesJqueryObject("#additional_costs_amount-wrapper, #additional_costs_description-wrapper").show();  // checked
+	else
+    sesJqueryObject("#additional_costs_amount-wrapper, #additional_costs_description-wrapper").hide();  // unchecked
+}
+
 function customTermAndCondition(){
-	if(sesJqueryObject("#is_custom_term_condition").is(':checked'))
+	if(sesJqueryObject("#is_custom_term_condition, #is_additional_costs-element").is(':checked'))
     sesJqueryObject("#custom_term_condition-wrapper").show();  // checked
 	else
     sesJqueryObject("#custom_term_condition-wrapper").hide();  // unchecked
 }
- en4.core.runonce.add(function()
-  {
+
 sesJqueryObject('#is_custom_term_condition').bind('change', function () {
 	customTermAndCondition();
 });
+
 customTermAndCondition();
-});
+
+<?php if(Engine_Api::_()->sesevent()->isMultiCurrencyAvailable()){ ?>
+	sesJqueryObject('#additional_costs_amount-element').append('<span class="fa fa-retweet sesevent_convert_icon sesbasic_link_btn" id="sesevent_currency_coverter" title="<?php echo $this->translate("Convert to %s",Engine_Api::_()->sesevent()->defaultCurrency());?>"></span>');
+	sesJqueryObject('#additional_costs_amount-label').append('<span> (<?php echo Engine_Api::_()->sesevent()->defaultCurrency(); ?>)</span>');
+<?php }else{ ?>
+	sesJqueryObject('#additional_costs_amount-label').append('<span> (<?php echo Engine_Api::_()->sesevent()->defaultCurrency(); ?>)</span>');
+<?php } ?>
 </script>
 <?php 
 $defaultProfileFieldId = "0_0_$this->defaultProfileId";
@@ -400,7 +415,7 @@ function validateForm(){
 		sesJqueryObject('#sesevent_create_form input, #sesevent_create_form select,#sesevent_create_form checkbox,#sesevent_create_form textarea,#sesevent_create_form radio').each(
 				function(index){
 						var input = sesJqueryObject(this);
-						if(sesJqueryObject(this).closest('div').parent().css('display') != 'none' && sesJqueryObject(this).closest('div').parent().find('.form-label').find('label').first().hasClass('required') && sesJqueryObject(this).prop('type') != 'hidden' && sesJqueryObject(this).closest('div').parent().attr('class') != 'form-elements'){	
+						if(sesJqueryObject(this).closest('div').parent().not('fieldset').css('display') != 'none' && sesJqueryObject(this).closest('div').parent().not('fieldset').find('.form-label').find('label').first().hasClass('required') && sesJqueryObject(this).prop('type') != 'hidden' && sesJqueryObject(this).closest('div').parent().not('fieldset').attr('class') != 'form-elements'){	
 						  if(sesJqueryObject(this).prop('type') == 'checkbox'){
 								value = '';
 								if(sesJqueryObject('input[name="'+sesJqueryObject(this).attr('name')+'"]:checked').length > 0) { 

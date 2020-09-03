@@ -791,7 +791,7 @@ class Sesbasic_IndexController extends Core_Controller_Action_Standard {
     $ses_public_path = APPLICATION_PATH . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'sesWysiwygPhotos';
 
     if (!is_dir($ses_public_path) && mkdir($ses_public_path, 0777, true))
-      @chmod($ses_public_path, 0777);
+      chmod($ses_public_path, 0777);
 
     // Prepare
     if (empty($_FILES['userfile'])) {

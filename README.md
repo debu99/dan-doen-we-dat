@@ -30,24 +30,29 @@ You must set the permissions (CHMOD) of the following directories and files to 7
 /application/settings/ (recursively; all files contained within this must also be changed)
 
 If installing of plugs on live version directly enabled chmod 777 on  application/packages. In a sensible release cycle this should not be the case though.
-
 /application/languages (for emails)
+
 # Social Engine Info
 https://kb.scripttechs.com/creating-a-socialengine-widget/
 
 # Release Procedure
 In root dir of project:
 ```
-sudo docker build -f ./docker/prod/dockerfile . --tag piepongwong/apache-php-se-prod:major.minor
+sudo docker build -f ./docker/prod/dockerfile . --tag piepongwong/apache-php-se-prod:vmajor.minor --tag piepongwong/apache-php-se-prod:latest
 docker push piepongwong/apache-php-se-prod:vmajor:minor
-docker tag digestofnewbuild piepongwong/apache-php-se-prod:latest
-docker push --tag piepongwong/apache-php-se-prod:latest
-ssh ubuntu@managernode -i ~/.ssh/keyfile
-cd ddwd
+docker push piepongwong/apache-php-se-prod:latest
+ssh ubuntu@managernode -i ~/.ssh/keyfile //ssh ubuntu@54.93.127.176 -i ~/.ssh/terraform
+sudo su
 docker pull piepongwong/apache-php-se-prod:latest
-docker stack -c docker-compose.yml ddwd
-
+docker stack deploy -c docker-compose.yml ddwd
 run mysql migration scripts if there are any new ones
+
+---
+
+for circle ci setup
+docker pull piepongwong/apache-php-se-prod:latest
+docker service update ddwd_dandoenwedat
+docker image prune
 ```
 
 # Create Event
@@ -61,7 +66,7 @@ Form = /application/web/DocumentRoot/application/modules/Sesevent/Form/Create.ph
 # Internationalization
 /application/web/DocumentRoot/application/languages/en/en.php
 /application/web/DocumentRoot/application/languages/nl/nl.php
-
+s
 # Joining Leaving Controllers
 /application/web/DocumentRoot/application/modules/Sesevent/controllers/MemberController.php
 /application/web/DocumentRoot/application/modules/Sesevent/controllers/WidgetController.php
@@ -127,3 +132,63 @@ For the template to take effect, you have to set it up in the admin dashboard. s
 
 ## Models and Controllers
 Incomplete. Methods of models seem to be callable by using $subject->nameofmethod
+
+## Forms 
+Forms have the following naming convention: ModuleName_Form_Controller_FormNameCamelCased. Example: `Sesevent_Form_Member_LeaveWaitingList`. They alos should have view.tpl in the view directory of the controller. The file should be kebab cased, for example? leave-waiting-list.tpl.
+
+## TDD
+In web container run, for example:
+```
+phpunit --bootstrap /var/www/html/index.php /var/www/html/application/modules/Sesevent/tests/IndexControllerTest.php
+```
+
+## Profile Fields
+Most profile fields are dynamically set through 
+/application/web/DocumentRoot/application/modules/Fields/views/helpers/AdminFieldMeta.php in 
+`dandoe_se5`.`engine4_user_fields_meta` and `dandoe_se5`.`engine4_user_fields_values`
+
+$db = Engine_Db_Table::getDefaultAdapter();
+
+$birthDate = $db->select()
+            ->from('engine4_user_fields_meta')
+            ->where('type = ?', 'birthdate')
+            ->query()
+            ->fetch(); 
+$birthDateFieldId = $birthDate['field_id'];
+
+$birthDayUser = $db->select()
+            ->from('engine4_user_fields_values')
+            ->where('item_id = ?', 1) // user_id
+             ->where('field_id = ?', 6) // field_id
+            ->query()
+            ->fetch();
+
+
+## TODO
+Clean up code duplication in Event.php and member/indexController ageCategories
+
+## Upload Cover Photo
+https://www.dandoenwedat.com/user/coverphoto/upload-cover-photo/user_id/14/photoType/profile
+https://uifaces.co/
+
+        $this->setCoverPhoto($form->Filedata, null, $level_id);
+https://framework.zend.com/manual/1.12/en/zend.test.phpunit.html
+
+
+_version3PasswordCrypt
+
+/home/piepongwong/dev-dan-doen-we-dat/application/web/DocumentRoot/application/modules/User/Form/Signup/Account.php
+
+
+/home/piepongwong/dev-dan-doen-we-dat/application/web/DocumentRoot/application/modules/User/controllers/SignupController.php
+12345Abc@
+
+
+ https://www.dandoenwedat.com/user/auth/reset/code/5wxmrohg61c80084so04kgckc/uid/17
+
+Modules Permissions
+drwxr-xr-x piepongwong piepongwong
+
+## MYSQL Migration Scripts
+mysqldump --column-statistics=0 -h prodhost -u DANDOE_ROOT -p dandoe_se > ddwd.sql
+mysql -u root -P 3306 -h 127.0.0.1 -p dandoe_se5 < ddwd.sql

@@ -530,7 +530,7 @@
     <?php 
       $currentFormattedDate = $this->eventStartDate($event);
       $currentDateString = "{$currentFormattedDate['day']} {$currentFormattedDate['date']} {$currentFormattedDate['month']}";
-      
+      $shortLocation = $this->shortLocation($event->location);
       $prevFormattedDate = $this->eventStartDate($prevEvent);
       $prevDateString = "{$prevFormattedDate['day']} {$prevFormattedDate['date']} {$prevFormattedDate['month']}";
 
@@ -544,12 +544,12 @@
           <a href='{$event->getHref()}' class='list-item-info'>
               <div class='list-item-info--title--location'>
                   <h1>{$event->title}</h1>
-                  <h3>{$event->location}</h3>
-              </div>
-              <div class='list-item--time'>
-                <h1>{$currentFormattedDate['time']}</h1>
+                  <h3>{$shortLocation}</h3>
               </div>
           </a>
+          <div class='list-item--time'>
+            <h1>{$currentFormattedDate['time']}</h1>
+          </div>
         </div>
         ";
     ?>

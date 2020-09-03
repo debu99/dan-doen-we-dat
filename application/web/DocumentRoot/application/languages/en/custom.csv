@@ -178,3 +178,4 @@ Privacyreglement dan+doen+we+dat versie maart 2020
 "_EMAIL_JOIN_LEAVE_BODYHTML";"A spot has become avaialbe!<br>[header]<br> <br> [body]<br> <br> [footer]"
 "_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_SUBJECT";"A Spot has opened up for [event_title]"
 "_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_BODYHTML";"[header]<br><br>A Spot has become available for [event_title]. Be quick to grap it before somebody beats you to it! You can sign up on the event page: [event_url].<br> <br><br> [footer]"
+"_EMAIL_CORE_VERIFICATION_BODYHTML";"[header]<br> <br> Thank you for joining dan+doen+we+dat network. To verify your email address and continue, please  click the following link:<br> http://[host][object_link]<br> <br> Email: [email]<br> <br> [footer]"

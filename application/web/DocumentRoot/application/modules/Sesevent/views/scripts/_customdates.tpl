@@ -33,6 +33,15 @@
 <div id="event_error_time-wrapper" class="form-wrapper" style="display:none;">
   <div class="form-element tip"><span id="event_error_time-element"></span></div>
 </div>
+
+<?php 
+	 $viewer = Engine_Api::_()->user()->getViewer();
+	 $isAdmin = $viewer->isAdmin();
+	 if(!$isAdmin) {
+?>
+	<p class="description">* <?php echo $this->translate("Regular users can't create events that take longer than a day.") ?></p>
+<?php } ?>
+
 <script type="application/javascript">
 
  en4.core.runonce.add(function() {
@@ -123,9 +132,9 @@ function checkDateTime(startdate,enddate){
 	var errorMessage = '';
 	var checkdate = true;
 	var currentTime =  new Date();
-  var format = 'YYYY/MM/DD HH:mm:ss';
-  currentTime = moment(currentTime, format).tz(sesJqueryObject('#event_timezone_jq').val()).format(format);
-  currentTime =  new Date(currentTime);    
+  	var format = 'YYYY/MM/DD HH:mm:ss';
+  	currentTime = moment(currentTime, format).tz(sesJqueryObject('#event_timezone_jq').val()).format(format);
+  	currentTime =  new Date(currentTime);    
 	if(<?php echo $this->subject ? 1 : 0 ?> == 0 && currentTime.valueOf() > startdate.valueOf() && sesBasicAutoScroll('#sesevent_start_date').val() && 1 == '<?php echo $this->start_time_check; ?>'){
 		errorMessage = "<?php echo $this->translate('Event date is in the past. Please enter an event date greater than or equal to today\'s date.')?>";	
 	}else if(startdate.valueOf() >= enddate.valueOf() && sesBasicAutoScroll('#sesevent_start_date').val() && sesBasicAutoScroll('#sesevent_end_date').val()){

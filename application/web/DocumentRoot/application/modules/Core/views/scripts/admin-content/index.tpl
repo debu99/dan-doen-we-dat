@@ -1887,24 +1887,11 @@ $allowedAdminTitle = array('core.html-block', 'core.rich-text-block'); ?>
                 }
 
                 ?>
-                <?php //if( empty($info['canHaveChildren']) ): ?>
                   <li class="<?php echo $class ?>" title="<?php echo $this->escape($info['description']) ?>"<?php if( $onmousedown ): ?> onmousedown="<?php echo $onmousedown ?>"<?php endif; ?>>
                       <?php echo $this->translate($info['title']) ?>
                     <span class="open"> | <a href='javascript:void(0);' onclick="openWidgetParamEdit('<?php echo $info['name'] ?>', $(this).getParent('li.admin_content_cell')); (new Event(event).stop()); return false;"><?php echo $this->translate("edit") ?></a></span>
                     <span class="remove"><a href='javascript:void(0);' onclick="removeWidget($(this));">x</a></span>
                   </li>
-                <?php /* //else: ?>
-                  <li class="admin_layoutbox_widget_tabbed_wrapper">
-                    <span class="admin_layoutbox_widget_tabbed_top">
-                      Tabbed Blocks <a href="#">(edit)</a>
-                    </span>
-                    <div class="admin_layoutbox_widget_tabbed">
-                      <ul class="admin_layoutbox_widget_tabbed_contents">
-                        <?php echo $structThreeInfo['childAreaDescription'] ?>
-                      </ul>
-                    </div>
-                  </li>
-                <?php //endif; */ ?>
               <?php endforeach; ?>
             </ul>
           </li>

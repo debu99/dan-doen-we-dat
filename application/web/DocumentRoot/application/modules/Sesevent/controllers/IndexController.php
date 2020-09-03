@@ -315,7 +315,6 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
 			$this->_helper->content->setEnabled();
 		}
 
-
 		// set up data needed to check quota
     $viewer = Engine_Api::_()->user()->getViewer();
     $select = Engine_Api::_()->getDbTable('events', 'sesevent')->select()->where('user_id =?',$viewer->getIdentity());
@@ -374,12 +373,12 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
     ));
     // Not post/invalid
     if (!$this->getRequest()->isPost()) {
-			//$form->timezone->setValue($viewer->timezone);
       return;
     }
     if (!$form->isValid($this->getRequest()->getPost())) {
       return;
     }
+
     //check custom url
     if (isset($_POST['custom_url']) && !empty($_POST['custom_url'])) {
       $custom_url = Engine_Api::_()->getDbtable('events', 'sesevent')->checkCustomUrl($_POST['custom_url']);
@@ -400,7 +399,18 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
 		$values['show_timezone'] = !empty($_POST['show_timezone']) ? $_POST['show_timezone'] : '0';
 		$values['show_endtime'] = !empty($_POST['show_endtime']) ? $_POST['show_endtime'] : '0';
 		$values['show_starttime'] = !empty($_POST['show_starttime']) ? $_POST['show_starttime'] : '0';
-		$values['venue_name'] = isset($_POST['venue_name']) ? $_POST['venue_name'] : '';
+    $values['venue_name'] = isset($_POST['venue_name']) ? $_POST['venue_name'] : '';
+    
+    if(isset($values['additional_costs_amount'])){
+      $values['additional_costs_amount'] = floatval(str_replace(",", ".", $values['additional_costs_amount']));
+      $values['additional_costs_amount_currency'] = Engine_Api::_()->sesbasic()->getCurrentCurrency();
+    }
+
+    if(isset($values['age_categories'])) {
+      $age_categories = Sesevent_Model_Event::getAgeCategoriesToInterval($values['age_categories']);
+      $values['age_category_from'] = $age_categories['from'];
+      $values['age_category_to'] = $age_categories['to'];
+    }
 		if (empty($values['timezone'])) {
       $form->addError(Zend_Registry::get('Zend_Translate')->_('Timezone is a required field.'));
       return;
@@ -412,6 +422,15 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
       $form->addError(Zend_Registry::get('Zend_Translate')->_('Start Time must be less than End Time.'));
       return;
     }
+    
+    $startTime = new DateTime($values['starttime']);
+    $endTime = new DateTime($values['endtime']);
+    
+    if(!$viewer->isAdmin() && (int)$endTime->diff($startTime)->format("%a") > 1) {
+      $form->addError(Zend_Registry::get('Zend_Translate')->_("Regular members can't create events that take more than 1 day."));
+      return;
+    }
+
 		$settings = Engine_Api::_()->getApi('settings', 'core');
     if($settings->getSetting('sesevent.eevecremainphoto', 1) && $settings->getSetting('sesevent.eevecremainphoto', 1)) {
 	    if(empty($values['photo'])) {
@@ -1284,5 +1303,51 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
     // Set item count per page and current page number
     $paginator->setItemCountPerPage(20);
     $paginator->setCurrentPageNumber($page);
+  }
+
+  public function getAgeCategoriesToInterval($categories){      
+    $standardRange = 10;
+    $from = 99;
+    $to = 0;
+
+    foreach($categories as $category){
+      if((int)$category <= $from) $from = $category;
+      if((int)$category + $standardRange >= $to) $to = $category + $standardRange;
+      if((int)$category === 73) $to = 88; // last category is an exception and has a range of 15
+    };
+
+    return $this->addUsersAgeCategoryToInterval(array(
+      'from'=> $from,
+      'to' => $to
+    ));
+  }
+
+  public function addUsersAgeCategoryToInterval($interval){
+    $viewer = Engine_Api::_()->user()->getViewer();
+    $age = $viewer->getAgeCategory();
+
+    if($age < $interval['from']) $interval['from'] = $age;
+    if($age + 10 > $interval['to']) $interval['to'] = $age + 10;
+    if($age == 73) $interval['to'] = 88;
+
+    return $interval;
+  }
+
+  public function getIntervalToAgeCategories($interval){
+    if($interval == null) return null;
+
+    $categories = array(
+      '18'=> '18-28',
+      '29'=> '29-39',
+      '40'=> '40-50',
+      '51'=> '51-61',
+      '62'=> '62-72',
+      '73'=> '73-88',
+    );
+    $filteredCategories = $categories;
+    foreach($categories as $key => $value) {
+      if((int)$key < $interval['from'] || (int)$key > $interval['to']) unset($filteredCategories[$key]);
+    }
+    return $filteredCategories;
   }
 }

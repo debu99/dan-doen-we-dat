@@ -348,6 +348,7 @@ function creditApplied<?php echo $this->event->event_id; ?>(obj) {
 <?php }else{ ?>
 <div class="sesevent_tickets_listing sesbasic_bxs sesbasic_clearfix">
   <ul class="sesbasic_clearfix">
+   <?php $ticketsAvailable = false ?>
 	 <?php foreach($this->ticket as $item): ?>
       <?php $minQuatity = (int) $item->min_quantity == 0 ? 0 : (int) $item->min_quantity; 
         $maxQuatity = (int) $item->max_quantity == 0 ? 10 : (int) $item->max_quantity;
@@ -356,6 +357,7 @@ function creditApplied<?php echo $this->event->event_id; ?>(obj) {
        if($item->total > 0){
         $availableTicketSold =  Engine_Api::_()->sesevent()->purchaseTicketCount($this->event->event_id,$item->ticket_id); 
         $availableTicket = $item->total - $availableTicketSold;
+        if($availableTicket > 0) $ticketsAvailable = true;
        }else{
         $availableTicketSold = 0;
         $availableTicket  = 0;
@@ -384,7 +386,11 @@ function creditApplied<?php echo $this->event->event_id; ?>(obj) {
    <?php endforeach; ?>
   </ul>
   <div class="sesbasic_clearfix sesevent_tickets_booking_btn">
-  	<a class="sesbasic_link_btn" href="<?php echo $this->url(array('event_id' => $this->event->custom_url), 'sesevent_ticket', true); ?>"><?php echo $this->translate("Book Now"); ?></a>
+  	<?php if($ticketsAvailable){ ?>
+      <a class="sesbasic_link_btn" href="<?php echo $this->url(array('event_id' => $this->event->custom_url), 'sesevent_ticket', true); ?>"><?php echo $this->translate("Book Now"); ?></a>
+    <?php } else { ?>
+      <a class="sesbasic_link_btn"><?php echo $this->translate("Sold Out"); ?></a>
+    <?php } ?>   
   </div>
 </div>
 <?php } ?>

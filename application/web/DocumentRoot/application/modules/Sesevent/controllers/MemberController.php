@@ -303,6 +303,42 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
     }
   }
 
+  public function leaveWaitingListAction() {
+    // Check auth
+    if (!$this->_helper->requireUser()->isValid())
+      return;
+    if (!$this->_helper->requireSubject()->isValid())
+      return;
+    $viewer = Engine_Api::_()->user()->getViewer();
+    $event = Engine_Api::_()->core()->getSubject();
+
+    if ($event->isOwner($viewer))
+      return;
+
+    // // Make form
+    $this->view->form = $form = new Sesevent_Form_Member_LeaveWaitingList();
+    
+    // // Process form
+    if ($this->getRequest()->isPost() && $form->isValid($this->getRequest()->getPost())) {
+
+      $db = $event->membership()->getReceiver()->getTable()->getAdapter();
+      $db->beginTransaction();
+
+      try {
+        $event->membership()->removeMember($viewer);
+        $db->commit();
+      } catch (Exception $e) {
+        $db->rollBack();
+        throw $e;
+      }
+
+      return $this->_forward('success', 'utility', 'core', array(
+                  'messages' => array(Zend_Registry::get('Zend_Translate')->_('Event left')),
+                  'layout' => 'default-simple',
+                  'parentRefresh' => true,
+      ));
+    } 
+  }
 
   public function notifyWaitingListIfSpothasBecomeAvailable(){
     $viewer = Engine_Api::_()->user()->getViewer();

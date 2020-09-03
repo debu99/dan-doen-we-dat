@@ -129,7 +129,7 @@
           }
         }
         if(!valid){
-            alert("The size of the file exceeds the limits set on the server.");
+            alert("The size of the file exceeds the limits set on the server.(12MB)");
             return false;
         }else{
           checkCanContinue();

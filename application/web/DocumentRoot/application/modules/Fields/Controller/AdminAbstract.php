@@ -317,6 +317,7 @@ class Fields_Controller_AdminAbstract extends Core_Controller_Action_Admin
       throw new Exception('only one left');
     }
 
+    
     // Check method/data
     if( !$this->getRequest()->isPost() ) {
       return;
@@ -542,6 +543,7 @@ class Fields_Controller_AdminAbstract extends Core_Controller_Action_Admin
 
   public function fieldEditAction()
   {
+
     $field = Engine_Api::_()->fields()->getField($this->_getParam('field_id'), $this->_fieldType);
 
     // Check type param and get form class
@@ -572,6 +574,7 @@ class Fields_Controller_AdminAbstract extends Core_Controller_Action_Admin
 
     // Check method/data
     if( !$this->getRequest()->isPost() ) {
+
       $form->populate($field->toArray());
       $form->populate($this->_getAllParams());
       if( is_array($field->config) ){
@@ -587,12 +590,17 @@ class Fields_Controller_AdminAbstract extends Core_Controller_Action_Admin
     }
 
     if( !$form->isValid($this->getRequest()->getPost()) ) {
+
         if($form->type->getValue() != "select" && $form->type->getValue() != "radio" && $form->type->getValue() != "gender") {
             $form->removeElement('show_multi');
         }
       return;
     }
 
+    if(!self::canDeleteOrEdit($field->field_id)) {
+      $form->addError("This field is not editable since it's required for the age and/or gender distribution functionality.");
+      return ;
+    }
     Engine_Api::_()->fields()->editField($this->_fieldType, $field, $form->getValues());
 
     $this->view->status = true;
@@ -764,10 +772,33 @@ class Fields_Controller_AdminAbstract extends Core_Controller_Action_Admin
 
   public function mapDeleteAction()
   {
-    $map = Engine_Api::_()->fields()->getMap($this->_getParam('child_id'), $this->_getParam('option_id'), $this->_fieldType);
-    Engine_Api::_()->fields()->deleteMap($map);
+    if(self::canDeleteOrEdit($this->_getParam('child_id'))) {
+      $map = Engine_Api::_()->fields()->getMap($this->_getParam('child_id'), $this->_getParam('option_id'), $this->_fieldType);
+      Engine_Api::_()->fields()->deleteMap($map);
+    }
+    else {
+      throw new Zend_View_Exception("This field is not deletable.");
+    }
   }
 
+  public function canDeleteOrEdit($field_id){
+    // gender and birthdate are necessary for age and gender distribution for events.
+    // these fields should never be deleted
+    $db = Engine_Db_Table::getDefaultAdapter();
+    $gender = $db->select()
+                ->from('engine4_user_fields_meta')
+                ->where('type = ?', 'gender')
+                ->query()
+                ->fetch(); 
+    $birthDate = $db->select()
+        ->from('engine4_user_fields_meta')
+        ->where('type = ?', 'birthdate')
+        ->query()
+        ->fetch(); 
+
+    if($gender['field_id'] == $field_id || $birthDate['field_id'] == $field_id) return false;
+    else return true;
+  }
 
   // Other
 

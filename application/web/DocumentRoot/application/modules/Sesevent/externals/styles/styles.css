@@ -25,9 +25,15 @@
 	width:0;
 	height:0;
 }
+#additional_costs_amount-wrapper, #additional_costs_description-wrapper {
+	display: none;
+}
 .sesevent_verified_label i:before{
 	color:#fff;
 	font-size:15px;
+}
+#has_agreed-wrapper a {
+	color: #03598F;
 }
 .sesevent_unapproved_label{
   background-color:#FFB239;
@@ -1419,10 +1425,18 @@ ul.sesevent_profile_members{
 }
 .sesevent_profile_info_head{
   font-size:20px;
-  margin-bottom:10px;
+  margin-bottom:20px;
 }
 .sesevent_profile_info_row_info{
   margin-left:10px;
+}
+.sesevent_profile_info h3 {
+	display: inline;
+	font-weight: bold;
+	color:#444F5D;
+}
+.sesevent_profile_info .sesbasic-category-icon {
+	height: 26.25px;
 }
 [dir="rtl"] .sesevent_profile_info_row_info{
   margin-left:0;
@@ -1795,6 +1809,7 @@ div.sesevent_photo_view > div.comments{
 }
 .sesevent_create_form #location_options{
 	margin-bottom:15px;
+	margin-top:15px;
 }
 .sesevent_create_form #location_options a{
 	margin:0 10px 0 0;
@@ -1803,6 +1818,7 @@ div.sesevent_photo_view > div.comments{
 	margin:0 0 0 10px;
 }
 .sesevent_create_form #sesevent_location_data-wrapper{
+	display: inline-block;
 	padding:0 10px 0 0;
 	width:60%;
 }
@@ -4289,7 +4305,19 @@ body.sesevent_category_carousel .sesevent_slick_slider{
   font-size:17px;
 }
 /*TIP CSS START HERE*/
+#sesevent_create_form legend, #sesevent_create_form h3 {
+	font-size: 24px;
+	padding: .5em 0;
+	font-weight: bold;
+	color: #444F5D;
+}
 
+#sesevent_create_form fieldset {
+	padding-left: 2%;
+}
+#sesevent_create_form legend {
+	margin-left: -2%;
+}
 /*responsive css start*/
 @media (min-width:980px) and (max-width:1050px){
 /*header css*/
@@ -4686,9 +4714,13 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 	display: flex;
 	justify-content: space-between;
 }
+.sesevents_list_view_wrapper .list-item h1 {
+	padding-top: 5px;
+}
 .sesevents_list_view_wrapper .list-item .list-item-date {
 	width: 30%;
 }
+
 .sesevents_list_view_wrapper .list-item-info--title--location h1, .sesevents_list_view_wrapper .list-item-info--title--location h3 {
 	padding: 5px;
 	margin: 0px;
@@ -4698,14 +4730,55 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 	transition: margin-left 1s;
 }
 .sesevents_list_view_wrapper .list-item.divider {
-	background-color: grey;
-	width: 100%;
-	margin: 10px 0;
-	border: solid 2px grey;
+	display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid grey;
+    margin: 1em 0;
+    padding: 0;
 }
 
 .sesevents_list_view_wrapper .list-item-info {
 	width: 80%;
 	display: flex;
 	justify-content: space-between;
+}
+
+@media (max-width: 650px){
+	.sesevents_list_view_wrapper .list-item h1 {
+		padding: 0;
+	}
+	.sesevents_list_view_wrapper .list-item .list-item-date {
+		width: 15%;
+		text-align: center;
+		font-size: 0.9em;
+		margin-right: 5px;
+	}
+	.sesevents_list_view_wrapper .list-item .list-item-date h1 {
+		padding: 0;
+	}
+	.sesevents_list_view_wrapper .list-item {
+		font-size: 0.5em;
+		align-items: center;
+	}
+
+	.sesevents_list_view_wrapper .list-item .list-item-info--title--location {
+		margin-left: 5px;
+		max-width: 60vw;
+		line-height: 0.9;
+	}
+	.sesevents_list_view_wrapper .list-item .list-item-info--title--location h1 {
+		padding: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-height: 50px;
+	}
+
+	.sesevents_list_view_wrapper .list-item .list-item-info--title--location h3 {
+		padding: 0;
+	}
+
+	.sesevents_list_view_wrapper .list-item.divider {
+		border-top: 1px solid grey;
+	}
 }

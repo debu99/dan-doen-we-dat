@@ -14,12 +14,13 @@
 <ul class="sesbasic_quick_links sesbasic_bxs">
   <?php foreach( $this->quickNavigation as $link ): ?>
     <li>
-      <?php echo $this->htmlLink($link->getHref(), $this->translate($link->getLabel()), array(
+      <!-- <?php echo $this->htmlLink($link->getHref(), $this->translate($link->getLabel()), array(
         'class' => 'sesbasic_link_btn sesbasic_icon_add sesevent_quick_create',
         'target' => $link->get('target'),
-      )) ?>
+      )) ?> -->
+      <a href="/events/create" class="sesbasic_link_btn sesbasic_icon_add " target="">Create New Event</a>
     </li>
-  <?php endforeach; ?>
+  <?php endforeach; ?> 
 </ul>
 <?php if($this->popup){ ?>
 <?php $this->headScript()->appendFile( 'externals/tinymce/tinymce.min.js'); ?>
