@@ -24,12 +24,20 @@
 <div id="cancel_new_host-wrapper" class="form-wrapper" style="display:none">
   <div id="cancel_new_host-element" class="form-element"><a class="host_new_detail form-link" href="javascript:;" id="cancel_new_host" type="button" name="cancel_new_host" ><i class="fa fa-times"></i><?php echo $this->translate("Cancel") ?></a> </span></div>
 </div>
-<div id="host-wrapper" class="form-wrapper">
-  <div id="host-element" class="form-element">
-  	<a href="javascript:;" id="choosehost"><?php echo $this->translate("Choose Host"); ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  	<a href="javascript:;" id="addnewhost">+ <?php echo $this->translate("Add New"); ?></a>
-  </div>
-</div>
+<?php 
+			$viewer = Engine_Api::_()->user()->getViewer();
+			$isAdmin = $viewer->isAdmin();
+			if($isAdmin) {
+	?>
+    <div id="host-wrapper" class="form-wrapper">
+      <div id="host-element" class="form-element">
+        <a href="javascript:;" id="choosehost"><?php echo $this->translate("Choose Host"); ?></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="javascript:;" id="addnewhost">+ <?php echo $this->translate("Add New"); ?></a>
+      </div>
+    </div>
+<?php } ?>
+
+
 <div id="myself-wrapper" class="form-wrapper" <?php if($isedit){ ?> style="display:none" <?php } ?>>
   <div id="myself-element" class="form-element">
   	<span id="tospan_<?php echo $this->string()->escapeJavascript($viewer->getTitle()) ?>_<?php echo sprintf("%d", $viewer->getIdentity()) ?>" class="sesevent_create_host sesevent_host_default_detail sesbm"><?php echo ($this->itemPhoto($viewer, "thumb.icon")); ?> <a href="<?php echo $viewer->getHref(); ?>"  target="_blank"> <?php echo $this->string()->escapeJavascript($viewer->getTitle()) ?> </a> </span> </div>
