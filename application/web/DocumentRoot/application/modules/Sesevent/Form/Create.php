@@ -767,13 +767,13 @@ class Sesevent_Form_Create extends Engine_Form {
     }
 
     $optionalElementsForDisplayGroup = array();
-		if($eventcustom) {
+		if($eventcustom && $viewer->isAdmin()) {
       if(!empty($_GET['sesapi_platform']) && $_GET['sesapi_platform'] == 1){
         $this->addElement('select', 'is_custom_term_condition', array(
           'label' => 'Custom Term And Condition',
           'description' => "",
           'multiOptions' => array('1'=>'Yes','0'=>'No'),
-          'value' => '0',
+          'value' => '0'
         ));
       } else{
         // Custom Term And Condition
