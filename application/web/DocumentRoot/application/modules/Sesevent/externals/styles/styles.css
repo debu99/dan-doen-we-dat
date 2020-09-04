@@ -1419,6 +1419,8 @@ ul.sesevent_profile_members{
 /*Information Tab*/
 .sesevent_profile_info{
 	padding:10px;
+	position: relative;
+	background-color: white;
 }
 .sesevent_profile_info_row{
   margin-bottom:20px;
