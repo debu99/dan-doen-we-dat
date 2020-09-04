@@ -761,7 +761,7 @@ button:active {
   background-color:$theme_button_background_color_active;
 	background-image:none;
 }
-input[type=text], input[type=email], input[type=password], input.text, textarea {
+input[type=text], input[type=email], input[type=password], input[type=time], input.text, textarea {
   +rounded(2px);
   background-color:$theme_input_background_color;
   color:$theme_input_font_color;

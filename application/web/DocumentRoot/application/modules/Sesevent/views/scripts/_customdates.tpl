@@ -17,7 +17,7 @@
     </div>
     <div id="event_start_time-element" class="form-element">
       <span class="sesevent-date-field"><input type="text" class="displayF" name="start_date" id="sesevent_start_date" value="<?php echo isset($this->start_date) ? ($this->start_date) : ''  ?>"></span>
-      <span class="sesevent-time-field"><input type="text" name="start_time" id="sesevent_start_time" value="<?php echo isset($this->start_time) ? ($this->start_time) : ''  ?>" class="ui-timepicker-input" autocomplete="off"></span>
+      <span class="sesevent-time-field"><input required class="ui-timepicker-input" type="time" step="60" name="start_time" id="sesevent_start_time" value="<?php echo isset($this->start_time) ? ($this->start_time) : ''  ?>" autocomplete="off"></span>
     </div>
   </div>
   <div id="event_end_time-wrapper" class="form-wrapper">
@@ -32,7 +32,8 @@
 		?>
       		<span class="sesevent-date-field"><input class="displayF" type="text" name="end_date" id="sesevent_end_date" value="<?php echo isset($this->end_date) ? ($this->end_date) : ''  ?>"></span>
 		<?php } ?>
-      <span class="sesevent-time-field"><input type="text" name="end_time" id="sesevent_end_time" value="<?php echo isset($this->end_time) ? ($this->end_time) : ''  ?>"></span>
+
+      <span class="sesevent-time-field"><input required class="ui-timepicker-input" type="time" step="60" name="end_time"  value="<?php echo isset($this->end_time) ? ($this->end_time) : ''  ?>"></span>
     </div>
   </div>
 </div>
@@ -52,38 +53,7 @@
 	<?php } ?>
 	var sesselectedDate =  new Date(sesJqueryObject('#sesevent_start_date').val());
 	var sesFromEndDate;
-	sesBasicAutoScroll('#sesevent_start_time').timepicker({
-			'showDuration': true,
-			'timeFormat': 'g:ia',
-	}).on('changeTime',function(){
-		var lastTwoDigit = sesBasicAutoScroll('#sesevent_end_time').val().slice('-2');
-		var endDate = new Date(sesBasicAutoScroll('#sesevent_end_date').val()+' '+sesBasicAutoScroll('#sesevent_end_time').val().replace(lastTwoDigit,'')+':00 '+lastTwoDigit);
-		var lastTwoDigitStart = sesBasicAutoScroll('#sesevent_start_time').val().slice('-2');
-		var startDate = new Date(sesBasicAutoScroll('#sesevent_start_date').val()+' '+sesBasicAutoScroll('#sesevent_start_time').val().replace(lastTwoDigitStart,'')+':00 '+lastTwoDigitStart);
-		var error = checkDateTime(startDate,endDate);
-		if(error != ''){
-			sesBasicAutoScroll('#event_error_time-wrapper').show();
-			sesBasicAutoScroll('#event_error_time-element').text(error);
-		}else{
-			sesBasicAutoScroll('#event_error_time-wrapper').hide();
-		}
-	});
-	sesBasicAutoScroll('#sesevent_end_time').timepicker({
-			'showDuration': true,
-			'timeFormat': 'g:ia'
-	}).on('changeTime',function(){
-		var lastTwoDigit = sesBasicAutoScroll('#sesevent_end_time').val().slice('-2');
-		var endDate = new Date(sesBasicAutoScroll('#sesevent_end_date').val()+' '+sesBasicAutoScroll('#sesevent_end_time').val().replace(lastTwoDigit,'')+':00 '+lastTwoDigit);
-		var lastTwoDigitStart = sesBasicAutoScroll('#sesevent_start_time').val().slice('-2');
-		var startDate = new Date(sesBasicAutoScroll('#sesevent_start_date').val()+' '+sesBasicAutoScroll('#sesevent_start_time').val().replace(lastTwoDigitStart,'')+':00 '+lastTwoDigitStart);
-		var error = checkDateTime(startDate,endDate);
-		if(error != ''){
-			sesBasicAutoScroll('#event_error_time-wrapper').show();
-			sesBasicAutoScroll('#event_error_time-element').text(error);
-		}else{
-			sesBasicAutoScroll('#event_error_time-wrapper').hide();
-		}
-	});
+	
 	sesBasicAutoScroll('#sesevent_start_date').datepicker({
 			format: 'm/d/yyyy',
 			weekStart: 1,
@@ -143,3 +113,15 @@ function checkDateTime(startdate,enddate){
 	return errorMessage;
 	}
 </script>
+
+
+<style>
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    background: none;
+}
+
+.ui-timepicker-input {
+	text-align: center;
+}
+</style>
