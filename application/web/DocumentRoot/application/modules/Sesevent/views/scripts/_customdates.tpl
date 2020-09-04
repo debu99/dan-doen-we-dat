@@ -25,7 +25,13 @@
       <label for="event_end_time" class="optional"><?php echo $this->translate('End Time') ?></label>
     </div>
     <div id="event_end_time-element" class="form-element">
-      <span class="sesevent-date-field"><input class="displayF" type="text" name="end_date" id="sesevent_end_date" value="<?php echo isset($this->end_date) ? ($this->end_date) : ''  ?>"></span>
+		<?php 
+			$viewer = Engine_Api::_()->user()->getViewer();
+			$isAdmin = $viewer->isAdmin();
+			if($isAdmin) {
+		?>
+      		<span class="sesevent-date-field"><input class="displayF" type="text" name="end_date" id="sesevent_end_date" value="<?php echo isset($this->end_date) ? ($this->end_date) : ''  ?>"></span>
+		<?php } ?>
       <span class="sesevent-time-field"><input type="text" name="end_time" id="sesevent_end_time" value="<?php echo isset($this->end_time) ? ($this->end_time) : ''  ?>"></span>
     </div>
   </div>
@@ -34,13 +40,7 @@
   <div class="form-element tip"><span id="event_error_time-element"></span></div>
 </div>
 
-<?php 
-	 $viewer = Engine_Api::_()->user()->getViewer();
-	 $isAdmin = $viewer->isAdmin();
-	 if(!$isAdmin) {
-?>
-	<p class="description">* <?php echo $this->translate("Regular users can't create events that take longer than a day.") ?></p>
-<?php } ?>
+
 
 <script type="application/javascript">
 

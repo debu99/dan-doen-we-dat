@@ -561,13 +561,14 @@ class Sesevent_Form_Create extends Engine_Form {
             $start->setRequired(true);
             $this->addElement($start);
 
-
-            // End time
-            $enddate = new Engine_Form_Element_Date('end_date');
-            $enddate->setLabel("End Date");
-            $enddate->setAllowEmpty(false);
-            $enddate->setRequired(true);
-            $this->addElement($enddate);
+            if($viewer->isAdmin()) {
+              // End time
+              $enddate = new Engine_Form_Element_Date('end_date');
+              $enddate->setLabel("End Date");
+              $enddate->setAllowEmpty(false);
+              $enddate->setRequired(true);
+              $this->addElement($enddate);
+            }
 
             $end = new Engine_Form_Element_Date('end_time');
             $end->setLabel("End Time");
