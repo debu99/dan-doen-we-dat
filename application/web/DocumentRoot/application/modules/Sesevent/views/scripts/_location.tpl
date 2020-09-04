@@ -45,6 +45,11 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 		</div>
 		</div>
 			<div id="sesevent_location_data-wrapper" style="display:none;">
+			<div class="sesevent_create_location_details">
+				<div id="venue_name-wrapper" class="sesevent_create_location_field _full">
+					<input type="text" name="venue_name" class="location_value" id="venue_name" value="<?php echo $venue_name; ?>" placeholder="<?php echo $this->translate("Venue Name"); ?>" />
+				</div>
+			</div>
 			<?php if(Engine_Api::_()->getApi('settings', 'core')->getSetting('enableglocation', 1)) { ?>
 			<div id="sesevent_location_map_data" class="sesevent_create_map_container sesbm" style="display:none;">
 				<div id="sesevent_default_map" class="sesevent_create_blank_map centerT" style="display:none">
@@ -54,41 +59,6 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 				<div id="sesevent_location_map" class="sesevent_create_map" style="display:none"></div>
 			</div>
 			<?php } ?>
-			<div class="sesevent_create_location_details">
-			<div id="venue_name-wrapper" class="sesevent_create_location_field _full">
-				<input type="text" name="venue_name" class="location_value" id="venue_name" value="<?php echo $venue_name; ?>" placeholder="<?php echo $this->translate("Venue Name"); ?>" />
-			</div>
-			<div id="address-wrapper" class="sesevent_create_location_field">
-				<input type="text" name="address" class="location_value" id="address" value="<?php echo $address; ?>" placeholder="<?php echo $this->translate("Address"); ?>" />
-			</div>
-			<div id="address2-wrapper" class="sesevent_create_location_field">
-				<input type="text" name="address2" class="location_value" id="address2" value="<?php echo $address2; ?>" placeholder="<?php echo $this->translate("Address 2"); ?>" />
-			</div>
-			<div <?php if(!$enableglocation && !in_array('city', $optionsenableglotion)) { ?> style="display:none;" <?php } ?> id="city-wrapper" class="sesevent_create_location_field">
-				<input type="text" name="city" class="location_value" id="city" value="<?php echo $city; ?>" placeholder="<?php echo $this->translate("City"); ?>" />
-			</div>
-			<div <?php if(!$enableglocation && !in_array('state', $optionsenableglotion)) { ?> style="display:none;" <?php } ?> id="state-wrapper" class="sesevent_create_location_field">
-				<input type="text" name="state" class="location_value" id="state" value="<?php echo $state; ?>" placeholder="<?php echo $this->translate("State"); ?>" />
-			</div>
-			<div <?php if(!$enableglocation && !in_array('zip', $optionsenableglotion)) { ?> style="display:none;" <?php } ?> id="zip-wrapper" class="sesevent_create_location_field">
-				<input type="text" name="zip" class="location_value" id="zip" value="<?php echo $zip; ?>" placeholder="<?php echo $this->translate("Zip"); ?>" />
-			</div>
-			<?php if($this->countrySelect != ''){ ?>
-				<div <?php if(!$enableglocation && !in_array('country', $optionsenableglotion)) { ?> style="display:none;" <?php } ?> id="country-wrapper" class="sesevent_create_location_field">
-				<select name="country" class="location_value" id="country">
-					<?php echo $this->countrySelect; ?>
-				</select>
-				</div>
-				<?php } ?>
-				<?php if(!$enableglocation) { ?>
-				<div <?php if(!$enableglocation && !in_array('lat', $optionsenableglotion)) { ?> style="display:none;" <?php } ?> id="lat-wrapper" class="sesevent_create_location_field">
-				<input type="text" name="lat" class="location_value" id="lat" value="<?php echo $lat; ?>" placeholder="<?php echo $this->translate("Latitude"); ?>" />
-				</div>
-				<div <?php if(!$enableglocation && !in_array('lng', $optionsenableglotion)) { ?> style="display:none;" <?php } ?> id="lng-wrapper" class="sesevent_create_location_field">
-				<input type="text" name="lng" class="location_value" id="lng" value="<?php echo $lng; ?>" placeholder="<?php echo $this->translate("Longitude"); ?>" />
-				</div>
-			<?php } ?>
-			</div>
 		</div>
 		<div style="clear:both"></div>
 		<div id="location_options">

@@ -1732,7 +1732,6 @@ div.sesevent_photo_view > div.comments{
 	max-width:inherit;
 	padding:0;
 	text-align:left;
-	padding:0 15px 0 0;
 	margin:0;
 	width:100%;
 }
@@ -1819,7 +1818,6 @@ div.sesevent_photo_view > div.comments{
 }
 .sesevent_create_form #sesevent_location_data-wrapper{
 	display: inline-block;
-	padding:0 10px 0 0;
 	width:60%;
 }
 [dir="rtl"] .sesevent_create_form #sesevent_location_data-wrapper{
@@ -1830,9 +1828,7 @@ div.sesevent_photo_view > div.comments{
 	border-width:1px;
 	border-radius:5px;
 	box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.05) inset;
-	float:right;
 	height:218px;
-	margin:0 0 0 10px;
 	width:250px;
 }
 [dir="rtl"] .sesevent_create_form .sesevent_create_map_container{
@@ -1868,7 +1864,7 @@ div.sesevent_photo_view > div.comments{
 .sesevent_create_location_details{
 	display:flex;
 	flex-wrap:wrap;
-	margin:0 -5px;
+	margin:5px -5px;
 }
 .sesevent_create_location_details .sesevent_create_location_field{
 	padding:0 5px;
