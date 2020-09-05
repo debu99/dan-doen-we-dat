@@ -227,6 +227,7 @@ resource "aws_instance" "ddwd" {
       "sudo chown root:root /etc/cron.d/s3awspublicsync",
       "sudo chmod 644 /etc/cron.d/s3awspublicsync",
       "mkdir public",
+      "mkdir public/temporary",
       "mkdir languages",
       "mkdir letsencrypt",
       "sudo chmod -R 777 public",
