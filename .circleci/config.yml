@@ -21,7 +21,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh $SSH_USER@$dandoenwedat.com "sudo su && docker pull piepongwong/apache-php-se-prod:latest
+            ssh $SSH_USER@dandoenwedat.com "sudo su && docker pull piepongwong/apache-php-se-prod:latest
             && docker service update ddwd_dandoenwedat
             && docker image prune"
 
