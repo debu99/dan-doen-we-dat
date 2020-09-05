@@ -170,10 +170,6 @@ $birthDayUser = $db->select()
             ->query()
             ->fetch();
 
-
-## TODO
-Clean up code duplication in Event.php and member/indexController ageCategories
-
 ## Upload Cover Photo
 https://www.dandoenwedat.com/user/coverphoto/upload-cover-photo/user_id/14/photoType/profile
 https://uifaces.co/

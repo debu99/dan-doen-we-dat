@@ -13,6 +13,7 @@ jobs:
           docker build -f ./docker/prod/dockerfile . --tag piepongwong/apache-php-se-prod:v4.$CIRCLE_BUILD_NUM --tag piepongwong/apache-php-se-prod:latest
           echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
           docker push piepongwong/apache-php-se-prod:latest
+          docker push piepongwong/apache-php-se-prod:v4.$CIRCLE_BUILD_NUM
   deploy:
     machine:
       enabled: true
@@ -20,9 +21,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh $SSH_USER@dandoenwedat.com "sudo su && docker pull piepongwong/apache-php-se-prod:latest
-            && docker service update ddwd_dandoenwedat
-            && docker image prune"
+            ssh $SSH_USER@dandoenwedat.com "sudo docker pull piepongwong/apache-php-se-prod:v4.$CIRCLE_BUILD_NUM ; sudo docker service update ddwd_dandoenwedat --image piepongwong/apache-php-se-prod:v4.$CIRCLE_BUILD_NUM ; sudo docker image prune"
 workflows:
   version: 2.1
   build-and-deploy:
