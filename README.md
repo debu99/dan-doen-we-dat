@@ -35,6 +35,13 @@ If installing of plugs on live version directly enabled chmod 777 on  applicatio
 # Social Engine Info
 https://kb.scripttechs.com/creating-a-socialengine-widget/
 
+# Dev Steps
+
+You need to have docker desktoip installed and docker swarm enabled for this to work. If you have docker desktop for windows, save your project in wsl. Otherwise it becomes very slow. Run the following command in the root dir of the project:
+`docker stack deploy -c docker/dev/docker-compose.yml ddwd`.
+
+Now you can make live changes to the code.
+
 # Release Procedure
 In root dir of project:
 ```

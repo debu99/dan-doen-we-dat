@@ -561,13 +561,14 @@ class Sesevent_Form_Create extends Engine_Form {
             $start->setRequired(true);
             $this->addElement($start);
 
-
-            // End time
-            $enddate = new Engine_Form_Element_Date('end_date');
-            $enddate->setLabel("End Date");
-            $enddate->setAllowEmpty(false);
-            $enddate->setRequired(true);
-            $this->addElement($enddate);
+            if($viewer->isAdmin()) {
+              // End time
+              $enddate = new Engine_Form_Element_Date('end_date');
+              $enddate->setLabel("End Date");
+              $enddate->setAllowEmpty(false);
+              $enddate->setRequired(true);
+              $this->addElement($enddate);
+            }
 
             $end = new Engine_Form_Element_Date('end_time');
             $end->setLabel("End Time");
@@ -597,23 +598,23 @@ class Sesevent_Form_Create extends Engine_Form {
       $oldTz = date_default_timezone_get();
       date_default_timezone_set($event->timezone);
      	$start_date = date('m/d/Y',($start));
-			$start_time = date('g:ia',($start));
+			$start_time = date('H:m',($start));
 			$endDate = date('Y-m-d H:i:s', ($end));
 			$end_date = date('m/d/Y',strtotime($endDate));
-			$end_time = date('g:ia',strtotime($endDate));
+			$end_time = date('H:m',strtotime($endDate));
       date_default_timezone_set($oldTz);
 		}else if(empty($_POST)){
 			$startDate = date('Y-m-d h:i:s', strtotime(date('Y-m-d h:i:s') . ' + 1 day'));
 			$start_date = date('m/d/Y',strtotime($startDate));
-			$start_time = date('g:ia',strtotime($startDate));
+			$start_time = date('H:m',strtotime($startDate));
 			$endDate = date('Y-m-d h:i:s', strtotime(date('Y-m-d h:i:s') . ' + 4 days'));
 			$end_date = date('m/d/Y',strtotime($endDate));
-			$end_time = date('g:ia',strtotime($endDate));
+			$end_time = date('H:m',strtotime($endDate));
 		}else{
 			$start_date = date('m/d/Y',strtotime($_POST['start_date']));
-			$start_time = date('g:ia',strtotime($_POST['start_time']));
+			$start_time = date('H:m',strtotime($_POST['start_time']));
 			$end_date = date('m/d/Y',strtotime($_POST['end_date']));
-			$end_time = date('g:ia',strtotime($_POST['end_time']));
+			$end_time = date('H:m',strtotime($_POST['end_time']));
 		}
     
 		$this->addElement('dummy', 'event_custom_datetimes', array(
@@ -766,13 +767,13 @@ class Sesevent_Form_Create extends Engine_Form {
     }
 
     $optionalElementsForDisplayGroup = array();
-		if($eventcustom) {
+		if($eventcustom && $viewer->isAdmin()) {
       if(!empty($_GET['sesapi_platform']) && $_GET['sesapi_platform'] == 1){
         $this->addElement('select', 'is_custom_term_condition', array(
           'label' => 'Custom Term And Condition',
           'description' => "",
           'multiOptions' => array('1'=>'Yes','0'=>'No'),
-          'value' => '0',
+          'value' => '0'
         ));
       } else{
         // Custom Term And Condition
@@ -1145,5 +1146,8 @@ class Sesevent_Form_Create extends Engine_Form {
             'DivDivDivWrapper',
         ),
     ));
+
+
+  
   }
 }

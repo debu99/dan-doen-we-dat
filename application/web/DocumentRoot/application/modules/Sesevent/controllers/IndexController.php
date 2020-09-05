@@ -73,6 +73,7 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
     $db = $event->getTable()->getAdapter();
     $db->beginTransaction();
     try {
+      
       $event->custom_term_condition = $_POST['custom_term_condition'];
       if (empty($_POST['custom_term_condition']))
         $event->is_custom_term_condition = 0;
@@ -387,9 +388,17 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
         return;
       }
     }
-    // Process
-		$starttime = isset($_POST['start_date']) ? date('Y-m-d H:i:s',strtotime($_POST['start_date'].' '.$_POST['start_time'])) : '';
-		$endtime = isset($_POST['end_date']) ? date('Y-m-d H:i:s',strtotime($_POST['end_date'].' '.$_POST['end_time'])) : '';
+    // if enddate is disabled, smaller endtime means the next day
+    $starttime = isset($_POST['start_date']) ? date('Y-m-d H:i:s',strtotime($_POST['start_date'].' '.$_POST['start_time'])) : '';
+    if($_POST['end_date'] == null) {
+      $_POST['end_date'] = $_POST['start_date'];
+      $endtime = isset($_POST['end_date']) ? date('Y-m-d H:i:s',strtotime($_POST['end_date'].' '.$_POST['end_time'])) : '';
+      if(strtotime($starttime) >= strtotime($endtime)) {
+        $endtime = date('Y-m-d H:i:s', strtotime($endtime . " +1 day"));
+      }
+    } else {
+      $endtime = isset($_POST['end_date']) ? date('Y-m-d H:i:s',strtotime($_POST['end_date'].' '.$_POST['end_time'])) : '';
+    }
     $values = $form->getValues();
     $values['user_id'] = $viewer->getIdentity();
     $values['parent_type'] = $parent_type;
@@ -555,6 +564,7 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
       // Add photo
       if (!empty($values['photo'])) {
         $event->setPhoto($form->photo);
+        $event['cover_photo'] = $event['photo_id'];
       }
       // Set auth
       $auth = Engine_Api::_()->authorization()->context;

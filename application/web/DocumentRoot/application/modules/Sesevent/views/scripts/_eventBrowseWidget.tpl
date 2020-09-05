@@ -109,7 +109,7 @@
     ?> 
     <?php $location = '';?>
     <?php $host = Engine_Api::_()->getItem('sesevent_host', $event->host);
-          if($host->type == 'site') {
+          if($host->type == 'site' || $host == null) {
             $host = Engine_Api::_()->getItem('user', $host->user_id);
           }
     ?>
@@ -501,7 +501,7 @@
 			}
 		 ?>
      <?php
-			if(isset($this->hostActive)){
+			if(isset($this->hostActive) && isset($host)){
       $masonry .=  "<div class=\"sesevent_list_stats\">
         	<span>
           	<i class='fa fa-male sesbasic_text_light' title='".$this->translate('Hosted By')."'></i>	
@@ -557,7 +557,7 @@
 
     <?php $pinboardWidth =  is_numeric($this->pinboard_width) ? $this->pinboard_width.'px' : $this->pinboard_width ;
     $hostPinboard = '';
-    if(isset($this->hostActive)){
+    if(isset($this->hostActive) && $host !== null){
      $hostPinboard .=	 "<div class=\"sesevent_list_stats\">
         	<span>
           	<i class='fa fa-male sesbasic_text_light' title='".$this->translate('Hosted By')."'></i>	
