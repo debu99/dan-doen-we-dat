@@ -726,16 +726,18 @@ class User_Model_User extends Core_Model_Item_Abstract
           ->query()
           ->fetch();
     
-    $genderMap = $db->select()
-          ->from('engine4_user_fields_options')
-          ->where('option_id = ?',$genderUser['value']) // user_id
-           ->where('field_id = ?',  $genderFieldId) // field_id
-          ->query()
-          ->fetch();
-          
-    return array(
-        "label"=> $genderMap['label'],
-        "option_id"=> $genderUser['value']
-    );
-}
+    if($genderUser) {
+      $genderMap = $db->select()
+      ->from('engine4_user_fields_options')
+      ->where('option_id = ?',$genderUser['value']) // user_id
+       ->where('field_id = ?',  $genderFieldId) // field_id
+      ->query()
+      ->fetch();
+      
+      return array(
+          "label"=> $genderMap['label'],
+          "option_id"=> $genderUser['value']
+      );
+    }      
+  }
 }

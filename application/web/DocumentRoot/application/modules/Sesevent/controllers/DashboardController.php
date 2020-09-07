@@ -125,8 +125,18 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
         return;
       }
     }*/
-		$starttime = isset($_POST['start_date']) ? date('Y-m-d H:i:s',strtotime($_POST['start_date'].' '.$_POST['start_time'])) : '';
-		$endtime = isset($_POST['end_date']) ? date('Y-m-d H:i:s',strtotime($_POST['end_date'].' '.$_POST['end_time'])) : '';
+
+        // if enddate is disabled, smaller endtime means the next day
+    $starttime = isset($_POST['start_date']) ? date('Y-m-d H:i:s',strtotime($_POST['start_date'].' '.$_POST['start_time'])) : '';
+    if($_POST['end_date'] == null) {
+      $_POST['end_date'] = $_POST['start_date'];
+      $endtime = isset($_POST['end_date']) ? date('Y-m-d H:i:s',strtotime($_POST['end_date'].' '.$_POST['end_time'])) : '';
+      if(strtotime($starttime) >= strtotime($endtime)) {
+        $endtime = date('Y-m-d H:i:s', strtotime($endtime . " +1 day"));
+      }
+    } else {
+      $endtime = isset($_POST['end_date']) ? date('Y-m-d H:i:s',strtotime($_POST['end_date'].' '.$_POST['end_time'])) : '';
+    }
     // Process
     $values = $form->getValues();
 		$values['timezone'] = $_POST['timezone'] ? $_POST['timezone'] : '';

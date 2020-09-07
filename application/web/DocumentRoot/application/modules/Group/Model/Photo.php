@@ -203,13 +203,13 @@ class Group_Model_Photo extends Core_Model_Item_Collectible
 
             $album = $this->getCollection();
 
-            if( (int) $album->photo_id == (int) $this->getIdentity() ) {
+            if( (int) $album->photo_id == (int) $this->getIdentity() && $this->getNextCollectible() ) {
                 $album->photo_id = $this->getNextCollectible()->getIdentity();
                 $album->save();
             }
         } catch( Exception $e ) {
             // @todo completely silencing them probably isn't good enough
-            //throw $e;
+            throw $e;
         }
     }
     

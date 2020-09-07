@@ -171,7 +171,9 @@ abstract class Core_Model_DbTable_Membership extends Engine_Db_Table
    */
   public function removeMember(Core_Model_Item_Abstract $resource, User_Model_User $user)
   {
-    $genderUser = $user->getGender()['label'];
+    if(isset($user)){
+      $genderUser = $user->getGender()['label'];
+    }
     $this->_isSupportedType($resource);
     $row = $this->getRow($resource, $user);
 

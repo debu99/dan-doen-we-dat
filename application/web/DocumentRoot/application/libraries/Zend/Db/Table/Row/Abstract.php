@@ -752,11 +752,15 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
         // retrieve recently updated row using primary keys
         $where = array();
         foreach ($primaryKey as $column => $value) {
+            if($value == 0) {
+                $test= "la";
+            }
             $tableName = $db->quoteIdentifier($info[Zend_Db_Table_Abstract::NAME], true);
             $type = $metadata[$column]['DATA_TYPE'];
             $columnName = $db->quoteIdentifier($column, true);
             $where[] = $db->quoteInto("{$tableName}.{$columnName} = ?", $value, $type);
         }
+
         return $where;
     }
 
@@ -771,8 +775,8 @@ abstract class Zend_Db_Table_Row_Abstract implements ArrayAccess, IteratorAggreg
         $row = $this->_getTable()->fetchRow($where);
 
         if (null === $row) {
-            // require_once 'Zend/Db/Table/Row/Exception.php';
-            throw new Zend_Db_Table_Row_Exception('Cannot refresh row as parent is missing');
+            return;
+            // throw new Zend_Db_Table_Row_Exception('Cannot refresh row as parent is missing');
         }
 
         $this->_data = $row->toArray();

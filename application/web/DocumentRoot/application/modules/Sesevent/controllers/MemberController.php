@@ -56,42 +56,7 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
       'parentRefresh' => true,  
     ));
   }
-  }
-  public function waitinglistAction(){
-    if (!$this->_helper->requireUser()->isValid())
-      return;
-    if (!$this->_helper->requireSubject()->isValid())
-      return;
-    if (!$this->_helper->requireAuth()->setAuthParams($subject, $viewer, 'view')->isValid())
-      return;
-
-    $viewer = Engine_Api::_()->user()->getViewer();
-    $event = Engine_Api::_()->core()->getSubject();
-
-    $db = $event->membership()->getReceiver()->getTable()->getAdapter();
-    $db->beginTransaction();
-    try {
-      $event->membership()
-      ->addMember($viewer)
-      ->setUserApproved($viewer);
-
-      $row = $event->membership()
-      ->getRow($viewer);
-
-      $row->rsvp = 5; //waitinglist
-      $row->save();
-      $db->commit();
-    }catch (Exception $e) {
-      $db->rollBack();
-      throw $e;
-    }
-
-    return $this->_forward('success', 'utility', 'core', array(
-      'messages' => array(Zend_Registry::get('Zend_Translate')->_('Joined list')),
-      'layout' => 'default-simple',
-      'parentRefresh' => true,  
-    ));
-  }
+  
   public function joinWidgetAction() {
     $viewer = Engine_Api::_()->user()->getViewer();
     $event = Engine_Api::_()->core()->getSubject();
