@@ -21,7 +21,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh $SSH_USER@dandoenwedat.com "sudo docker pull piepongwong/apache-php-se-prod:v4.$CIRCLE_PREVIOUS_BUILD_NUM ; sudo docker service update ddwd_dandoenwedat --image piepongwong/apache-php-se-prod:v4.$CIRCLE_PREVIOUS_BUILD_NUM ; sudo docker image prune -f"
+            ssh $SSH_USER@dandoenwedat.com "sudo docker pull piepongwong/apache-php-se-prod:v4.$CIRCLE_PREVIOUS_BUILD_NUM ; sudo docker service update ddwd_dandoenwedat --image piepongwong/apache-php-se-prod:v4.$CIRCLE_PREVIOUS_BUILD_NUM ; sudo docker image prune -af"
 workflows:
   version: 2.1
   build-and-deploy:
