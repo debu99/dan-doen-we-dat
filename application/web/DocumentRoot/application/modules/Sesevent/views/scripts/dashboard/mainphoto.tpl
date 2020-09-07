@@ -79,7 +79,7 @@ sesJqueryObject (document).on('dragover', function (e)
 	});
 });
 <?php
-if ($this->event->photo_id !== null && $this->event->photo_id){ 
+if ($this->event->photo_id !== null && $this->event->photo_id && Engine_Api::_()->storage()->get($this->event->photo_id, '') != null){ 
  $backgroundImage =	Engine_Api::_()->storage()->get($this->event->photo_id, '')->getPhotoUrl();?>
 ShowhandleFileBackgroundUpload('<?php echo $backgroundImage ?>','event_main_photo_preview');
 <?php }else{ ?>
