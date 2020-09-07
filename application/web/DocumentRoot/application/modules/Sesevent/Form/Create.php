@@ -691,10 +691,6 @@ class Sesevent_Form_Create extends Engine_Form {
       'label' => 'Meeting Time',
       'required' => false,
       'placeholder' => 'e.g. 12:00',
-      'description' => "Specify the time in the hh:mm format",
-      'validators' => array(
-        array('Regex', true, array('/^[0-9]{2}:[0-9]{2}$/')),
-      )
     ));
 
     $this->addElement('text', 'meeting_point', array(

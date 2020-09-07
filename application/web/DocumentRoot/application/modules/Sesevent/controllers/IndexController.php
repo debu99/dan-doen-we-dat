@@ -564,8 +564,9 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
       // Add photo
       if (!empty($values['photo'])) {
         $event->setPhoto($form->photo);
-        $event['cover_photo'] = $event['photo_id'];
+        $event->setCoverPhoto($form->photo);
       }
+
       // Set auth
       $auth = Engine_Api::_()->authorization()->context;
       if ($values['parent_type'] == 'group') {
