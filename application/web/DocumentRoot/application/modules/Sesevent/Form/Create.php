@@ -440,15 +440,26 @@ class Sesevent_Form_Create extends Engine_Form {
       "disable"=> $viewer->isAdmin()? array(): array($keyAgeCategoryUser),
       "description" =>$viewer->isAdmin()? "": $translate->translate('Your own age category can\'t be unchecked'),
     ));
-  
+    
+    $options = array(
+      'Undistributed' => "Undistributed",
+      '50/50' => "50/50"
+    );
+
+    if($viewer->isAdmin()) {
+      $options['Ladies only'] = "Ladies only";
+      $options['Men only'] = "Men only";
+    } else {
+      $genderUser = $viewer->getGender()['label'];
+      if( $genderUser === "Male") {
+        $options['Men only'] = "Men only";
+      } else if ($genderUser === "Female") {
+        $options['Ladies only'] = "Ladies only";
+      }
+    }
     $this->addElement('Radio', 'gender_destribution', array(
       'label' => $translate->translate('Gender Destribution'),
-      'multiOptions' => array(
-        'Undistributed' => "Undistributed",
-        'Ladies only' => "Ladies only",
-        'Men only' => "Men only",
-        '50/50' => "50/50"
-      ),
+      'multiOptions' =>$options,
       'required' => false,
       'value' => 'Undistributed'
     ));
