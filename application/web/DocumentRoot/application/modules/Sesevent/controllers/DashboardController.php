@@ -105,6 +105,12 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
       if(Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent.inviteguest', 1)) {
 	      $form->auth_invite->setValue($auth->isAllowed($event, 'member', 'invite'));
       }
+      $locale = Zend_Registry::get('Zend_Translate')->getLocale();
+      $event['additional_costs_amount'] = Zend_Locale_Format::toNumber($event['additional_costs_amount'],
+        array('locale' =>  $locale,
+              'precision' => 2)
+      );
+
       $form->populate($event->toArray());
       $form->populate(array('tags' => $tagStr));
       $form->populate(array(
