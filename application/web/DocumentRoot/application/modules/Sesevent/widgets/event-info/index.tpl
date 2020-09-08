@@ -67,7 +67,7 @@
           </span>
           <span><?php echo $this->additional_costs_amount_currency . " " . $this->additional_costs_amount ?></span>
         </li>
-         <?php if($this->description) {?>
+         <?php if($this->additional_costs_description) {?>
             <li class="sesbasic_clearfix">
               <span>
                 <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->translate("description") ?></small>
