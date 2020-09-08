@@ -36,7 +36,7 @@
           <span>
             <i title="Location" class="fas fa-map-marker-alt sesbasic_text_light"></i>&nbsp;&nbsp;&nbsp;<?php echo $this->translate("Location") ?>
           </span>
-          <span><?php echo  $this->shortLocation($this->location) ?></span>
+          <span><?php echo $this->location == ""? "Online":  $this->shortLocation($this->location); ?></span>
       </li>
       <?php if($this->gender_destribution) {?>
         <li class="sesbasic_clearfix">
@@ -100,7 +100,7 @@
       <li class="sesbasic_clearfix">
         <?php if($this->isAttending) { ?>
           <span><?php echo $this->translate("Where"); ?></span>
-          <span> <a href='<?php echo $this->url(array('resource_id' => $this->subject->event_id,'resource_type'=>'sesevent_event','action'=>'get-direction'), 'sesbasic_get_direction', true); ?>' class="openSmoothbox"><?php echo $this->location; ?> </a> </span>
+          <span> <a href='<?php echo $this->url(array('resource_id' => $this->subject->event_id,'resource_type'=>'sesevent_event','action'=>'get-direction'), 'sesbasic_get_direction', true); ?>' class="openSmoothbox"><?php echo $this->location == ""? "Online":  $this->location; ?> </a> </span>
         <?php } else { ?>
           <span>
             <?php echo $this->translate("Where"); ?>
