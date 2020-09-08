@@ -44,8 +44,12 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
     $curArr = Zend_Locale::getTranslationList('CurrencySymbol');
 
     if($subject->is_additional_costs) {
+      $locale = Zend_Registry::get('Zend_Translate')->getLocale();
       $this->view->additional_costs = true;
-      $this->view->additional_costs_amount = $subject->additional_costs_amount;
+      $this->view->additional_costs_amount = Zend_Locale_Format::toNumber($subject->additional_costs_amount,
+        array('locale' =>  $locale,
+              'precision' => 2)
+      );
       $this->view->additional_costs_amount_currency = $curArr[$subject->additional_costs_amount_currency];
       $this->view->additional_costs_description = $subject->additional_costs_description;
     }

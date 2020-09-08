@@ -67,12 +67,14 @@
           </span>
           <span><?php echo $this->additional_costs_amount_currency . " " . $this->additional_costs_amount ?></span>
         </li>
-        <li class="sesbasic_clearfix">
-          <span>
-            <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->translate("description") ?></small>
-          </span>
-          <span><small><?php echo $this->additional_costs_description ?></small></span>
-        </li>
+         <?php if($this->description) {?>
+            <li class="sesbasic_clearfix">
+              <span>
+                <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->translate("description") ?></small>
+              </span>
+              <span><small><?php echo $this->additional_costs_description ?></small></span>
+            </li>
+         <?php }?>   
       <?php }?>  
 
       <li class="sesbasic_clearfix">
