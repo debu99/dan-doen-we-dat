@@ -598,23 +598,23 @@ class Sesevent_Form_Create extends Engine_Form {
       $oldTz = date_default_timezone_get();
       date_default_timezone_set($event->timezone);
      	$start_date = date('m/d/Y',($start));
-			$start_time = date('H:m',($start));
+			$start_time = date('h:i',($start));
 			$endDate = date('Y-m-d H:i:s', ($end));
 			$end_date = date('m/d/Y',strtotime($endDate));
-			$end_time = date('H:m',strtotime($endDate));
+			$end_time = date('h:i',strtotime($endDate));
       date_default_timezone_set($oldTz);
 		}else if(empty($_POST)){
 			$startDate = date('Y-m-d h:i:s', strtotime(date('Y-m-d h:i:s') . ' + 1 day'));
 			$start_date = date('m/d/Y',strtotime($startDate));
-			$start_time = date('H:m',strtotime($startDate));
+			$start_time = date('h:i',strtotime($startDate));
 			$endDate = date('Y-m-d h:i:s', strtotime(date('Y-m-d h:i:s') . ' + 4 days'));
 			$end_date = date('m/d/Y',strtotime($endDate));
-			$end_time = date('H:m',strtotime($endDate));
+			$end_time = date('h:i',strtotime($endDate));
 		}else{
 			$start_date = date('m/d/Y',strtotime($_POST['start_date']));
-			$start_time = date('H:m',strtotime($_POST['start_time']));
+			$start_time = date('h:i',strtotime($_POST['start_time']));
 			$end_date = date('m/d/Y',strtotime($_POST['end_date']));
-			$end_time = date('H:m',strtotime($_POST['end_time']));
+			$end_time = date('h:i',strtotime($_POST['end_time']));
 		}
     
 		$this->addElement('dummy', 'event_custom_datetimes', array(
