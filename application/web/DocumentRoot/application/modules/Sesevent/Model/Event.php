@@ -26,6 +26,25 @@ class Sesevent_Model_Event extends Core_Model_Item_Abstract {
     
     return $eventEmbedded;
   }
+
+  public function eventIsFull($user){
+    $genderUser = $user->getGender()['label'];
+    if($this->getAttendingCount() >= $this->max_participants && $this->max_participants !== null) return true;
+
+    if(
+        $this->gender_destribution === "50/50" && 
+        $genderUser === "Male" && 
+        $this->male_count >= 0.5 * $this->max_participants
+    ) return true;
+    else if (
+        $this->gender_destribution === "50/50" && 
+        $genderUser === "Female" && 
+        $this->female_count >= 0.5 * $this->max_participants
+    ) return true;
+
+    return false;
+}
+
   public function _postInsert() {
     parent::_postInsert();
     // Create auth stuff

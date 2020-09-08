@@ -44,6 +44,7 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
 
       $row->rsvp = 5; //waitinglist
       $row->save();
+
       $db->commit();
     }catch (Exception $e) {
       $db->rollBack();

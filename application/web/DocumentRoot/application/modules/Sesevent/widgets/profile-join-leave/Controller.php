@@ -12,7 +12,7 @@ class Sesevent_Widget_ProfileJoinLeaveController extends Engine_Content_Widget_A
         $event = Engine_Api::_()->core()->getSubject('sesevent_event');
         $this->view->isAttending = $event->membership()->getRow($viewer)->rsvp === 2;
 
-        $this->view->isFull = $this->eventIsFull($genderUser, $event);
+        $this->view->isFull = $event->eventIsFull($viewer);
         $this->view->isOnWaitingList = $event->membership()->getRow($viewer)->rsvp === 5;
 
         $this->view->userIsInAgeRange =  $viewer->userIsInAgeRange($event);
@@ -31,21 +31,5 @@ class Sesevent_Widget_ProfileJoinLeaveController extends Engine_Content_Widget_A
         if($isHost || $eventHasTickets || !$this->view->userIsInAgeRange)$this->setNoRender();
     }
 
-    public function eventIsFull($genderUser, $event){
-        if($event->getAttendingCount() >= $event->max_participants && $event->max_participants !== null) return true;
-
-        if(
-            $event->gender_destribution === "50/50" && 
-            $genderUser === "Male" && 
-            $event->male_count >= 0.5 * $event->max_participants
-        ) return true;
-        else if (
-            $event->gender_destribution === "50/50" && 
-            $genderUser === "Female" && 
-            $event->female_count >= 0.5 * $event->max_participants
-        ) return true;
-
-        return false;
-    }
 }
 

@@ -171,6 +171,8 @@ abstract class Core_Model_DbTable_Membership extends Engine_Db_Table
    */
   public function removeMember(Core_Model_Item_Abstract $resource, User_Model_User $user)
   {
+    $eventIsFull = $resource->eventIsFull($user);
+
     if(isset($user)){
       $genderUser = $user->getGender()['label'];
     }
@@ -181,31 +183,29 @@ abstract class Core_Model_DbTable_Membership extends Engine_Db_Table
     {
       throw new Core_Model_Exception("Membership does not exist");
     }
-
-    if( isset($resource->member_count) && $row->active )
-    {
-      $resource->member_count--;
-    }
-
-    if( isset($resource->member_count) )
-    {
-      $resource->member_count--;
+    
+    if(!$eventIsFull){
+      if( isset($resource->member_count) && $row->active)
+      {
+        $resource->member_count--;
+      }
+  
+      if(isset($resource->female_count) && $genderUser == "Female" )
+      {
+        $resource->female_count--;
+      }
+  
+      if( isset($resource->male_count) && $genderUser == "Male" )
+      {
+        $resource->male_count--;
+      }
+  
+      if( isset($resource->other_count) && $genderUser == "Other" )
+      {
+        $resource->other_count--;
+      }
     }
     
-    if(isset($resource->female_count) && $genderUser == "Female" )
-    {
-      $resource->female_count--;
-    }
-
-    if( isset($resource->male_count) && $genderUser == "Male" )
-    {
-      $resource->male_count--;
-    }
-
-    if( isset($resource->other_count) && $genderUser == "Other" )
-    {
-      $resource->other_count--;
-    }
     $resource->save();
     $row->delete();
 
@@ -277,7 +277,7 @@ abstract class Core_Model_DbTable_Membership extends Engine_Db_Table
     $this->_isSupportedType($resource);
     $row = $this->getRow($resource, $user);
     $genderUser = $user->getGender()['label'];
-
+    $eventIsFull = $resource->eventIsFull($user);
     if( null === $row )
     {
       throw new Core_Model_Exception("Membership does not exist");
@@ -286,10 +286,10 @@ abstract class Core_Model_DbTable_Membership extends Engine_Db_Table
     if( !$row->user_approved )
     {
       $row->user_approved = true;
-      if( $row->resource_approved && $row->user_approved )
+      if( $row->resource_approved && $row->user_approved && !$eventIsFull )
       {
         $row->active = true;
-        if( isset($resource->member_count) )
+        if( isset($resource->member_count))
         {
           $resource->member_count++;
         }
@@ -311,7 +311,11 @@ abstract class Core_Model_DbTable_Membership extends Engine_Db_Table
       } 
       $resource->save();
       $this->_checkActive($resource, $user);
-      $row->save();
+      try{
+        $row->save();
+      } catch(Exception $e) {
+        throw new Exception($e);
+      }
     }
 
     return $this;
