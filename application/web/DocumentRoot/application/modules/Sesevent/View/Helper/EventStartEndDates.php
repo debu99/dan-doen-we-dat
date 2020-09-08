@@ -50,7 +50,7 @@ class Sesevent_View_Helper_EventStartEndDates extends Engine_View_Helper_Locale 
 			$endtime = $this->changeEventDateTime($sesevent->endtime,array('timezone'=>$sesevent->timezone,'size'=>$timeformate));
 		}
 		if(date('Y-m-d',strtotime($sesevent->endtime)) == date('Y-m-d',strtotime($sesevent->starttime))){
-			$timeStr = '<span><span title="'.$view->translate("Start Time & End Time").$starttimeFull.'">'.$starttime.'</span> '.$sepratorHalf.' '.date('H:i ',strtotime($endtime)).' ('.$sesevent->timezone.')</span>';
+			$timeStr = '<span><span title="'.$view->translate("Start Time & End Time").$starttimeFull.'">'.date('M d Y H:i ',strtotime($starttime)).'</span> '.$sepratorHalf.' '.date('H:i ',strtotime($endtime)).' ('.$sesevent->timezone.')</span>';
 		}else{
 		if($defaultParams['starttime'])
 				$timeStr = '<span><span title="'.$view->translate("Start Time: ").$starttimeFull.'">'.$starttime.'</span>';
