@@ -81,6 +81,7 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
         ->addMember($viewer)
         ->setUserApproved($viewer);
       }
+      $event->increaseCount($viewer);
 
       $row =$event->membership()
       ->getRow($viewer);
@@ -95,7 +96,7 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
 }
   public function joinAction() {
     // Check resource approval
-    $viewer = Engine_Api::_()->user()->getViewer();
+  $viewer = Engine_Api::_()->user()->getViewer();
    $event = Engine_Api::_()->core()->getSubject();
 
     // Check auth
@@ -106,7 +107,7 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
     if (!$this->_helper->requireAuth()->setAuthParams($subject, $viewer, 'view')->isValid())
       return;
 
-    if($event->getAttendingCount() >= $event->max_participants) 
+    if($event->getAttendingCount() >= $event->max_participants || $event->eventIsFull($viewer)) 
       return;
 
     if ($subject->membership()->isResourceApprovalRequired()) {
@@ -130,21 +131,22 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
     // Process form
     if ($this->getRequest()->isPost() && $form->isValid($this->getRequest()->getPost())) {
       $viewer = Engine_Api::_()->user()->getViewer();
-     $event = Engine_Api::_()->core()->getSubject();
+      $event = Engine_Api::_()->core()->getSubject();
       $db =$event->membership()->getReceiver()->getTable()->getAdapter();
       $db->beginTransaction();
 
       try {
         $membership_status =$event->membership()->getRow($viewer)->active;
-
+       
+        
        $event->membership()
                 ->addMember($viewer)
-                ->setUserApproved($viewer)
-        ;
+                ->setUserApproved($viewer);
 
         $row =$event->membership()
                 ->getRow($viewer);
 
+        $event->increaseCount($viewer);
         $row->rsvp = $form->getValue('rsvp');
         $row->save();
 
@@ -291,6 +293,8 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
 
       try {
         $event->membership()->removeMember($viewer);
+        $event->decreaseCount($viewer);
+
         $db->commit();
       } catch (Exception $e) {
         $db->rollBack();

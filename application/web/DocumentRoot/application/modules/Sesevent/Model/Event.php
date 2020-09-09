@@ -399,6 +399,45 @@ class Sesevent_Model_Event extends Core_Model_Item_Abstract {
     return new Engine_ProxyObject($this, Engine_Api::_()->getDbtable('tags', 'core'));
   }
 
+  public function increaseCount($user){
+    $genderUser = $user->getGender()['label'];
+    
+    if(isset($this->female_count) && $genderUser == "Female" )
+    {
+      $this->female_count++;
+    }
+
+    if( isset($this->male_count) && $genderUser == "Male" )
+    {
+      $this->male_count++;
+    }
+
+    if( isset($this->other_count) && $genderUser == "Other" )
+    {
+      $this->other_count++;
+    }
+    $this->save();
+  }
+
+  public function decreaseCount($user){
+    $genderUser = $user->getGender()['label'];
+
+    if(isset($this->female_count) && $genderUser == "Female" )
+    {
+      $this->female_count--;
+    }
+
+    if( isset($this->male_count) && $genderUser == "Male" )
+    {
+      $this->male_count--;
+    }
+
+    if( isset($this->other_count) && $genderUser == "Other" )
+    {
+      $this->other_count--;
+    }
+    $this->save();
+  }
   public function getMaybeCount() {
     return $this->membership()->getMemberCount(true, Array('rsvp' => 1));
   }
