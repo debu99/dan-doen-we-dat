@@ -81,7 +81,7 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
         ->addMember($viewer)
         ->setUserApproved($viewer);
       }
-      $event->increaseCount($viewer);
+      $event->increaseGenderCount($viewer);
 
       $row =$event->membership()
       ->getRow($viewer);
@@ -146,7 +146,7 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
         $row =$event->membership()
                 ->getRow($viewer);
 
-        $event->increaseCount($viewer);
+        $event->increaseGenderCount($viewer);
         $row->rsvp = $form->getValue('rsvp');
         $row->save();
 
@@ -293,7 +293,7 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
 
       try {
         $event->membership()->removeMember($viewer);
-        $event->decreaseCount($viewer);
+        $event->decreaseGenderCount($viewer);
 
         $db->commit();
       } catch (Exception $e) {

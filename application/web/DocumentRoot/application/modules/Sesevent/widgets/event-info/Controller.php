@@ -54,6 +54,11 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
       $this->view->additional_costs_description = $subject->additional_costs_description;
     }
 
+    if($subject->gender_destribution === "50/50") {
+      $this->view->fiftyfifty = true;
+      $this->view->male_available = ceil($subject->max_participants * 0.5) - $subject->male_count;
+      $this->view->female_available = ceil($subject->max_participants * 0.5) - $subject->female_count;
+    }
     $this->view->meeting_point = $subject->meeting_point? $subject->meeting_point: false;
     $this->view->meeting_time = $subject->meeting_time? $subject->meeting_time: false;
     $this->view->tel_host = $subject->tel_host? $subject->tel_host: false;

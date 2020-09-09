@@ -561,6 +561,8 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
               ->getMemberInfo($viewer)
               ->setFromArray(array('rsvp' => 2))
               ->save();
+      $event->increaseGenderCount($viewer);
+
       // Add photo
       if (!empty($values['photo'])) {
         $event->setPhoto($form->photo);

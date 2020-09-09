@@ -399,7 +399,7 @@ class Sesevent_Model_Event extends Core_Model_Item_Abstract {
     return new Engine_ProxyObject($this, Engine_Api::_()->getDbtable('tags', 'core'));
   }
 
-  public function increaseCount($user){
+  public function increaseGenderCount($user){
     $genderUser = $user->getGender()['label'];
     
     if(isset($this->female_count) && $genderUser == "Female" )
@@ -419,7 +419,7 @@ class Sesevent_Model_Event extends Core_Model_Item_Abstract {
     $this->save();
   }
 
-  public function decreaseCount($user){
+  public function decreaseGenderCount($user){
     $genderUser = $user->getGender()['label'];
 
     if(isset($this->female_count) && $genderUser == "Female" )
