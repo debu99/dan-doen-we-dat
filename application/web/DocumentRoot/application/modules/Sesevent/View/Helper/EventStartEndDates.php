@@ -25,7 +25,7 @@ class Sesevent_View_Helper_EventStartEndDates extends Engine_View_Helper_Locale 
 		$timeformate = Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent.datetimeformate', 'medium');
 		if($defaultParams['starttime']){
 		 	$starttimeFull = $this->changeEventDateTime($sesevent->starttime,array('timezone'=>$sesevent->timezone,'size'=>'full'));
-			$starttime = $this->changeEventDateTime($sesevent->starttime,array('timezone'=>$sesevent->timezone,'size'=>$timeformate));
+			$starttime = $this->changeEventDateTime($sesevent->starttime,array('timezone'=>$sesevent->timezone,'size'=>'small'));
 		}
 		$timeStr = '';
 		if(isset($defaultParams['isPrint'])){
@@ -50,7 +50,7 @@ class Sesevent_View_Helper_EventStartEndDates extends Engine_View_Helper_Locale 
 			$endtime = $this->changeEventDateTime($sesevent->endtime,array('timezone'=>$sesevent->timezone,'size'=>$timeformate));
 		}
 		if(date('Y-m-d',strtotime($sesevent->endtime)) == date('Y-m-d',strtotime($sesevent->starttime))){
-			$timeStr = '<span><span title="'.$view->translate("Start Time & End Time").$starttimeFull.'">'.date('M d Y H:i ',strtotime($starttime)).'</span> '.$sepratorHalf.' '.date('H:i ',strtotime($endtime)).' ('.$sesevent->timezone.')</span>';
+			$timeStr = '<span><span title="'.$view->translate("Start Time & End Time").$starttimeFull.'">'.$starttime.'</span> '.$sepratorHalf.' '.$endtime.' ('.$sesevent->timezone.')</span>';
 		}else{
 		if($defaultParams['starttime'])
 				$timeStr = '<span><span title="'.$view->translate("Start Time: ").$starttimeFull.'">'.$starttime.'</span>';
@@ -60,32 +60,34 @@ class Sesevent_View_Helper_EventStartEndDates extends Engine_View_Helper_Locale 
 		return $timeStr;
 	}
 	public function changeEventDateTime($date, $options = array()){
-    $options = array_merge(array(
-      'locale' => $this->getLocale(),
-      'size' => 'long',
-      'type' => 'datetime',
-      'timezone' => Zend_Registry::get('timezone'),
-    ), $options);    
-    $date = $this->_checkDateTime($date, $options);
-    if( !$date ) {
-      return false;
-    }
-    if( empty($options['format']) ) {
-      if( substr($options['locale']->__toString(), 0, 2) == 'en' && 
-          $options['size'] == 'long' && 
-          $options['type'] == 'datetime' ) {
-        	$options['format'] = 'MMMM d, y h:mm a z';
-      } else {
-        $options['format'] = Zend_Locale_Data::getContent($options['locale'], $options['type'], $options['size']);
-      }
-    }
-    // Hack for weird usage of L instead of M in Zend_Locale
-    $options['format'] = str_replace('L', 'M', $options['format']);
-		//replace seconds string
-	$options['format'] = str_replace(':ss', '', $options['format']);
-    $str = $date->toString($options['format'], $options['locale']);
-    $str = $this->convertNumerals($str, $options['locale']);
-    return $str;
+		$options = array_merge(array(
+			'locale' => $this->getLocale(),
+			'size' => 'long',
+			'type' => 'datetime',
+			'timezone' => Zend_Registry::get('timezone'),
+		), $options);    
+		$date = $this->_checkDateTime($date, $options);
+		if( !$date ) {
+			return false;
+		}
+		if( empty($options['format']) ) {
+			if( substr($options['locale']->__toString(), 0, 2) == 'en' && 
+				$options['size'] == 'long' && 
+				$options['type'] == 'datetime' ) {
+				$options['format'] = 'd MMM y H:mm';
+			} else if ($options['size'] == "small" ) 
+				$options['format'] = 'd MMM  H:mm';
+			else {
+				$options['format'] = 'd MMM y H:mm';
+			}
+		}
+		// Hack for weird usage of L instead of M in Zend_Locale
+		$options['format'] = str_replace('L', 'M', $options['format']);
+			//replace seconds string
+		$options['format'] = str_replace(':ss', '', $options['format']);
+		$str = $date->toString($options['format'], $options['locale']);
+		$str = $this->convertNumerals($str, $options['locale']);
+		return $str;
   	
 	}
 }
