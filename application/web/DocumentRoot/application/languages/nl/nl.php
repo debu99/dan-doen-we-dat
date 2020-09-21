@@ -823,7 +823,7 @@ Privacyreglement dan+doen+we+dat versie maart 2020
   '_EMAIL_SESEVENT_TICKETPAYMENT_ADMINREQUESTCANCEL_TITLE' => 'Ticket Payment Request Cancel By Admin',
   '_EMAIL_SESCREDIT_APPROVE_UPGRADE_REQUEST_TITLE' => 'Membership Upgrade Approval',
   '_EMAIL_SESCREDIT_REJECT_UPGRADE_REQUEST_TITLE' => 'Membership Upgrade Rejection',
-  '_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_TITLE ' => ' New Membership Upgrade Request',
+  '_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_TITLE' => ' New Membership Upgrade Request',
   '_EMAIL_SESCREDIT_SEND_POINT_TITLE' => 'User received Credit points',
   '_EMAIL_SESCREDIT_PURCHASE_POINT_TITLE' => 'Credits Points Purchased',
   '_EMAIL_SESCREDIT_SEND_BY_SITE_TITLE' => 'Admin sent credit points to member',
@@ -978,5 +978,7 @@ Privacyreglement dan+doen+we+dat versie maart 2020
 <p>[object_title] : http://[host][object_link] Signup Date: [date]</p>',
   '_EMAIL_NOTIFY_MESSAGE_NEW_SUBJECT' => 'Je hebt een nieuw bericht ontvangen van [sender_title].',
   '_EMAIL_NOTIFY_MESSAGE_NEW_BODYHTML' => '[header] U heeft een nieuw bericht ontvangen van [sender_title]: [object_description] <br><br>Klik op de volgende link om in te loggen en deze te bekijken: http://[host][object_link] [footer]',
+  '0.00' => '0,00',
+  'When & Where' => 'Wanneer & waar',
 );
 ?>

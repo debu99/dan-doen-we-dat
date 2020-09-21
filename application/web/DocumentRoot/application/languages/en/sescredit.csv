@@ -113,7 +113,7 @@ Sorry, Your request for Membership Upgrade has been rejected. Please try again.
 
 [footer]"
 
-"_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_TITLE ";"SES - Credits - New Membership Upgrade Request"
+"_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_TITLE";"SES - Credits - New Membership Upgrade Request"
 "_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_DESCRIPTION";"This email is sent to admin when a member on site requests upgrade membership in exchange of credit points."
 "_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_SUBJECT";"New membership upgrade request."
 "_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_BODY";"[header]

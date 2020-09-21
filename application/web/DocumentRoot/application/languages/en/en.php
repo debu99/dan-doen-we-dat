@@ -3310,7 +3310,7 @@ Congratulations!! Your request for Membership Upgrade has been approved. Now you
 Sorry, Your request for Membership Upgrade has been rejected. Please try again. 
 
 [footer]',
-  '_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_TITLE ' => 'SES - Credits - New Membership Upgrade Request',
+  '_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_TITLE' => 'SES - Credits - New Membership Upgrade Request',
   '_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_DESCRIPTION' => 'This email is sent to admin when a member on site requests upgrade membership in exchange of credit points.',
   '_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_SUBJECT' => 'New membership upgrade request.',
   '_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_BODY' => '[header]
@@ -5588,5 +5588,8 @@ Verification Code: [code]
 <p>If you don\'t receive a confirmation e-mail within 48 hours, there is unfortunately no place available at the moment.&nbsp;It may therefore happen that you are temporarily unable to become a member. Do not panic. As soon as space becomes available, you will immediately receive a message via e-mail to participate.<br>-----------------------------------------------------------------------------------------------------------------------</p>
 <p class="p1">If you do not receive a confirmation email, please check your spam folder before contacting us.<br><br> [footer]</p>',
   '0.00' => '0.00',
+  'notif_sescredit_send_by_site' => 'When I receive credit points from dan+doen+we+dat.',
+  'ACTIVITY_TYPE_NOTIF_SESCREDIT_SEND_BY_SITE' => 'When I receive credit points from dan+doen+we+dat.',
+  '_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_TITLE ' => 'SES - Credits - New Membership Upgrade Request',
 );
 ?>

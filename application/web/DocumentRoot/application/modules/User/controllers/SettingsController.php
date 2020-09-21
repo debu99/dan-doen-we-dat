@@ -342,7 +342,7 @@ class User_SettingsController extends Core_Controller_Action_User
         $user->setFromArray($values)
             ->save();
 
-        // Update notification settings
+        // Update 
         if( $form->getElement('publishTypes') ) {
             $publishTypes = array_merge($form->publishTypes->getValue(), $defaultPublishTypes);
             Engine_Api::_()->getDbtable('actionSettings', 'activity')->setEnabledActions($user, (array) $publishTypes);
@@ -526,6 +526,7 @@ class User_SettingsController extends Core_Controller_Action_User
                 if( $translateCategory === $category ) {
                     $elementName = preg_replace('/[^a-zA-Z0-9]+/', '_', $type->module);
                     $category = $modules[$type->module]->title;
+                    $category = str_replace(array("SES - ", " Plugin", "SNS: ", "Advanced ", "Professional "), array("","", "", "",""), $category);
                 } else {
                     $elementName = preg_replace('/[^a-zA-Z0-9]+/', '_', strtolower($translateCategory));
                 }
@@ -551,7 +552,7 @@ class User_SettingsController extends Core_Controller_Action_User
 
         // Make form
         $this->view->form = $form = new Engine_Form(array(
-            'title' => 'Notification Settings',
+            'title' => '',
             'description' => 'Which of the these do you want to receive notification alerts about?',
         ));
 
