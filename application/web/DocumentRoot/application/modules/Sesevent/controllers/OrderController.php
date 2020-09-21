@@ -108,16 +108,38 @@ class Sesevent_OrderController extends Core_Controller_Action_Standard {
 		$this->view->gateways = $gatewayPlugins;
 	 }
 	 
-	public function addBuyerToAttendingList($eventId){
-		$membershipTable = Engine_Api::_()->getDbtable('membership', 'sesevent');
-		$membershipTable->insert(array(
-			'user_id' => Engine_Api::_()->user()->getViewer()->getIdentity(),
-			'resource_id' => $eventId,
-			'active' => 1,
-			'resource_approved' => 1,
-			'user_approved' => '1',
-			'rsvp' => 2,
-		));
+	public function addBuyerToAttendingList($event){
+		
+		$viewer = Engine_Api::_()->user()->getViewer();
+
+		$db =$event->membership()->getReceiver()->getTable()->getAdapter();
+		$db->beginTransaction();
+		try {
+		  if(!$event->membership()->isMember($viewer)) {
+		   $event->membership()
+			->addMember($viewer)
+			->setUserApproved($viewer);
+		  }
+		  $event->increaseGenderCount($viewer);
+		  $row =$event->membership()
+		  ->getRow($viewer);
+	
+		  $row->rsvp = 2; //attending
+		  $row->save();
+		  $db->commit();
+		}catch (Exception $e) {
+		  $db->rollBack();
+		  throw $e;
+		}
+		
+		// $membershipTable->insert(array(
+		// 	'user_id' => Engine_Api::_()->user()->getViewer()->getIdentity(),
+		// 	'resource_id' => $eventId,
+		// 	'active' => 1,
+		// 	'resource_approved' => 1,
+		// 	'user_approved' => '1',
+		// 	'rsvp' => 2,
+		// ));
 	}
 	
  	public function freeOrderAction(){
@@ -152,7 +174,7 @@ class Sesevent_OrderController extends Core_Controller_Action_Standard {
 		$this->view->viewer = $viewer = $user = Engine_Api::_()->user()->getViewer();
 		$orderDetails = Engine_Api::_()->getDbTable('orderticketdetails', 'sesevent')->orderTicketDetails(array('order_id'=>$order->order_id));
 
-		$this->addBuyerToAttendingList($event_id);
+		$this->addBuyerToAttendingList($event);
 		$this->sendTicketEmail();
     	header('location:'.$url);die;
  	}
@@ -230,7 +252,7 @@ class Sesevent_OrderController extends Core_Controller_Action_Standard {
         'source_id' => $order->order_id,
     ));
 
-	$this->addBuyerToAttendingList($order->order_id);
+	$this->addBuyerToAttendingList($event);
 
 	$session = new Zend_Session_Namespace();
     $session->sesevent_order_id = $order_id = $ordersTable->getAdapter()->lastInsertId();              
