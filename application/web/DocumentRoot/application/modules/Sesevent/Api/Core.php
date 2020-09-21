@@ -363,6 +363,25 @@ class Sesevent_Api_Core extends Core_Api_Abstract {
             ->group($orderTicketTableName . '.ticket_id');
     return $select->query()->fetchColumn();
   }
+
+  public function purchaseTicketByUserCount($user, $ticketId){
+    $orderTicket = Engine_Api::_()->getDbtable('orderTickets', 'sesevent');
+    $userId = $user->getIdentity();
+    $orderTicketTableName = $orderTicket->info('name');
+    $select = $orderTicket->select()
+            ->from($orderTicketTableName, "SUM(quantity)")
+            ->setIntegrityCheck(false)
+            ->where("CASE WHEN state = 'incomplete' THEN creation_date > DATE_SUB(now(), INTERVAL 15 MINUTE) ELSE TRUE  END ")
+            ->where("CASE WHEN state = 'pending' THEN creation_date > DATE_SUB(now(), INTERVAL 15 MINUTE) ELSE TRUE END ")
+            ->where('state !=?', 'cancelled')
+            ->where('state !=?', 'failed')
+            ->where('state !=?', 'refund')
+            ->where($orderTicketTableName . '.ticket_id =?', $ticketId)
+            ->where($orderTicketTableName . '.owner_id =?', $userId)
+            ->group($orderTicketTableName . '.ticket_id');
+    return $select->query()->fetchColumn();
+
+  }
   public function getIdentityWidget($name, $type, $corePages) {
     $widgetTable = Engine_Api::_()->getDbTable('content', 'core');
     $widgetPages = Engine_Api::_()->getDbTable('pages', 'core')->info('name');

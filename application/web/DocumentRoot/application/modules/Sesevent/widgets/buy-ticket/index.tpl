@@ -26,68 +26,72 @@
         </thead>
         <tbody>
           <?php foreach($this->ticket as $item): ?>
-          <?php $minQuatity = (int) $item->min_quantity == 0 ? 0 : (int) $item->min_quantity; 
-              $maxQuatity = (int) $item->max_quantity == 0 ? 10 : (int) $item->max_quantity;
-            ?>
-          <?php 
-         if($item->total > 0){
-          $availableTicketSold =  Engine_Api::_()->sesevent()->purchaseTicketCount($this->event->event_id,$item->ticket_id); 
-          $availableTicket = $item->total - $availableTicketSold;
-         }else{
-          $availableTicketSold = Engine_Api::_()->sesevent()->purchaseTicketCount($this->event->event_id,$item->ticket_id);
-          $availableTicket  = 0;
-          }
-        ?>
-          <tr class="ticketlist sesbm">
-            <td style="width:70%" class="ticket_info">
-            	<span class="ticket_name" id="sesevent_ticket_title_<?php echo $item->ticket_id; ?>"><?php echo $item->name; ?></span>
-              <span class="ticket_expiry sesbasic_text_light"><?php echo $this->translate("Last Date:"); ?> <?php echo Engine_Api::_()->sesevent()->dateFormat($item->endtime,'changetimezone',$this->event); ?> </span>
-              <?php if($item->service_tax > 0){ ?>
-              	<span class="ticket_tax"><?php echo $this->translate("* Exclusive of Service Tax"); ?> <?php echo @round($item->service_tax,2); ?>% </span>
-              <?php } ?>
-              <?php if($item->entertainment_tax > 0){ ?>
-              	<span class="ticket_tax"><?php echo $this->translate("* Exclusive of Entertainment Tax"); ?> <?php echo @round($item->entertainment_tax,2); ?>% </span>
-              <?php } ?>
-              <p class="ticket_des"><?php echo $this->viewMore($item->description); ?></p></td>
-            <td><?php if($item->total > 0){
-                echo $this->translate("%s out of %s tickets sold.",(int)$availableTicketSold,$item->total);
-          }else{
-             echo $this->translate("%s ticket sold.",(int)$availableTicketSold);
-          } ?></td>
-            <td><?php echo $item->price <= 0 ? $this->translate("FREE") : Engine_Api::_()->sesevent()->getCurrencyPrice($item->price); ?></td>
-            <td><?php if((int)$availableTicketSold == 0 || (int)$item->total == 0 || (int)$availableTicketSold != (int)$item->total){ ?>
-              <select data-available="<?php echo (int)$availableTicket; ?>" data-rel="<?php echo $item->ticket_id; ?>" id="ticker_id_<?php echo $item->ticket_id; ?>" class="sesevent_ticket_purchase_qty"  name="ticket_<?php echo $item->ticket_id; ?>"  style="margin:0px;">
-                <?php $counter = 0; ?>
-                <?php for($i = $minQuatity;$i <= $maxQuatity;$i++){ ?>
-                <?php if($counter == 0 && $i != 0){ ?>
-                <option value="0">0</option>
-                <?php  } ?>
-                <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-                <?php $counter++; ?>
+            <?php 
+                $ticketsBoughtByUser = Engine_Api::_()->sesevent()->purchaseTicketByUserCount($this->viewer,$item->ticket_id); 
+                $minQuatity = (int) $item->min_quantity == 0 ? 0 : (int) $item->min_quantity; 
+                $maxQuatity = (int) $item->max_quantity == 0 ? 10 : (int) $item->max_quantity;
+                $ticketsLeftForUser =  $maxQuatity - $ticketsBoughtByUser;
+                $maxQuatity = $ticketsLeftForUser;
+             ?>
+            <?php 
+              if($item->total > 0){
+                $availableTicketSold =  Engine_Api::_()->sesevent()->purchaseTicketCount($this->event->event_id,$item->ticket_id); 
+                $availableTicket = $item->total - $availableTicketSold;
+              }else{
+                $availableTicketSold = Engine_Api::_()->sesevent()->purchaseTicketCount($this->event->event_id,$item->ticket_id);
+                $availableTicket  = 0;
+                }
+             ?>
+            <tr class="ticketlist sesbm">
+              <td style="width:70%" class="ticket_info">
+                <span class="ticket_name" id="sesevent_ticket_title_<?php echo $item->ticket_id; ?>"><?php echo $item->name; ?></span>
+                <span class="ticket_expiry sesbasic_text_light"><?php echo $this->translate("Last Date:"); ?> <?php echo Engine_Api::_()->sesevent()->dateFormat($item->endtime,'changetimezone',$this->event); ?> </span>
+                <?php if($item->service_tax > 0){ ?>
+                  <span class="ticket_tax"><?php echo $this->translate("* Exclusive of Service Tax"); ?> <?php echo @round($item->service_tax,2); ?>% </span>
                 <?php } ?>
-              </select>
-              <?php }else{
-            echo $this->translate("Sold Out");
-           } ?></td>
-          </tr>
-          <?php $currency = Engine_Api::_()->sesevent()->getCurrentCurrency(); ?>
-          <!-- Total Ticket Purchase Amount -->
-          <tr class="sesbm">
-          	<td colspan="4">
-            	<div class="sesevent_ticket_price_box sesbm">
-                <div class ="totAmtDiv">
-                  <span><?php echo $this->translate("Total Amount"); ?> (<?php echo Engine_Api::_()->sesevent()->getCurrentCurrency(); ?>)</span>
-                  <span class="totAmt"><?php echo $currency; ?>0.00</span>
-                </div>
-                <div class ="entertaimentTaxDiv" style="display:none;">
-                  <span colspan="3"><?php echo $this->translate("Entertainment Tax"); ?> (<?php echo Engine_Api::_()->sesevent()->getCurrentCurrency(); ?>)</span>
-                  <span class="entertaimentTaxAmt"><?php echo $currency; ?>0.00</span>
-                </div>
-                <div class="serviceTaxDiv" style="display:none;">
-                  <span><?php echo $this->translate("Service Tax"); ?> (<?php echo Engine_Api::_()->sesevent()->getCurrentCurrency(); ?>)</span>
-                  <span class="serviceTaxAmt"><?php echo $currency; ?>0.00</span>
-                </div>
-                <?php endforeach; ?>
+                <?php if($item->entertainment_tax > 0){ ?>
+                  <span class="ticket_tax"><?php echo $this->translate("* Exclusive of Entertainment Tax"); ?> <?php echo @round($item->entertainment_tax,2); ?>% </span>
+                <?php } ?>
+                <p class="ticket_des"><?php echo $this->viewMore($item->description); ?></p></td>
+              <td><?php if($item->total > 0){
+                  echo $this->translate("%s out of %s tickets sold.",(int)$availableTicketSold,$item->total);
+            }else{
+              echo $this->translate("%s ticket sold.",(int)$availableTicketSold);
+            } ?></td>
+              <td><?php echo $item->price <= 0 ? $this->translate("FREE") : Engine_Api::_()->sesevent()->getCurrencyPrice($item->price); ?></td>
+              <td><?php if((int)$availableTicketSold == 0 || (int)$item->total == 0 || (int)$availableTicketSold != (int)$item->total){ ?>
+                <select data-available="<?php echo (int)$availableTicket; ?>" data-rel="<?php echo $item->ticket_id; ?>" id="ticker_id_<?php echo $item->ticket_id; ?>" class="sesevent_ticket_purchase_qty"  name="ticket_<?php echo $item->ticket_id; ?>"  style="margin:0px;">
+                  <?php $counter = 0; ?>
+                  <?php for($i = $minQuatity;$i <= $maxQuatity;$i++){ ?>
+                  <?php if($counter == 0 && $i != 0){ ?>
+                  <option value="0">0</option>
+                  <?php  } ?>
+                  <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                  <?php $counter++; ?>
+                  <?php } ?>
+                </select>
+                <?php }else{
+              echo $this->translate("Sold Out");
+            } ?></td>
+            </tr>
+            <?php $currency = Engine_Api::_()->sesevent()->getCurrentCurrency(); ?>
+            <!-- Total Ticket Purchase Amount -->
+            <tr class="sesbm">
+              <td colspan="4">
+                <div class="sesevent_ticket_price_box sesbm">
+                  <div class ="totAmtDiv">
+                    <span><?php echo $this->translate("Total Amount"); ?> (<?php echo Engine_Api::_()->sesevent()->getCurrentCurrency(); ?>)</span>
+                    <span class="totAmt"><?php echo $currency; ?>0.00</span>
+                  </div>
+                  <div class ="entertaimentTaxDiv" style="display:none;">
+                    <span colspan="3"><?php echo $this->translate("Entertainment Tax"); ?> (<?php echo Engine_Api::_()->sesevent()->getCurrentCurrency(); ?>)</span>
+                    <span class="entertaimentTaxAmt"><?php echo $currency; ?>0.00</span>
+                  </div>
+                  <div class="serviceTaxDiv" style="display:none;">
+                    <span><?php echo $this->translate("Service Tax"); ?> (<?php echo Engine_Api::_()->sesevent()->getCurrentCurrency(); ?>)</span>
+                    <span class="serviceTaxAmt"><?php echo $currency; ?>0.00</span>
+                  </div>
+            <?php endforeach; ?>
                 <div id="couponAppliedDiv" style="display:none;">
                   <span><?php echo $this->translate("Coupon Applied"); ?> (<?php echo Engine_Api::_()->sesevent()->getCurrentCurrency(); ?>)</span>
                   <span id="couponAppliedAmt"><?php echo '-'.$currency; ?>0.00</span>
@@ -350,14 +354,17 @@ function creditApplied<?php echo $this->event->event_id; ?>(obj) {
   <ul class="sesbasic_clearfix">
    <?php $ticketsAvailable = false ?>
 	 <?php foreach($this->ticket as $item): ?>
-      <?php $minQuatity = (int) $item->min_quantity == 0 ? 0 : (int) $item->min_quantity; 
+      <?php 
+        $ticketsBoughtByUser = Engine_Api::_()->sesevent()->purchaseTicketByUserCount($this->viewer,$item->ticket_id); 
+        $minQuatity = (int) $item->min_quantity == 0 ? 0 : (int) $item->min_quantity; 
         $maxQuatity = (int) $item->max_quantity == 0 ? 10 : (int) $item->max_quantity;
+        $ticketsLeftForUser =  $maxQuatity - $ticketsBoughtByUser;
       ?>
       <?php 
        if($item->total > 0){
         $availableTicketSold =  Engine_Api::_()->sesevent()->purchaseTicketCount($this->event->event_id,$item->ticket_id); 
         $availableTicket = $item->total - $availableTicketSold;
-        if($availableTicket > 0) $ticketsAvailable = true;
+        if($availableTicket > 0 && $ticketsLeftForUser > 0) $ticketsAvailable = true;
        }else{
         $availableTicketSold = 0;
         $availableTicket  = 0;
@@ -388,9 +395,11 @@ function creditApplied<?php echo $this->event->event_id; ?>(obj) {
   <div class="sesbasic_clearfix sesevent_tickets_booking_btn">
   	<?php if($ticketsAvailable){ ?>
       <a class="sesbasic_link_btn" href="<?php echo $this->url(array('event_id' => $this->event->custom_url), 'sesevent_ticket', true); ?>"><?php echo $this->translate("Book Now"); ?></a>
-    <?php } else { ?>
+    <?php } else if($availableTicket <= 0) { ?>
       <a class="sesbasic_link_btn"><?php echo $this->translate("Sold Out"); ?></a>
-    <?php } ?>   
+    <?php } else { ?>   
+      <a class="sesbasic_link_btn"><?php echo $this->translate("Ticket Limit Reached")." ({$maxQuatity})"; ?></a>
+      <?php } ?>  
   </div>
 </div>
 <?php } ?>
