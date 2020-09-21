@@ -164,6 +164,13 @@ class Sesevent_Model_DbTable_Events extends Engine_Db_Table {
 			$select->order('starttime');
 			$select->group('starttime');
 			$select->joinLeft($eventTableName, $eventTableName . '.event_id = ' . $eventTableName . '.event_id', null);
+    }
+    
+    if(isset($params['date_range_from']) && isset($params['date_range_to'])){
+			$date_range_from = $params['date_range_from'];
+			$date_range_to = $params['date_range_to'];
+      $select->where("('$date_range_from' <= endtime)"); 
+      $select->where("('$date_range_to' >= starttime)");
 		}
     if (isset($params['view'])) {
       if ($params['view'] == 'week') {

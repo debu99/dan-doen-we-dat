@@ -9,10 +9,9 @@
             else if ($this->showMenOnly) {
                 echo '<div type="button" class="men-only sesevent_event_status sesbasic_clearfix open">'.$this->translate('Men Only').'</div>';
             }
-            else if($this->isLoggedIn && !$this->isFull && !$this->isAttending){
+            else if($this->isLoggedIn && !$this->isFull && !$this->isAttending && !$this->alreadyGoing){
                 echo '<button class="sesevent-join">'.$this->translate('Join Event').'</button>';
             }
-
             else if($this->isFull && !$this->isOnWaitingList && !$this->isAttending) {
                     echo '<a href="/events/member/waitinglist/event_id/'.$this->subject()->event_id.'" class="buttonlink smoothbox menu_sesevent_profile sesevent_profile_member" style="" target="">
                             <button>'.$this->translate('Join Waiting List').'</button>
@@ -22,6 +21,11 @@
                 echo '<a href="/events/member/leave/event_id/'.$this->subject()->event_id.'" class="buttonlink smoothbox menu_sesevent_profile sesevent_profile_member" style="" target="">
                         <button>'.$this->translate('Leave Event').'</button>
                     </a>';
+            }
+            else if($this->alreadyGoing) {
+                echo '<a href="'.$this->alreadyGoing.'" class="buttonlink menu_sesevent_profile sesevent_profile_member" style="" target="">
+                        <button>'.$this->translate('Already Going Somewhere').'</button>
+                      </a>';  
             }
             
             if($this->isOnWaitingList) {

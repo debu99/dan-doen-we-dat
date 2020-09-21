@@ -11,7 +11,19 @@ class Sesevent_Widget_ProfileJoinLeaveController extends Engine_Content_Widget_A
 
         $event = Engine_Api::_()->core()->getSubject('sesevent_event');
         $this->view->isAttending = $event->membership()->getRow($viewer)->rsvp === 2;
+        $results = Engine_Api::_()->getDbTable('events', 'sesevent')->getEventSelect(array(
+            'manageorder'=>'joinedEvents',
+            'fetchAll' => 0,
+            'date_range_from'=> $event->starttime,
+            'date_range_to' => $event->endtime,
+        ));
 
+        if($results->count() > 0) {
+            $this->view->alreadyGoing =  $results[0]->getHref();
+        } else {
+            $this->view->alreadyGoing = false;
+        }
+       
         $this->view->isFull = $event->eventIsFull($viewer);
         $this->view->isOnWaitingList = $event->membership()->getRow($viewer)->rsvp === 5;
 
