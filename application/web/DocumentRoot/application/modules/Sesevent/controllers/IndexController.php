@@ -257,8 +257,8 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
     $dateEndTime = date("His",strtotime($endtime));
     date_default_timezone_set($oldTz);
 
-    $filename = 'calander.ics';
-    $filepath = APPLICATION_PATH . '/application/modules/Sesevent';
+    $filename = 'calendar.ics';
+    $filepath = APPLICATION_PATH . '/public';
     $handle = fopen($filepath . DIRECTORY_SEPARATOR . $filename, "w");
     $content = "BEGIN:VCALENDAR\n";
     $content .= "VERSION:2.0\n";
