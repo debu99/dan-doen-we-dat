@@ -861,3 +861,4 @@ Privacyreglement dan+doen+we+dat versie maart 2020
 "_EMAIL_NOTIFY_MESSAGE_NEW_SUBJECT";"Je hebt een nieuw bericht ontvangen van [sender_title]."
 "_EMAIL_NOTIFY_MESSAGE_NEW_BODYHTML";"[header] U heeft een nieuw bericht ontvangen van [sender_title]: [object_description] <br><br>Klik op de volgende link om in te loggen en deze te bekijken: http://[host][object_link] [footer]"
 "0.00";"0,00"
+"When & Where";"Wanneer & waar"
