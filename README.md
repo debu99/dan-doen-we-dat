@@ -88,7 +88,7 @@ example:
 
 ## For API related actions
 
-Doesn't seems to be used
+Doesn't seems to be usedf
 /application/modules/Sesapi/controllers/Sesevent/IndexController.php 
     createAction
     editAction
@@ -195,3 +195,6 @@ drwxr-xr-x piepongwong piepongwong
 ## MYSQL Migration Scripts
 mysqldump --column-statistics=0 -h prodhost -u DANDOE_ROOT -p dandoe_se > ddwd.sql
 mysql -u root -P 3306 -h 127.0.0.1 -p dandoe_se5 < ddwd.sql
+
+## Adding Translations
+If a fully new translation is added through the language manager, it's first added to custom.csv. Only after regenerating the php arrays it's added in the respective en.php en nl.php. You can do this by going to https://www.dandoenwedat.com/admin/core/settings/performance, ticket the translation performance box and save.

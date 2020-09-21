@@ -698,7 +698,89 @@ User-agent: %6$s
 Timestamp: %7$s
 Message:
     %8$s',
-  '_CORE_PRIVACY_STATEMENT' => 'This page will contain the privacy statement of your choice.',
+  '_CORE_PRIVACY_STATEMENT' => 'Privacyreglement dan+doen+we+dat
+ 
+  
+Cookie: 
+een klein bestand dat via een internetsite op (het IP-adres van) jouw computer wordt geplaatst en informatie over jouw bezoek aan de dan+doen+we+dat internetsite registreert;
+
+Reglement: 
+dit privacyreglement;
+
+Privacywetgeving: 
+de Algemene Verordening Gegevensbescherming.
+
+ 
+1. Toelichting op het Reglement
+dan+doen+we+dat mag de gegevens die jij aan haar verstrekt niet zonder meer verwerken. De Privacywetgeving is bedoeld om de privacy van personen te beschermen. Door deze wetgeving wordt het toegestane gebruik van jouw persoonsgegevens door anderen beperkt. Op grond van deze wet heeft dan+doen+we+dat de plicht om haar (potentiële) leden en zakelijke relaties:
+• op de hoogte te stellen van de wijze waarop en het doel waarmee gegevens door dan+doen+we+dat worden verwerkt;
+• te melden wie de gegevens kunnen inzien;
+• voor het verwerken van bepaalde gegevens toestemming te vragen.
+ 
+dan+doen+we+dat vindt jouw privacy belangrijk. Daarom geeft dan+doen+we+dat in dit Reglement een toelichting op hoe zij met jouw gegevens omgaat, wat het doel is van het gebruik daarvan en voor de verwerking van welke gegevens dan+doen+we+dat expliciet om jouw toestemming moet vragen.
+ 
+2. De persoonsgegevens die dan+doen+we+dat gebruikt en het doel van het gebruik
+dan+doen+we+dat verwerkt (mogelijk) jouw persoonsgegevens als je lid wordt of bent van dan+doen+we+dat of als je via het contactformulier contact met ons opneemt. Leden van dan+doen+we+dat maken zelf een profiel aan en op dit profiel is de gebruikersnaam, foto, leeftijd, en geslacht te zien is. Leden kunnen ervoor kiezen om hun telefoonnummer met andere leden te delen. dan+doen+we+dat verzamelt qua persoonsgegevens jouw naam, e-mailadres, geboortedatum, foto en IBAN-nummer. De hiervoor genoemde persoonsgegevens zijn uiteraard niet te zien voor andere leden en/of derden. Indien je zakelijke relatie bent van dan+doen+we+dat worden mogelijk jouw naam, e-mailadres en telefoonnummer verwerkt. Deze gegevens stellen ons in staat om:
+• de overeenkomst die leden en zakelijke relaties met dan+doen+we+dat sluiten financieel en administratief te kunnen afhandelen;
+• onze dienstverlening te kunnen leveren;
+• leden, zakelijke relaties of geïnteresseerden te kunnen bereiken als dat nodig is;
+• om onze dienstverlening verder te ontwikkelen/te optimaliseren;
+• jou op maat gesneden informatie aan te bieden (nieuwsbrief).
+ 
+IP-adressen/cookies
+dan+doen+we+dat houdt IP-adressen bij van (potentiële) leden of zakelijke relaties die de website bezoeken. Deze gegevens stellen ons in staat om:
+• te registreren welke internetsite/internetpagina’s je bezoekt;
+• de functionaliteit en de inhoud van de website te verbeteren;
+ 
+ 
+• bij te houden voor welke onderwerpen of toepassingen (potentiële) leden of zakelijke relaties zich interesseren;
+• ervoor te zorgen dat je niet steeds dezelfde informatie ontvangt;
+• het productaanbod te verbeteren.
+ 
+Toelichting met betrekking tot het plaatsen van cookies
+Als je onze website bezoekt worden er automatisch cookies geplaatst waardoor we aan de hand van jouw IP-adres bepaalde informatie kunnen bijhouden. Hierbij gaat het bijvoorbeeld om informatie over hoe vaak je onze website bezoekt en voor welke onderwerpen jij je interesseert. Zie voor meer informatie ons cookiebeleid op de website.
+ 
+3. Verstrekking persoonsgegevens aan derden
+dan+doen+we+dat verstrekt geen persoonsgegevens aan personen of bedrijven buiten de dan+doen+we+dat-organisatie, tenzij:
+• dat verplicht is door een wettelijk voorschrift;
+• dat noodzakelijk is voor het uitvoeren van een overeenkomst die dan+doen+we+dat met jou heeft gesloten;
+• je daarvoor toestemming hebt gegeven.
+ 
+4. Plichten/beveiligde toegang/geheimhouding/bewaartermijn
+• dan+doen+we+dat verwerkt jouw persoonsgegevens uitsluitend overeenkomstig de wet. Dit houdt (onder meer) in dat de gegevens alleen worden verwerkt voor het doel waarvoor ze verkregen worden en op een behoorlijke/zorgvuldige wijze overeenkomstig de wet en dit Reglement.
+• jouw persoonsgegevens kunnen enkel en alleen door personen werkzaam voor dan+doen+we+dat worden ingezien, tenzij in dit Reglement anders is bepaald. Al jouw persoonsgegevens worden door dan+doen+we+dat beveiligd tegen onbevoegde toegang. De beveiliging bestaat:
+• uit het hebben van een persoonlijk wachtwoord voor iedere persoon werkzaam voor dan+doen+we+dat om in te loggen in het digitale systeem.
+• de personen werkzaam voor dan+doen+we+dat hebben een geheimhoudingsplicht ten aanzien van alle aan dan+doen+we+dat verstrekte persoonsgegevens;
+• dan+doen+we+dat heeft technische maatregelen genomen om het door haar gebruikte systeem te beveiligen tegen inbreuken van buitenaf overeenkomstig de wet;
+• jouw persoonsgegevens worden niet langer bewaard dan noodzakelijk is voor een goede administratie en/of andere vastgestelde doelen. dan+doen+we+dat hanteert een termijn van twee jaar nadat jij inactief of geen lid meer bent, waarna de gegevens vernietigd worden. Voor zakelijke relaties geldt dat de persoonsgegevens zo lang als nodig voor een goede bedrijfsvoering worden bewaard, met inachtneming van een redelijke termijn. De wet kan een andere bewaartermijn voorschrijven. Als dat zo is zal dan+doen+we+dat zich aan de voorgeschreven wettelijke bewaartermijn houden.
+ 
+5. Jouw rechten als betrokkene
+• recht op informatie: het recht om te weten of en welke persoonsgegevens van jou verwerkt worden en met welk doel;
+• inzagerecht: het recht op inzage en afschrift van die gegevens voor zover de privacy van een ander daardoor niet wordt geschaad;
+• het recht op correctie, aanvulling of verwijdering van gegevens indien dat nodig mocht zijn (recht op correctie en verwijdering). Aan het recht om (gedeeltelijke) verwijdering van jouw gegevens te vragen, kan alleen tegemoet gekomen worden als het bewaren van de gegevens voor een ander niet van aanmerkelijk belang is en de gegevens niet op grond van een wettelijke regeling bewaard dienen te blijven;
+ 
+ 
+• het recht van verzet: het recht om je in bepaalde gevallen tegen de verwerking van jouw gegevens te verzetten;
+• het recht op data-portabiliteit: het recht om de persoonsgegevens die van jou bewaard worden te ontvangen om over te kunnen dragen naar een andere organisatie;
+• het recht op een menselijke blik bij geautomatiseerde besluiten. Bij een geautomatiseerd besluit is er het recht om de beslissing te laten nemen door menselijke tussenkomst.
+ 
+Als je gebruik wilt maken van jouw rechten, dan kun je dit via onze Privacy Center aangeven, te bereiken via de pop-up "Read More"of onderaan de pagina in de footer daar kun je ook bij de Privacy Center. Je ontvangt binnen één maand na ontvangst van jouw verzoek bericht van dan+doen+we+dat.
+ 
+Ook als je een klacht hebt over de wijze van verwerking van jouw persoonsgegevens kun je contact met dan+doen+we+dat opnemen,  dan+doen+we+dat probeert er samen met jou uit te komen.
+ 
+Heb je een (andere) opmerking/vraag/suggestie of wil je bezwaar maken tegen de nieuwsbrief door dan+doen+we+dat? Ook daarvoor kunt je schriftelijk contact met ons opnemen.
+ 
+Uiteraard zal dan+doen+we+dat ook met de in dit verband verstrekte persoonsgegevens vertrouwelijk en zorgvuldig omgaan.
+ 
+Onze actuele contactgegevens zijn te vinden op de website van dan+doen+we+dat.
+
+
+dan+doen+we+dat is een betaalde online social event community. De lage lidmaatschap-kosten die onze leden betalen vormen ons verdienmodel. Wij werken niet met commercials en wij delen nooit data van (potentiële) leden met derden. In ons Privacyreglement gebruiken wij een aantal definities (deze definities kunnen in enkelvoud en meervoud worden gebruikt):
+ 
+ 
+ 
+Privacyreglement dan+doen+we+dat versie maart 2020
+',
   '_CORE_TERMS_OF_SERVICE' => 'This page will contain the terms of service of your choice.',
   'You can no longer respond to this message because %1$s has blocked you.' => 'You can no longer respond to this message because %1$s has blocked you.',
   'Member Level Settings' => 'Member Level Settings',
@@ -1419,7 +1501,7 @@ Trigger methods:<br />
   '_EMAIL_FOOTER_DESCRIPTION' => 'This can be added to other emails using the [footer] placeholder.',
   '_EMAIL_FOOTER_SUBJECT' => '',
   '_EMAIL_FOOTER_BODY' => 'Best Regards,
-Social Network Administration',
+dan+doen+we+dat Redactie',
   '_EMAIL_HEADER_MEMBER_TITLE' => 'Header (Members)',
   '_EMAIL_HEADER_MEMBER_DESCRIPTION' => 'This can be added to other emails using the [header] placeholder.',
   '_EMAIL_HEADER_MEMBER_SUBJECT' => '',
@@ -1428,7 +1510,7 @@ Social Network Administration',
   '_EMAIL_FOOTER_MEMBER_DESCRIPTION' => 'This can be added to other emails using the [footer] placeholder.',
   '_EMAIL_FOOTER_MEMBER_SUBJECT' => '',
   '_EMAIL_FOOTER_MEMBER_BODY' => 'Best Regards,
-Social Network Administration',
+dan+doen+we+dat Redactie',
   '_EMAIL_CORE_CONTACT_TITLE' => 'Contact Form Email',
   '_EMAIL_CORE_CONTACT_DESCRIPTION' => 'This email is sent to the Super Admin when a member sends a message using the contact page.',
   '_EMAIL_CORE_CONTACT_SUBJECT' => 'A member has sent you a message using the contact page.',
@@ -1443,10 +1525,10 @@ Message:
 [footer]',
   '_EMAIL_CORE_VERIFICATION_TITLE' => 'Email Address Verification',
   '_EMAIL_CORE_VERIFICATION_DESCRIPTION' => 'This is the email that gets sent to members to verify their email addresses if random passwords are disabled.',
-  '_EMAIL_CORE_VERIFICATION_SUBJECT' => 'Social Network - Email Verification',
+  '_EMAIL_CORE_VERIFICATION_SUBJECT' => 'dan+doen+we+dat - Email Verification',
   '_EMAIL_CORE_VERIFICATION_BODY' => '[header]
 
-Thank you for joining our social network. To verify your email address and continue, please click the following link:
+Thank you for joining dan+doen+we+dat. To verify your email address and continue, please click the following link:
 http://[host][object_link]
 
 Email: [email]
@@ -1454,10 +1536,10 @@ Email: [email]
 [footer]',
   '_EMAIL_CORE_VERIFICATION_PASSWORD_TITLE' => 'Email Address Verification With Password',
   '_EMAIL_CORE_VERIFICATION_PASSWORD_DESCRIPTION' => 'This is the email that gets sent to members to verify their email addresses if you have enabled random passwords.',
-  '_EMAIL_CORE_VERIFICATION_PASSWORD_SUBJECT' => 'Social Network - Email Verification',
+  '_EMAIL_CORE_VERIFICATION_PASSWORD_SUBJECT' => 'dan+doen+we+dat - Email Verification',
   '_EMAIL_CORE_VERIFICATION_PASSWORD_BODY' => '[header]
 
-Thank you for joining our social network. To verify your email address and continue, please click the following link:
+Thank you for joining dan+doen+we+dat. To verify your email address and continue, please click the following link:
 http://[host][object_link]
 
 Email: [email]
@@ -1466,10 +1548,8 @@ Password: [password]
 [footer]',
   '_EMAIL_NOTIFY_ADMIN_USER_SIGNUP_TITLE' => 'Admin signup notification ',
   '_EMAIL_NOTIFY_ADMIN_USER_SIGNUP_DESCRIPTION' => 'This is the email that gets sent to the admin when a member signs up.',
-  '_EMAIL_NOTIFY_ADMIN_USER_SIGNUP_SUBJECT' => 'Someone has joined the social network!',
-  '_EMAIL_NOTIFY_ADMIN_USER_SIGNUP_BODY' => '
-
-Congratulations, someone has joined your social network. Welcome the new member to your site:
+  '_EMAIL_NOTIFY_ADMIN_USER_SIGNUP_SUBJECT' => 'Someone has joined dan+doen+we+dat!',
+  '_EMAIL_NOTIFY_ADMIN_USER_SIGNUP_BODY' => 'Congratulations, someone has joined your social network. Welcome the new member to your site:
 
 [object_title] : http://[host][object_link]
 Signup Date: [date]
@@ -1477,10 +1557,10 @@ Signup Date: [date]
 ',
   '_EMAIL_CORE_WELCOME_TITLE' => 'Welcome',
   '_EMAIL_CORE_WELCOME_DESCRIPTION' => 'This is the email that gets sent when a member signs up if random passwords are disabled.',
-  '_EMAIL_CORE_WELCOME_SUBJECT' => 'Welcome to the social network!',
+  '_EMAIL_CORE_WELCOME_SUBJECT' => 'Welcome to dan+doen+we+dat!',
   '_EMAIL_CORE_WELCOME_BODY' => '[header]
 
-Thank you for joining our social network. Click the following link and enter your information below to loginnn:
+Thank you for joining dan+doen+we+dat. Click the following link and enter your information below to login:
 
 http://[host][object_link]
 
@@ -1489,10 +1569,10 @@ Email: [email]
 [footer]',
   '_EMAIL_CORE_WELCOME_PASSWORD_TITLE' => 'Welcome With Password',
   '_EMAIL_CORE_WELCOME_PASSWORD_DESCRIPTION' => 'This is the email that gets sent when a member signs up if random passwords are enabled. Please note that if you have email verification enabled, the password variable is not available. This is due to the fact that passwords are securely encrypted upon signup and cannot be unencrypted when a member verifies their email address and the welcome email is sent.',
-  '_EMAIL_CORE_WELCOME_PASSWORD_SUBJECT' => 'Welcome to the social network!',
+  '_EMAIL_CORE_WELCOME_PASSWORD_SUBJECT' => 'Welcome to dan+doen+we+dat!',
   '_EMAIL_CORE_WELCOME_PASSWORD_BODY' => '[header]
 
-Thank you for joining our social network. Click the following link and enter your information below to login:
+Thank you for joining dan+doen+we+dat. Click the following link and enter your information below to login:
 
 http://[host][object_link]
 
@@ -1502,7 +1582,7 @@ Password: [password]
 [footer]',
   '_EMAIL_CORE_LOSTPASSWORD_TITLE' => 'Lost Password',
   '_EMAIL_CORE_LOSTPASSWORD_DESCRIPTION' => 'This is the email that gets sent if a member forgets their password and requests to create a new one.',
-  '_EMAIL_CORE_LOSTPASSWORD_SUBJECT' => 'Social Network - Lost Password',
+  '_EMAIL_CORE_LOSTPASSWORD_SUBJECT' => 'dan+doen+we+dat - Lost Password',
   '_EMAIL_CORE_LOSTPASSWORD_BODY' => '[header]
 
 You have requested to reset your password because you have forgotten your password. If you did not request this, please ignore it. It will expire in 1 hour. To reset your password, please click the following link:
@@ -1621,7 +1701,7 @@ http://[host][object_link]
   'Themes' => 'Themes',
   'You may configure your email alert preferences from <a href="%1$s" target="_blank"> here</a>.' => 'You may configure your email alert preferences from <a href="%1$s" target="_blank"> here</a>.',
   'You have no message.' => 'You have no message.',
-  'Welcome to our Social Network!!' => 'Welcome to our Social Network!!',
+  'Welcome to our Social Network!!' => 'Welcome to dan+doen+we+dat !!',
   'Love what you see?' => 'Love what you see?',
   'Get Started' => 'Get Started',
   'Easy Login / Signup' => 'Easy Login / Signup',
@@ -2231,10 +2311,10 @@ http://[host][object_link]
   'Please enter only valid email addresses.' => 'Please enter only valid email addresses.',
   '_EMAIL_INVITE_TITLE' => 'Invitation',
   '_EMAIL_INVITE_DESCRIPTION' => 'This is the email that gets sent when members invite their connections to join during the signup process.',
-  '_EMAIL_INVITE_SUBJECT' => 'You have received an invitation to join our social network.',
+  '_EMAIL_INVITE_SUBJECT' => 'You have received an invitation to join dan+doen+we+dat.',
   '_EMAIL_INVITE_BODY' => '[header]
 
-You have been invited by [sender_title] to join our social network. To join, please follow the link below:
+You have been invited by [sender_title] to join dan+doen+we+dat. To join, please follow the link below:
 
 http://[host][object_link]
 
@@ -2245,10 +2325,10 @@ http://[host][object_link]
 [footer]',
   '_EMAIL_INVITE_CODE_TITLE' => 'Invite Code',
   '_EMAIL_INVITE_CODE_DESCRIPTION' => 'This email is sent to someone when they are invited by a member and an invite code is required.',
-  '_EMAIL_INVITE_CODE_SUBJECT' => 'You have received an invitation to join our social network!',
+  '_EMAIL_INVITE_CODE_SUBJECT' => 'You have received an invitation to join dan+doen+we+dat!',
   '_EMAIL_INVITE_CODE_BODY' => '[header]
 
-You have been invited by [sender_title] to join our social network. To join, please follow the link below:
+You have been invited by [sender_title] to join dan+doen+we+dat. To join, please follow the link below:
 
 http://[host][object_link]
 
@@ -2257,7 +2337,7 @@ http://[host][object_link]
 ----------------------------------------
 
 [footer]',
-  'You are being invited to join our social network.' => 'You are being invited to join our social network.',
+  'You are being invited to join our social network.' => 'You are being invited to join dan+doen+we+dat.',
   'Request Invite' => 'Request Invite',
   'Inbox' => 'Inbox',
   'Sent Messages' => 'Sent Messages',
@@ -2515,7 +2595,7 @@ email.',
   '_EMAIL_PAYMENT_SUBSCRIPTION_ACTIVE_SUBJECT' => 'Your subscription is now active.',
   '_EMAIL_PAYMENT_SUBSCRIPTION_ACTIVE_BODY' => '[header]
 
-Thank you for subscribing to our social network! Your subscription is now active.
+Thank you for subscribing to dan+doen+we+dat! Your subscription is now active.
 
 [subscription_title]
 [subscription_description]
@@ -2579,7 +2659,7 @@ Please follow the link below to renew your subscription.
   '_EMAIL_PAYMENT_SUBSCRIPTION_PENDING_SUBJECT' => 'Your subscription is pending.',
   '_EMAIL_PAYMENT_SUBSCRIPTION_PENDING_BODY' => '[header]
 
-Thank you for subscribing to our social network! Your subscription is
+Thank you for subscribing to dan+doen+we+dat! Your subscription is
 pending, awaiting completion of the transaction. Your membership will be
 activated soon; we will notify you by email when it is ready.
 Thank you for your patience.
@@ -2734,6 +2814,395 @@ New [gateway_type] payment has been received for the subscription of membership 
   'Small Font' => 'Small Font',
   'Default Font' => 'Default Font',
   'Large Font' => 'Large Font',
+  'Advanced Activity & News Feed Plugin' => 'Advanced Activity & News Feed Plugin',
+  'Pin Post to Top' => 'Pin Post to Top',
+  'Unpin Post From Top' => 'Unpin Post From Top',
+  'Pinned Post' => 'Pinned Post',
+  'Where to Buy (URL Optional)' => 'Where to Buy (URL Optional)',
+  'YOU' => 'YOU',
+  'If you find it offensive, please' => 'If you find it offensive, please',
+  'Good Morning' => 'Good Morning',
+  'Good Afternoon' => 'Good Afternoon',
+  'Good Evening' => 'Good Evening',
+  'Please enter the title of your product.' => 'Please enter the title of your product.',
+  'Please enter the price of your product.' => 'Please enter the price of your product.',
+  'It seems, that the post is blank. Please write or attach something to share your post.' => 'It seems, that the post is blank. Please write or attach something to share your post.',
+  'Schedule post' => 'Schedule Post',
+  'Schedule Your Post' => 'Schedule Your Post',
+  'Select date and time on which you want to publish your post.' => 'Select date and time on which you want to publish your post.',
+  'Schedule' => 'Schedule',
+  'Tag People' => 'Tag People',
+  'Check In' => 'Check In',
+  'Emoticons' => 'Emoticons',
+  'Who are you with?' => 'Who are you with?',
+  'Where are you?' => 'Where are you?',
+  'Only Me' => 'Only Me',
+  'Multiptle Networks' => 'Multiptle Networks',
+  'Multiptle Lists' => 'Multiptle Lists',
+  'Finish Your Post?' => 'Finish Your Post?',
+  'If you leave now, your post won\'t be saved.' => 'If you leave now, your post won\'t be saved.',
+  'Discard Post' => 'Discard Post',
+  'Go to Post' => 'Go to Post',
+  'No memories for you on this day.' => 'No memories for you on this day.',
+  'Thanks for coming!' => 'Thanks for coming!',
+  'choose time 10 minutes greater than current time.' => 'choose time 10 minutes greater than current time.',
+  '%s peoples talking about this.' => 
+  array (
+    0 => '%s peoples talking about this.',
+    1 => '%s people talking about this.',
+  ),
+  'Welcome to [site_title], [user_name]' => 'Welcome to [site_title], [user_name]',
+  'Profile Photo Upload' => 'Profile Photo Upload',
+  'Upload Photo' => 'Upload Photo',
+  'Take Photo' => 'Take Photo',
+  'With your webcam' => 'With your webcam',
+  'Click to Take Photo' => 'Click to Take Photo',
+  'Select a photo' => 'Select a photo',
+  'See All Friend Request' => 'See All Friend Request',
+  'Friend Requests' => 'Friend Requests',
+  'You have no any friend request.' => 'You have no any friend request.',
+  'Find Friends' => 'Find Friends',
+  'Enter name of member.' => 'Enter name of member.',
+  'Find' => 'Find',
+  'Sell Something' => 'Sell Something',
+  'What are you selling?' => 'What are you selling?',
+  'Add price' => 'Add price',
+  'Add location (optional)' => 'Add location (optional)',
+  'Describe your item (optional)' => 'Describe your item (optional)',
+  'Choose a file to upload' => 'Choose a file to upload',
+  'Upload smaller file.' => 'Upload smaller file.',
+  'PLAY' => 'PLAY',
+  'CANCEL' => 'CANCEL',
+  'Publish this on Linkedin' => 'Publish this on Linkedin',
+  'Cancel Uploading' => 'Cancel Uploading',
+  'Country name not fetch for given location. Write Country name manually in text box and save.' => 'Country name not fetch for given location. Write Country name manually in text box and save.',
+  'City name not fetch for given location.Write City name manually in text box and save.' => 'City name not fetch for given location.Write City name manually in text box and save.',
+  'Please select city name.' => 'Please select city name.',
+  'Please select country name.' => 'Please select country name.',
+  'Publish this on Twitter' => 'Publish this on Twitter',
+  'More' => 'More',
+  'An error occured. Please try again after some time.' => 'An error occured. Please try again after some time.',
+  'Permalink of this Post' => 'Permalink of this Post',
+  'Go to this feed' => 'Go to this feed',
+  'You won\\\'t see' => 'You won\\\'t see',
+  'post in Feed.' => 'post in Feed.',
+  'Select' => 'Select',
+  'It is a long established fact that a reader will be distracted' => 'It is a long established fact that a reader will be distracted',
+  'Post on Wall' => 'Post on Wall',
+  'Add Friends to See More Feeds' => 'Add Friends to See More Feeds',
+  'You’ll have more feeds in your Activity Feed wall, once you add more friends here.' => 'You’ll have more feeds in your Activity Feed wall, once you add more friends here.',
+  'Add your birthday to your profile' => 'Add your birthday to your profile',
+  'Let people know when the big day arrives.' => 'Let people know when the big day arrives.',
+  'Go now' => 'Go now',
+  'Posts You\'ve Hidden' => 'Posts You\'ve Hidden',
+  'Posts You\'re Tagged In' => 'Posts You\'re Tagged In',
+  'Item Details' => 'Item Details',
+  'Mark as Sold' => 'Mark as Sold',
+  'Message Seller' => 'Message Seller',
+  'Sold' => 'Sold',
+  'Remove Selected' => 'Remove Selected',
+  'Image Description' => 'Image Description',
+  'Are you sure that you want to delete this activity item and all of its comments? This action cannot be undone. <br />You can also consider editing this post, if you just want to make some changes.' => 'Are you sure that you want to delete this activity item and all of its comments? This action cannot be undone. <br />You can also consider editing this post, if you just want to make some changes.',
+  'Edit Feed' => 'Edit Feed',
+  'Delete Feed' => 'Delete Feed',
+  'Add Location(SES - Advanced News & Activity Feeds Plugin)' => 'Check In (Members will be able to add their location to their posts)',
+  'Schedule Post(SES - Advanced News & Activity Feeds Plugin)' => 'Schedule Post (Members will be able to choose publish date and time for their posts.)',
+  'Add Advancedactivitylinkedin(SES - Advanced News & Activity Feeds Plugin)' => 'Share on LinkedIn',
+  'Add Link(Core)' => 'Add Link',
+  'Add Advancedactivitytargetpost(SES - Advanced News & Activity Feeds Plugin)' => 'Choose Prefered Audience (Members will be able to target their posts to prefered audience)',
+  'Add File(SES - Advanced News & Activity Feeds Plugin)' => 'Add File',
+  'Sell Something(SES - Advanced News & Activity Feeds Plugin)' => 'Sell Something (Members will be able to add their products for selling)',
+  'Add Photo(SES - Advanced Photos & Albums Plugin)' => 'Add Photo (Members will be able to upload multiple photos (multiple photo will work with SE Core Photo Album plugin and our <a href=\'https://www.socialenginesolutions.com/social-engine/advanced-photos-albums-plugin/\' target=\'_blank\'>Advanced Photos & Albums Plugin</a>))',
+  'Add Album(SES - Advanced Photos & Albums Plugin)' => 'Create Photo Album (Members will be able to create new album and upload multiple photos (will work with our <a href=\'https://www.socialenginesolutions.com/social-engine/advanced-photos-albums-plugin/\' target=\'_blank\'>Advanced Photos & Albums Plugin</a>))',
+  'Add Video(SES - Advanced Videos & Channels Plugin)' => 'Add Video',
+  'Add Video(Videos)' => 'Add Video',
+  'Add Music(Music)' => 'Add Music',
+  'Add Music(Advanced Music Albums, Songs & Playlists Plugin)' => 'Add Music',
+  'Add Event(SES - Advanced Events Plugin)' => 'Create Event (Members will be able to create events (will work with SE Core Events Album plugin and our <a href=\'https://www.socialenginesolutions.com/social-engine/advanced-events-plugin/\' target=\'_blank\'>Advanced Events Plugin</a>)',
+  'Add Eventvideo(Advanced Events - Videos Extension)' => 'Add Video',
+  'SESADVCOMMMENT' => 'Comment',
+  'Men' => 'Men',
+  'Women' => 'Women',
+  'Age' => 'Age',
+  'Choose Preferred Audience' => 'Choose Preferred Audience',
+  'Choose preferred audience for your post.' => 'Choose preferred audience for your post.',
+  'Gender' => 'Gender',
+  'Save' => 'Save',
+  'Choose to share your post with &quot;All&quot; or specific gender.' => 'Choose to share your post with &quot;All&quot; or specific gender.',
+  'Choose minimum and maximum age of the members with whom you want to share your post.' => 'Choose minimum and maximum age of the members with whom you want to share your post.',
+  'See whose activity feeds you have hidden' => 'See whose activity feeds you have hidden',
+  'You have not hidden activity feed(s) from any user.' => 'You have not hidden activity feed(s) from any user.',
+  'Add Advancedactivityfacebookpostembed(SES - Advanced News & Activity Feeds Plugin)' => 'Add FB Embed Post Code (If enabled, users will be able to add embed code from Facebook into their posts.)',
+  'Add FB Embed Post' => 'Add FB Embed Post',
+  'Feeling/Activity' => 'Feeling/Activity',
+  'with' => 'with',
+  'Shared with: ' => 'Shared with: ',
+  'SESADVLIKE' => 'Like',
+  'SESADVUNLIKE' => 'Unlike',
+  'Choose Feeling or activity...' => 'Choose Feeling or activity...',
+  'How are you feeling?' => 'How are you feeling?',
+  'SES - Advanced News & Activity Feeds Plugin' => 'Activity Feeds',
+  'Stickers' => 'Stickers',
+  'Add Album' => 'Add Album',
+  'Schedule Post' => 'Schedule Post',
+  'GIF' => 'GIF',
+  'Post GIF' => 'Post GIF',
+  'Wow' => 'Wow',
+  'Haha' => 'Haha',
+  'Save Feed' => 'Save Feed',
+  'Feed Link' => 'Feed Link',
+  'Hide Feed' => 'Hide Feed',
+  'Hide all by %s' => 'Hide all by %s',
+  'Write a reply...' => 'Write a reply...',
+  'Post Emojis' => 'Post Emojis',
+  'Facebook' => 'Facebook',
+  'Twitter' => 'Twitter',
+  'Google Plus' => 'Google Plus',
+  'Linkedin' => 'Linkedin',
+  'Disable Comments' => 'Disable Comments',
+  'Copy link of this feed:' => 'Copy link of this feed:',
+  'Emojis' => 'Emoji',
+  'Unsave Feed' => 'Unsave Feed',
+  'Enable Comments' => 'Enable Comments',
+  'You won\\\'t see this post in Feed.' => 'You won\\\'t see this post in Feed.',
+  'Undo' => 'Undo',
+  'Hide all from' => 'Hide all from',
+  '_ACTIVITY_ACTIONTYPE_POST_MUSIC' => 'when some one upload music from subject page.',
+  '_ACTIVITY_ACTIONTYPE_POST_PHOTO' => 'when some one upload photo from activity feed.',
+  '_ACTIVITY_ACTIONTYPE_POST_SELF_BUYSELL' => 'when some one upload buy sell feed from activity.',
+  '_ACTIVITY_ACTIONTYPE_POST_SELF_FILE' => 'when some one upload file from activity.',
+  '_ACTIVITY_ACTIONTYPE_POST_SELF_LINK' => 'when some one upload link.',
+  '_ACTIVITY_ACTIONTYPE_POST_SELF_MUSIC' => 'when some one upload music.',
+  '_ACTIVITY_ACTIONTYPE_POST_SELF_PHOTO' => 'when some one upload photo.',
+  '_ACTIVITY_ACTIONTYPE_POST_SELF_VIDEO' => 'when someone upload video.',
+  '_ACTIVITY_ACTIONTYPE_POST_VIDEO' => 'when some one upload video from subject page.',
+  '_ACTIVITY_ACTIONTYPE_SESADVANCEDACTIVITY_EVENT_SHARE' => 'when some one share activity event.',
+  'ACTIVITY_TYPE_SESADVANCEDACTIVITY_SCHEDULED_LIVE' => 'When your schedule post is live',
+  'ACTIVITY_TYPE_SESADVANCEDACTIVITY_TAGGED_PEOPLE' => 'When someone tagged you in post',
+  'ACTIVITY_TYPE_SESADVANCEDACTIVITY_TAGGED_Item' => 'When someone tag me in a post.',
+  'ADMIN_ACTIVITY_TYPE_POST_MUSIC' => 'When a user (subject) post a music (object).',
+  'ADMIN_ACTIVITY_TYPE_POST_PHOTO' => 'When a user (subject) post a photo (object).',
+  'ADMIN_ACTIVITY_TYPE_POST_SELF_BUYSELL' => 'When a user (subject) sell something.',
+  'ADMIN_ACTIVITY_TYPE_POST_SELF_FILE' => 'When a user (subject) post a file.',
+  'ADMIN_ACTIVITY_TYPE_POST_SELF_LINK' => 'When a user (subject) post a link.',
+  'ADMIN_ACTIVITY_TYPE_POST_SELF_MUSIC' => 'When a user (subject) post music.',
+  'ADMIN_ACTIVITY_TYPE_POST_SELF_PHOTO' => 'When a user (subject) post photo.',
+  'ADMIN_ACTIVITY_TYPE_POST_SELF_VIDEO' => 'When a user (subject) post video.',
+  'ADMIN_ACTIVITY_TYPE_POST_VIDEO' => 'When a user (subject) post video (object).',
+  'ADMIN_ACTIVITY_TYPE_SESADVANCEDACTIVITY_EVENT_SHARE' => 'When a user (subject) share an activity event.',
+  'ADMIN_ACTIVITY_TYPE_POST_SELF_SELL' => 'When a user (subject) sell something.',
+  'ADMIN_ACTIVITY_TYPE_POST_SELL' => 'When a user (subject) sell something (object).',
+  'ACTIVITY_TYPE_SESADVANCEDACTIVITY_TAGGED_ITEM' => 'When someone tagged your content',
+  'AND' => 'AND',
+  'SESADVMESSAGE' => 'Message',
+  'SESADVCOMMENT' => 'Comment',
+  'SESADVSHARE' => 'Share',
+  'SESADVLIKEC' => 'Like',
+  'SESADVUNLIKEC' => 'Unlike',
+  'SESADVREPLY' => 'Reply',
+  'Add' => 'Add',
+  'Sticker Store' => 'Sticker Store',
+  'No Stickers to Show' => 'No Stickers to Show',
+  'Love' => 'Love',
+  'Sad' => 'Sad',
+  'Angry' => 'Angry',
+  'WOW' => 'Wow',
+  'Attach 1 or more Photos' => 'Attach 1 or more Photos',
+  'Attach 1 or more Videos' => 'Attach 1 or more Videos',
+  'Post an Emoticon or a Sticker' => 'Post an Emoticon or a Sticker',
+  'Delete Feed?' => 'Delete Feed?',
+  'This feed will be deleted and you won\'t be able to find it anymore. You can also edit this feed, if you just want to change something.' => 'This feed will be deleted and you won\'t be able to find it anymore. You can also edit this feed, if you just want to change something.',
+  'Newest' => 'Newest',
+  'Oldest' => 'Oldest',
+  'Replied' => 'Replied',
+  'Liked' => 'Liked',
+  'Share on %s' => 'Share on %s',
+  '%s mutual friend' => 
+  array (
+    0 => '%s mutual friend',
+    1 => '%s mutual friends',
+  ),
+  'Wall Smilies' => 'Wall Smilies',
+  'Search stickers' => 'Search stickers',
+  'The action you are looking for does not exist.' => 'The action you are looking for does not exist.',
+  'Missing Image' => 'Missing Image',
+  'Translate' => 'Translate',
+  'Remove Preview' => 'Remove Preview',
+  'ACTIVITY_TYPE_SESADVANCEDCOMMENT_TAGGEDREPLY_PEOPLE' => 'When someone mention me in a reply on comment.',
+  'ACTIVITY_TYPE_SESADVANCEDCOMMENT_TAGGEDREPLY_P' => 'When someone tagged me on comment Reply post.',
+  'ACTIVITY_TYPE_SESADVANCEDCOMMENT_TAGGED_PEOPLE' => 'When someone mention me in a comment.',
+  'ACTIVITY_TYPE_SESADVANCEDACTIVITY_REACTED_ANGRY' => 'When someone reacted Angry',
+  'ACTIVITY_TYPE_SESADVANCEDACTIVITY_REACTED_ANGR' => 'When someone reacted Anger.',
+  'ACTIVITY_TYPE_SESADVANCEDACTIVITY_REACTED_HAHA' => 'When someone reacted HAHA',
+  'ACTIVITY_TYPE_SESADVANCEDACTIVITY_REACTED_LOVE' => 'When someone reacted Love',
+  'ACTIVITY_TYPE_SESADVANCEDACTIVITY_REACTED_SAD' => 'When someone reacted Sad',
+  'ACTIVITY_TYPE_SESADVANCEDACTIVITY_REACTED_WOW' => 'When someone reacted Wow',
+  'ACTIVITY_TYPE_SESADVANCEDACTIVITY_SCHEDULED_LI' => 'When someone schedule post live.',
+  'ACTIVITY_TYPE_SESADVANCEDACTIVITY_TAGGED_PEOPL' => 'When someone tagged me in post.',
+  'ACTIVITY_TYPE_SESADVANCEDCOMMENT_REPLYCOMMENT' => 'When someone reply comment',
+  '{item:$subject} reacted to your {item:$object:$label}.' => '{item:$subject} reacted to your {item:$object:$label}.',
+  '{item:$subject} mention you in a {var:$commentLink}.' => '{item:$subject} mention you in a {var:$commentLink}.',
+  '{item:$subject} mention you in a {var:$commentLink} on comment.' => '{item:$subject} mention you in a {var:$commentLink} on comment.',
+  'SES - Advanced Nested Comments with Attachments Plugin' => 'Comments',
+  'Write a comment...' => 'Write a comment...',
+  'No stickers in this category.' => 'No stickers in this category.',
+  'Required Parameters missing.' => 'Required Parameters missing.',
+  'Facebook Login Currently disabled.' => 'Facebook Login Currently disabled.',
+  'Database error, please try again later.' => 'Database error, please try again later.',
+  'Please provide all mandatory fields.' => 'Please provide all mandatory fields.',
+  'Invalid User' => 'Invalid User',
+  'Upload Limit Reach' => 'Upload Limit Reach',
+  'Error Uploading file' => 'Error Uploading file',
+  'You don\'\'t have permission to access the resource.' => 'You don\'\'t have permission to access the resource.',
+  'Form Validation Fail' => 'Form Validation Fail',
+  'Your access token revoked by admin. Please contact admin for further details.' => 'Your access token revoked by admin. Please contact admin for further details.',
+  'Custom Url already taken, choose different.' => 'Custom Url already taken, choose different.',
+  'Invalid Request' => 'Invalid Request',
+  'You cannot delete this item because it has been removed.' => 'You cannot delete this item because it has been removed.',
+  'Comment deleted successfully.' => 'Comment deleted successfully.',
+  'This user is not allowed to like this item' => 'This user is not allowed to like this item',
+  'This user is not allowed to unlike this item' => 'This user is not allowed to unlike this item',
+  'Activity feed shared Successfully.' => 'Activity feed shared Successfully.',
+  'Does not exist member.' => 'Does not exist member.',
+  'Feeling/Activity/Sticker' => 'Feeling/Activity/Sticker',
+  'Activity/Sticker' => 'Activity/Sticker',
+  'Sticker' => 'Sticker',
+  'All Updates' => 'All Updates',
+  'Files' => 'Files',
+  'Posts You\'\'ve Hidden' => 'Posts You\'\'ve Hidden',
+  'Posts You\'\'re Tagged In' => 'Posts You\'\'re Tagged In',
+  'How Are You Feeling?' => 'How Are You Feeling?',
+  'Add a Sticker?' => 'Add a Sticker?',
+  'What Are You Doing?' => 'What Are You Doing?',
+  'Disable Comment' => 'Disable Comment',
+  'Enable Comment' => 'Enable Comment',
+  'Report Feed' => 'Report Feed',
+  'Not post' => 'Not post',
+  'Activity Created Successfully.' => 'Activity Created Successfully.',
+  'Save Photo' => 'Save Photo',
+  'Report Photo' => 'Report Photo',
+  'Share Outside' => 'Share Outside',
+  'No photo created in this album yet.' => 'No photo created in this album yet.',
+  'Upload Cover Photo' => 'Upload Cover Photo',
+  'Choose From Albums' => 'Choose From Albums',
+  'View Cover Photo' => 'View Cover Photo',
+  'Remove Cover Photo' => 'Remove Cover Photo',
+  'Report Album' => 'Report Album',
+  'Album Edit successfully.' => 'Album Edit successfully.',
+  'The selected albums have been successfully deleted.' => 'The selected albums have been successfully deleted.',
+  'Photo uploaded successfully.' => 'Photo uploaded successfully.',
+  'You have already uploaded the maximum number of albums allowed.' => 'You have already uploaded the maximum number of albums allowed.',
+  'Album created successfully.' => 'Album created successfully.',
+  'Tagmap missing' => 'Tagmap missing',
+  'Not authorized' => 'Not authorized',
+  'Tagged user removed successfully.' => 'Tagged user removed successfully.',
+  'whoops! doesn\\\'t support tagging' => 'whoops! doesn\\\'t support tagging',
+  'Item Already Tagged' => 'Item Already Tagged',
+  'Tagmap was not recognised' => 'Tagmap was not recognised',
+  'User tagged successfully.' => 'User tagged successfully.',
+  'Photo Deleted Successfully.' => 'Photo Deleted Successfully.',
+  'Your cover photo updated successfully.' => 'Your cover photo updated successfully.',
+  'The uploaded file is not supported or is corrupt.' => 'The uploaded file is not supported or is corrupt.',
+  'Something went wrong, please try again later.' => 'Something went wrong, please try again later.',
+  'Channel cover removed successfully.' => 'Channel cover removed successfully.',
+  'Photo Description Updated successfully.' => 'Photo Description Updated successfully.',
+  'No Category exists.' => 'No Category exists.',
+  'No album created by you yet.' => 'No album created by you yet.',
+  'No Photo Created Yet.' => 'No Photo Created Yet.',
+  'No photo created by you yet in this album.' => 'No photo created by you yet in this album.',
+  'Does not exist blogs.' => 'Does not exist blogs.',
+  'Change Main Photo' => 'Change Main Photo',
+  'Edit Blog' => 'Edit Blog',
+  'Delete Blog' => 'Delete Blog',
+  'Report Blog' => 'Report Blog',
+  'You have already uploaded the maximum number of blogs allowed.' => 'You have already uploaded the maximum number of blogs allowed.',
+  'Custom Url is not available. Please select another URL.' => 'Custom Url is not available. Please select another URL.',
+  'Blog created successfully.' => 'Blog created successfully.',
+  'Sesblog entry doesn\'t exist or not authorized to delete' => 'Sesblog entry doesn\'t exist or not authorized to delete',
+  'Your sesblog entry has been deleted.' => 'Your sesblog entry has been deleted.',
+  'Blog Edit successfully.' => 'Blog Edit successfully.',
+  'Blog photo updated successfully.' => 'Blog photo updated successfully.',
+  '%s year old' => 
+  array (
+    0 => '%s year old',
+    1 => '%s years old',
+  ),
+  'You are now friends with %s' => 'You are now connected with %s',
+  'An error has occurred.' => 'An error has occurred.',
+  'No songs created yet.' => 'No songs created yet.',
+  'No music album created yet.' => 'No music album created yet.',
+  'Music album photo removed successfully.' => 'Music album photo removed successfully.',
+  'Music album cover removed successfully.' => 'Music album cover removed successfully.',
+  'Your music album photo updated successfully.' => 'Your music album photo updated successfully.',
+  'Album doesn\'\'t exists or not authorized to delete' => 'Album doesn\'\'t exists or not authorized to delete',
+  'The selected albums has been deleted.' => 'The selected albums has been deleted.',
+  'Rating done successfully.' => 'Rating done successfully.',
+  'Music album edited successfully.' => 'Music album edited successfully.',
+  'The selected playlist has been deleted.' => 'The selected playlist has been deleted.',
+  'Playlist song deleted successfully.' => 'Playlist song deleted successfully.',
+  'View Profile Photo' => 'View Profile Photo',
+  'Remove Profile Photo' => 'Remove Profile Photo',
+  'The selected song has been deleted.' => 'The selected song has been deleted.',
+  'Song photo removed successfully.' => 'Song photo removed successfully.',
+  'Song cover removed successfully.' => 'Song cover removed successfully.',
+  'Please enter a title or select a playlist.' => 'Please enter a title or select a playlist.',
+  'This playlist already has this song. So, you can go to album view page and add songs in playlist.' => 'This playlist already has this song. So, you can go to album view page and add songs in playlist.',
+  'Song has been successfully added to your playlist.' => 'Song has been successfully added to your playlist.',
+  'This playlist already has this song.' => 'This playlist already has this song.',
+  'Song edited successfully.' => 'Song edited successfully.',
+  'Action perform successfully.' => 'Action perform successfully.',
+  'There appears to be a problem logging in. Please reset your password with the Forgot Password link.' => 'There appears to be a problem logging in. Please reset your password with the Forgot Password link.',
+  'Email sent successfully, please check your email.' => 'Email sent successfully, please check your email.',
+  'The passwords you entered did not match.' => 'The passwords you entered did not match.',
+  'Your profile edit successfully.' => 'Your profile edit successfully.',
+  'Your profile photo updated successfully.' => 'Your profile photo updated successfully.',
+  'Your photo has been removed.' => 'Your photo has been removed.',
+  'mutual friend' => 'mutual friend',
+  'Single' => 'Single',
+  'In a Relationship' => 'In a Relationship',
+  'Engaged' => 'Engaged',
+  'Married' => 'Married',
+  'It\'\'s Complicated' => 'It\'\'s Complicated',
+  'In an Open Relationship' => 'In an Open Relationship',
+  'Widowed' => 'Widowed',
+  'Passwords did not match' => 'Passwords did not match',
+  'Old password did not match' => 'Old password did not match',
+  'Settings were successfully saved.' => 'Settings were successfully saved.',
+  'Invalid param count' => 'Invalid param count',
+  'No artist created yet.' => 'No artist created yet.',
+  'Sub Sub Category' => 'Sub Sub Category',
+  'No video uploaded yet.' => 'No video uploaded yet.',
+  'Channel photo has been deleted successfully.' => 'Channel photo has been deleted successfully.',
+  'No photo created in this channel yet.' => 'No photo created in this channel yet.',
+  'Your location have been saved.' => 'Your location have been saved.',
+  'Channel edited successfully.' => 'Channel edited successfully.',
+  'Videos updated successfuly in selected chanel.' => 'Videos updated successfuly in selected chanel.',
+  'Channel follow successfully.' => 'Channel follow successfully.',
+  'Channel un-followed successfully.' => 'Channel un-followed successfully.',
+  'No video found.' => 'No video found.',
+  'Video edited successfully.' => 'Video edited successfully.',
+  'You have already uploaded the maximum number of videos allowed.' => 'You have already uploaded the maximum number of videos allowed.',
+  'Please select valid upload url for video.' => 'Please select valid upload url for video.',
+  'Please select video to upload.' => 'Please select video to upload.',
+  'The video you are looking for does not exist or has not been processed yet.' => 'The video you are looking for does not exist or has not been processed yet.',
+  'Item Rated Successfully.' => 'Item Rated Successfully.',
+  'Invalid upload video Url.' => 'Invalid upload video Url.',
+  'Video posted successfully' => 'Video posted successfully',
+  'We could not find a video there - please check the URL and try again.' => 'We could not find a video there - please check the URL and try again.',
+  'No playlist created yet.' => 'No playlist created yet.',
+  'Playlist edited successfully.' => 'Playlist edited successfully.',
+  'This playlist already has this video.' => 'This playlist already has this video.',
+  'Video has been successfully added to your playlist.' => 'Video has been successfully added to your playlist.',
+  'Item Unfavourite Successfully' => 'Item Unfavourite Successfully',
+  'Item Favourite Successfully' => 'Item Favourite Successfully',
+  'This user is not allowed to comment on this item.' => 'This user is not allowed to comment on this item.',
+  'Your report has been submitted.' => 'Your report has been submitted.',
+  'others' => 'others',
+  'other' => 'other',
+  ' and ' => ' and ',
+  ' and' => ' and',
+  ' mutual friend' => ' mutual friend',
+  ' mutual friends' => ' mutual friends',
   'Credit Value:' => 'Credit Value:',
   'Date:' => 'Date:',
   'Credit Type:' => 'Credit Type:',
@@ -3157,9 +3626,7 @@ You have successfully purchased [point] credit points. Please check your transac
   'Term And Condition Description' => 'Term And Condition Description',
   'Tags (Keywords)' => 'Tags (Keywords)',
   'Add photo for your event' => 'Add photo for your event',
-  'Age Categories'=> 'Age Categories',
-  "Your own age category can\'t be unchecked" => 'Your own age category can\'t be unchecked',
-  'Choose Categor' => 'Choose Category',
+  'Choose Category' => 'Choose Category',
   'Organizer Name' => 'Organizer Name',
   'Choose Host' => 'Choose Host',
   '+ Add New' => '+ Add New',
@@ -3326,10 +3793,8 @@ You have successfully purchased [point] credit points. Please check your transac
   'Enter URL of the Twitter Profile of the speaker.' => 'Enter URL of the Twitter Profile of the speaker.',
   'Enter URL of the LinkedIn Profile of the speaker.' => 'Enter URL of the LinkedIn Profile of the speaker.',
   'Enter URL of the Google Plus Profile of the speaker.' => 'Enter URL of the Google Plus Profile of the speaker.',
-  'Add' => 'Add',
   'Enter name of speaker' => 'Enter name of speaker',
   'Add background photo for your event' => 'Add background photo for your event',
-  'Save' => 'Save',
   'Add Seo' => 'Add Seo',
   'Event Seo Title' => 'Event Seo Title',
   'Event Seo Keywords' => 'Event Seo Keywords',
@@ -3570,7 +4035,6 @@ You have successfully purchased [point] credit points. Please check your transac
   'tickets left' => 'tickets left',
   'No ticket available.' => 'No ticket available.',
   'Please fill the red mark fields' => 'Please fill the red mark fields',
-  'Cancel Uploading' => 'Cancel Uploading',
   'Featured' => 'Featured',
   'Sponsored' => 'Sponsored',
   'Make Request For Payment.' => 'Make Request For Payment.',
@@ -3618,7 +4082,6 @@ You have successfully purchased [point] credit points. Please check your transac
   'Create New Event' => 'Create New Event',
   'Edit Event' => 'Edit Event',
   'Join Event' => 'Join Event',
-  'Join Waiting List' => 'Join Waiting List',
   'Leave Event' => 'Leave Event',
   'Nobody has created an event yet.' => 'Nobody has created an event yet.',
   'Tip: %1$sClick here%2$s to create a event or %3$sbrowse%2$s for events to join!' => 'Tip: %1$sClick here%2$s to create a event or %3$sbrowse%2$s for events to join!',
@@ -3664,9 +4127,7 @@ You have successfully purchased [point] credit points. Please check your transac
     0 => '%s person',
     1 => '%s people',
   ),
-  'leave' => 'leave',
   'attending' => 'attending',
-  'attending' => 'attend',
   'maybe attending' => 'maybe attending',
   'not attending' => 'not attending',
   'Attending' => 'Attending',
@@ -3676,8 +4137,8 @@ You have successfully purchased [point] credit points. Please check your transac
   'Upcoming Events' => 'Upcoming Events',
   'Search Guests' => 'Search Guests',
   'No photos have been uploaded to this event yet.' => 'No photos have been uploaded to this event yet.',
-  'Joined Waiting List' => 'You\'ll be notified by mail when a spot opens up.',
   'Event left' => 'You are no longer a member of this event.',
+  'Joined list' => 'You\'ll be notified by mail when a spot opens up.',
   'Event joined' => 'You have successfully RSVPed to this event.',
   'Your invite request has been sent.' => 'Your invite request has been sent.',
   'Your invite request has been cancelled.' => 'Your invite request has been cancelled.',
@@ -4117,10 +4578,10 @@ Event Link: http://[host][object_link]
 [footer]',
   '_EMAIL_SESEVENT_EVENT_CREATE_TITLE' => 'Event Create',
   '_EMAIL_SESEVENT_EVENT_CREATE_DESCRIPTION' => 'This is the email that gets sent when a member create a event.',
-  '_EMAIL_SESEVENT_EVENT_CREATE_SUBJECT' => 'Thank you creating a event \'[event_title]\' on social network!',
+  '_EMAIL_SESEVENT_EVENT_CREATE_SUBJECT' => 'Thank you for creating a event \'[event_title]\' on dan+doen+we+dat!',
   '_EMAIL_SESEVENT_EVENT_CREATE_BODY' => '[header]
 
-Thank you for creating a event our social network. Click the following link and go to you event:
+Thank you for creating a event on dan+doen+we+dat. Click the following link and go to you event:
 
 http://[host][object_link]
 
@@ -4130,7 +4591,7 @@ http://[host][object_link]
   '_EMAIL_SESEVENT_EVENT_ADMINAPPROVED_SUBJECT' => 'Your event \'[event_title]\' is approved!',
   '_EMAIL_SESEVENT_EVENT_ADMINAPPROVED_BODY' => '[header]
 
-Thank you for creating a event our social network. Click the following link and go to you event:
+Thank you for creating a event on dan+doen+we+dat. Click the following link and go to you event:
 
 http://[host][object_link]
 
@@ -4140,7 +4601,7 @@ http://[host][object_link]
   '_EMAIL_SESEVENT_EVENT_ADMINDISAPPROVED_SUBJECT' => 'Your event \'[event_title]\' is dis-approved!',
   '_EMAIL_SESEVENT_EVENT_ADMINDISAPPROVED_BODY' => '[header]
 
-Thank you for creating a event our social network. Click the following link and go to you event:
+Thank you for creating a event on dan+doen+we+dat. Click the following link and go to you event:
 
 http://[host][object_link]
 
@@ -4166,6 +4627,270 @@ Thank you for your patience.
 
 [footer]',
   '_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_CREATETICKET' => 'Creating an event ticket.',
+  'SESFEEDBG_PLUGIN' => 'Background Images in Status Updates Plugin',
+  'SESFEEDGIF_PLUGIN' => 'GIF Plugin',
+  'SESFEELINGACTIVITY_PLUGIN' => 'Feelings & Activities Plugin',
+  'Feeling' => 'Feeling',
+  'Celebrating' => 'Celebrating',
+  'Just' => 'Just',
+  'Drinking' => 'Drinking',
+  'Eating' => 'Eating',
+  'Getting' => 'Getting',
+  'Attending Event' => 'Attending Event',
+  'Browsing' => 'Browsing',
+  'Listening to' => 'Listening to',
+  'Reading' => 'Reading',
+  'Watching' => 'Watching',
+  'Thinking About' => 'Thinking About',
+  'Remembering' => 'Remembering',
+  'Meeting' => 'Meeting',
+  'Making' => 'Making',
+  'alone' => 'alone',
+  'angry' => 'angry',
+  'awesome' => 'awesome',
+  'blessed' => 'blessed',
+  'confused' => 'confused',
+  'cool' => 'cool',
+  'crazy' => 'crazy',
+  'cute' => 'cute',
+  'disappointed' => 'disappointed',
+  'emotional' => 'emotional',
+  'excited' => 'excited',
+  'funny' => 'funny',
+  'good' => 'good',
+  'happy' => 'happy',
+  'heart broken' => 'heart broken',
+  'hurt' => 'hurt',
+  'in love' => 'in love',
+  'joyful' => 'joyful',
+  'loved' => 'loved',
+  'lovely' => 'lovely',
+  'missing' => 'missing',
+  'naughty' => 'naughty',
+  'positive' => 'positive',
+  'proud' => 'proud',
+  'sad' => 'sad',
+  'scared' => 'scared',
+  'shocked' => 'shocked',
+  'silly' => 'silly',
+  'sleepy' => 'sleepy',
+  'special' => 'special',
+  'thankful' => 'thankful',
+  'thoughtful' => 'thoughtful',
+  'upset' => 'upset',
+  '4th of July' => '4th of July',
+  'a birthday' => 'a birthday',
+  'an anniversary' => 'an anniversary',
+  'another birthday' => 'another birthday',
+  'birthdays' => 'birthdays',
+  'eid' => 'eid',
+  'engagement' => 'engagement',
+  'graduation' => 'graduation',
+  'International yoga day' => 'International yoga day',
+  'life' => 'life',
+  'love' => 'love',
+  'mother\'s day' => 'mother\'s day',
+  'my birthday' => 'my birthday',
+  'my brother\'s birthday' => 'my brother\'s birthday',
+  'my daughter\'s birthday' => 'my daughter\'s birthday',
+  'my mom\'s birthday' => 'my mom\'s birthday',
+  'my sister\'s birthday' => 'my sister\'s birthday',
+  'my son\'s birthday' => 'my son\'s birthday',
+  'our anniversary' => 'our anniversary',
+  'our special day' => 'our special day',
+  'our wedding anniversary' => 'our wedding anniversary',
+  'success' => 'success',
+  'the beginning of spring' => 'the beginning of spring',
+  'this day' => 'this day',
+  'this special day' => 'this special day',
+  'victory' => 'victory',
+  'your big day' => 'your big day',
+  'your special day' => 'your special day',
+  'chilling' => 'chilling',
+  'enjoying life' => 'enjoying life',
+  'enjoying' => 'enjoying',
+  'enjoying the day' => 'enjoying the day',
+  'hanging out' => 'hanging out',
+  'hoping for the best' => 'hoping for the best',
+  'looking forward to the day' => 'looking forward to the day',
+  'losing my mind' => 'losing my mind',
+  'missing someone' => 'missing someone',
+  'showing love' => 'showing love',
+  'sleeping' => 'sleeping',
+  'smiling' => 'smiling',
+  'thinking god' => 'thinking god',
+  'thinking' => 'thinking',
+  'voting in the election' => 'voting in the election',
+  'welcome spring' => 'welcome spring',
+  'working' => 'working',
+  '100 Pipers Deluxe Blended Scotch Whisky' => '100 Pipers Deluxe Blended Scotch Whisky',
+  'adult beverages' => 'adult beverages',
+  'BEAR BRAND Powdered Milk Drink' => 'BEAR BRAND Powdered Milk Drink',
+  'beer' => 'beer',
+  'coffee' => 'coffee',
+  'coke' => 'coke',
+  'Kingfisher' => 'Kingfisher',
+  'rose wine' => 'rose wine',
+  'something that makes me smile' => 'something that makes me smile',
+  'tea' => 'tea',
+  'with friends' => 'with friends',
+  'BAR B Q tonight' => 'BAR B Q tonight',
+  'birthday cake' => 'birthday cake',
+  'breakfast' => 'breakfast',
+  'breakfast this morning' => 'breakfast this morning',
+  'Burger & Lobster' => 'Burger & Lobster',
+  'chicken' => 'chicken',
+  'dessert' => 'dessert',
+  'dinner' => 'dinner',
+  'dinner with my beloved friends' => 'dinner with my beloved friends',
+  'eating dinner' => 'eating dinner',
+  'evening snacks' => 'evening snacks',
+  'ice cream' => 'ice cream',
+  'KFC Kentucky Fried Chicken' => 'KFC Kentucky Fried Chicken',
+  'lunch' => 'lunch',
+  'lunch with family' => 'lunch with family',
+  'lunch with friends' => 'lunch with friends',
+  'rainforest cafe' => 'rainforest cafe',
+  'Zinger Burger' => 'Zinger Burger',
+  'a birthday party' => 'a birthday party',
+  'a class' => 'a class',
+  'a family day' => 'a family day',
+  'a graduation ceremony' => 'a graduation ceremony',
+  'a lecture' => 'a lecture',
+  'a live concert' => 'a live concert',
+  'a marriage ceremony' => 'a marriage ceremony',
+  'a meeting' => 'a meeting',
+  'an event' => 'an event',
+  'an exam' => 'an exam',
+  'a party' => 'a party',
+  'a prayer' => 'a prayer',
+  'a program' => 'a program',
+  'a training' => 'a training',
+  'a wedding' => 'a wedding',
+  'business meeting' => 'business meeting',
+  'church' => 'church',
+  'family reunion' => 'family reunion',
+  'my very-special event' => 'my very-special event',
+  'sunday mass' => 'sunday mass',
+  'work' => 'work',
+  'a much needed rest' => 'a much needed rest',
+  'connected' => 'connected',
+  'connections' => 'connections',
+  'focused' => 'focused',
+  'groceries' => 'groceries',
+  'healthy' => 'healthy',
+  'married' => 'married',
+  'motivated' => 'motivated',
+  'new phone' => 'new phone',
+  'ready for bed' => 'ready for bed',
+  'ready for work' => 'ready for work',
+  'ready to party' => 'ready to party',
+  'relaxed' => 'relaxed',
+  'some fresh air' => 'some fresh air',
+  'strong' => 'strong',
+  'things done' => 'things done',
+  'together' => 'together',
+  'a best friend' => 'a best friend',
+  'a cake' => 'a cake',
+  'a girlfriend' => 'a girlfriend',
+  'a great workout' => 'a great workout',
+  'a job' => 'a job',
+  'a life' => 'a life',
+  'a miracle' => 'a miracle',
+  'an adventure' => 'an adventure',
+  'answers' => 'answers',
+  'a partner in crime' => 'a partner in crime',
+  'a partner' => 'a partner',
+  'a photographer' => 'a photographer',
+  'a super hero' => 'a super hero',
+  'a trip' => 'a trip',
+  'birthday gift recommendations' => 'birthday gift recommendations',
+  'employees' => 'employees',
+  'friends' => 'friends',
+  'fun people' => 'fun people',
+  'fun' => 'fun',
+  'great music' => 'great music',
+  'help' => 'help',
+  'hope' => 'hope',
+  'love in all the wrong places' => 'love in all the wrong places',
+  'money' => 'money',
+  'more friends' => 'more friends',
+  'peace' => 'peace',
+  'photos' => 'photos',
+  'somthing to do' => 'somthing to do',
+  'art' => 'art',
+  'cake' => 'cake',
+  'decision' => 'decision',
+  'funny faces' => 'funny faces',
+  'magic' => 'magic',
+  'memories' => 'memories',
+  'music' => 'music',
+  'new friends' => 'new friends',
+  'notes' => 'notes',
+  'other people happy' => 'other people happy',
+  'plans' => 'plans',
+  'presentation' => 'presentation',
+  'someone smile' => 'someone smile',
+  'the world a better place' => 'the world a better place',
+  'things happen' => 'things happen',
+  'wishes' => 'wishes',
+  'awesome people' => 'awesome people',
+  'family' => 'family',
+  'kids' => 'kids',
+  'my best friend' => 'my best friend',
+  'my brother' => 'my brother',
+  'my friend' => 'my friend',
+  'my girlfriend' => 'my girlfriend',
+  'my little brother' => 'my little brother',
+  'my love' => 'my love',
+  'my old friend' => 'my old friend',
+  'my right person' => 'my right person',
+  'my sweet' => 'my sweet',
+  'new people' => 'new people',
+  'the band' => 'the band',
+  'the family' => 'the family',
+  'the florist' => 'the florist',
+  'the prince' => 'the prince',
+  'the real estate agent' => 'the real estate agent',
+  'with the company' => 'with the company',
+  'a great man' => 'a great man',
+  'all the good times we had together' => 'all the good times we had together',
+  'all the happy times we had together' => 'all the happy times we had together',
+  'fun times' => 'fun times',
+  'happy times' => 'happy times',
+  'how things used to be' => 'how things used to be',
+  'my childhood days' => 'my childhood days',
+  'my dreams' => 'my dreams',
+  'my family' => 'my family',
+  'my father' => 'my father',
+  'my last birthday' => 'my last birthday',
+  'someone very special' => 'someone very special',
+  'that moment' => 'that moment',
+  'the good old days' => 'the good old days',
+  'the past' => 'the past',
+  'those moments' => 'those moments',
+  'those who are no longer with us' => 'those who are no longer with us',
+  'those who\'ve served' => 'those who\'ve served',
+  'you all' => 'you all',
+  'all my friends' => 'all my friends',
+  'all the good times' => 'all the good times',
+  'a lot of things' => 'a lot of things',
+  'a road trip' => 'a road trip',
+  'better days' => 'better days',
+  'doing something crazy' => 'doing something crazy',
+  'doing something different' => 'doing something different',
+  'friends and family' => 'friends and family',
+  'getting my hair cut' => 'getting my hair cut',
+  'going back to college' => 'going back to college',
+  'how blessed i am' => 'how blessed i am',
+  'making a change' => 'making a change',
+  'making a trip' => 'making a trip',
+  'my future' => 'my future',
+  'my mom' => 'my mom',
+  'old memories' => 'old memories',
+  'someone special' => 'someone special',
+  'the meaning of life' => 'the meaning of life',
+  'the old days' => 'the old days',
   'By checking this checkbox you are providing explicit consent as detailed in the privacy policy below. You have not provided consent yet.' => 'By checking this checkbox you are providing explicit consent as detailed in the privacy policy below. You have not provided consent yet.',
   'Accept' => 'Accept',
   'You provide consent on' => 'You provide consent on',
@@ -4220,6 +4945,14 @@ Thank you for your patience.
   '_EMAIL_SESGDPR_CONSENT_USER_DESCRIPTION' => 'This is the email that gets sent to the admin when a member contact through GDPR form in the Privacy Center.',
   '_EMAIL_SESGDPR_CONSENT_USER_SUBJECT' => '[subject].',
   '_EMAIL_SESGDPR_CONSENT_USER_BODY' => '[header]
+
+[body]
+
+[footer]',
+  '_EMAIL_JOIN_LEAVE_TITLE' => 'JOIN LEAVE',
+  '_EMAIL_JOIN_LEAVE_DESCRIPTION' => 'This is the email that gets sent to the admin when a member contact through GDPR form in the Privacy Center.',
+  '_EMAIL_JOIN_LEAVE_SUBJECT' => 'Place available',
+  '_EMAIL_JOIN_LEAVE_BODY' => '[header]
 
 [body]
 
@@ -4287,7 +5020,6 @@ CDN that uses FTP or SCP.',
   '%1$s\'s Profile' => '%1$s\'s Profile',
   'Current Photo' => 'Current Photo',
   'Choose New Photo' => 'Choose New Photo',
-  'Save Photo' => 'Save Photo',
   'Profile Photos' => 'Profile Photos',
   'Remove Photo' => 'Remove Photo',
   'remove photo' => 'remove photo',
@@ -4340,7 +5072,6 @@ CDN that uses FTP or SCP.',
   'Who can view your profile?' => 'Who can view your profile?',
   'Profile Posting Privacy' => 'Profile Posting Privacy',
   'Who can post on your profile?' => 'Who can post on your profile?',
-  'Only Me' => 'Only Me',
   'Only My Friends' => 'Only My Connections',
   'Only My Networks' => 'Only My Networks',
   'Recent Activity Privacy' => 'Recent Activity Privacy',
@@ -4379,7 +5110,6 @@ CDN that uses FTP or SCP.',
   'Member Info' => 'Member Info',
   'Member Type:' => 'Member Type:',
   'This profile is private.' => 'This profile is private.',
-  'Settings were successfully saved.' => 'Settings were successfully saved.',
   'My Networks' => 'My Networks',
   'You belong to %s network.' => 
   array (
@@ -4429,10 +5159,8 @@ CDN that uses FTP or SCP.',
   'You are now logged out.' => 'You are now logged out.',
   'No member specified' => 'No member specified',
   'No action taken' => 'No action taken',
-  'An error has occurred.' => 'An error has occurred.',
   'Member unblocked' => 'Member unblocked',
   'Member blocked' => 'Member blocked',
-  'The uploaded file is not supported or is corrupt.' => 'The uploaded file is not supported or is corrupt.',
   'Set as profile photo' => 'Your profile photo has been successfully changed.',
   'Missing list/not authorized' => 'Missing list/not authorized',
   'Already in list' => 'Already in list',
@@ -4449,10 +5177,7 @@ CDN that uses FTP or SCP.',
   'You ignored a friend request from %1$s' => 'You ignored a friend request from %1$s',
   'This person has been removed from your friends.' => 'This person has been removed from your connections.',
   'Settings saved.' => 'Settings saved.',
-  'Passwords did not match' => 'Passwords did not match',
-  'Old password did not match' => 'Old password did not match',
   'Network not found' => 'Network not found',
-  'Invalid param count' => 'Invalid param count',
   'Invalid param value' => 'Invalid param value',
   'ADMIN_SIGNUP_STEP_USER_PLUGIN_SIGNUP_ACCOUNT' => 'Create Account',
   'ADMIN_SIGNUP_STEP_USER_PLUGIN_SIGNUP_FIELDS' => 'Create Profile',
@@ -4470,7 +5195,6 @@ following Callback URL: %2$s',
   'I have read and agree to the <a target="_blank" href="%s/help/terms">terms of service</a>.' => 'I have read and agree to the <a target="_blank" href="%s/help/terms">terms of service</a>.',
   'You must agree to the terms of service to continue.' => 'You must agree to the terms of service to continue.',
   'This will be the end of your profile link, for example: <br /> <span id="profile_address">http://%s</span>' => 'This will be the end of your profile link, for example: <br /> <span id="profile_address">http://%s</span>',
-  'You are now friends with %s' => 'You are now connected with %s',
   'You ignored %s\'s request to follow you' => 'You ignored %s\'s request to follow you',
   'You ignored a friend request from %s' => 'You ignored a friend request from %s',
   'You are now following this member.' => 'You are now following this member.',
@@ -4608,18 +5332,14 @@ following Callback URL: %2$s',
   'Profile Type:' => 'Profile Type:',
   'Regular Member' => 'Regular Member',
   'Personal Information' => 'Personal Information',
-  'Gender' => 'Gender',
   'Male' => 'Male',
   'Female' => 'Female',
   'Birthday' => 'Birthday',
   'Birthdate' => 'Birthdate',
-  'Facebook' => 'Facebook',
-  'Twitter' => 'Twitter',
   'Personal Details' => 'Personal Details',
   'AIM' => 'AIM',
   'About Me' => 'About Me',
   'Interests' => 'Interests',
-  'Age' => 'Age',
   'Level' => 'Level',
   'Signup Date' => 'Signup Date',
   'Step %d:  Add Your Photo' => 'Step %d:  Add Your Photo',
@@ -4646,12 +5366,10 @@ following Callback URL: %2$s',
   'Recent Signups' => 'Recent Signups',
   'User Photo' => 'User Photo',
   'Save Position' => 'Save Position',
-  'Upload Cover Photo' => 'Upload Cover Photo',
   'Choose a cover photo.' => 'Choose a cover photo.',
   'Delete Cover Photo?' => 'Delete Cover Photo?',
   'Are you sure you want to delete this cover photo?' => 'Are you sure you want to delete this cover photo?',
   'Reposition' => 'Reposition',
-  'Remove Cover Photo' => 'Remove Cover Photo',
   'Choose from Albums' => 'Choose from Albums',
   'Remove from Friends' => 'Remove from Friends',
   'Approve Selected' => 'Approve Selected',
@@ -4720,7 +5438,7 @@ http://[host][object_link]
 [footer]',
   '_EMAIL_NOTIFY_FRIEND_REQUEST_TITLE' => 'Friend Request',
   '_EMAIL_NOTIFY_FRIEND_REQUEST_DESCRIPTION' => 'This is the email that gets sent to a member when they are requested to be a friend by another member.',
-  '_EMAIL_NOTIFY_FRIEND_REQUEST_SUBJECT' => '[sender_title] has added you as a friend.',
+  '_EMAIL_NOTIFY_FRIEND_REQUEST_SUBJECT' => '[sender_title] has added you as a connection.',
   '_EMAIL_NOTIFY_FRIEND_REQUEST_BODY' => '[header]
 
 [sender_title] has added you as a friend. Please click the following link to sign in and confirm this friendship request:
@@ -4772,13 +5490,7 @@ Please login to the admin panel to aprovie this user.
   'This account still requires admin approval.' => 'This account still requires admin approval.',
   'Your account has been verified. Please wait to be redirected or click %s to login.' => 'Your account has been verified. Please wait to be redirected or click %s to login.',
   'Browser cookies are required to login.' => 'Browser cookies are required to login.',
-  'Single' => 'Single',
-  'In a Relationship' => 'In a Relationship',
-  'Engaged' => 'Engaged',
-  'Married' => 'Married',
   'It\'s Complicated' => 'It\'s Complicated',
-  'In an Open Relationship' => 'In an Open Relationship',
-  'Widowed' => 'Widowed',
   'Facebook account you\'re trying to connect is already connected to another account.' => 'Facebook account you\'re trying to connect is already connected to another account.',
   'Super Admins can\'t be deleted.' => 'Super Admins can\'t be deleted.',
   'Accept Request' => 'Accept Request',
@@ -4788,7 +5500,7 @@ Please login to the admin panel to aprovie this user.
   'Special Characters Allowed !#$%&*-?@^' => 'Special Characters Allowed !#$%&*-?@^',
   '_EMAIL_USER_OTP_TITLE' => 'Two Step Authentication',
   '_EMAIL_USER_OTP_DESCRIPTION' => 'This email is sent to members of your site when they are signing up to verify 2 step authentication via email.',
-  '_EMAIL_USER_OTP_SUBJECT' => 'Social Network - Two Step Authentication',
+  '_EMAIL_USER_OTP_SUBJECT' => 'dan+doen+we+dat - Two Step Authentication',
   '_EMAIL_USER_OTP_BODY' => '[header]
 
 Verify your email address by using the below verification code and continue. It will expire in 1 hour.
@@ -4797,7 +5509,7 @@ Verification Code: [code]
 [footer]',
   '_EMAIL_USER_DELETEOTP_TITLE' => 'Two Step Authentication for Account Deletion',
   '_EMAIL_USER_DELETEOTP_DESCRIPTION' => 'This email is sent to members of your site when they are deleting their account to verify 2 step authentication via email.',
-  '_EMAIL_USER_DELETEOTP_SUBJECT' => 'Social Network - Two Step Authentication for Account Deletion',
+  '_EMAIL_USER_DELETEOTP_SUBJECT' => 'dan+doen+we+dat - Two Step Authentication for Account Deletion',
   '_EMAIL_USER_DELETEOTP_BODY' => '[header]
 
 For deleting your account, verify your email address by using the below verification code and continue. It will expire in 1 hour.
@@ -4805,20 +5517,76 @@ Verification Code: [code]
 
 [footer]',
   'ADMIN_ACTIVITY_TYPE_COVER_PHOTO_UPDATE' => 'When a user (subject) updates their profile cover photo.',
-  '_EMAIL_FOOTER_MEMBER_BODYHTML' => 'Best Regards,<br>dan+doen+we+dat | r e d a c t i e&nbsp;',
-  '_EMAIL_CORE_VERIFICATION_BODYHTML' => '[header]<br> <br> Thank you for joining dan+doen+we+dat network. To verify your email address and continue, please click the following link:<br> http://[host][object_link]<br> <br> Email: [email]<br> <br> [footer]',
+  '_EMAIL_FOOTER_MEMBER_BODYHTML' => 'Best Regards,<br> dan+doen+we+dat | r e d a c t i e&nbsp;',
   '_EMAIL_FOOTER_BODYHTML' => 'Best Regards,<br>dan+doen+we+dat | redactie',
-  '_EMAIL_CORE_WELCOME_BODYHTML' => '[header]<br> <br> Thank you for joining our social network. Click the following link and enter your information below to login:<br> <br> http://[host][object_link]<br> <br> Email: [email]<br> <br> [footer]',
-
-  
-    "_EMAIL_JOIN_LEAVE_TITLE";"JOIN LEAVE"
-    "_EMAIL_JOIN_LEAVE_DESCRIPTION";"This is the email that gets sent to the admin when a member contact through GDPR form in the Privacy Center."
-    "_EMAIL_JOIN_LEAVE_SUBJECT";"[subject]."
-    "_EMAIL_JOIN_LEAVE_BODY";"[header]
-
-    [body]
-
-    [footer]"
-
+  '_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_TITLE' => 'Event Spot availability',
+  '_EMAIL_JOIN_LEAVE_BODYHTML' => 'A spot has become avaialbe!<br>[header]<br> <br> [body]<br> <br> [footer]',
+  '_EMAIL_NOTIFY_FRIEND_ACCEPTED_BODYHTML' => '[header]<br> <br> [sender_title] has approved you as a connection. Please click the following link to sign in:<br> <br> http://[host][object_link]<br> <br> [footer]',
+  '_EMAIL_NOTIFY_FRIEND_REQUEST_BODYHTML' => '[header]<br> <br> [sender_title] has added you as a connection. Please click the following link to sign in and confirm this friendship request:<br> <br> http://[host][sender_link]<br> <br> [footer]',
+  '_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_SUBJECT' => 'A Spot has opened up for [event_title]',
+  '_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_BODYHTML' => '[header]<br><br>A Spot has become available for [event_title]. Be quick to grab it before somebody beats you to it! You can sign up on the event page: [event_url].<br> <br><br> [footer]',
+  '_EMAIL_SESEVENT_RSVP_CHANGE_BODYHTML' => '[header]<br> <br> [viewer_name] has been changed rsvp for event: [event_title]<br> <br> Event Link: http://[host][object_link]<br> <br> [footer]',
+  'test' => 'test',
+  '_EMAIL_CORE_VERIFICATION_PASSWORD_BODYHTML' => '<p>[header]<br> <br> Thank you for joining dan+doen+we+dat.</p>
+<p>To verify your email address and continue, please click the following link:</p>
+<p><br> http://[host][object_link]<br> <br> Email: [email]<br> Password: [password]</p>
+<p>&nbsp;</p>
+<p class="p1">Thank you for registering!</p>
+<p class="p2">&nbsp;</p>
+<p class="p1">To maximize the chance of like-minded people during the events, our system constantly checks for:</p>
+<p class="p2">&nbsp;</p>
+<p class="p1">&bull; Recognizable profile picture</p>
+<p class="p1">&bull; Fully completed profiles</p>
+<p class="p1">&bull; Balance in the different age categories and regions</p>
+<p class="p1">&bull; Balance of men and women</p>
+<p class="p1">&bull; Balance with regard to different interests</p>
+<p class="p1">&bull; Balance of new versus long-time members.</p>
+<p class="p1">If you have not received a confirmation e-mail within 48 hours, there is unfortunately no place available at the moment.</p>
+<p class="p1">It may therefore happen that you are temporarily unable to become a member. Or you cannot renew your membership. Do not panic. As soon as space becomes available, you will immediately receive a message via e-mail to participate.</p>
+<p><br> <br> [footer]</p>',
+  '_EMAIL_CORE_VERIFICATION_BODYHTML' => '<p>[header]<br> <br> Thank you for joining dan+doen+we+dat network.</p>
+<p>To verify your email address and continue, please click the following link:</p>
+<p><br> http://[host][object_link]<br> <br> Email: [email]</p>
+<p>&nbsp;</p>
+<p class="p1">Thank you for registering!</p>
+<p class="p2">&nbsp;</p>
+<p class="p1">To maximize the chance of like-minded people during the events, our system constantly checks for:</p>
+<p class="p2">&nbsp;</p>
+<p class="p1">&bull; Recognizable profile picture</p>
+<p class="p1">&bull; Fully completed profiles</p>
+<p class="p1">&bull; Balance in the different age categories and regions</p>
+<p class="p1">&bull; Balance of men and women</p>
+<p class="p1">&bull; Balance with regard to different interests</p>
+<p class="p1">&bull; Balance of new versus long-time members.</p>
+<p class="p1">If you have not received a confirmation e-mail within 48 hours, there is unfortunately no place available at the moment.</p>
+<p class="p1">It may therefore happen that you are temporarily unable to become a member. Or you cannot renew your membership. Do not panic. As soon as space becomes available, you will immediately receive a message via e-mail to participate.</p>
+<p><br><br> [footer]</p>',
+  '_EMAIL_CORE_WELCOME_BODYHTML' => '<p>[header]<br><br>Thank you for joining dan+doen+we+dat.</p>
+<p>&nbsp;</p>
+<p>Click the following link and enter your information below to login:</p>
+<p><br><br>http://[host][object_link]<br><br>Email: [email]<br><br><br></p>
+<p class="p1">&nbsp;</p>
+<br>[footer]',
+  '_EMAIL_CORE_WELCOME_PASSWORD_BODYHTML' => '<p>[header]<br> <br> Thank you for joining dan+doen+we+dat.</p>
+<p>&nbsp;</p>
+<p>Click the following link and enter your information below to login:<br> <br> http://[host][object_link]</p>
+<p>&nbsp;</p>
+<p><br> Email: [email]<br> Password: [password]</p>
+<p>&nbsp;</p>
+<p class="p1"><br> [footer]</p>',
+  '_EMAIL_USER_ACCOUNT_APPROVED_BODYHTML' => '<p>[header]<br> <br> Thank you for Joining dan+doen+we+dat!</p>
+<p>Your account has been approved, Welcome!</p>
+<p>&nbsp;</p>
+<p>Please click the following link to sign in:<br> <br> http://[host][object_link]</p>
+<p>&nbsp;</p>
+<p>To maximize the chance of like-minded people during the events, our system constantly checks for:<br><br>&bull; Recognizable profile picture<br>&bull; Fully completed profiles<br>&bull; Balance in the different age categories and regions<br>&bull; Balance of men and women<br>&bull; Balance with regard to different interests<br>&bull; Balance of new versus long-time members.<br><br><br>-----------------------------------------------------------------------------------------------------------------------<br>It may therefore happen that you are temporarily unable to renew your membership. <br><br>Do not panic. <br><br>As soon as space becomes available, you will immediately receive a message via e-mail to participate.<br>-----------------------------------------------------------------------------------------------------------------------<br><br><br> [footer]</p>',
+  '_EMAIL_INVITE_BODYHTML' => '<p>[header]<br> <br> You have been invited by [sender_title] to join dan+doen+we+dat.</p>
+<p>To join, please follow the link below:<br> <br> http://[host][object_link]<br> <br>-----------------------------------------------------------------------------------------------------------------------<br> [message]<br><br>If you don\'t receive a confirmation e-mail within 48 hours, there is unfortunately no place available at the moment.&nbsp;It may therefore happen that you are temporarily unable to become a member. Do not panic. As soon as space becomes available, you will immediately receive a message via e-mail to participate.<br>-----------------------------------------------------------------------------------------------------------------------</p>
+<p class="p1">&nbsp;</p>
+<p>If you do not receive a confirmation email, please check your spam folder before contacting us.<br><br> [footer]</p>',
+  '_EMAIL_INVITE_CODE_BODYHTML' => '<p>[header]<br> <br> You have been invited by [sender_title] to join dan+doen+we+dat.<br>To join, please follow the link below:<br> <br> http://[host][object_link]<br> <br> -----------------------------------------------------------------------------------------------------------------------<br> [message]</p>
+<p>If you don\'t receive a confirmation e-mail within 48 hours, there is unfortunately no place available at the moment.&nbsp;It may therefore happen that you are temporarily unable to become a member. Do not panic. As soon as space becomes available, you will immediately receive a message via e-mail to participate.<br>-----------------------------------------------------------------------------------------------------------------------</p>
+<p class="p1">If you do not receive a confirmation email, please check your spam folder before contacting us.<br><br> [footer]</p>',
+  '0.00' => '0.00',
 );
 ?>

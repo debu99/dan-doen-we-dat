@@ -1,10 +1,6 @@
 "nl";"nl"
-"_EMAIL_FOOTER_MEMBER_BODYHTML";"Groet,<br>dan+doen+we+dat | r e d a c t i e&nbsp;"
-"_EMAIL_CORE_VERIFICATION_SUBJECT";"dan+doen+we+dat - Email Verification"
-"_EMAIL_CORE_VERIFICATION_BODYHTML";"[header]<br> <br> Wat leuk dat je je hebt aangemeld bij dan+doen+we+dat Activiteiten en Uitgaan. Klik op de volgende link om uw e-mail adres te verifiëren:<br> http://[host][object_link]<br> <br> Email: [email]<br> <br> [footer]"
+"_EMAIL_FOOTER_MEMBER_BODYHTML";"Groet,<br> dan+doen+we+dat | r e d a c t i e&nbsp;"
 "_EMAIL_FOOTER_BODYHTML";"Groet,<br>dan+doen+we+dat | redactie"
-"_EMAIL_CORE_WELCOME_SUBJECT";"Welkom bij dan+doen+we+dat"
-"_EMAIL_CORE_WELCOME_BODYHTML";"[header]<br> <br> Bedankt voor je deelname aan ons netwerk. Klik op de volgende link en voer je gegevens in om in te loggen:<br> <br> http://[host][object_link]<br> <br> Email: [email]<br> <br> [footer]"
 "Friends and Networks";"Connecties en Netwerken"
 "Friends of Friends";"Connecties van Connecties"
 "Friends Only";"Alleen Connecties"
@@ -19,7 +15,7 @@
 "_ACTIVITY_ACTIONTYPE_FRIENDS_FOLLOW";"Als ik iemand volg"
 "_CORE_ADMIN_STATS_USER_FRIENDSHIPS";"Nieuwe Connectie"
 "Friendships";"Connecties"
-"Friends: %s friend";"Connecties:%s Connectie";"Connecties:%s Connectie"
+"Friends: %s friend";"Connecties: %s Connectie";"Connecties: %s Connectie"
 "Add to My Friends";"Toevoegen aan Mijn Connecties"
 "PAGETITLE-USER-FRIENDS-ADMIN-SETTINGS";"Connectie Settings"
 "Transfer to Friends";"Transfer naar Connecties"
@@ -31,7 +27,6 @@
 "My Friends";"Mijn Connecties"
 "Friends & Networks";"Connecties & Netwerken"
 "ACTIVITY_TYPE_FRIENDS";"Wanneer twee leden een connectie maken."
-"ACTIVITY_TYPE_FRIENDS_FOLLOW";"======"
 "ACTIVITY_TYPE_FRIENDS_FOLLOW";"Als iemand mij volgt."
 "{item:$subject} is now friends with {item:$object}.";"{item:$subject} heeft nu een connectie met {item:$object}."
 "Only My Friends' Lists";"Alleen mijn Lijst van Connecties "
@@ -83,7 +78,6 @@ de % s pagina. Als je wilt dat alle leden in je community dezelfde functies en l
 "Are you sure you want to delete this level? Members in this level will be re-assigned to the default level.";"Weet je zeker dat je dit niveau wilt verwijderen? Leden op dit niveau worden opnieuw toegewezen aan het standaardniveau."
 "Create Member Level";"Lidniveau creëren"
 "Create Level";"Creëer niveau"
-"Copy Values From:";"===="
 "Copy Values From:";"Waarden kopiëren van:"
 "Member Level Name";"Naam Lid Niveau"
 "Allow Profile Style";"Profiel Stijl toestaan"
@@ -116,7 +110,7 @@ de % s pagina. Als je wilt dat alle leden in je community dezelfde functies en l
 "Delete Message(s)?";"Verwijder bericht(en)?"
 "Are you sure that you want to delete the selected message(s)? This action cannot be undone.";"Weet u zeker dat u de geselecteerde bericht(en) wilt verwijderen? Deze actie kan niet ongedaan gemaakt worden."
 "Delete";"Delete"
-"or";"of"
+"or";"or"
 "cancel";"cancel"
 "Conversation with a deleted member.";"Gesprek met een verwijderd lid."
 "You have %1$s new message, %2$s total";"Je hebt %1$s nieuw bericht, %2$s totaal";"Je hebt %1$s nieuwe berichten, %2$s total"
@@ -125,7 +119,6 @@ de % s pagina. Als je wilt dat alle leden in je community dezelfde functies en l
 "You have %s sent message total";"Je hebt %s verzonden bericht totaal";"Je hebt %s verzonden berichten totaal"
 "<em>(No Subject)</em>";"<em>(Geen Onderwerp)</em>"
 "(No Subject)";"(Geen Onderwerp)"
-"Between %1$s and %2$s";"===="
 "Between %1$s and %2$s";"Tussen %1$s en %2$s"
 "You";"Jij"
 "Start typing...";"Start typing..."
@@ -140,15 +133,14 @@ de % s pagina. Als je wilt dat alle leden in je community dezelfde functies en l
 "All Registered Members";"Alle Geregistreerde Leden"
 "Users in the same network";"Gebruikers in hetzelfde netwerk"
 "Edit Level";"Niveau bewerken"
-"ACTIVITY_TYPE_MESSAGE_NEW";"Wanneer ik een bericht ontvang."
+"ACTIVITY_TYPE_MESSAGE_NEW";"When I receive a message."
 "ACTIVITY_CATEGORY_TYPE_MESSAGES";"Algemeen"
 "Delete Selected";"Verwijder geselecteerde"
 "Recent Messages";"Recente Berichten"
 "From %s %s";"Van %s %s"
 "{item:$subject} has sent you a {item:$object:message}.";"{item:$subject} has sent you a {item:$object:message}."
-"_EMAIL_NOTIFY_MESSAGE_NEW_TITLE";"Nieuw Bericht"
+"_EMAIL_NOTIFY_MESSAGE_NEW_TITLE";"New Message"
 "_EMAIL_NOTIFY_MESSAGE_NEW_DESCRIPTION";"Dit is de e-mail die naar een lid wordt gestuurd wanneer ze een nieuw bericht ontvangen."
-"_EMAIL_NOTIFY_MESSAGE_NEW_SUBJECT";"Je hebt een nieuw bericht ontvangen van [sender_title]."
 "_EMAIL_NOTIFY_MESSAGE_NEW_BODY";"[header] U heeft een nieuw bericht ontvangen van [sender_title]: [object_description] Klik op de volgende link om in te loggen en deze te bekijken: http://[host][object_link] [footer]"
 "Delete Network";"Netwerk Verwijderen"
 "Are you sure you want to delete this network?";"Weet je zeker dat je dit netwerk wilt verwijderen?"
@@ -173,7 +165,7 @@ de % s pagina. Als je wilt dat alle leden in je community dezelfde functies en l
 "n/a";"nvt"
 "ACTIVITY_TYPE_NETWORK_JOIN";"Wanneer ik lid word van een netwerk"
 "ITEM_TYPE_NETWORK";"Netwerken"
-"ADMIN_SIGNUP_STEP_EMEMSUB_PLUGIN_SIGNUP_SUBSCRIPTION";"Lidmaatschap inschakelen"
+"ADMIN_SIGNUP_STEP_EMEMSUB_PLUGIN_SIGNUP_SUBSCRIPTION";"Enable Membership Subscription Plans"
 "Confirm Subscription";"Lidmaatschap Bevestigen"
 "You are about to subscribe to the plan: ";"Je schrijft je in voor dit lidmaatschap:"
 "Are you sure you want to do this? You ";"Weet je het zeker? U"
@@ -186,7 +178,7 @@ de % s pagina. Als je wilt dat alle leden in je community dezelfde functies en l
 "provided for any unused portion of your current plan.";"voor elk ongebruikt deel van uw huidige lidmaatschap."
 "Subscriptions are not required for ";"Lidmaatschappen zijn niet vereist voor"
 "SNS - Membership Subscription Pricing Table & Plan Layout Plugin";"Inschrijving"
-"Subscription";"Inschrijving"
+"Subscription";"Subscription"
 "The plan you are currently subscribed ";"Het lidmaatschap dat u momenteel heeft"
 "to is: %1$s";"is: %1$s"
 "You are currently paying: %1$s";"U betaalt momenteel: %1$s"
@@ -255,15 +247,13 @@ de % s pagina. Als je wilt dat alle leden in je community dezelfde functies en l
 "Most members that joined from their invites";"De meeste leden die zijn lid geworden van hun uitnodigingen"
 "Please enter only valid email addresses.";"Voer alleen geldige e-mailadressen in."
 "_EMAIL_INVITE_TITLE";"Uitnodiging"
-"_EMAIL_INVITE_SUBJECT";"Je hebt een uitnodiging ontvangen om lid te worden van dan+doen+we+dat"
 "_EMAIL_INVITE_BODY";"[header] Je bent uitgenodigd door [sender_title] om lid te worden van dan+doen+we+dat. 
 Volg de onderstaande link om lid te worden: 
 http://[host][object_link] ---------------------------------------- [message] ---------------------------------------- [footer]"
 "_EMAIL_INVITE_CODE_TITLE";"Invite Code"
 "_EMAIL_INVITE_CODE_DESCRIPTION";"Deze e-mail wordt naar iemand gestuurd wanneer ze door een lid zijn uitgenodigd en er is een invite code vereist."
-"_EMAIL_INVITE_CODE_SUBJECT";"Je hebt een uitnodiging ontvangen om lid te worden van dan+doen+we+dat!"
 "_EMAIL_INVITE_CODE_BODY";"[header] Je bent uitgenodigd door[sender_title] tom lid te worden van dan+doen+we+dat. Volg de onderstaande link om lid te worden: http://[host][object_link] ---------------------------------------- [message] ---------------------------------------- [footer]"
-"You are being invited to join our social network.";"Je wordt uitgenodigd om lid te worden van dan+doen+we+dat."
+"You are being invited to join our social network.";"Je bent uitgenodigd om lid te worden van dan+doen+we+dat."
 "Request Invite";"Uitnodiging Aanvragen"
 "Contrast";"Contrast"
 "Default Mode";"Default Mode"
@@ -294,7 +284,7 @@ http://[host][object_link] ---------------------------------------- [message] --
 "Manage Ad Campaigns";"Manage Ad Campaigns"
 "Performance & Caching";"Performance & Caching"
 "You have reached maximum limit of posting in %s. Try again after this duration expires.";"U heeft de maximale limiet voor posten in %s bereikt. Probeer het opnieuw nadat deze periode is verstreken."
-" or ";"of"
+" or ";"or"
 "Description";"Beschrijving"
 "Name";"Naam"
 "member";"Lid";"Leden"
@@ -302,7 +292,7 @@ http://[host][object_link] ---------------------------------------- [message] --
 "%d hour ago";"%d uur geleden";"%d uren geleden"
 "There was an error processing your request.  Please try again later.";"Er is een fout opgetreden tijdens het behandelen van uw verzoek. Probeer het later opnieuw."
 "View all %s comment";"Bekijk alle %s comment";"Bekijk alle %s comments"
-"%s Like";"========";""
+"%s Like";"%s Like";""
 "%s person likes this";"%s persoon likes dit";"%s personen liken dit"
 "View previous comments";"Bekijk eerdere opmerkingen"
 "View more comments";"Bekijk meer reacties"
@@ -344,7 +334,6 @@ http://[host][object_link] ---------------------------------------- [message] --
 "Link created";"Link gemaakt"
 "Link doesn't exists or not authorized to delete";"Link bestaat niet of is niet geautoriseerd om te verwijderen"
 "Link has been deleted.";"Link is verwijderd."
-"%s Like";"%s Like";""
 "Birthdays must include a month and a date.";"Verjaardagen moeten een datum bevatten."
 "Please select a date from the calendar";"Selecteer een datum in de kalender"
 "Please select a time from the dropdown";"Selecteer een tijd in de keuzelijst"
@@ -373,617 +362,6 @@ http://[host][object_link] ---------------------------------------- [message] --
 "_ACTIVITY_ACTIONTYPE_FIELDS_CHANGE_GENERIC";"Mijn profiel bijwerken"
 "_CORE_CONTACT_DESCRIPTION";"Als u ons direct een vraag wilt stellen, stuur dan uw bericht met het volgende formulier."
 "_CORE_HELP_CONTACT_MESSAGE";"Naam: %1$s Email: %2$s Lid Info: (%3$s - %4$s) IP: %5$s User-agent: %6$s Timestamp: %7$s Bericht: %8$s"
-"_CORE_PRIVACY_STATEMENT";"Deze pagina bevat de privacyverklaring."
-"_CORE_TERMS_OF_SERVICE";"Deze pagina bevat de servicevoorwaarden."
-"You can no longer respond to this message because %1$s has blocked you.";"Je kunt niet meer reageren op dit bericht omdat %1$s je heeft geblokkeerd."
-"Select Member Level";"Selecteer Member Level"
-"Options";"Opties"
-"Date";"Datum"
-"Owner";"Eigenaar"
-"_CORE_ADMIN_STATS_ANNOUNCEMENT_CREATIONS";"Mededelingen"
-"_CORE_ADMIN_STATS_CORE_EMAILS";"Verzonden e-mails"
-"Nothing has been posted here yet - be the first!";"Er is nog niets gepost - wees de eerste!"
-"Popular Members";"Populaire leden"
-"View Recent Updates";"Bekijk recente updates"
-"View My Profile";"Bekijk mijn profiel"
-"Friend Approved";"Connection Approved"
-"Friend Request";"Connection Request"
-"Friend Follow";"Connection Follow"
-"Comment on Liked";"Reageer op 'Liked'"
-"_EMAIL_FOOTER_BODY";"Groet, dan+doen+we+dat | redactie"
-"_EMAIL_HEADER_MEMBER_BODY";"Hallo"
-"_EMAIL_FOOTER_MEMBER_BODY";"Groet, dan+doen+we+dat | redactie"
-"_EMAIL_CORE_VERIFICATION_BODY";"[header] Bedankt voor je deelname aan ons netwerk. Klik op de volgende link om uw e-mailadres te verifiëren en door te gaan: http://[host][object_link] Email: [email] [footer]"
-"_EMAIL_CORE_VERIFICATION_PASSWORD_SUBJECT";"dan+doen+we+dat - Email Verification"
-"_EMAIL_CORE_VERIFICATION_PASSWORD_BODY";"[header] Bedankt voor je deelname aan ons netwerk. Klik op de volgende link om uw e-mailadres te verifiëren en door te gaan: http://[host][object_link] Email: [email] Password: [password] [footer]"
-"_EMAIL_NOTIFY_ADMIN_USER_SIGNUP_SUBJECT";"Someone has joined dan+doen+we+dat!"
-"_EMAIL_NOTIFY_ADMIN_USER_SIGNUP_BODY";"Congratulations, someone has joined dan+doen+we+dat. Verwelkom het nieuwe lid op uw site: [object_title] : http://[host][object_link] Signup Date: [date]"
-"_EMAIL_CORE_WELCOME_BODY";"[header] Bedankt voor je deelname aan dan+doen+we+dat. Klik op de volgende link en voer uw gegevens in om in te loggen: http://[host][object_link] Email: [email] [footer]"
-"_EMAIL_CORE_WELCOME_PASSWORD_SUBJECT";"Welkom bij dan+doen+we+dat!"
-"_EMAIL_CORE_WELCOME_PASSWORD_BODY";"[header] Bedankt voor je deelname aan dan+doen+we+dat. Klik op de volgende link en voer uw gegevens in om in te loggen: http://[host][object_link] Email: [email] Password: [password] [footer]"
-"_EMAIL_CORE_LOSTPASSWORD_SUBJECT";"dan+doen+we+dat - Lost Password"
-"_EMAIL_CORE_LOSTPASSWORD_BODY";"[header] U heeft verzocht uw wachtwoord opnieuw in te stellen omdat u uw wachtwoord bent vergeten. Als u hier niet om heeft gevraagd, negeer deze dan. Het verloopt over 1 uur. Klik op de volgende link om uw wachtwoord opnieuw in te stellen: http://[host][object_link] [footer]"
-"We're sorry!";"We're sorry! Het spijt ons!"
-"We are currently experiencing some technical issues. Please try again or report this to your site administrator using the %1$scontact%2$s form.";"We ondervinden momenteel enkele technische problemen. Probeer het opnieuw of meld dit aan uw sitebeheerder via het %1$scontact%2$s formulier."
-"You may configure your email alert preferences from <a href=""%1$s"" target=""_blank""> here</a>.";"U kunt uw voorkeuren voor e-mail berichtgeving configureren  <a href=""%1$s"" target=""_blank""> hier</a>."
-"You have no message.";"Je hebt geen bericht."
-"Welcome to our Social Network!!";"Welkom bij dan+doen+we+dat!!"
-"You can easily sign up on our community or simply login, if you already have an account to get started !";"U kunt zich eenvoudig aanmelden bij dan+doen+we+dat of gewoon inloggen als u al een account heeft, om aan de slag te gaan!"
-"Quickly start by posting your status updates, photos, videos, groups, blogs, classifieds, etc inside.";"Begin snel met het plaatsen van uw events, updates, foto's, groepen, blogs, enz."
-"Our community is 100% responsive, so you can use it anywhere, & anytime from any device.";"Onze community is 100% responsive, dus je kunt het overal en altijd gebruiken en vanaf elk apparaat."
-"Our community is available 24x7, so you can use it as per your flexibility and requirement.";"Onze community is 24x7 beschikbaar, dus u kunt deze gebruiken wanneer u wilt!"
-"Messages ";"Berichten"
-"Compose New Message";"Nieuw bericht opstellen"
-"View All Messages";"Bekijk alle berichten"
-"Date:";"Datum:"
-"Delete Comment?";"Reactie verwijderen?"
-"Are you sure that you want to delete this comment? This action cannot be undone.";"Weet je zeker dat je deze reactie wilt verwijderen? Deze actie kan niet ongedaan gemaakt worden."
-"Comment has been deleted";"Reactie is verwijderd"
-"You have no notifications.";"Je hebt geen meldingen."
-"You have no requests.";"Je hebt geen verzoeken."
-"Share this by re-posting it with your own message.";"Deel dit door het opnieuw te posten met je eigen bericht."
-"Are you sure that you want to delete this activity item and all of its comments? This action cannot be undone.";"Weet u zeker dat u dit en alle opmerkingen wilt verwijderen? Deze actie kan niet ongedaan gemaakt worden."
-"Default Email Notifications";"Standaard e-mail meldingen"
-"ADMIN_SIGNUP_STEP_SESSOCIALLOGIN_PLUGIN_SIGNUP_ACCOUNT";"Account aanmaken"
-"ADMIN_SIGNUP_STEP_SESSOCIALLOGIN_PLUGIN_SIGNUP_FIELDS";"Profiel aanmaken"
-"ADMIN_SIGNUP_STEP_SESSOCIALLOGIN_PLUGIN_SIGNUP_PHOTO";"Voeg Uw foto toe"
-"This Weekend";"Dit weekend"
-"Venue:";"Event locatie:"
-"Venue Name";"Locatie naam"
-"Spnsorship Confirmed for %s";"Sponsorship Confirmed for %s"
-"attending";"gaan"
-"maybe attending";"gaat misschien"
-"not attending";"gaat niet"
-"Attending";"Gaat"
-"Maybe Attending";"Gaat Misschien"
-"Not Attending";"Gaat niet"
-"Add Friend";"Connectie toevoegen"
-"Remove Friend";"Verwijder Connectie"
-"This event has %1$s guest.";"Dit event heeft %1$s deelnemer.";"Dit event heeft %1$s deelnemers."
-"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_TICKETPURCHASED";"Tickets voor evenementen kopen."
-"Manage Events";"Beheer Events"
-"%1$s has invited you to the event %2$s";"%1$s heeft je uitgenodigd voor het event %2$s"
-"{item:$subject} has invited you to the event {item:$object}.";"{item:$subject} heeft je uitgenodigd voor het event {item:$object}."
-"_EMAIL_SESEVENT_EVENT_CREATE_SUBJECT";"Bedankt voor het aanmaken van event '[event_title]' op dan+doen+we+dat!"
-"_EMAIL_SESEVENT_EVENT_CREATE_BODY";"[header] Bedankt voor het aanmaken van een event op dan+doen+we+dat. Klik op de volgende link en ga naar je event: http://[host][object_link] [footer]"
-"_EMAIL_SESEVENT_EVENT_ADMINAPPROVED_TITLE";"Je Event is goedgekeurd"
-"_EMAIL_SESEVENT_EVENT_ADMINAPPROVED_SUBJECT";"Je event '[event_title]' is goedgekeurd!"
-"_EMAIL_SESEVENT_EVENT_ADMINAPPROVED_BODY";"[header] Bedankt voor het aanmaken van een event op dan+doen+we+dat.  Klik op de volgende link en ga naar je event: http://[host][object_link] [footer]"
-"_EMAIL_SESEVENT_EVENT_ADMINDISAPPROVED_TITLE";"Event Afgekeurd"
-"_EMAIL_SESEVENT_EVENT_ADMINDISAPPROVED_SUBJECT";"Je event '[event_title]' is afgekeurd!"
-"_EMAIL_SESEVENT_EVENT_ADMINDISAPPROVED_BODY";"[header] Bedankt voor het aanmaken van een event op dan+doen+we+dat.  Klik op de volgende link en ga naar je event: http://[host][object_link] [footer]"
-"Only My Friend''s Events";"Only My Connections Events"
-"_EMAIL_PAYMENT_SUBSCRIPTION_ACTIVE_BODY";"[header] Bedankt voor je aanmelden voor een lidmaatschap. Je lidmaatschap is nu actief. [subscription_title] [subscription_description] [subscription_terms] U kunt met de onderstaande link in loggen. [object_link] [footer]"
-"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_TITLE";"Lidmaatschap opgezegd"
-"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_SUBJECT";"Uw lidmaatschap is opgezegd."
-"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_BODY";"[header] Uw lidmaatschap is opgezegd. [subscription_title] [subscription_description] [subscription_terms] Volg de onderstaande link om uw abonnement te verlengen. [object_link] [footer]"
-"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIRED_TITLE";"Lidmaatschap verlopen"
-"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIRED_SUBJECT";"Uw lidmaatschap is verlopen."
-"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIRED_BODY";"[header] Uw lidmaatschap is verlopen. [subscription_title] [subscription_description] [subscription_terms] Volg de onderstaande link om uw lidmaatschap te verlengen. [object_link] [footer]"
-"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIREDSOON_TITLE";"Lidmaatschap verloopt binnenkort"
-"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIREDSOON_SUBJECT";"Uw lidmaatschap loopt binnenkort af."
-"You are about to subscribe to the plan: %1$s";"Je staat op het punt om je lidmaatschap aan te gaan: %1$s"
-"Are you sure you want to do this? You will be charged: %1$s";"Weet je zeker dat je dit wilt doen? U betaalt %1$s"
-"If yes, click the button below and you will be taken to a payment page. When you have completed your payment, please remember to click the button that takes you back to our site.";"Zo ja, klik op de onderstaande knop en u wordt naar een betalingspagina geleid. Wanneer u uw betaling heeft voltooid, vergeet dan niet om op de knop te klikken die u terugbrengt naar onze site."
-"Please note that no refund will be provided for any unused portion of your current plan.";"Houd er rekening mee dat er geen restitutie wordt verleend voor ongebruikte delen van uw huidige lidmaatschap."
-"The plan you are currently subscribed to is: %1$s";"Het lidmaatschap dat u momenteel heeft: %1$s"
-"If you would like to change your subscription, please select an option below.";"Selecteer hieronder een optie als u uw lidmaatschap wilt wijzigen."
-"You have not yet selected a subscription plan. Please choose one now below.";"U heeft nog geen lidmaatschap gekozen. Kies er hieronder een uit."
-"Change Plan";"Wijzig lidmaatschap"
-"Thank you for being a part of our community.  Our world will be that much smaller without you.";"Bedankt dat je deel uitmaakt van onze community. Onze wereld zal veel kleiner zijn zonder jou."
-"This group has %s member.";"Deze groep heeft %s Lid";"Deze groep heeft %s Leden"
-"led by %1$s";"Geleid door"
-"You are now a member of this group.";"Je bent nu lid van deze groep."
-"Would you like to join this group?";"Wil je lid worden van deze groep?"
-"Are you sure you want to leave this group?";"Weet je zeker dat je deze groep wilt verlaten?"
-"Group Name";"Groepsnaam"
-"%1$s has invited you to the group %2$s";"%1$s heeft je uitgenodigd voor de groep %2$s"
-"This group has %1$s member.";"Deze groep heeft %1$s lid.";"Deze groep heeft %1$s leden."
-"_ACTIVITY_ACTIONTYPE_GROUP_CREATE";"Nieuwe groepen"
-"_ACTIVITY_ACTIONTYPE_GROUP_JOIN";"Lid worden van een groep"
-"ACTIVITY_CATEGORY_TYPE_GROUP";"Groepen"
-"Would you like to add this member as a friend?";"Would you like to add this member as a connection ?"
-"Cancel Friend Request";"Cancel Connection Request"
-"Do you want to cancel your friend request?";"Do you want to cancel your connection request?"
-"Confirm Friend";"Confirm Connection"
-"Would you like to confirm this member as a friend?";"Would you like to confirm this member as a connection?"
-"Reject Friend";"Reject Connection"
-"Would you like to reject this member as a friend?";"Would you like to reject this member as a connection?"
-"Are you sure you want to remove this member as a friend?";"Are you sure you want to remove this member as a connection?"
-"Choose Friend List";"Choose Connection List"
-"_EMAIL_USER_OTP_SUBJECT";"dan+doen+we+dat - Two Step Authentication"
-"_EMAIL_USER_DELETEOTP_BODY";"dan+doen+we+dat - Two Step Authentication for Account Deletion"
-"Friends: %s friend";"Connecties: %s Connectie";"Connecties: %s Connectie"
-"Please Enter Friend Name.";"Voer de naam van uw Connectie in."
-"ACTIVITY_TYPE_FRIEND_ACCEPTED";"Als iemand mijn connectie verzoek accepteert."
-"ACTIVITY_TYPE_FRIEND_REQUEST";"Wanneer ik een connectie verzoek ontvang."
-"Only My Friend's Events";"Alleen de Events van mijn Connecties"
-"Only My Friend''s Events";"Alleen mijn Connecties evenementen"
-"Would you like to add this member as a friend?";"Wilt u dit lid als connectie toevoegen?"
-"Cancel Friend Request";"Connectie verzoek annuleren"
-"Do you want to cancel your friend request?";"Wilt u uw connectie verzoek annuleren?"
-"Confirm Friend";"Bevestig Connectie"
-"Would you like to confirm this member as a friend?";"Wil je dit lid bevestigen als connectie ?"
-"Reject Friend";"Connectie weigeren"
-"Would you like to reject this member as a friend?";"Wil je dit lid afwijzen als connectie ?"
-"Are you sure you want to remove this member as a friend?";"Weet je zeker dat je dit lid als connectie wilt verwijderen?"
-"Choose Friend List";"Kies Connectie Lijst"
-"%s friend request";"%s connectie verzoek";"%s connecties verzoek"
-"%1$s has sent you a friend request.";"%1$s heeft je een connectie verzoek gestuurd."
-"You cannot befriend yourself.";"Je kan niet (altijd) alleen vrienden zijn met jezelf. "
-"Your friend request has been sent.";"Je connectie verzoek is verstuurt."
-"Your friend request has been cancelled.";"Je connectie verzoek is geannuleerd."
-"You ignored a friend request from %1$s";"Je hebt een  connectie verzoek genegeerd van %1$s"
-"You ignored a friend request from %s";"Je hebt een  connectie verzoek genegeerd van %s"
-"USER_FORM_ADMIN_SETTINGS_VERIFICATION_DESCRIPTION";"Your social network can allow either verified or unverified connection requests. The default setting is verified connection requests as this is typical for most social networks. Unverified connection requests mean that when Member A adds Member B as a connection, Member A and Member B will immediately become connected without any confirmation."
-"Verified Friendships";"Bevestigde Connectie"
-"Unverified Friendships";"Niet bevestigde Connectie"
-"Friend Lists";"Connectie Lijst"
-"USER_FORM_ADMIN_SETTINGS_LISTS_DESCRIPTION";"Met connectie lijsten kunnen uw leden hun connecties ordenen onder verschillende labels die ze maken. Vervolgens kunnen ze deze lijsten gebruiken om berichten naar meerdere connecties te sturen en hun privacy instellingen aan te passen."
-"Yes, users can group their friends into lists";"Ja, gebruikers kunnen hun connecties in lijsten groeperen"
-"Profile Friends";"Connecties Profiel"
-"Profile Mutual Friends";"Profiel Wederzijdse Connecties"
-"Remove from Friends";"Verwijder Connectie"
-"You and {item:$subject} are now friends.";"Jij en {item:$subject} hebben nu een connectie."
-"{item:$subject} has requested to be your friend.";"{item:$subject} heeft een connectie verzoek ingediend."
-"_EMAIL_NOTIFY_FRIEND_ACCEPTED_TITLE";"Connectie goedgekeurd"
-"_EMAIL_NOTIFY_FRIEND_ACCEPTED_DESCRIPTION";"Dit is de e-mail die naar een lid wordt gestuurd wanneer hun connectie verzoek is goedgekeurd."
-"_EMAIL_NOTIFY_FRIEND_ACCEPTED_SUBJECT";"[sender_title] heeft jullie connectie bevestigd."
-"_EMAIL_NOTIFY_FRIEND_ACCEPTED_BODY";"[header] [sender_title] heeft jullie connectie bevestigd. Klik op de volgende link om in te loggen: http://[host][object_link] [footer]"
-"_EMAIL_NOTIFY_FRIEND_FOLLOW_TITLE";"Connectie volgen"
-"_EMAIL_NOTIFY_FRIEND_FOLLOW_DESCRIPTION";"Dit is de e-mail die naar een lid wordt gestuurd wanneer een ander lid hem begint te volgen."
-"_EMAIL_NOTIFY_FRIEND_FOLLOW_SUBJECT";"[sender_title] is begonnen je te volgen."
-"_EMAIL_NOTIFY_FRIEND_FOLLOW_BODY";"[header] [sender_title] is begonnen je te volgen. Klik op de volgende link om te bekijken: http://[host][object_link] [footer]"
-"_EMAIL_NOTIFY_FRIEND_FOLLOW_ACCEPTED_TITLE";"Volgen goedgekeurd"
-"_EMAIL_NOTIFY_FRIEND_FOLLOW_ACCEPTED_DESCRIPTION";"Dit is de e-mail die naar een lid wordt gestuurd wanneer hun volgverzoek is goedgekeurd."
-"_EMAIL_NOTIFY_FRIEND_REQUEST_TITLE";"Connectie verzoek"
-"_EMAIL_NOTIFY_FRIEND_REQUEST_DESCRIPTION";"Dit is de e-mail die naar een lid wordt gestuurd wanneer hem of haar door een ander lid wordt gevraagd om een connectie te hebben."
-"_EMAIL_NOTIFY_FRIEND_REQUEST_SUBJECT";"[sender_title] heeft je als connectie toegevoegd."
-"_EMAIL_NOTIFY_FRIEND_REQUEST_BODY";"[header] [sender_title] heeft je als connectie toegevoegd. Klik op de volgende link om in te loggen en dit verzoek te bevestigen: http://[host][sender_link] [footer]"
-"Approve Friend Request";"Bevestig Connectie verzoek"
-"Sign In";"Log In"
-"Sign Up";"Inschrijven"
-"sign out";"Uitloggen"
-"Sign Out";"Uitloggen"
-"Sign In";"Inloggen"
-"maybe attending";"Maybe"
-"not attending";"Not Going"
-"Attending";"Going"
-"Maybe Attending";"Maybe"
-"Not Attending";"Not Going"
-"or";"or"
-" or ";"or"
-"_CORE_PRIVACY_STATEMENT";"Privacyreglement dan+doen+we+dat
-
- 
-
- 
-
-dan+doen+we+dat is een betaalde online social event community. De lage lidmaatschap-kosten die onze leden betalen vormen ons verdienmodel. Wij werken niet met commercials en wij delen nooit data van (potentiële) leden met derden. In ons Privacyreglement gebruiken wij een aantal definities (deze definities kunnen in enkelvoud en meervoud worden gebruikt):
-
- 
-
-Cookie: een klein bestand dat via een internetsite op (het IP-adres van) jouw computer wordt geplaatst en informatie over jouw bezoek aan de dan+doen+we+dat internetsite registreert;
-
-Reglement: dit privacyreglement;
-
-Privacywetgeving: de Algemene Verordening Gegevensbescherming.
-
- 
-
-1. Toelichting op het Reglement
-
-dan+doen+we+dat mag de gegevens die jij aan haar verstrekt niet zonder meer verwerken. De Privacywetgeving is bedoeld om de privacy van personen te beschermen. Door deze wetgeving wordt het toegestane gebruik van jouw persoonsgegevens door anderen beperkt. Op grond van deze wet heeft dan+doen+we+dat de plicht om haar (potentiële) leden en zakelijke relaties:
-
-• op de hoogte te stellen van de wijze waarop en het doel waarmee gegevens door dan+doen+we+dat worden verwerkt;
-
-• te melden wie de gegevens kunnen inzien;
-
-• voor het verwerken van bepaalde gegevens toestemming te vragen.
-
- 
-
-dan+doen+we+dat vindt jouw privacy belangrijk. Daarom geeft dan+doen+we+dat in dit Reglement een toelichting op hoe zij met jouw gegevens omgaat, wat het doel is van het gebruik daarvan en voor de verwerking van welke gegevens dan+doen+we+dat expliciet om jouw toestemming moet vragen.
-
- 
-
-2. De persoonsgegevens die dan+doen+we+dat gebruikt en het doel van het gebruik
-
-dan+doen+we+dat verwerkt (mogelijk) jouw persoonsgegevens als je lid wordt of bent van dan+doen+we+dat of als je via het contactformulier contact met ons opneemt. Leden van dan+doen+we+dat maken zelf een profiel aan en op dit profiel is de gebruikersnaam, foto, leeftijd, en geslacht te zien is. Leden kunnen ervoor kiezen om hun telefoonnummer met andere leden te delen. dan+doen+we+dat verzamelt qua persoonsgegevens jouw naam, e-mailadres, geboortedatum, foto en IBAN-nummer. De hiervoor genoemde persoonsgegevens zijn uiteraard niet te zien voor andere leden en/of derden. Indien je zakelijke relatie bent van dan+doen+we+dat worden mogelijk jouw naam, e-mailadres en telefoonnummer verwerkt. Deze gegevens stellen ons in staat om:
-
-• de overeenkomst die leden en zakelijke relaties met dan+doen+we+dat sluiten financieel en administratief te kunnen afhandelen;
-
-• onze dienstverlening te kunnen leveren;
-
-• leden, zakelijke relaties of geïnteresseerden te kunnen bereiken als dat nodig is;
-
-• om onze dienstverlening verder te ontwikkelen/te optimaliseren;
-
-• jou op maat gesneden informatie aan te bieden (nieuwsbrief).
-
- 
-
-IP-adressen/cookies
-
-dan+doen+we+dat houdt IP-adressen bij van (potentiële) leden of zakelijke relaties die de website bezoeken. Deze gegevens stellen ons in staat om:
-
-• te registreren welke internetsite/internetpagina’s je bezoekt;
-
-• de functionaliteit en de inhoud van de website te verbeteren;
-
- 
-
- 
-
-• bij te houden voor welke onderwerpen of toepassingen (potentiële) leden of zakelijke relaties zich interesseren;
-
-• ervoor te zorgen dat je niet steeds dezelfde informatie ontvangt;
-
-• het productaanbod te verbeteren.
-
- 
-
-Toelichting met betrekking tot het plaatsen van cookies
-
-Als je onze website bezoekt worden er automatisch cookies geplaatst waardoor we aan de hand van jouw IP-adres bepaalde informatie kunnen bijhouden. Hierbij gaat het bijvoorbeeld om informatie over hoe vaak je onze website bezoekt en voor welke onderwerpen jij je interesseert. Zie voor meer informatie ons cookiebeleid op de website.
-
- 
-
-3. Verstrekking persoonsgegevens aan derden
-
-dan+doen+we+dat verstrekt geen persoonsgegevens aan personen of bedrijven buiten de dan+doen+we+dat-organisatie, tenzij:
-
-• dat verplicht is door een wettelijk voorschrift;
-
-• dat noodzakelijk is voor het uitvoeren van een overeenkomst die dan+doen+we+dat met jou heeft gesloten;
-
-• je daarvoor toestemming hebt gegeven.
-
- 
-
-4. Plichten/beveiligde toegang/geheimhouding/bewaartermijn
-
-• dan+doen+we+dat verwerkt jouw persoonsgegevens uitsluitend overeenkomstig de wet. Dit houdt (onder meer) in dat de gegevens alleen worden verwerkt voor het doel waarvoor ze verkregen worden en op een behoorlijke/zorgvuldige wijze overeenkomstig de wet en dit Reglement.
-
-• jouw persoonsgegevens kunnen enkel en alleen door personen werkzaam voor dan+doen+we+dat worden ingezien, tenzij in dit Reglement anders is bepaald. Al jouw persoonsgegevens worden door dan+doen+we+dat beveiligd tegen onbevoegde toegang. De beveiliging bestaat:
-
-• uit het hebben van een persoonlijk wachtwoord voor iedere persoon werkzaam voor dan+doen+we+dat om in te loggen in het digitale systeem.
-
-• de personen werkzaam voor dan+doen+we+dat hebben een geheimhoudingsplicht ten aanzien van alle aan dan+doen+we+dat verstrekte persoonsgegevens;
-
-• dan+doen+we+dat heeft technische maatregelen genomen om het door haar gebruikte systeem te beveiligen tegen inbreuken van buitenaf overeenkomstig de wet;
-
-• jouw persoonsgegevens worden niet langer bewaard dan noodzakelijk is voor een goede administratie en/of andere vastgestelde doelen. dan+doen+we+dat hanteert een termijn van twee jaar nadat jij inactief of geen lid meer bent, waarna de gegevens vernietigd worden. Voor zakelijke relaties geldt dat de persoonsgegevens zo lang als nodig voor een goede bedrijfsvoering worden bewaard, met inachtneming van een redelijke termijn. De wet kan een andere bewaartermijn voorschrijven. Als dat zo is zal dan+doen+we+dat zich aan de voorgeschreven wettelijke bewaartermijn houden.
-
- 
-
-5. Jouw rechten als betrokkene
-
-• recht op informatie: het recht om te weten of en welke persoonsgegevens van jou verwerkt worden en met welk doel;
-
-• inzagerecht: het recht op inzage en afschrift van die gegevens voor zover de privacy van een ander daardoor niet wordt geschaad;
-
-• het recht op correctie, aanvulling of verwijdering van gegevens indien dat nodig mocht zijn (recht op correctie en verwijdering). Aan het recht om (gedeeltelijke) verwijdering van jouw gegevens te vragen, kan alleen tegemoet gekomen worden als het bewaren van de gegevens voor een ander niet van aanmerkelijk belang is en de gegevens niet op grond van een wettelijke regeling bewaard dienen te blijven;
-
- 
-
- 
-
-• het recht van verzet: het recht om je in bepaalde gevallen tegen de verwerking van jouw gegevens te verzetten;
-
-• het recht op data-portabiliteit: het recht om de persoonsgegevens die van jou bewaard worden te ontvangen om over te kunnen dragen naar een andere organisatie;
-
-• het recht op een menselijke blik bij geautomatiseerde besluiten. Bij een geautomatiseerd besluit is er het recht om de beslissing te laten nemen door menselijke tussenkomst.
-
- 
-
-Als je gebruik wilt maken van jouw rechten, dan kun je dit per email bij info@dan+doen+we+dat.com aangeven. Als jouw verzoek wordt afgewezen wordt aan jou uitgelegd waarom. Een reden kan zijn dat jouw dossier informatie bevat die van belang is of kan zijn voor anderen. Je ontvangt binnen één maand na ontvangst van jouw verzoek bericht van dan+doen+we+dat.
-
-Ook als je een klacht hebt over de wijze van verwerking van jouw persoonsgegevens kun je contact met dan+doen+we+dat opnemen,  dan+doen+we+dat probeert er samen met jou uit te komen.
-
-Heb je een (andere) opmerking/vraag/suggestie of wil je bezwaar maken tegen de nieuwsbrief door dan+doen+we+dat? Ook daarvoor kunt je schriftelijk contact met ons opnemen.
-
-Uiteraard zal dan+doen+we+dat ook met de in dit verband verstrekte persoonsgegevens vertrouwelijk en zorgvuldig omgaan.
-
-Onze actuele contactgegevens zijn te vinden op de website van dan+doen+we+dat.
-
- 
-
-Privacyreglement dan+doen+we+dat versie maart 2020"
-"_CORE_PRIVACY_STATEMENT";"Privacyreglement dan+doen+we+dat
-
- 
-
- 
-
-dan+doen+we+dat is een betaalde online social event community. De lage lidmaatschap-kosten die onze leden betalen vormen ons verdienmodel. Wij werken niet met commercials en wij delen nooit data van (potentiële) leden met derden. In ons Privacyreglement gebruiken wij een aantal definities (deze definities kunnen in enkelvoud en meervoud worden gebruikt):
-
- 
-
-Cookie: een klein bestand dat via een internetsite op (het IP-adres van) jouw computer wordt geplaatst en informatie over jouw bezoek aan de dan+doen+we+dat internetsite registreert;
-
-Reglement: dit privacyreglement;
-
-Privacywetgeving: de Algemene Verordening Gegevensbescherming.
-
- 
-
-1. Toelichting op het Reglement
-
-dan+doen+we+dat mag de gegevens die jij aan haar verstrekt niet zonder meer verwerken. De Privacywetgeving is bedoeld om de privacy van personen te beschermen. Door deze wetgeving wordt het toegestane gebruik van jouw persoonsgegevens door anderen beperkt. Op grond van deze wet heeft dan+doen+we+dat de plicht om haar (potentiële) leden en zakelijke relaties:
-
-• op de hoogte te stellen van de wijze waarop en het doel waarmee gegevens door dan+doen+we+dat worden verwerkt;
-
-• te melden wie de gegevens kunnen inzien;
-
-• voor het verwerken van bepaalde gegevens toestemming te vragen.
-
- 
-
-dan+doen+we+dat vindt jouw privacy belangrijk. Daarom geeft dan+doen+we+dat in dit Reglement een toelichting op hoe zij met jouw gegevens omgaat, wat het doel is van het gebruik daarvan en voor de verwerking van welke gegevens dan+doen+we+dat expliciet om jouw toestemming moet vragen.
-
- 
-
-2. De persoonsgegevens die dan+doen+we+dat gebruikt en het doel van het gebruik
-
-dan+doen+we+dat verwerkt (mogelijk) jouw persoonsgegevens als je lid wordt of bent van dan+doen+we+dat of als je via het contactformulier contact met ons opneemt. Leden van dan+doen+we+dat maken zelf een profiel aan en op dit profiel is de gebruikersnaam, foto, leeftijd, en geslacht te zien is. Leden kunnen ervoor kiezen om hun telefoonnummer met andere leden te delen. dan+doen+we+dat verzamelt qua persoonsgegevens jouw naam, e-mailadres, geboortedatum, foto en IBAN-nummer. De hiervoor genoemde persoonsgegevens zijn uiteraard niet te zien voor andere leden en/of derden. Indien je zakelijke relatie bent van dan+doen+we+dat worden mogelijk jouw naam, e-mailadres en telefoonnummer verwerkt. Deze gegevens stellen ons in staat om:
-
-• de overeenkomst die leden en zakelijke relaties met dan+doen+we+dat sluiten financieel en administratief te kunnen afhandelen;
-
-• onze dienstverlening te kunnen leveren;
-
-• leden, zakelijke relaties of geïnteresseerden te kunnen bereiken als dat nodig is;
-
-• om onze dienstverlening verder te ontwikkelen/te optimaliseren;
-
-• jou op maat gesneden informatie aan te bieden (nieuwsbrief).
-
- 
-
-IP-adressen/cookies
-
-dan+doen+we+dat houdt IP-adressen bij van (potentiële) leden of zakelijke relaties die de website bezoeken. Deze gegevens stellen ons in staat om:
-
-• te registreren welke internetsite/internetpagina’s je bezoekt;
-
-• de functionaliteit en de inhoud van de website te verbeteren;
-
- 
-
- 
-
-• bij te houden voor welke onderwerpen of toepassingen (potentiële) leden of zakelijke relaties zich interesseren;
-
-• ervoor te zorgen dat je niet steeds dezelfde informatie ontvangt;
-
-• het productaanbod te verbeteren.
-
- 
-
-Toelichting met betrekking tot het plaatsen van cookies
-
-Als je onze website bezoekt worden er automatisch cookies geplaatst waardoor we aan de hand van jouw IP-adres bepaalde informatie kunnen bijhouden. Hierbij gaat het bijvoorbeeld om informatie over hoe vaak je onze website bezoekt en voor welke onderwerpen jij je interesseert. Zie voor meer informatie ons cookiebeleid op de website.
-
- 
-
-3. Verstrekking persoonsgegevens aan derden
-
-dan+doen+we+dat verstrekt geen persoonsgegevens aan personen of bedrijven buiten de dan+doen+we+dat-organisatie, tenzij:
-
-• dat verplicht is door een wettelijk voorschrift;
-
-• dat noodzakelijk is voor het uitvoeren van een overeenkomst die dan+doen+we+dat met jou heeft gesloten;
-
-• je daarvoor toestemming hebt gegeven.
-
- 
-
-4. Plichten/beveiligde toegang/geheimhouding/bewaartermijn
-
-• dan+doen+we+dat verwerkt jouw persoonsgegevens uitsluitend overeenkomstig de wet. Dit houdt (onder meer) in dat de gegevens alleen worden verwerkt voor het doel waarvoor ze verkregen worden en op een behoorlijke/zorgvuldige wijze overeenkomstig de wet en dit Reglement.
-
-• jouw persoonsgegevens kunnen enkel en alleen door personen werkzaam voor dan+doen+we+dat worden ingezien, tenzij in dit Reglement anders is bepaald. Al jouw persoonsgegevens worden door dan+doen+we+dat beveiligd tegen onbevoegde toegang. De beveiliging bestaat:
-
-• uit het hebben van een persoonlijk wachtwoord voor iedere persoon werkzaam voor dan+doen+we+dat om in te loggen in het digitale systeem.
-
-• de personen werkzaam voor dan+doen+we+dat hebben een geheimhoudingsplicht ten aanzien van alle aan dan+doen+we+dat verstrekte persoonsgegevens;
-
-• dan+doen+we+dat heeft technische maatregelen genomen om het door haar gebruikte systeem te beveiligen tegen inbreuken van buitenaf overeenkomstig de wet;
-
-• jouw persoonsgegevens worden niet langer bewaard dan noodzakelijk is voor een goede administratie en/of andere vastgestelde doelen. dan+doen+we+dat hanteert een termijn van twee jaar nadat jij inactief of geen lid meer bent, waarna de gegevens vernietigd worden. Voor zakelijke relaties geldt dat de persoonsgegevens zo lang als nodig voor een goede bedrijfsvoering worden bewaard, met inachtneming van een redelijke termijn. De wet kan een andere bewaartermijn voorschrijven. Als dat zo is zal dan+doen+we+dat zich aan de voorgeschreven wettelijke bewaartermijn houden.
-
- 
-
-5. Jouw rechten als betrokkene
-
-• recht op informatie: het recht om te weten of en welke persoonsgegevens van jou verwerkt worden en met welk doel;
-
-• inzagerecht: het recht op inzage en afschrift van die gegevens voor zover de privacy van een ander daardoor niet wordt geschaad;
-
-• het recht op correctie, aanvulling of verwijdering van gegevens indien dat nodig mocht zijn (recht op correctie en verwijdering). Aan het recht om (gedeeltelijke) verwijdering van jouw gegevens te vragen, kan alleen tegemoet gekomen worden als het bewaren van de gegevens voor een ander niet van aanmerkelijk belang is en de gegevens niet op grond van een wettelijke regeling bewaard dienen te blijven;
-
- 
-
- 
-
-• het recht van verzet: het recht om je in bepaalde gevallen tegen de verwerking van jouw gegevens te verzetten;
-
-• het recht op data-portabiliteit: het recht om de persoonsgegevens die van jou bewaard worden te ontvangen om over te kunnen dragen naar een andere organisatie;
-
-• het recht op een menselijke blik bij geautomatiseerde besluiten. Bij een geautomatiseerd besluit is er het recht om de beslissing te laten nemen door menselijke tussenkomst.
-
- 
-
-Als je gebruik wilt maken van jouw rechten, dan kun je dit via onze Privacy Center aangeven, te bereiken via de pop-up 'Read More""of onderaan de pagina in de footer. Je ontvangt binnen één maand na ontvangst van jouw verzoek bericht van dan+doen+we+dat.
-
-Ook als je een klacht hebt over de wijze van verwerking van jouw persoonsgegevens kun je contact met dan+doen+we+dat opnemen,  dan+doen+we+dat probeert er samen met jou uit te komen.
-
-Heb je een (andere) opmerking/vraag/suggestie of wil je bezwaar maken tegen de nieuwsbrief door dan+doen+we+dat? Ook daarvoor kunt je schriftelijk contact met ons opnemen.
-
-Uiteraard zal dan+doen+we+dat ook met de in dit verband verstrekte persoonsgegevens vertrouwelijk en zorgvuldig omgaan.
-
-Onze actuele contactgegevens zijn te vinden op de website van dan+doen+we+dat.
-
- 
-
-Privacyreglement dan+doen+we+dat versie maart 2020"
-"_CORE_PRIVACY_STATEMENT";"Privacyreglement dan+doen+we+dat
- 
- 
-dan+doen+we+dat is een betaalde online social event community. De lage lidmaatschap-kosten die onze leden betalen vormen ons verdienmodel. Wij werken niet met commercials en wij delen nooit data van (potentiële) leden met derden. In ons Privacyreglement gebruiken wij een aantal definities (deze definities kunnen in enkelvoud en meervoud worden gebruikt):
- 
-Cookie: een klein bestand dat via een internetsite op (het IP-adres van) jouw computer wordt geplaatst en informatie over jouw bezoek aan de dan+doen+we+dat internetsite registreert;
-Reglement: dit privacyreglement;
-Privacywetgeving: de Algemene Verordening Gegevensbescherming.
- 
-1. Toelichting op het Reglement
-dan+doen+we+dat mag de gegevens die jij aan haar verstrekt niet zonder meer verwerken. De Privacywetgeving is bedoeld om de privacy van personen te beschermen. Door deze wetgeving wordt het toegestane gebruik van jouw persoonsgegevens door anderen beperkt. Op grond van deze wet heeft dan+doen+we+dat de plicht om haar (potentiële) leden en zakelijke relaties:
-• op de hoogte te stellen van de wijze waarop en het doel waarmee gegevens door dan+doen+we+dat worden verwerkt;
-• te melden wie de gegevens kunnen inzien;
-• voor het verwerken van bepaalde gegevens toestemming te vragen.
- 
-dan+doen+we+dat vindt jouw privacy belangrijk. Daarom geeft dan+doen+we+dat in dit Reglement een toelichting op hoe zij met jouw gegevens omgaat, wat het doel is van het gebruik daarvan en voor de verwerking van welke gegevens dan+doen+we+dat expliciet om jouw toestemming moet vragen.
- 
-2. De persoonsgegevens die dan+doen+we+dat gebruikt en het doel van het gebruik
-dan+doen+we+dat verwerkt (mogelijk) jouw persoonsgegevens als je lid wordt of bent van dan+doen+we+dat of als je via het contactformulier contact met ons opneemt. Leden van dan+doen+we+dat maken zelf een profiel aan en op dit profiel is de gebruikersnaam, foto, leeftijd, en geslacht te zien is. Leden kunnen ervoor kiezen om hun telefoonnummer met andere leden te delen. dan+doen+we+dat verzamelt qua persoonsgegevens jouw naam, e-mailadres, geboortedatum, foto en IBAN-nummer. De hiervoor genoemde persoonsgegevens zijn uiteraard niet te zien voor andere leden en/of derden. Indien je zakelijke relatie bent van dan+doen+we+dat worden mogelijk jouw naam, e-mailadres en telefoonnummer verwerkt. Deze gegevens stellen ons in staat om:
-• de overeenkomst die leden en zakelijke relaties met dan+doen+we+dat sluiten financieel en administratief te kunnen afhandelen;
-• onze dienstverlening te kunnen leveren;
-• leden, zakelijke relaties of geïnteresseerden te kunnen bereiken als dat nodig is;
-• om onze dienstverlening verder te ontwikkelen/te optimaliseren;
-• jou op maat gesneden informatie aan te bieden (nieuwsbrief).
- 
-IP-adressen/cookies
-dan+doen+we+dat houdt IP-adressen bij van (potentiële) leden of zakelijke relaties die de website bezoeken. Deze gegevens stellen ons in staat om:
-• te registreren welke internetsite/internetpagina’s je bezoekt;
-• de functionaliteit en de inhoud van de website te verbeteren;
- 
- 
-• bij te houden voor welke onderwerpen of toepassingen (potentiële) leden of zakelijke relaties zich interesseren;
-• ervoor te zorgen dat je niet steeds dezelfde informatie ontvangt;
-• het productaanbod te verbeteren.
- 
-Toelichting met betrekking tot het plaatsen van cookies
-Als je onze website bezoekt worden er automatisch cookies geplaatst waardoor we aan de hand van jouw IP-adres bepaalde informatie kunnen bijhouden. Hierbij gaat het bijvoorbeeld om informatie over hoe vaak je onze website bezoekt en voor welke onderwerpen jij je interesseert. Zie voor meer informatie ons cookiebeleid op de website.
- 
-3. Verstrekking persoonsgegevens aan derden
-dan+doen+we+dat verstrekt geen persoonsgegevens aan personen of bedrijven buiten de dan+doen+we+dat-organisatie, tenzij:
-• dat verplicht is door een wettelijk voorschrift;
-• dat noodzakelijk is voor het uitvoeren van een overeenkomst die dan+doen+we+dat met jou heeft gesloten;
-• je daarvoor toestemming hebt gegeven.
- 
-4. Plichten/beveiligde toegang/geheimhouding/bewaartermijn
-• dan+doen+we+dat verwerkt jouw persoonsgegevens uitsluitend overeenkomstig de wet. Dit houdt (onder meer) in dat de gegevens alleen worden verwerkt voor het doel waarvoor ze verkregen worden en op een behoorlijke/zorgvuldige wijze overeenkomstig de wet en dit Reglement.
-• jouw persoonsgegevens kunnen enkel en alleen door personen werkzaam voor dan+doen+we+dat worden ingezien, tenzij in dit Reglement anders is bepaald. Al jouw persoonsgegevens worden door dan+doen+we+dat beveiligd tegen onbevoegde toegang. De beveiliging bestaat:
-• uit het hebben van een persoonlijk wachtwoord voor iedere persoon werkzaam voor dan+doen+we+dat om in te loggen in het digitale systeem.
-• de personen werkzaam voor dan+doen+we+dat hebben een geheimhoudingsplicht ten aanzien van alle aan dan+doen+we+dat verstrekte persoonsgegevens;
-• dan+doen+we+dat heeft technische maatregelen genomen om het door haar gebruikte systeem te beveiligen tegen inbreuken van buitenaf overeenkomstig de wet;
-• jouw persoonsgegevens worden niet langer bewaard dan noodzakelijk is voor een goede administratie en/of andere vastgestelde doelen. dan+doen+we+dat hanteert een termijn van twee jaar nadat jij inactief of geen lid meer bent, waarna de gegevens vernietigd worden. Voor zakelijke relaties geldt dat de persoonsgegevens zo lang als nodig voor een goede bedrijfsvoering worden bewaard, met inachtneming van een redelijke termijn. De wet kan een andere bewaartermijn voorschrijven. Als dat zo is zal dan+doen+we+dat zich aan de voorgeschreven wettelijke bewaartermijn houden.
- 
-5. Jouw rechten als betrokkene
-• recht op informatie: het recht om te weten of en welke persoonsgegevens van jou verwerkt worden en met welk doel;
-• inzagerecht: het recht op inzage en afschrift van die gegevens voor zover de privacy van een ander daardoor niet wordt geschaad;
-• het recht op correctie, aanvulling of verwijdering van gegevens indien dat nodig mocht zijn (recht op correctie en verwijdering). Aan het recht om (gedeeltelijke) verwijdering van jouw gegevens te vragen, kan alleen tegemoet gekomen worden als het bewaren van de gegevens voor een ander niet van aanmerkelijk belang is en de gegevens niet op grond van een wettelijke regeling bewaard dienen te blijven;
- 
- 
-• het recht van verzet: het recht om je in bepaalde gevallen tegen de verwerking van jouw gegevens te verzetten;
-• het recht op data-portabiliteit: het recht om de persoonsgegevens die van jou bewaard worden te ontvangen om over te kunnen dragen naar een andere organisatie;
-• het recht op een menselijke blik bij geautomatiseerde besluiten. Bij een geautomatiseerd besluit is er het recht om de beslissing te laten nemen door menselijke tussenkomst.
- 
-Als je gebruik wilt maken van jouw rechten, dan kun je dit via onze Privacy Center aangeven, te bereiken via de pop-up ""Read More""of onderaan de pagina in de footer daar kun je ook bij de Privacy Center. Je ontvangt binnen één maand na ontvangst van jouw verzoek bericht van dan+doen+we+dat.
- 
-Ook als je een klacht hebt over de wijze van verwerking van jouw persoonsgegevens kun je contact met dan+doen+we+dat opnemen,  dan+doen+we+dat probeert er samen met jou uit te komen.
- 
-Heb je een (andere) opmerking/vraag/suggestie of wil je bezwaar maken tegen de nieuwsbrief door dan+doen+we+dat? Ook daarvoor kunt je schriftelijk contact met ons opnemen.
- 
-Uiteraard zal dan+doen+we+dat ook met de in dit verband verstrekte persoonsgegevens vertrouwelijk en zorgvuldig omgaan.
- 
-Onze actuele contactgegevens zijn te vinden op de website van dan+doen+we+dat.
- 
- 
- 
-Privacyreglement dan+doen+we+dat versie maart 2020
-"
-"_CORE_PRIVACY_STATEMENT";"Privacyreglement dan+doen+we+dat
- 
-  
-Cookie: een klein bestand dat via een internetsite op (het IP-adres van) jouw computer wordt geplaatst en informatie over jouw bezoek aan de dan+doen+we+dat internetsite registreert;
-Reglement: dit privacyreglement;
-Privacywetgeving: de Algemene Verordening Gegevensbescherming.
-
- 
-1. Toelichting op het Reglement
-dan+doen+we+dat mag de gegevens die jij aan haar verstrekt niet zonder meer verwerken. De Privacywetgeving is bedoeld om de privacy van personen te beschermen. Door deze wetgeving wordt het toegestane gebruik van jouw persoonsgegevens door anderen beperkt. Op grond van deze wet heeft dan+doen+we+dat de plicht om haar (potentiële) leden en zakelijke relaties:
-• op de hoogte te stellen van de wijze waarop en het doel waarmee gegevens door dan+doen+we+dat worden verwerkt;
-• te melden wie de gegevens kunnen inzien;
-• voor het verwerken van bepaalde gegevens toestemming te vragen.
- 
-dan+doen+we+dat vindt jouw privacy belangrijk. Daarom geeft dan+doen+we+dat in dit Reglement een toelichting op hoe zij met jouw gegevens omgaat, wat het doel is van het gebruik daarvan en voor de verwerking van welke gegevens dan+doen+we+dat expliciet om jouw toestemming moet vragen.
- 
-2. De persoonsgegevens die dan+doen+we+dat gebruikt en het doel van het gebruik
-dan+doen+we+dat verwerkt (mogelijk) jouw persoonsgegevens als je lid wordt of bent van dan+doen+we+dat of als je via het contactformulier contact met ons opneemt. Leden van dan+doen+we+dat maken zelf een profiel aan en op dit profiel is de gebruikersnaam, foto, leeftijd, en geslacht te zien is. Leden kunnen ervoor kiezen om hun telefoonnummer met andere leden te delen. dan+doen+we+dat verzamelt qua persoonsgegevens jouw naam, e-mailadres, geboortedatum, foto en IBAN-nummer. De hiervoor genoemde persoonsgegevens zijn uiteraard niet te zien voor andere leden en/of derden. Indien je zakelijke relatie bent van dan+doen+we+dat worden mogelijk jouw naam, e-mailadres en telefoonnummer verwerkt. Deze gegevens stellen ons in staat om:
-• de overeenkomst die leden en zakelijke relaties met dan+doen+we+dat sluiten financieel en administratief te kunnen afhandelen;
-• onze dienstverlening te kunnen leveren;
-• leden, zakelijke relaties of geïnteresseerden te kunnen bereiken als dat nodig is;
-• om onze dienstverlening verder te ontwikkelen/te optimaliseren;
-• jou op maat gesneden informatie aan te bieden (nieuwsbrief).
- 
-IP-adressen/cookies
-dan+doen+we+dat houdt IP-adressen bij van (potentiële) leden of zakelijke relaties die de website bezoeken. Deze gegevens stellen ons in staat om:
-• te registreren welke internetsite/internetpagina’s je bezoekt;
-• de functionaliteit en de inhoud van de website te verbeteren;
- 
- 
-• bij te houden voor welke onderwerpen of toepassingen (potentiële) leden of zakelijke relaties zich interesseren;
-• ervoor te zorgen dat je niet steeds dezelfde informatie ontvangt;
-• het productaanbod te verbeteren.
- 
-Toelichting met betrekking tot het plaatsen van cookies
-Als je onze website bezoekt worden er automatisch cookies geplaatst waardoor we aan de hand van jouw IP-adres bepaalde informatie kunnen bijhouden. Hierbij gaat het bijvoorbeeld om informatie over hoe vaak je onze website bezoekt en voor welke onderwerpen jij je interesseert. Zie voor meer informatie ons cookiebeleid op de website.
- 
-3. Verstrekking persoonsgegevens aan derden
-dan+doen+we+dat verstrekt geen persoonsgegevens aan personen of bedrijven buiten de dan+doen+we+dat-organisatie, tenzij:
-• dat verplicht is door een wettelijk voorschrift;
-• dat noodzakelijk is voor het uitvoeren van een overeenkomst die dan+doen+we+dat met jou heeft gesloten;
-• je daarvoor toestemming hebt gegeven.
- 
-4. Plichten/beveiligde toegang/geheimhouding/bewaartermijn
-• dan+doen+we+dat verwerkt jouw persoonsgegevens uitsluitend overeenkomstig de wet. Dit houdt (onder meer) in dat de gegevens alleen worden verwerkt voor het doel waarvoor ze verkregen worden en op een behoorlijke/zorgvuldige wijze overeenkomstig de wet en dit Reglement.
-• jouw persoonsgegevens kunnen enkel en alleen door personen werkzaam voor dan+doen+we+dat worden ingezien, tenzij in dit Reglement anders is bepaald. Al jouw persoonsgegevens worden door dan+doen+we+dat beveiligd tegen onbevoegde toegang. De beveiliging bestaat:
-• uit het hebben van een persoonlijk wachtwoord voor iedere persoon werkzaam voor dan+doen+we+dat om in te loggen in het digitale systeem.
-• de personen werkzaam voor dan+doen+we+dat hebben een geheimhoudingsplicht ten aanzien van alle aan dan+doen+we+dat verstrekte persoonsgegevens;
-• dan+doen+we+dat heeft technische maatregelen genomen om het door haar gebruikte systeem te beveiligen tegen inbreuken van buitenaf overeenkomstig de wet;
-• jouw persoonsgegevens worden niet langer bewaard dan noodzakelijk is voor een goede administratie en/of andere vastgestelde doelen. dan+doen+we+dat hanteert een termijn van twee jaar nadat jij inactief of geen lid meer bent, waarna de gegevens vernietigd worden. Voor zakelijke relaties geldt dat de persoonsgegevens zo lang als nodig voor een goede bedrijfsvoering worden bewaard, met inachtneming van een redelijke termijn. De wet kan een andere bewaartermijn voorschrijven. Als dat zo is zal dan+doen+we+dat zich aan de voorgeschreven wettelijke bewaartermijn houden.
- 
-5. Jouw rechten als betrokkene
-• recht op informatie: het recht om te weten of en welke persoonsgegevens van jou verwerkt worden en met welk doel;
-• inzagerecht: het recht op inzage en afschrift van die gegevens voor zover de privacy van een ander daardoor niet wordt geschaad;
-• het recht op correctie, aanvulling of verwijdering van gegevens indien dat nodig mocht zijn (recht op correctie en verwijdering). Aan het recht om (gedeeltelijke) verwijdering van jouw gegevens te vragen, kan alleen tegemoet gekomen worden als het bewaren van de gegevens voor een ander niet van aanmerkelijk belang is en de gegevens niet op grond van een wettelijke regeling bewaard dienen te blijven;
- 
- 
-• het recht van verzet: het recht om je in bepaalde gevallen tegen de verwerking van jouw gegevens te verzetten;
-• het recht op data-portabiliteit: het recht om de persoonsgegevens die van jou bewaard worden te ontvangen om over te kunnen dragen naar een andere organisatie;
-• het recht op een menselijke blik bij geautomatiseerde besluiten. Bij een geautomatiseerd besluit is er het recht om de beslissing te laten nemen door menselijke tussenkomst.
- 
-Als je gebruik wilt maken van jouw rechten, dan kun je dit via onze Privacy Center aangeven, te bereiken via de pop-up ""Read More""of onderaan de pagina in de footer daar kun je ook bij de Privacy Center. Je ontvangt binnen één maand na ontvangst van jouw verzoek bericht van dan+doen+we+dat.
- 
-Ook als je een klacht hebt over de wijze van verwerking van jouw persoonsgegevens kun je contact met dan+doen+we+dat opnemen,  dan+doen+we+dat probeert er samen met jou uit te komen.
- 
-Heb je een (andere) opmerking/vraag/suggestie of wil je bezwaar maken tegen de nieuwsbrief door dan+doen+we+dat? Ook daarvoor kunt je schriftelijk contact met ons opnemen.
- 
-Uiteraard zal dan+doen+we+dat ook met de in dit verband verstrekte persoonsgegevens vertrouwelijk en zorgvuldig omgaan.
- 
-Onze actuele contactgegevens zijn te vinden op de website van dan+doen+we+dat.
-
-
-dan+doen+we+dat is een betaalde online social event community. De lage lidmaatschap-kosten die onze leden betalen vormen ons verdienmodel. Wij werken niet met commercials en wij delen nooit data van (potentiële) leden met derden. In ons Privacyreglement gebruiken wij een aantal definities (deze definities kunnen in enkelvoud en meervoud worden gebruikt):
- 
- 
- 
-Privacyreglement dan+doen+we+dat versie maart 2020
-"
-"Our Privacy Policy has been Updated";"Ons Privacybeleid is Bijgewerkt"
-"To continue using the site you need to read the revised version and agree to the policies";"Om de site te blijven gebruiken, moet u de herziene versie lezen en akkoord gaan met het beleid"
-"ADMIN_SIGNUP_STEP_EMEMSUB_PLUGIN_SIGNUP_SUBSCRIPTION";"Enable Membership Subscription Plans"
 "_CORE_PRIVACY_STATEMENT";"Privacyreglement dan+doen+we+dat
  
   
@@ -1067,8 +445,419 @@ dan+doen+we+dat is een betaalde online social event community. De lage lidmaatsc
  
 Privacyreglement dan+doen+we+dat versie maart 2020
 "
+"_CORE_TERMS_OF_SERVICE";"Deze pagina bevat de servicevoorwaarden."
+"You can no longer respond to this message because %1$s has blocked you.";"Je kunt niet meer reageren op dit bericht omdat %1$s je heeft geblokkeerd."
+"Select Member Level";"Selecteer Member Level"
+"Options";"Opties"
+"Date";"Datum"
+"Owner";"Eigenaar"
+"_CORE_ADMIN_STATS_ANNOUNCEMENT_CREATIONS";"Mededelingen"
+"_CORE_ADMIN_STATS_CORE_EMAILS";"Verzonden e-mails"
+"Nothing has been posted here yet - be the first!";"Er is nog niets gepost - wees de eerste!"
+"Popular Members";"Populaire leden"
+"View Recent Updates";"Bekijk recente updates"
+"View My Profile";"Bekijk mijn profiel"
+"Friend Approved";"Connection Approved"
+"Friend Request";"Connection Request"
+"Friend Follow";"Connection Follow"
+"Comment on Liked";"Reageer op 'Liked'"
+"_EMAIL_FOOTER_BODY";"Groet, dan+doen+we+dat | redactie"
+"_EMAIL_HEADER_MEMBER_BODY";"Hallo"
+"_EMAIL_FOOTER_MEMBER_BODY";"Groet, dan+doen+we+dat | redactie"
+"_EMAIL_CORE_VERIFICATION_BODY";"[header] Bedankt voor je deelname aan ons netwerk. Klik op de volgende link om uw e-mailadres te verifiëren en door te gaan: http://[host][object_link] Email: [email] [footer]"
+"_EMAIL_CORE_VERIFICATION_PASSWORD_BODY";"[header] Bedankt voor je deelname aan ons netwerk. Klik op de volgende link om uw e-mailadres te verifiëren en door te gaan: http://[host][object_link] Email: [email] Password: [password] [footer]"
+"_EMAIL_NOTIFY_ADMIN_USER_SIGNUP_BODY";"Congratulations, someone has joined dan+doen+we+dat. Verwelkom het nieuwe lid op uw site: [object_title] : http://[host][object_link] Signup Date: [date]"
+"_EMAIL_CORE_WELCOME_BODY";"[header] Bedankt voor je deelname aan dan+doen+we+dat. Klik op de volgende link en voer uw gegevens in om in te loggen: http://[host][object_link] Email: [email] [footer]"
+"_EMAIL_CORE_WELCOME_PASSWORD_BODY";"[header] Bedankt voor je deelname aan dan+doen+we+dat. Klik op de volgende link en voer uw gegevens in om in te loggen: http://[host][object_link] Email: [email] Password: [password] [footer]"
+"_EMAIL_CORE_LOSTPASSWORD_SUBJECT";"dan+doen+we+dat - Lost Password"
+"_EMAIL_CORE_LOSTPASSWORD_BODY";"[header] U heeft verzocht uw wachtwoord opnieuw in te stellen omdat u uw wachtwoord bent vergeten. Als u hier niet om heeft gevraagd, negeer deze dan. Het verloopt over 1 uur. Klik op de volgende link om uw wachtwoord opnieuw in te stellen: http://[host][object_link] [footer]"
+"We're sorry!";"We're sorry! Het spijt ons!"
+"We are currently experiencing some technical issues. Please try again or report this to your site administrator using the %1$scontact%2$s form.";"We ondervinden momenteel enkele technische problemen. Probeer het opnieuw of meld dit aan uw sitebeheerder via het %1$scontact%2$s formulier."
+"You may configure your email alert preferences from <a href=""%1$s"" target=""_blank""> here</a>.";"U kunt uw voorkeuren voor e-mail berichtgeving configureren  <a href=""%1$s"" target=""_blank""> hier</a>."
+"You have no message.";"Je hebt geen bericht."
+"Welcome to our Social Network!!";"Welkom bij dan+doen+we+dat!!"
+"You can easily sign up on our community or simply login, if you already have an account to get started !";"U kunt zich eenvoudig aanmelden bij dan+doen+we+dat of gewoon inloggen als u al een account heeft, om aan de slag te gaan!"
+"Quickly start by posting your status updates, photos, videos, groups, blogs, classifieds, etc inside.";"Begin snel met het plaatsen van uw events, updates, foto's, groepen, blogs, enz."
+"Our community is 100% responsive, so you can use it anywhere, & anytime from any device.";"Onze community is 100% responsive, dus je kunt het overal en altijd gebruiken en vanaf elk apparaat."
+"Our community is available 24x7, so you can use it as per your flexibility and requirement.";"Onze community is 24x7 beschikbaar, dus u kunt deze gebruiken wanneer u wilt!"
+"Messages ";"Berichten"
+"Compose New Message";"Nieuw bericht opstellen"
+"View All Messages";"Bekijk alle berichten"
+"Date:";"Datum:"
+"Delete Comment?";"Reactie verwijderen?"
+"Are you sure that you want to delete this comment? This action cannot be undone.";"Weet je zeker dat je deze reactie wilt verwijderen? Deze actie kan niet ongedaan gemaakt worden."
+"Comment has been deleted";"Reactie is verwijderd"
+"You have no notifications.";"Je hebt geen meldingen."
+"You have no requests.";"Je hebt geen verzoeken."
+"Share this by re-posting it with your own message.";"Deel dit door het opnieuw te posten met je eigen bericht."
+"Are you sure that you want to delete this activity item and all of its comments? This action cannot be undone.";"Weet u zeker dat u dit en alle opmerkingen wilt verwijderen? Deze actie kan niet ongedaan gemaakt worden."
+"Default Email Notifications";"Standaard e-mail meldingen"
+"ADMIN_SIGNUP_STEP_SESSOCIALLOGIN_PLUGIN_SIGNUP_ACCOUNT";"Account aanmaken"
+"ADMIN_SIGNUP_STEP_SESSOCIALLOGIN_PLUGIN_SIGNUP_FIELDS";"Profiel aanmaken"
+"ADMIN_SIGNUP_STEP_SESSOCIALLOGIN_PLUGIN_SIGNUP_PHOTO";"Voeg Uw foto toe"
+"This Weekend";"This Weekend"
+"Venue:";"Event locatie:"
+"Venue Name";"Locatie naam"
+"Spnsorship Confirmed for %s";"Sponsorship Confirmed for %s"
+"attending";"gaan"
+"maybe attending";"Maybe"
+"not attending";"Not Going"
+"Attending";"Going"
+"Maybe Attending";"Maybe"
+"Not Attending";"Not Going"
+"Add Friend";"Connectie toevoegen"
+"Remove Friend";"Verwijder Connectie"
+"This event has %1$s guest.";"Dit event heeft %1$s deelnemer.";"Dit event heeft %1$s deelnemers."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_TICKETPURCHASED";"Tickets voor evenementen kopen."
+"Manage Events";"Beheer Events"
+"%1$s has invited you to the event %2$s";"%1$s heeft je uitgenodigd voor het event %2$s"
+"{item:$subject} has invited you to the event {item:$object}.";"{item:$subject} heeft je uitgenodigd voor het event {item:$object}."
+"_EMAIL_SESEVENT_EVENT_CREATE_SUBJECT";"Bedankt voor het aanmaken van event '[event_title]' op dan+doen+we+dat!"
+"_EMAIL_SESEVENT_EVENT_CREATE_BODY";"[header] Bedankt voor het aanmaken van een event op dan+doen+we+dat. Klik op de volgende link en ga naar je event: http://[host][object_link] [footer]"
+"_EMAIL_SESEVENT_EVENT_ADMINAPPROVED_TITLE";"Event Approved by Admin"
+"_EMAIL_SESEVENT_EVENT_ADMINAPPROVED_SUBJECT";"Je event '[event_title]' is goedgekeurd!"
+"_EMAIL_SESEVENT_EVENT_ADMINAPPROVED_BODY";"[header] Bedankt voor het aanmaken van een event op dan+doen+we+dat.  Klik op de volgende link en ga naar je event: http://[host][object_link] [footer]"
+"_EMAIL_SESEVENT_EVENT_ADMINDISAPPROVED_TITLE";"Event Dis-Approved by Admin
+"
+"_EMAIL_SESEVENT_EVENT_ADMINDISAPPROVED_SUBJECT";"Je event '[event_title]' is afgekeurd!"
+"_EMAIL_SESEVENT_EVENT_ADMINDISAPPROVED_BODY";"[header] Bedankt voor het aanmaken van een event op dan+doen+we+dat.  Klik op de volgende link en ga naar je event: http://[host][object_link] [footer]"
+"Only My Friend''s Events";"Alleen mijn Connecties evenementen"
+"_EMAIL_PAYMENT_SUBSCRIPTION_ACTIVE_BODY";"[header] Bedankt voor je aanmelden voor een lidmaatschap. Je lidmaatschap is nu actief. [subscription_title] [subscription_description] [subscription_terms] U kunt met de onderstaande link in loggen. [object_link] [footer]"
+"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_TITLE";"Lidmaatschap opgezegd"
+"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_SUBJECT";"Uw lidmaatschap is opgezegd."
+"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_BODY";"[header] Uw lidmaatschap is opgezegd. [subscription_title] [subscription_description] [subscription_terms] Volg de onderstaande link om uw abonnement te verlengen. [object_link] [footer]"
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIRED_TITLE";"Lidmaatschap verlopen"
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIRED_SUBJECT";"Uw lidmaatschap is verlopen."
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIRED_BODY";"[header] Uw lidmaatschap is verlopen. [subscription_title] [subscription_description] [subscription_terms] Volg de onderstaande link om uw lidmaatschap te verlengen. [object_link] [footer]"
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIREDSOON_TITLE";"Lidmaatschap verloopt binnenkort"
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIREDSOON_SUBJECT";"Uw lidmaatschap loopt binnenkort af."
+"You are about to subscribe to the plan: %1$s";"Je staat op het punt om je lidmaatschap aan te gaan: %1$s"
+"Are you sure you want to do this? You will be charged: %1$s";"Weet je zeker dat je dit wilt doen? U betaalt %1$s"
+"If yes, click the button below and you will be taken to a payment page. When you have completed your payment, please remember to click the button that takes you back to our site.";"Zo ja, klik op de onderstaande knop en u wordt naar een betalingspagina geleid. Wanneer u uw betaling heeft voltooid, vergeet dan niet om op de knop te klikken die u terugbrengt naar onze site."
+"Please note that no refund will be provided for any unused portion of your current plan.";"Houd er rekening mee dat er geen restitutie wordt verleend voor ongebruikte delen van uw huidige lidmaatschap."
+"The plan you are currently subscribed to is: %1$s";"Het lidmaatschap dat u momenteel heeft: %1$s"
+"If you would like to change your subscription, please select an option below.";"Selecteer hieronder een optie als u uw lidmaatschap wilt wijzigen."
+"You have not yet selected a subscription plan. Please choose one now below.";"U heeft nog geen lidmaatschap gekozen. Kies er hieronder een uit."
+"Change Plan";"Wijzig lidmaatschap"
+"Thank you for being a part of our community.  Our world will be that much smaller without you.";"Bedankt dat je deel uitmaakt van onze community. Onze wereld zal veel kleiner zijn zonder jou."
+"This group has %s member.";"Deze groep heeft %s Lid.";"Deze groep heeft %s Leden."
+"led by %1$s";"Geleid door"
+"You are now a member of this group.";"Je bent nu lid van deze groep."
+"Would you like to join this group?";"Wil je lid worden van deze groep?"
+"Are you sure you want to leave this group?";"Weet je zeker dat je deze groep wilt verlaten?"
+"Group Name";"Groepsnaam"
+"%1$s has invited you to the group %2$s";"%1$s heeft je uitgenodigd voor de groep %2$s"
+"This group has %1$s member.";"Deze groep heeft %1$s lid.";"Deze groep heeft %1$s leden."
+"_ACTIVITY_ACTIONTYPE_GROUP_CREATE";"Nieuwe groepen"
+"_ACTIVITY_ACTIONTYPE_GROUP_JOIN";"Lid worden van een groep"
+"ACTIVITY_CATEGORY_TYPE_GROUP";"Groepen"
+"Would you like to add this member as a friend?";"Wilt u dit lid als connectie toevoegen?"
+"Cancel Friend Request";"Connectie verzoek annuleren"
+"Do you want to cancel your friend request?";"Wilt u uw connectie verzoek annuleren?"
+"Confirm Friend";"Bevestig Connectie"
+"Would you like to confirm this member as a friend?";"Wil je dit lid bevestigen als connectie ?"
+"Reject Friend";"Connectie weigeren"
+"Would you like to reject this member as a friend?";"Wil je dit lid afwijzen als connectie ?"
+"Are you sure you want to remove this member as a friend?";"Weet je zeker dat je dit lid als connectie wilt verwijderen?"
+"Choose Friend List";"Kies Connectie Lijst"
+"_EMAIL_USER_DELETEOTP_BODY";"dan+doen+we+dat - Two Step Authentication for Account Deletion"
+"Please Enter Friend Name.";"Voer de naam van uw Connectie in."
+"ACTIVITY_TYPE_FRIEND_ACCEPTED";"When someone accepts my friend request."
+"ACTIVITY_TYPE_FRIEND_REQUEST";"When I receive a friend request."
+"Only My Friend's Events";"Alleen de Events van mijn Connecties"
+"%s friend request";"%s connectie verzoek";"%s connecties verzoek"
+"%1$s has sent you a friend request.";"%1$s heeft je een connectie verzoek gestuurd."
+"You cannot befriend yourself.";"Je kan niet (altijd) alleen vrienden zijn met jezelf. "
+"Your friend request has been sent.";"Je connectie verzoek is verstuurt."
+"Your friend request has been cancelled.";"Je connectie verzoek is geannuleerd."
+"You ignored a friend request from %1$s";"Je hebt een  connectie verzoek genegeerd van %1$s"
+"You ignored a friend request from %s";"Je hebt een  connectie verzoek genegeerd van %s"
+"USER_FORM_ADMIN_SETTINGS_VERIFICATION_DESCRIPTION";"Your social network can allow either verified or unverified connection requests. The default setting is verified connection requests as this is typical for most social networks. Unverified connection requests mean that when Member A adds Member B as a connection, Member A and Member B will immediately become connected without any confirmation."
+"Verified Friendships";"Bevestigde Connectie"
+"Unverified Friendships";"Niet bevestigde Connectie"
+"Friend Lists";"Connectie Lijst"
+"USER_FORM_ADMIN_SETTINGS_LISTS_DESCRIPTION";"Met connectie lijsten kunnen uw leden hun connecties ordenen onder verschillende labels die ze maken. Vervolgens kunnen ze deze lijsten gebruiken om berichten naar meerdere connecties te sturen en hun privacy instellingen aan te passen."
+"Yes, users can group their friends into lists";"Ja, gebruikers kunnen hun connecties in lijsten groeperen"
+"Profile Friends";"Connecties Profiel"
+"Profile Mutual Friends";"Profiel Wederzijdse Connecties"
+"Remove from Friends";"Verwijder Connectie"
+"You and {item:$subject} are now friends.";"Jij en {item:$subject} hebben nu een connectie."
+"{item:$subject} has requested to be your friend.";"{item:$subject} heeft een connectie verzoek ingediend."
+"_EMAIL_NOTIFY_FRIEND_ACCEPTED_TITLE";"Connectie Approved"
+"_EMAIL_NOTIFY_FRIEND_ACCEPTED_DESCRIPTION";"Dit is de e-mail die naar een lid wordt gestuurd wanneer hun connectie verzoek is goedgekeurd."
+"_EMAIL_NOTIFY_FRIEND_ACCEPTED_SUBJECT";"[sender_title] heeft jullie connectie bevestigd."
+"_EMAIL_NOTIFY_FRIEND_ACCEPTED_BODY";"[header] [sender_title] heeft jullie connectie bevestigd. Klik op de volgende link om in te loggen: http://[host][object_link] [footer]"
+"_EMAIL_NOTIFY_FRIEND_FOLLOW_TITLE";"Connectie Follow"
+"_EMAIL_NOTIFY_FRIEND_FOLLOW_DESCRIPTION";"Dit is de e-mail die naar een lid wordt gestuurd wanneer een ander lid hem begint te volgen."
+"_EMAIL_NOTIFY_FRIEND_FOLLOW_SUBJECT";"[sender_title] is begonnen je te volgen."
+"_EMAIL_NOTIFY_FRIEND_FOLLOW_BODY";"[header] [sender_title] is begonnen je te volgen. Klik op de volgende link om te bekijken: http://[host][object_link] [footer]"
+"_EMAIL_NOTIFY_FRIEND_FOLLOW_ACCEPTED_TITLE";"Follow Approved"
+"_EMAIL_NOTIFY_FRIEND_FOLLOW_ACCEPTED_DESCRIPTION";"Dit is de e-mail die naar een lid wordt gestuurd wanneer hun volgverzoek is goedgekeurd."
+"_EMAIL_NOTIFY_FRIEND_REQUEST_TITLE";"Connectie Request"
+"_EMAIL_NOTIFY_FRIEND_REQUEST_DESCRIPTION";"Dit is de e-mail die naar een lid wordt gestuurd wanneer hem of haar door een ander lid wordt gevraagd om een connectie te hebben."
+"_EMAIL_NOTIFY_FRIEND_REQUEST_SUBJECT";"[sender_title] heeft je als connectie toegevoegd."
+"_EMAIL_NOTIFY_FRIEND_REQUEST_BODY";"[header] [sender_title] heeft je als connectie toegevoegd. Klik op de volgende link om in te loggen en dit verzoek te bevestigen: http://[host][sender_link] [footer]"
+"Approve Friend Request";"Bevestig Connectie verzoek"
+"Sign In";"Inloggen"
+"Sign Up";"Inschrijven"
+"sign out";"Uitloggen"
+"Sign Out";"Uitloggen"
+"Our Privacy Policy has been Updated";"Ons Privacybeleid is Bijgewerkt"
+"To continue using the site you need to read the revised version and agree to the policies";"Om de site te blijven gebruiken, moet u de herziene versie lezen en akkoord gaan met het beleid"
 "_EMAIL_JOIN_LEAVE_SUBJECT";"Plekje vrij!"
 "_EMAIL_JOIN_LEAVE_BODYHTML";"Er is een plekje vrijgekomen!<br><br>[header]<br> <br> [body]<br> <br> [footer]"
-"_EMAIL_CORE_VERIFICATION_BODYHTML";"[header]<br> <br> Wat leuk dat je je hebt aangemeld bij dan+doen+we+dat Activiteiten en Uitgaan. Klik op de volgende link om uw e-mail adres te verifiëren: <br> http://[host][object_link]<br> <br> Email: [email]<br> <br> [footer]"
-"_EMAIL_CORE_VERIFICATION_BODYHTML";"[header]<br> <br>Wat leuk dat je je hebt aangemeld bij dan+doen+we+dat Activiteiten en Uitgaan. Klik op de volgende link om uw e-mail adres te verifiëren: <br> http://[host][object_link]<br> <br> Email: [email]<br> <br> [footer]"
-"_EMAIL_FOOTER_MEMBER_BODYHTML";"Groet,<br> dan+doen+we+dat | r e d a c t i e&nbsp;"
+"Create New Event";"Create New Event"
+"SESADVCOMMENT";"Comment"
+"Last Name";"Last Name"
+"First Name";"First Name"
+"Gender";"Gender"
+"Birthday";"Birthday"
+"Relationship Status";"Relationship Status"
+"Education";"Education"
+"Occupation";"Occupation"
+"Male";"Man"
+"Female";"Vrouw"
+"_ACTIVITY_ACTIONTYPE_SESEVENT_JOIN";"Deelnemen aan een evenement"
+"_ACTIVITY_ACTIONTYPE_ALBUM_PHOTO_NEW";"Nieuw foto Album"
+"_ACTIVITY_ACTIONTYPE_COMMENT_ACTIVITY_ACTION";"Wanneer ik op een reactie reageer"
+"_ACTIVITY_ACTIONTYPE_COMMENT_ALBUM";"Reacties op je foto albums"
+"_ACTIVITY_ACTIONTYPE_SESEVENT_LIKE_EVENTLIST";"Een eventlijst leuk vind."
+"_ACTIVITY_ACTIONTYPE_COMMENT_ALBUM_PHOTO";"Reacties op je foto's"
+"_ACTIVITY_ACTIONTYPE_COMMENT_USER";"Reacties op je profiel"
+"ACTIVITY_TYPE_GROUP_INVITE";"When I'm invited to join a group."
+"ACTIVITY_TYPE_GROUP_PROMOTE";"When I'm given officer status in a group."
+"_ACTIVITY_ACTIONTYPE_LIKE_ALBUM";"Als ik de albums leuk vind."
+"_ACTIVITY_ACTIONTYPE_LIKE_ALBUM_PHOTO";"Als ik de foto's leuk vind."
+"ACTIVITY_TYPE_SESEVENT_INVITE";"When I'm invited to attend an event."
+"ACTIVITY_TYPE_NOTIFY_SESCREDIT_SEND_POINT";"When I receive credit points from a connection."
+"ACTIVITY_TYPE_NOTIFY_SESCREDIT_SEND_BY_SITE";"Wanneer ik credit-punten ontvang van sitebeheerders."
+"ACTIVITY_TYPE_TAGGED";"When I'm tagged in photos and other places."
+"ACTIVITY_TYPE_POST";"Wanneer ik een bericht op het profiel van iemand anders post."
+"ACTIVITY_TYPE_POST_SELF";"Wanneer ik een bijlage post."
+"ACTIVITY_TYPE_FIELDS_CHANGE_GENERIC";"Wanneer ik mijn profiel update."
+"_ACTIVITY_ACTIONTYPE_LIKE_ACTIVITY_ACTION";"Toen ik de berichten leuk vond."
+"_ACTIVITY_ACTIONTYPE_EVENT_COVER_PHOTO_UPDATE";"Wanneer ik een omslagfoto van een evenement bijwerk."
+"_ACTIVITY_ACTIONTYPE_GROUP_COVER_PHOTO_UPDATE";"Wanneer ik een omslagfoto van een groep bijwerk."
+"_ACTIVITY_ACTIONTYPE_COVER_PHOTO_UPDATE";"Wanneer ik mijn omslagfoto op mijn profiel bijwerk."
+"Group Privacy";"Groep Privacy"
+"Group";"Groep"
+"Groups";"Groepen"
+"View All Groups";"Bekijk alle groepen"
+"group";"Groep";"Groepen"
+"%s group";"%s groep";"%s groepen"
+"Search Groups:";"Zoek Groepen:"
+"Delete Group:";"Verwijder groep."
+"Create New Group";"Maak nieuw Groep"
+"Edit Group";"Bewerk Groep"
+"Delete Group";"Verwijder Groep"
+"Join Group";"Deelnemen aan Groep"
+"Leave Group";"Verlaat Groep"
+"Group Photos";"Groep Foto's"
+"_ACTIVITY_ACTIONTYPE_GROUP_PHOTO_UPLOAD";"Een groepsfoto uploaden"
+"_ACTIVITY_ACTIONTYPE_GROUP_PROMOTE";"Groeps-promoties"
+"_ACTIVITY_ACTIONTYPE_GROUP_TOPIC_CREATE";"Een groeps-gesprek-onderwerp maken"
+"_ACTIVITY_ACTIONTYPE_GROUP_TOPIC_REPLY";"Reageren op een groeps-gesprek onderwerp"
+"_ACTIVITY_ACTIONTYPE_SESEVENT_TOPIC_REPLY";"Reageren op een onderwerp over een evenement"
+"_ACTIVITY_ACTIONTYPE_TAGGED";"Tagged"
+"_ACTIVITY_ACTIONTYPE_SHARE";"Activity Feed Item Gedeeld"
+"_ACTIVITY_ACTIONTYPE_SESEVENT_TOPIC_CREATE";"Een gespreksonderwerp voor een evenement maken"
+"_ACTIVITY_ACTIONTYPE_SESEVENT_PHOTO_UPLOAD";"Een foto uploaden voor een evenement"
+"_ACTIVITY_ACTIONTYPE_SESEVENT_LIST_CREATE";"Een lijst met evenementen maken."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_LIKE_EVENTSPEAKER";"Leuk vinden van een spreker op een evenement."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_LIKE_EVENTPHOTO";"Een event foto leuk vind."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_LIKE_EVENTHOST";"Een eventhost leuk vind."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_LIKE_EVENTALBUM";"Een event album leuk vind."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_LIKE_EVENT";"Een event leuk vind."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_FAVOURITE_EVENTLIST";"Een evenementenlijst als favoriet markeren."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_FAVOURITE_LIST";"Een evenementenlijst als favoriet markeren."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_FAVOURITE_EVENTSPEAKER";"Een evenementspreker markeren als favoriet."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_FAVOURITE_EVENTHOST";"Een evenementhost markeren als favoriet."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_FAVOURITE_EVENT";"Een evenement markeren als favoriet."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EDITEVENTVIDEO";"Een event video bewerken."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_SAVE";"Een event video bewerken."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_FOLLOW";"Een event volgen."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EVENTMUSIC";"Nieuwe muziek toevoegen aan een evenement."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EDITVENUE";"Een evenementenlocatie bewerken."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EDITTICKETDATE";"Een ticketdatum voor een evenement bewerken."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EDITLOCATION";"Event locatie bewerken."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EDITEVENTOVERVIEW";"Gebeurtenis overzicht bewerken."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EDITEVENTDATE";"Datum evenement bewerken."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_CREATETICKET";"Een ticket voor een evenementen maken."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_CREATE";"Nieuwe evenementen."
+"_ACTIVITY_ACTIONTYPE_SESADVANCEDACTIVITY_EVENT_SHARE";"wanneer iemand een activiteit over een evenement deelt."
+"Which of the following things do you want to have published about you in the recent activity feed? Note that changing this setting will only affect future news feed items.";"Welke van de volgende dingen wilt u over u hebben gepubliceerd in de recente activiteiten-feed? Houd er rekening mee dat het wijzigen van deze instelling alleen van invloed is op toekomstige nieuws-feed-items."
+"Only Me";"Alleen ik"
+"_EMAIL_SESGDPR_CONSENT_USER_TITLE";"New Form Submission for GDPR related request"
+"_EMAIL_SESGDPR_ADMIN_REPLY_TITLE";"Reply to Members Who Contacted Admin through GDPR related form"
+"_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_TITLE";"Event Spot availability"
+"Payment Pending";"Payment Pending"
+"_EMAIL_SESEVENT_PAYMENT_TICKET_PENDING_TITLE";"Event Ticket Payment Pending
+"
+"_EMAIL_SESEVENT_TIKETS_DETAILS_TITLE";"Event Ticket Details to Buyer"
+"_EMAIL_SESEVENT_TIKETINVOICE_BUYER_TITLE";"Event Ticket Invoice to Buyer
+"
+"_EMAIL_SESEVENT_RSVP_CHANGE_TITLE";"RSVP Change"
+"_EMAIL_SESEVENT_SPONSORSHIPPAYMENT_REQUESTADMIN_TITLE";"Sponsorship Payment Request By Event Owner
+"
+"_EMAIL_SESEVENT_SPONSORSHIPPURCHASED_EVENTOWNER_TITLE";"Event Sponsorship Purchased for Event Owner
+"
+"_EMAIL_SESEVENT_TICKETPAYMENT_ADMINREQUESTAPPROVED_TITLE";"Ticket Payment Request Approve By Admin"
+"_EMAIL_SESEVENT_TICKETPAYMENT_ADMINREQUESTCANCEL_TITLE";"Ticket Payment Request Cancel By Admin"
+"_EMAIL_SESCREDIT_APPROVE_UPGRADE_REQUEST_TITLE";"Membership Upgrade Approval"
+"_EMAIL_SESCREDIT_REJECT_UPGRADE_REQUEST_TITLE";"Membership Upgrade Rejection"
+"_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_TITLE ";" New Membership Upgrade Request"
+"_EMAIL_SESCREDIT_SEND_POINT_TITLE";"User received Credit points"
+"_EMAIL_SESCREDIT_PURCHASE_POINT_TITLE";"Credits Points Purchased"
+"_EMAIL_SESCREDIT_SEND_BY_SITE_TITLE";"Admin sent credit points to member"
+"_EMAIL_SESCREDIT_RECEIVED_REFERRAL_POINT_TITLE";"New Referral Points"
+"_EMAIL_SESCREDIT_PURCHASED_POINT_SUCCESS_TITLE";"Purchasing Credits Points Successful"
+"_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_SUBJECT";"New Membership Upgrade Request"
+"ACTIVITY_TYPE_COMMENTED";"When people comment on things I post."
+"ACTIVITY_TYPE_COMMENTED_COMMENTED";"When people comment on the same thing as me."
+"ACTIVITY_TYPE_LIKED";"When people like things I post."
+"ACTIVITY_TYPE_LIKED_COMMENTED";"When I receive a message."
+"ACTIVITY_TYPE_POST_USER";"When people post on my profile."
+"ACTIVITY_TYPE_SHARED";"When activity feed item is shared."
+"ACTIVITY_TYPE_GROUP_ACCEPTED";"When my request to join a group is approved."
+"ACTIVITY_TYPE_GROUP_APPROVE";"When someone requests to join a group I created."
+"ACTIVITY_TYPE_GROUP_DISCUSSION_REPLY";"When people reply to discussion topics that I've replied to."
+"ACTIVITY_TYPE_SESEVENT_DISCUSSION_REPLY";"When people reply to discussion topics that I've replied to."
+"ACTIVITY_TYPE_GROUP_DISCUSSION_RESPONSE";"When people reply to discussion topics that I create."
+"ACTIVITY_TYPE_SESEVENT_DISCUSSION_RESPONSE";"When people reply to discussion topics that I create."
+"ACTIVITY_TYPE_PAYMENT_SUBSCRIPTION_CHANGED";"When your plan is changed"
+"ACTIVITY_TYPE_PAYMENT_SUBSCRIPTION_EXPIREDSOON";"When plan is about to expire"
+"ACTIVITY_TYPE_SESADVANCEDACTIVITY_REACTED_ANGR";"When someone reacted HAHA"
+"ACTIVITY_TYPE_SESADVANCEDACTIVITY_REACTED_LOVE";"When someone reacted Love"
+"ACTIVITY_TYPE_SESADVANCEDACTIVITY_REACTED_SAD";"When someone reacted Sad"
+"ACTIVITY_TYPE_SESADVANCEDACTIVITY_REACTED_WOW";"When someone reacted Wow"
+"ACTIVITY_TYPE_SESADVANCEDACTIVITY_SCHEDULED_LI";"When someone schedule post live."
+"ACTIVITY_TYPE_SESADVANCEDACTIVITY_TAGGED_ITEM";"When someone tagged your content"
+"ACTIVITY_TYPE_SESADVANCEDACTIVITY_TAGGED_PEOPL";"When someone tagged me in post."
+"ACTIVITY_TYPE_SESADVANCEDCOMMENT_REPLYCOMMENT";"When someone reply comment"
+"ACTIVITY_TYPE_SESADVANCEDCOMMENT_TAGGED_PEOPLE";"When someone mention me in a comment."
+"ACTIVITY_TYPE_NOTIFY_SESCREDIT_APPROVE_UPGRADE_REQUEST";"When my membership upgrade request is approved."
+"ACTIVITY_TYPE_NOTIFY_SESCREDIT_REJECT_UPGRADE_REQUEST";"When my membership upgrade request is rejected."
+"ACTIVITY_TYPE_SESEVENT_ACCEPTED";"When my request to attend an event is approved."
+"ACTIVITY_TYPE_SESEVENT_APPROVE";"When someone request to join my event."
+"ACTIVITY_TYPE_SESEVENT_EDITVENUE";"When someone edit event venue."
+"ACTIVITY_TYPE_SESEVENT_EVENTFOLLOW";"When someone edit event venue."
+"ACTIVITY_TYPE_SESEVENT_EVENTSAVE";"When someone save an event."
+"ACTIVITY_TYPE_SESEVENT_EVENT_ADMINPAYMENTAPPROVE";"When admin approve event ticket payment."
+"ACTIVITY_TYPE_SESEVENT_EVENT_ADMINPAYMENTCANCEL";"When event ticket payment is cancelled."
+"ACTIVITY_TYPE_SESEVENT_EVENT_PAYMENTREQUEST";"When payment is requested."
+"ACTIVITY_TYPE_SESEVENT_EVENT_TICKETPURCHASED";"When some purchase event tickets."
+"ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENT";"When someone mark an event as favourite."
+"ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENTHOST";"When someone marks event host as favourite."
+"ACTIVITY_TYPE_SESEVENT_FAVOURITE_LIST";"When someone marks list of events as favourite."
+"ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENTLIST";"When someone marks list of events as favourite."
+"ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENTSPEAKER";"When someone marks event speaker as favourite."
+"ACTIVITY_TYPE_SESEVENT_LIKE_EVENT";"When someone likes an event."
+"ACTIVITY_TYPE_SESEVENT_LIKE_EVENTALBUM";"When someone likes an event album."
+"ACTIVITY_TYPE_SESEVENT_LIKE_EVENTHOST";"When someone likes an event host."
+"ACTIVITY_TYPE_SESEVENT_LIKE_EVENTLIST";"When someone likes list of an events."
+"ACTIVITY_TYPE_SESEVENT_LIKE_EVENTPHOTO";"When someone likes an event photo."
+"ACTIVITY_TYPE_SESEVENT_LIKE_EVENTSPEAKER";"When someone likes an event speaker."
+"ACTIVITY_TYPE_SESEVENT_SITEFRIEND_ASHOST";"When site member is made host of an event."
+"ACTIVITY_TYPE_SESADVANCEDACTIVITY_REACTED_HAHA";"When someone reacted HAHA"
+"ACTIVITY_TYPE_SESADVANCEDCOMMENT_TAGGEDREPLY_PEOPLE";"When someone mention me in a reply on comment."
+"ACTIVITY_TYPE_SESADVANCEDCOMMENT_TAGGEDREPLY_P";"When someone tagged me on comment Reply post."
+"_EMAIL_NOTIFY_COMMENTED_TITLE";"Comment"
+"_EMAIL_NOTIFY_COMMENTED_COMMENTED_TITLE";"Also Commented"
+"_EMAIL_NOTIFY_LIKED_TITLE";"Like"
+"_EMAIL_NOTIFY_LIKED_COMMENTED_TITLE";"Comment on Liked"
+"_EMAIL_NOTIFY_GROUP_ACCEPTED_TITLE";"Group Approved"
+"_EMAIL_NOTIFY_GROUP_APPROVE_TITLE";"Group Request"
+"_EMAIL_NOTIFY_GROUP_DISCUSSION_REPLY_TITLE";"Group Discussion Reply"
+"_EMAIL_NOTIFY_GROUP_DISCUSSION_RESPONSE_TITLE";"Group Discussion Response"
+"_EMAIL_NOTIFY_GROUP_INVITE_TITLE";"Group Invitation"
+"_EMAIL_NOTIFY_GROUP_PROMOTE_TITLE";"Group Promotion"
+"_EMAIL_NOTIFY_SESEVENT_ACCEPTED_TITLE";"Event Approved"
+"_EMAIL_NOTIFY_SESEVENT_PAYMENT_SUCCESS_TITLE";"Your Tickets Registration Numbers"
+"_EMAIL_NOTIFY_SESEVENT_APPROVE_TITLE";"Event Request"
+"_EMAIL_NOTIFY_SESEVENT_DISCUSSION_RESPONSE_TITLE";"Event Discussion Response"
+"_EMAIL_NOTIFY_SESEVENT_DISCUSSION_REPLY_TITLE";"Event Discussion Reply"
+"_EMAIL_NOTIFY_SESEVENT_INVITE_TITLE";"Event Invitation"
+"_EMAIL_SESEVENT_EVENT_CREATE_TITLE";"Event Create"
+"_EMAIL_SESEVENT_TICKETPURCHASED_EVENTOWNER_TITLE";"Event Ticket Purchased for Event Owner"
+"_EMAIL_SESEVENT_TICKETPAYMENT_REQUESTADMIN_TITLE";"Ticket Payment Request By Event Owner"
+"_EMAIL_SESEVENT_SPONSORSHIPPAYMENT_ADMINREQUESTCANCEL_TITLE";"Sponsorship Payment Request Cancel By Admin"
+"_EMAIL_SESEVENT_SPONSORSHIPPAYMENT_ADMINREQUESTAPPROVED_TITLE";"Sponsorship Payment Request Approve By Admin"
+"_EMAIL_USER_ACCOUNT_APPROVED_TITLE";"Member Account Approved"
+"_EMAIL_NOTIFY_FRIEND_FOLLOW_REQUEST_TITLE";"Follow Request"
+"_EMAIL_NOTIFY_POST_USER_TITLE";"Post on Profile"
+"_EMAIL_NOTIFY_TAGGED_TITLE";"Tagged"
+"_EMAIL_USER_OTP_TITLE";"Two Step Authentication"
+"_EMAIL_USER_DELETEOTP_TITLE";"Two Step Authentication for Account Deletion"
+"SESADVLIKE";"Like"
+"SESADVLIKEC";"Like"
+"CommentsSESADV";"Comments"
+"CommentSESADV";"Comment"
+"SESADVCOMMMENT";"Comment"
+"SESADVUNLIKE";"Unlike"
+"ACTIVITY_TYPE_SESADVANCEDACTIVITY_SCHEDULED_LIVE";"When my schedule post is live."
+"ACTIVITY_TYPE_SESADVANCEDACTIVITY_TAGGED_PEOPLE";"When someone tag me in a post."
+"ACTIVITY_TYPE_SESADVANCEDACTIVITY_TAGGED_Item";"When someone tag me in a post."
+"ADMIN_ACTIVITY_TYPE_SESADVANCEDACTIVITY_EVENT_SHARE";"When a user (subject) share an activity event."
+"SESADVMESSAGE";"Message"
+"SESADVSHARE";"Share"
+"SESADVUNLIKEC";"Unlike"
+"SESADVREPLY";"Reply"
+"ACTIVITY_TYPE_SESADVANCEDACTIVITY_REACTED_ANGRY";"When someone reacted Angry"
+"_EMAIL_CORE_VERIFICATION_SUBJECT";"dan+doen+we+dat - Email Verification"
+"_EMAIL_CORE_VERIFICATION_BODYHTML";"<p>[header]<br> <br>Wat&nbsp;leuk&nbsp;dat je je&nbsp;hebt aangemeld&nbsp;bij dan+doen+we+dat Activiteiten en Uitgaan.</p>
+<p>Klik&nbsp;op de&nbsp;volgende link om uw e-mail&nbsp;adres&nbsp;te verifi&euml;ren:</p>
+<p><br> http://[host][object_link]<br> <br> Email: [email]</p>
+<p>&nbsp;</p>
+<p><br> [footer]</p>"
+"_EMAIL_CORE_VERIFICATION_PASSWORD_SUBJECT";"dan+doen+we+dat - Email Verification"
+"_EMAIL_CORE_VERIFICATION_PASSWORD_BODYHTML";"<p>[header] Bedankt voor je deelname aan ons netwerk.</p>
+<p>&nbsp;</p>
+<p>Klik op de volgende link om uw e-mailadres te verifi&euml;ren en door te gaan:</p>
+<p>&nbsp;</p>
+<p>http://[host][object_link]</p>
+<p>&nbsp;</p>
+<p>Email: [email]</p>
+<p>Password: [password]</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>[footer]</p>"
+"_EMAIL_USER_OTP_SUBJECT";"dan+doen+we+dat - Two Step Authentication"
+"_EMAIL_USER_OTP_BODYHTML";"<p>[header]<br> <br> Verify your email address by using the below verification code and continue.</p>
+<p>It will expire in 1 hour.</p>
+<p><br> Verification Code: [code]<br> <br> [footer]</p>"
+"_EMAIL_USER_ACCOUNT_APPROVED_SUBJECT";"Your account has been approved."
+"_EMAIL_USER_ACCOUNT_APPROVED_BODYHTML";"<p>[header]<br> <br>Bedankt voor je aanmelding bij dan+doen+we+dat!</p>
+<p>Your account has been approved, Welcome.<br><br><br>Please click the following link to sign in:<br> <br> http://[host][object_link]</p>
+<p><br><br>Om de kans op gelijkgestemden tijdens de events zo groot mogelijk te maken, controleert&nbsp;ons systeem voortdurend op: <br><br> &bull; Herkenbare profielfoto<br> &bull; Volledig ingevulde profielen<br> &bull; Balans in de verschillende leeftijdscategorie&euml;n&nbsp;en regio's<br> &bull; Balans mannen en vrouwen&nbsp;<br> &bull; Balans&nbsp;m.b.t. verschillende interesses<br> &bull; Balans nieuwe versus leden die al langer lid zijn.&nbsp;<br><br><br>-----------------------------------------------------------------------------------------------------------------------<br>Het kan&nbsp;dus voorkomen dat je tijdelijk je lidmaatschap niet kunt verlengen. <br><br>Geen paniek.&nbsp;<br><br>Zodra er&nbsp;plek vrij komt&nbsp;ontvang je direct een bericht via e-mail om alsnog mee te doen.&nbsp;<br>-----------------------------------------------------------------------------------------------------------------------<br><br><br> [footer]</p>"
+"_EMAIL_HEADER_SUBJECT";""
+"_EMAIL_HEADER_BODYHTML";"Hallo,"
+"_EMAIL_INVITE_SUBJECT";"Je hebt een uitnodiging ontvangen om lid te worden van dan+doen+we+dat"
+"_EMAIL_INVITE_BODYHTML";"<p>[header] Je bent uitgenodigd door&nbsp; [sender_title] om lid te worden van dan+doen+we+dat. <br>Volg de onderstaande link om lid te worden:</p>
+<p><br> http://[host][object_link]</p>
+<p>-----------------------------------------------------------------------------------------------------------------------<br>[message]<br><br>Wanneer je binnen 48 uur geen bevestigingsmail ontvangt is er helaas momenteel geen plek. Het kan&nbsp;dus voorkomen dat je tijdelijk geen lid kunt worden. Geen paniek.&nbsp;Zodra er&nbsp;plek vrij komt&nbsp;ontvang je direct een bericht via e-mail om alsnog mee te doen.</p>
+<p>-----------------------------------------------------------------------------------------------------------------------<br><br><br>Mocht je toch geen email ontvangen, kijk dan even in je spam folder voor dat je contact met ons opneemt.&nbsp;&nbsp;</p>
+<p>[footer]</p>"
+"_EMAIL_INVITE_CODE_SUBJECT";"Je hebt een uitnodiging ontvangen om lid te worden van dan+doen+we+dat!"
+"_EMAIL_INVITE_CODE_BODYHTML";"<p>[header] Je bent uitgenodigd door [sender_title] om lid te worden van dan+doen+we+dat. <br>Volg de onderstaande link om lid te worden:</p>
+<p>http://[host][object_link]</p>
+<p>-----------------------------------------------------------------------------------------------------------------------</p>
+<p>[message]<br><br>Wanneer je binnen 48 uur geen bevestigingsmail ontvangt is er helaas momenteel geen plek. Het kan&nbsp;dus voorkomen dat je tijdelijk geen lid kunt worden. Geen paniek.&nbsp;Zodra er&nbsp;plek vrij komt&nbsp;ontvang je direct een bericht via e-mail om alsnog mee te doen.</p>
+<p>-----------------------------------------------------------------------------------------------------------------------</p>
+<p>Mocht je toch geen email ontvangen, kijk dan even in je spam folder voor dat je contact met ons opneemt.&nbsp;</p>
+<p>[footer]</p>"
+"_EMAIL_CORE_WELCOME_PASSWORD_SUBJECT";"Welkom bij dan+doen+we+dat!"
+"_EMAIL_CORE_WELCOME_PASSWORD_BODYHTML";"<p>[header]<br> <br><span class=""s1"">Bedankt voor je aanmelding bij dan+doen+we+dat.</span>&nbsp;<br>Klik op de volgende link en voer je gegevens in om in te loggen: <br> <br> http://[host][object_link]<br> <br> Email: [email]<br> Password: [password]</p>
+<p>&nbsp;</p>
+<p class=""p1""><br> [footer]</p>"
+"_EMAIL_CORE_WELCOME_SUBJECT";"Welkom bij dan+doen+we+dat"
+"_EMAIL_CORE_WELCOME_BODYHTML";"<p>[header]</p>
+<p class=""p1""><span class=""s1"">Bedankt voor je aanmelding bij dan+doen+we+dat.</span>&nbsp;<br>Klik op de volgende link en voer je gegevens in om in te loggen:</p>
+<p><br> http://[host][object_link]<br> <br> Email: [email]</p>
+<p><br> <br> [footer]</p>"
+"_EMAIL_NOTIFY_ADMIN_USER_SIGNUP_SUBJECT";"Someone has joined dan+doen+we+dat!"
+"_EMAIL_NOTIFY_ADMIN_USER_SIGNUP_BODYHTML";"<p>Congratulations, someone has joined dan+doen+we+dat. Verwelkom het nieuwe lid op uw site:</p>
+<p>[object_title] : http://[host][object_link] Signup Date: [date]</p>"
+"_EMAIL_NOTIFY_MESSAGE_NEW_SUBJECT";"Je hebt een nieuw bericht ontvangen van [sender_title]."
+"_EMAIL_NOTIFY_MESSAGE_NEW_BODYHTML";"[header] U heeft een nieuw bericht ontvangen van [sender_title]: [object_description] <br><br>Klik op de volgende link om in te loggen en deze te bekijken: http://[host][object_link] [footer]"
+"0.00";"0,00"
