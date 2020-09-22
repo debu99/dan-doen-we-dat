@@ -55,7 +55,6 @@ class User_Widget_CoverPhotoController extends Engine_Content_Widget_Abstract {
         "<a href='". $viewer->getHref() . "'>Click here</a>"
       ));
     }
-
     $this->view->can_edit = $user->authorization()->isAllowed($viewer, 'edit') && Engine_Api::_()->authorization()
       ->isAllowed('user', $user, 'coverphotoupload');
   }

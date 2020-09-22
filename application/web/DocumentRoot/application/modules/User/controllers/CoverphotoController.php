@@ -61,6 +61,8 @@ class User_CoverphotoController extends Core_Controller_Action_Standard {
     $this->view->can_edit = $can_edit = $user->authorization()->isAllowed($viewer, 'edit');
     $this->view->photo = $photo = Engine_Api::_()->getItem('storage_file', $user->coverphoto);
     $this->view->level_id = $level_id = $this->_getParam("level_id", $user->getOwner()->level_id);
+    $this->view->addHelperPath(APPLICATION_PATH . '/application/modules/Fields/View/Helper', 'Fields_View_Helper');
+
   }
 
   public function resetCoverPhotoPositionAction() {

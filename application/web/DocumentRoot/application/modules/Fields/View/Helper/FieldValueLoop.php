@@ -19,7 +19,7 @@
  */
 class Fields_View_Helper_FieldValueLoop extends Fields_View_Helper_FieldAbstract
 {
-  public function fieldValueLoop($subject, $partialStructure)
+  public function fieldValueLoop($subject, $partialStructure, $settings = array())
   {
     if( empty($partialStructure) ) {
       return '';
@@ -80,8 +80,14 @@ class Fields_View_Helper_FieldValueLoop extends Fields_View_Helper_FieldAbstract
         }
       }
 
+      if($settings['clean_output'] === true ) {
+        if(!$isHidden) {
+          $tmp = $this->getFieldValueString($field, $value, $subject, $map, $partialStructure);
+          $lastContents .= ' <span>'.$tmp.'</span>';
+        }
+      }
       // Render
-      if( $field->type == 'heading' ) {
+      else if( $field->type == 'heading' ) {
         // Heading
         if( $isHidden || in_array( $field->label, $alreadyHeading)) {
           continue;
@@ -92,7 +98,9 @@ class Fields_View_Helper_FieldValueLoop extends Fields_View_Helper_FieldAbstract
         }
         $lastHeadingTitle = $this->view->translate($field->label);
         $alreadyHeading[] = $field->label;
-      } else {
+
+      } 
+      else {
         // Normal fields
         $tmp = $this->getFieldValueString($field, $value, $subject, $map, $partialStructure);
         $hasValidValue = !empty($firstValue->value) || $field->type === 'checkbox';
@@ -112,16 +120,16 @@ class Fields_View_Helper_FieldValueLoop extends Fields_View_Helper_FieldAbstract
               $icon = '<i class="'. $field->icon .'"></i>';
             $label = $this->view->translate($icon . $field->label);
             $lastContents .= <<<EOF
-  <li data-field-id={$field->field_id} class=field_{$field->type}>
-    {$notice}
-    <span>
-      {$label}
-    </span>
-    <span>
-      {$tmp}
-    </span>
-  </li>
-EOF;
+          <li data-field-id={$field->field_id} class=field_{$field->type}>
+            {$notice}
+            <span>
+              {$label}
+            </span>
+            <span>
+              {$tmp}
+            </span>
+          </li>
+        EOF;
           }
         }
       }
