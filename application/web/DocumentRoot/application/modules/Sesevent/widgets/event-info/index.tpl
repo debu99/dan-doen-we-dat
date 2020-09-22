@@ -51,7 +51,7 @@
         <span>
           <i class="fa fa-calendar-alt"></i>&nbsp;&nbsp;&nbsp;<?php echo $this->translate("Age") ?>
         </span>
-        <span><?php echo $this->age_from . " - " . $this->age_to . " " . $this->translate("year")?></span>
+        <span><?php echo $this->age_from . " - " . $this->age_to . " " . $this->translate("Year")?></span>
       </li>
       <li class="sesbasic_clearfix">
         <span>
