@@ -1305,7 +1305,10 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
 		else if($value == 'notattending')
 			$textVal = 'Guest Not Attending This Event';
 		else if($value == 'maybeattending')
-			$textVal = 'Guest May Be Attending This Event';
+      $textVal = 'Guest Maybe Attending This Event';
+    else if($value == "onwaitinglist") 
+      $textVal = 'Guest on Waiting List';
+
 		$this->view->textVal = $textVal;
 		$this->view->textVal = $textVal;
     $page = isset($_POST['page']) ? $_POST['page'] : 1;
