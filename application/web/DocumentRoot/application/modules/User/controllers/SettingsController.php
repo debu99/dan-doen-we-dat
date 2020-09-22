@@ -617,6 +617,7 @@ class User_SettingsController extends Core_Controller_Action_User
                 if( $translateCategory === $category ) {
                     $elementName = preg_replace('/[^a-zA-Z0-9]+/', '_', $type->module);
                     $category = $modules[$type->module]->title;
+                    $category = str_replace(array("SES - ", " Plugin", "SNS: ", "Advanced ", "Professional "), array("","", "", "",""), $category);
                 } else {
                     $elementName = preg_replace('/[^a-zA-Z0-9]+/', '_', strtolower($translateCategory));
                 }
