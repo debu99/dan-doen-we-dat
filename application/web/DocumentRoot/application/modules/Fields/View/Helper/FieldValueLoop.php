@@ -83,7 +83,9 @@ class Fields_View_Helper_FieldValueLoop extends Fields_View_Helper_FieldAbstract
       if($settings['clean_output'] === true ) {
         if(!$isHidden) {
           $tmp = $this->getFieldValueString($field, $value, $subject, $map, $partialStructure);
-          $lastContents .= ' <span>'.$tmp.'</span>';
+          if(in_array($field['type'], $settings['filter'])) {
+            $lastContents .= ' <span>'.$tmp.'</span>';
+          }
         }
       }
       // Render

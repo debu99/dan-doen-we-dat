@@ -95,10 +95,11 @@
       <h2>
         <?php 
           $partialStructure = Engine_Api::_()->sesbasic()->getFieldsStructurePartial($this->user);
-
-          $firstname = $partialStructure['1_1_3'];
-          $lastname = $partialStructure['1_1_4'];
-          $privatizedName= $this->fieldValueLoop($this->user, array('1_1_3'=> $firstname, '1_1_4'=> $lastname), array('clean_output'=> true));
+          $settings = array(
+            'clean_output'=> true, 
+            'filter'=> array("first_name", 'last_name')
+          );
+          $privatizedName= $this->fieldValueLoop($this->user,  $partialStructure,  $settings);
         ?>
         <?php echo $privatizedName; ?>
       </h2>
