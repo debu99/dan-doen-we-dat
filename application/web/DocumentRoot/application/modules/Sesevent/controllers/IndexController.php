@@ -271,7 +271,7 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
     $content .= "DTSTART:" . $dateStart . "T" . $dateStartTime. "Z\n"; //20120824T093200 (Datetime format required)
     $content .= "DTEND:" . $dateEnd . "T" . $dateEndTime . "\n"; //20120824T093200 (Datetime format required)
     $content .= "SUMMARY:" . $event->getTitle() . "\n";
-    $content .= "DESCRIPTION: " . $event->description . "\n";
+    $content .= "X-ALT-DESC;FMTTYPE=text/html: " . $event->description . "\n";
     $content .= "LOCATION:" . $event->location . "\n";
     $content .= "END:VEVENT\n";
     $content .= "END:VCALENDAR\n";

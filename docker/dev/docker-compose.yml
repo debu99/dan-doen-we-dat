@@ -48,7 +48,10 @@ services:
         ports:
             - "3306:3306"
         volumes: 
-            - ../../application/data/mysql:/var/lib/mysql
+            - ddwd-dev-database:/var/lib/mysql
         env_file:
             - ../../environment/dev/.db.env
             - ../../environment/dev/.s3.env
+volumes:
+    ddwd-dev-database:
+        external: true

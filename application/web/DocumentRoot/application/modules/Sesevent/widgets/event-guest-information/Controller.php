@@ -29,9 +29,15 @@ class Sesevent_Widget_EventGuestInformationController extends Engine_Content_Wid
 		
 		$this->view->isMember = $subject->membership()->isMember($viewer);
 
-		$this->view->attending = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id'=>$subject->getIdentity(),'type'=>'attending'));
+		$attending = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id'=>$subject->getIdentity(),'type'=>'attending'));
+		$attending->setItemCountPerPage($this->_getParam('guestCount','1'));
+		$this->view->attending = $attending;
+		
 		$this->view->notattending = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id'=>$subject->getIdentity(),'type'=>'notattending'));
 		$this->view->maybeattending = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id'=>$subject->getIdentity(),'type'=>'maybeattending'));
-		$this->view->onwaitinglist = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id'=>$subject->getIdentity(),'type'=>'onwaitinglist'));
+		$onwaitinglist = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id'=>$subject->getIdentity(),'type'=>'onwaitinglist'));
+		$onwaitinglist->setItemCountPerPage($this->_getParam('guestCount','1'));
+		$this->view->onwaitinglist = $onwaitinglist;
+	
 	}
 }
