@@ -33,7 +33,7 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
     $this->view->max_participants = $subject->max_participants;
     $this->view->min_participants = $subject->min_participants;
     $attending = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id'=>$subject->getIdentity(),'type'=>'attending'))->getTotalItemCount();
-    $this->view->available_spots = $subject->max_participants - $attending;
+    $this->view->available_spots = max($subject->max_participants - $attending,0);
     
     $this->view->location = $subject->location;
     $this->view->venue = strlen($subject->venue_name) > 0? $subject->venue_name: false;
@@ -56,8 +56,8 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
 
     if($subject->gender_destribution === "50/50") {
       $this->view->fiftyfifty = true;
-      $this->view->male_available = ceil($subject->max_participants * 0.5) - $subject->male_count;
-      $this->view->female_available = ceil($subject->max_participants * 0.5) - $subject->female_count;
+      $this->view->male_available = max(ceil($subject->max_participants * 0.5) - $subject->male_count,0);
+      $this->view->female_available = max(ceil($subject->max_participants * 0.5) - $subject->female_count,0);
     }
     $this->view->meeting_point = $subject->meeting_point? $subject->meeting_point: false;
     $this->view->meeting_time = $subject->meeting_time? $subject->meeting_time: false;

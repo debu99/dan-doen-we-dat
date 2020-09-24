@@ -458,7 +458,7 @@ class Sesevent_Form_Create extends Engine_Form {
       }
     }
     $this->addElement('Radio', 'gender_destribution', array(
-      'label' => $translate->translate('Gender Destribution'),
+      'label' => $translate->translate('Gender Distribution'),
       'multiOptions' =>$options,
       'required' => false,
       'value' => 'Undistributed'
