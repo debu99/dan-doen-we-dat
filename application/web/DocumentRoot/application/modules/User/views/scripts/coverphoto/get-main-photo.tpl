@@ -92,22 +92,24 @@
 <?php if (empty($this->uploadDefaultCover)): ?>
   <div class="cover_photo_profile_options">
     <div id='profile_status'>
-      <h2>
-        <?php echo $this->user->getTitle(); ?>
+        <?php echo "<h2>{$this->user->getTitle()}</h2><span class='age'><div><h2>{$this->user->getAge($this->user->getBirthdate())}</h2><hr/><h2>{$this->translate('year')}</h2></div></span>"; ?>
       </h2>
       <span class="coverphoto_navigation">
         <i class="<?php echo ($this->editIcon) ? 'fa fa-pencil-alt' : 'far fa-caret-square-down'; ?>"></i>
-        <ul>
-          <?php foreach( $this->userNavigation as $link ): ?>
-            <li>
-              <?php echo $this->htmlLink($link->getHref(), $this->translate($link->getLabel()), array(
-                'class' => 'buttonlink' . ( $link->getClass() ? ' ' . $link->getClass() : '' ),
-                'style' => $link->get('icon') ? 'background-image: url('.$link->get('icon').');' : '',
-                'target' => $link->get('target'),
-              )) ?>
-            </li>
-          <?php endforeach; ?>
-        </ul>
+        <div class="menu">
+          <ul>
+            <?php foreach( $this->userNavigation as $link ): ?>
+              <li>
+                <?php echo $this->htmlLink($link->getHref(), $this->translate($link->getLabel()), array(
+                  'class' => 'buttonlink' . ( $link->getClass() ? ' ' . $link->getClass() : '' ),
+                  'style' => $link->get('icon') ? 'background-image: url('.$link->get('icon').');' : '',
+                  'target' => $link->get('target'),
+                )) ?>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+
       </span>
       <?php if( $this->auth ): ?>
         <span class="profile_status_text" id="user_profile_status_container">

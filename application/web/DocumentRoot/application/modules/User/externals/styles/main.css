@@ -426,7 +426,6 @@ Lists the friends common to the subject and viewer.
 #profile_status > span
 {
   display: inline;
-  padding: 0px;
 }
 .profile_status_field
 {
@@ -1914,3 +1913,49 @@ div#code-element input {
   margin-top: 0;
 	padding-top: 0;
 }
+
+        #profile_status {
+          display: flex;
+          align-items:center;
+        }
+        .cover_photo_profile_options {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .age div {
+            display: flex;
+            flex-direction: column;
+            width: 40px;
+            color: white;
+            justify-content: center;
+            align-items: center;
+        }
+        span.age {
+          display: inline-block!important;
+          padding: 5px !important;
+        }
+        .age h2 {
+          padding:0;
+          margin: 0;
+          color: white;
+          font-weight: bold;
+          font-size: 0.9em;
+        }
+        .coverphoto_navigation {
+          position: relative;
+
+        }
+        .age hr {
+          width: 60%;
+          height: 2px;
+          background-color: white;
+        }
+        .coverphoto_navigation .menu {
+          position: absolute;
+          margin-top: 0;
+          padding-top:0;
+          top:0;
+          left: 0;
+          transform: translateY(10px);
+        }

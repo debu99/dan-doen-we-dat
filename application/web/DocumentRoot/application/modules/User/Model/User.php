@@ -49,15 +49,17 @@ class User_Model_User extends Core_Model_Item_Abstract
       $partialStructure = Engine_Api::_()->sesbasic()->getFieldsStructurePartial($this);
       $subject = Engine_Api::_()->user()->getViewer();
 
-      // // Evaluate privacy
-      // $relationship = 'everyone';
-      // if( $this->getIdentity() == $subject->getIdentity() ) {
-      //   $relationship = 'self';
-      //   return true;
-      // } elseif( $this->membership()->isMember($subject, true) ) {
-      //   $relationship = 'friends';
-      //   return true;
-      // } 
+      // Evaluate privacy
+      $relationship = 'everyone';
+      if( $this->getIdentity() == $subject->getIdentity() ) {
+        $relationship = 'self';
+        return true;
+      }  else if($subject->isAdmin()) {
+        return true;
+      }else if( $this->membership()->isMember($subject, true) ) {
+        $relationship = 'friends';
+        return true;
+      } 
 
       foreach( $partialStructure as $map ) {
 
