@@ -86,7 +86,7 @@ class User_EditController extends Core_Controller_Action_User
 
         $privacyExemptFields = [$aliasedFields['first_name']['field_id'], $aliasedFields['last_name']['field_id']];
         $this->view->privacyExemptFields = json_encode($privacyExemptFields);
-
+        
         // Get form
         $form = $this->view->form = new Fields_Form_Standard(array(
           'item' => Engine_Api::_()->core()->getSubject(),
@@ -100,6 +100,11 @@ class User_EditController extends Core_Controller_Action_User
           $form->addElement('Hidden', '0_0_1', array(
             'value' => $profileTypesArray[0]['profile_type_id']
           ));
+        }
+
+        if(!$viewer->isAdmin()) {
+            $fieldIdBirthDate = "1_1_" . $aliasedFields['birthdate']->field_id;
+            $form->removeElement($fieldIdBirthDate);
         }
 
         if (empty($topLevelValue) && $changeUserProfileType) {
@@ -130,7 +135,10 @@ class User_EditController extends Core_Controller_Action_User
 
             // update networks
             Engine_Api::_()->network()->recalculate($user);
-
+            if(!$viewer->isAdmin()) {
+                $fieldIdBirthDate = "1_1_" . $aliasedFields['birthdate']->field_id;
+                $form->removeElement($fieldIdBirthDate);
+            }
             $form->addNotice(Zend_Registry::get('Zend_Translate')->_('Your changes have been saved.'));
         }
     }

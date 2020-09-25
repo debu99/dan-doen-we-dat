@@ -208,3 +208,7 @@ It would be more performant to have the first and lastname as separate columns i
 usefull function: `$fieldValues = Engine_Api::_()->fields()->getFieldsValuesByAlias($this);`
 
 The privacy is set by admin page=>settings=>profile questions=>edit Last Name=>setting everything on hide.
+
+## Documentation
+
+Zend framwork 1 reference: https://framework.zend.com/apidoc/1.12/index.html
