@@ -322,7 +322,7 @@ class User_Form_Signup_Account extends Engine_Form_Email
 
       $this->addElement('Checkbox', 'terms', array(
         'label' => 'Terms of Service',
-        'description' => $description,
+        'description' => "<span class='terms'>{$description}</span>",
         'required' => true,
         'validators' => array(
           'notEmpty',

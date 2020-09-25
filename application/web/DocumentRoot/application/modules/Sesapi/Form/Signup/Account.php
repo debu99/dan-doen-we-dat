@@ -320,8 +320,9 @@ class Sesapi_Form_Signup_Account extends Engine_Form_Email
       $description = sprintf($description, Zend_Controller_Front::getInstance()->getBaseUrl());
 
       $this->addElement('Checkbox', 'terms', array(
-        'label' => $description,
+        'label' => "<span class='terms'>{$description}</span>",
         //'description' => $description,
+        'class' => "terms",
         'required' => true,
         'validators' => array(
           'notEmpty',

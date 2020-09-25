@@ -3095,3 +3095,8 @@ html .browse-range-wrapper select{
 .star-disable:before {
     font-weight: 400;
 }
+
+.form-wrapper .terms a {
+	color: #03598F;
+	font-weight: bold;
+}
