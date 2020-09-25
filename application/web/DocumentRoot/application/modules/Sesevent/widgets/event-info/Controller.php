@@ -63,6 +63,8 @@ class Sesevent_Widget_EventInfoController extends Engine_Content_Widget_Abstract
     $this->view->meeting_time = $subject->meeting_time? $subject->meeting_time: false;
     $this->view->tel_host = $subject->tel_host? $subject->tel_host: false;
 
+    $this->view->eventHasTicket = $eventHasTicket = count(Engine_Api::_()->getDbtable('tickets', 'sesevent')->getTicket(array('event_id' => $subject->getIdentity()))) > 0;
+
     $this->view->eventOngoing = strtotime($subject->endtime) > strtotime('now');
     if($subject->gender_destribution === "50/50" || 
        $subject->gender_destribution === "Ladies only" || 
