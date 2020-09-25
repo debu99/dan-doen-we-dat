@@ -253,7 +253,9 @@ abstract class Core_Model_DbTable_Membership extends Engine_Db_Table
     $this->_isSupportedType($resource);
     $row = $this->getRow($resource, $user);
     $genderUser = $user->getGender()['label'];
-    $eventIsFull = $resource->eventIsFull($user);
+    if(get_class($resource) === "Sesevent_Model_Event") {
+      $eventIsFull = $resource->eventIsFull($user);
+    }
     if( null === $row )
     {
       throw new Core_Model_Exception("Membership does not exist");
