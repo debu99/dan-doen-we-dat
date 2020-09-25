@@ -93,15 +93,7 @@
   <div class="cover_photo_profile_options">
     <div id='profile_status'>
       <h2>
-        <?php 
-          $partialStructure = Engine_Api::_()->sesbasic()->getFieldsStructurePartial($this->user);
-          $settings = array(
-            'clean_output'=> true, 
-            'filter'=> array("first_name", 'last_name')
-          );
-          $privatizedName= $this->fieldValueLoop($this->user,  $partialStructure,  $settings);
-        ?>
-        <?php echo $privatizedName; ?>
+        <?php echo $this->user->getTitle(); ?>
       </h2>
       <span class="coverphoto_navigation">
         <i class="<?php echo ($this->editIcon) ? 'fa fa-pencil-alt' : 'far fa-caret-square-down'; ?>"></i>

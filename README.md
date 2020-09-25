@@ -198,3 +198,11 @@ mysql -u root -P 3306 -h 127.0.0.1 -p dandoe_se5 < ddwd.sql
 
 ## Adding Translations
 If a fully new translation is added through the language manager, it's first added to custom.csv. Only after regenerating the php arrays it's added in the respective en.php en nl.php. You can do this by going to https://www.dandoenwedat.com/admin/core/settings/performance, ticket the translation performance box and save.
+
+## Privay Lastname
+
+The first and last name do not exist separately in the database. Only the full name exists, which is called displayname. Whether the displayname, username or only the lastname is shown, is calculated by 'userModelInstance'->getTitle(). The first and lastname do exist as fields. All direct references to display name should be replaced by getTitle. 
+
+It would be more performant to have the first and lastname as separate columns in the database. The same goes for the privacy setting regarding the last name. 
+
+usefull function: `$fieldValues = Engine_Api::_()->fields()->getFieldsValuesByAlias($this);`

@@ -26,16 +26,16 @@ class User_Model_User extends Core_Model_Item_Abstract
    */
   public function getTitle()
   {
-    // This will cause various problems
-    //$viewer = Engine_Api::_()->user()->getViewer();
-    //if( $viewer->getIdentity() && $viewer->getIdentity() == $this->getIdentity() )
-    //{
-    //  $translate = Zend_Registry::get('Zend_Translate');
-    //  return $translate->translate('You');
-    //}
-    if( isset($this->displayname) && '' !== trim($this->displayname) ) {
+
+    $showLastName = $this->showLastName();
+    $fieldValues = Engine_Api::_()->fields()->getFieldsValuesByAlias($this);
+
+    if($showLastName && isset($this->displayname) && '' !== trim($this->displayname) ) {
       return $this->displayname;
-    } else if( isset($this->username) && '' !== trim($this->username) ) {
+    } else if(!$showLastName && isset($fieldValues['first_name']) && '' !== trim($fieldValues['first_name'])){
+      return $fieldValues['first_name'];
+    }
+    else if( isset($this->username) && '' !== trim($this->username) ) {
       return $this->username;
     } else if( isset($this->email) && '' !== trim($this->email) ) {
       $tmp = explode('@', $this->email);
@@ -45,6 +45,30 @@ class User_Model_User extends Core_Model_Item_Abstract
     }
   }
 
+  public function showLastName(){
+      $partialStructure = Engine_Api::_()->sesbasic()->getFieldsStructurePartial($this);
+      $subject = Engine_Api::_()->user()->getViewer();
+
+      // // Evaluate privacy
+      // $relationship = 'everyone';
+      // if( $this->getIdentity() == $subject->getIdentity() ) {
+      //   $relationship = 'self';
+      //   return true;
+      // } elseif( $this->membership()->isMember($subject, true) ) {
+      //   $relationship = 'friends';
+      //   return true;
+      // } 
+
+      foreach( $partialStructure as $map ) {
+
+        $field = $map->getChild();
+        $value = $field->getValue($subject);
+
+        if($field['type'] === "last_name") {
+          return $field->display;;
+        }
+      }
+  }
   /**
    * Gets an absolute URL to the page to view this item
    *

@@ -19,7 +19,7 @@
  */
 class Fields_View_Helper_FieldValueLoop extends Fields_View_Helper_FieldAbstract
 {
-  public function fieldValueLoop($subject, $partialStructure, $settings = array())
+  public function fieldValueLoop($subject, $partialStructure)
   {
     if( empty($partialStructure) ) {
       return '';
@@ -80,16 +80,8 @@ class Fields_View_Helper_FieldValueLoop extends Fields_View_Helper_FieldAbstract
         }
       }
 
-      if($settings['clean_output'] === true ) {
-        if(!$isHidden) {
-          $tmp = $this->getFieldValueString($field, $value, $subject, $map, $partialStructure);
-          if(in_array($field['type'], $settings['filter'])) {
-            $lastContents .= ' <span>'.$tmp.'</span>';
-          }
-        }
-      }
       // Render
-      else if( $field->type == 'heading' ) {
+      if( $field->type == 'heading' ) {
         // Heading
         if( $isHidden || in_array( $field->label, $alreadyHeading)) {
           continue;

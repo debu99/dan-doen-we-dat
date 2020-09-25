@@ -19,7 +19,7 @@
       <li class="sescredit_topmembers_item sesbasic_clearfix">
           <div class="_thumb"><a href="<?php echo $member->getHref();?>"><?php echo $this->itemPhoto($member, 'thumb.icon', $member->getTitle());?></div>
         <div class="_cont">
-          <div class="_title"><a href="<?php echo $member->getHref();?>"><?php echo $member->displayname;?></a></div>
+          <div class="_title"><a href="<?php echo $member->getHref();?>"><?php echo $member->getTitle();?></a></div>
           <div class="_points"><i class="sescredit_icon16 sescredit_icon_points"></i><span><?php echo $member->total_credit;?></span></div>
         </div>
       </li>
