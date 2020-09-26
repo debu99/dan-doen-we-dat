@@ -21,6 +21,9 @@
   .host .sesevent_guest_photo  {
     filter: blur(8px);
   }
+  .sesevent_guests_block_heading_link {
+    display: none;
+  }
 <?php } ?>
 .sesevent_guest_photo img{height:100%;width:100%;}
 </style>

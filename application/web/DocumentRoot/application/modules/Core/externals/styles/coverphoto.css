@@ -155,11 +155,8 @@
   color: #fff;
   font-size: 18px;
   cursor: pointer;
-  opacity: .7;
 }
-.coverphoto_navigation > i:hover {
-  opacity: 1;
-}
+
 #global_page_user-profile-index.guest-user .coverphoto_navigation > i {
   display: none;
 }
@@ -441,7 +438,7 @@ ul.profile_options_pulldown > li > a {
 }
 .cover_photo_profile_options span.age {
   display: inline-block!important;
-  padding: 2px !important;
+  padding: 6px !important;
 }
 .cover_photo_profile_options .age h2 {
   padding:0;
