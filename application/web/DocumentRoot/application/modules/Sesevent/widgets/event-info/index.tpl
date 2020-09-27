@@ -53,18 +53,16 @@
         </span>
         <span><?php echo $this->age_from . " - " . $this->age_to . " " . $this->translate("Year")?></span>
       </li>
-      <?php if(!$this->eventHasTicket) {?>
-        <li class="sesbasic_clearfix">
-          <span>
-            <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Participants
-          </span>
-          <?php if($this->fiftyfifty){ ?>
-            <span><?php echo "Min. " . $this->min_participants. " - " . "Max. " . $this->max_participants . "  | " . $this->translate("Available") . ": " . '<i class="fa fa-venus"></i>&nbsp;&nbsp;'.$this->female_available.'&nbsp;&nbsp<i class="fa fa-mars"></i>&nbsp;&nbsp;'.$this->male_available?></span>
-          <?php } else { ?>
-            <span><?php echo "Min. " . $this->min_participants. " - " . "Max. " . $this->max_participants . "  | " . $this->translate("Available") . ": " . $this->available_spots?></span>
-          <?php }?>
+      <li class="sesbasic_clearfix">
+        <span>
+          <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Participants
+        </span>
+        <?php if($this->fiftyfifty){ ?>
+          <span><?php echo "Min. " . $this->min_participants. " - " . "Max. " . $this->max_participants . "  | " . $this->translate("Available") . ": " . '<i class="fa fa-venus"></i>&nbsp;&nbsp;'.$this->female_available.'&nbsp;&nbsp<i class="fa fa-mars"></i>&nbsp;&nbsp;'.$this->male_available?></span>
+        <?php } else { ?>
+          <span><?php echo "Min. " . $this->min_participants. " - " . "Max. " . $this->max_participants . "  | " . $this->translate("Available") . ": " . $this->available_spots?></span>
+        <?php }?>
           </li>
-        <?php }?>  
     </span>
       <?php if($this->additional_costs) {?>
         <li class="sesbasic_clearfix">

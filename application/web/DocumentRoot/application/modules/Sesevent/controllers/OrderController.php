@@ -252,8 +252,6 @@ class Sesevent_OrderController extends Core_Controller_Action_Standard {
         'source_id' => $order->order_id,
     ));
 
-	$this->addBuyerToAttendingList($event);
-
 	$session = new Zend_Session_Namespace();
     $session->sesevent_order_id = $order_id = $ordersTable->getAdapter()->lastInsertId();              
     // Process transaction
@@ -361,6 +359,7 @@ class Sesevent_OrderController extends Core_Controller_Action_Standard {
 		$this->view->error = $error =  $session->errorMessage;
 		$session->unsetAll();
 		$this->view->state = $state;
+		$this->addBuyerToAttendingList($event);
 
 		//get ticket count in an order
 		$this->view->getTicketCount = $order->getTicketCount();
