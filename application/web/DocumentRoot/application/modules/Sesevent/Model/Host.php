@@ -32,7 +32,9 @@ class Sesevent_Model_Host extends Core_Model_Item_Abstract {
   }
 
   public function getTitle() {
-    return $this->host_name;
+    $user = Engine_Api::_()->getItem('user', $this->user_id);
+
+    return $user->getTitle();
   }
 
   /**
