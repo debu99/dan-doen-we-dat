@@ -212,3 +212,8 @@ The privacy is set by admin page=>settings=>profile questions=>edit Last Name=>s
 ## Documentation
 
 Zend framwork 1 reference: https://framework.zend.com/apidoc/1.12/index.html
+
+
+# Plugins
+
+Using plugins of: https://socialnetworking.solutions/

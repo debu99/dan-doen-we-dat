@@ -167,7 +167,7 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
       $values['additional_costs_amount_currency'] = Engine_Api::_()->sesbasic()->getCurrentCurrency();
     }
     if(isset($values['age_categories'])) {
-      $age_categories = Sesevent_Model_Event::getAgeCategoriesToInterval($values['age_categories']);
+      $age_categories = $event->getAgeCategoriesToInterval($values['age_categories']);
       $values['age_category_from'] = $age_categories['from'];
       $values['age_category_to'] = $age_categories['to'];
     }

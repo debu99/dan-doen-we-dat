@@ -522,6 +522,8 @@ class Sesevent_Model_Event extends Core_Model_Item_Abstract {
   }
 
   public static function getAgeCategoriesToInterval($categories){      
+    $viewer = Engine_Api::_()->user()->getViewer();
+
     $standardRange = 10;
     $from = 99;
     $to = 0;
@@ -532,10 +534,17 @@ class Sesevent_Model_Event extends Core_Model_Item_Abstract {
       if((int)$category === 73) $to = 88; // last category is an exception and has a range of 15
     };
 
-    return Sesevent_Model_Event::addUsersAgeCategoryToInterval(array(
-      'from'=> $from,
-      'to' => $to
-    ));
+    if($viewer->isAdmin()) {
+      return array(
+        'from'=> $from,
+        'to' => $to
+      );
+    } else {
+      return Sesevent_Model_Event::addUsersAgeCategoryToInterval(array(
+        'from'=> $from,
+        'to' => $to
+      ));
+    }
   }
 
   

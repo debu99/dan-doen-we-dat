@@ -430,13 +430,14 @@ class Sesevent_Form_Create extends Engine_Form {
     }
 
     $keyAgeCategoryUser = $viewer->getAgeCategory();
+    $selectedAgeCatoriesWithoutConstraint = $selectedAgeCategories;
     $selectedAgeCategories[$keyAgeCategoryUser] = $allAgeCategories[$keyAgeCategoryUser];
     
     $this->addElement('MultiCheckbox', 'age_categories', array(
       'label' => $translate->translate('Age Categories'),
       'multiOptions' => $allAgeCategories,
       'required' => false,
-      'value' => $actionName == "edit"? $selectedAgeCategories: $allAgeCategories,
+      'value' => $actionName == "edit"? ($viewer->isAdmin()? $selectedAgeCatoriesWithoutConstraint: $selectedAgeCategories) : $allAgeCategories,
       "disable"=> $viewer->isAdmin()? array(): array($keyAgeCategoryUser),
       "description" =>$viewer->isAdmin()? "": $translate->translate('Your own age category can\'t be unchecked'),
     ));

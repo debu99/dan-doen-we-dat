@@ -56,10 +56,7 @@ class User_Model_User extends Core_Model_Item_Abstract
         return true;
       }  else if($subject->isAdmin()) {
         return true;
-      }else if( $this->membership()->isMember($subject, true) ) {
-        $relationship = 'friends';
-        return true;
-      } 
+      }
 
       foreach( $partialStructure as $map ) {
 
