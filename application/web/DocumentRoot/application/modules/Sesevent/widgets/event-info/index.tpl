@@ -55,7 +55,7 @@
       </li>
       <li class="sesbasic_clearfix">
         <span>
-          <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;Participants
+          <i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;<?php echo $this->translate("Participants"); ?>
         </span>
         <?php if($this->fiftyfifty){ ?>
           <span><?php echo "Min. " . $this->min_participants. " - " . "Max. " . $this->max_participants . "  | " . $this->translate("Available") . ": " . '<i class="fa fa-venus"></i>&nbsp;&nbsp;'.$this->female_available.'&nbsp;&nbsp<i class="fa fa-mars"></i>&nbsp;&nbsp;'.$this->male_available?></span>
