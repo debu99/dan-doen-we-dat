@@ -2483,7 +2483,6 @@ input.onoffswitch-checkbox-round:checked + label:after {
 .tabs_alt > ul{
 	height:auto !important;
 	line-height:inherit !important;
-	overflow:visible !important;
 }
 .tabs_alt > ul > li > a{
 	display:inline-block;

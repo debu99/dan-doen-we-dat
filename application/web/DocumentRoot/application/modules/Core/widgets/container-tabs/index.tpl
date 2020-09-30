@@ -14,6 +14,7 @@
 <script type="text/javascript">
   en4.core.runonce.add(function() {
     var tabContainerSwitch = window.tabContainerSwitch = function(element) {
+      debugger
       if( element.tagName.toLowerCase() == 'a' ) {
         element = element.getParent('li');
       }
@@ -25,6 +26,7 @@
       element.get('class').split(' ').each(function(className){
         className = className.trim();
         if( className.match(/^tab_[0-9]+$/) ) {
+          debugger
           myContainer.getChildren('div.' + className).setStyle('display', null);
           element.addClass('active');
         }

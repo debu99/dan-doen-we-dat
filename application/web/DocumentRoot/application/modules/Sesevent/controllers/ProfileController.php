@@ -34,7 +34,7 @@ class Sesevent_ProfileController extends Core_Controller_Action_Standard {
   public function indexAction() {
     $subject = Engine_Api::_()->core()->getSubject();
     $viewer = Engine_Api::_()->user()->getViewer();
-		if((!$subject->is_approved || !$subject->draft || $subject->is_delete == 1) && $viewer->getIdentity() != $subject->getOwner()->getIdentity()){
+		if((!$subject->is_approved || !$subject->draft || $subject->is_delete == 1) && ($viewer->getIdentity() != $subject->getOwner()->getIdentity() && !$viewer->isAdmin())){
 			return $this->_forward('notfound', 'error', 'core');
 		}
 
