@@ -46,7 +46,6 @@ RUN rm -rf /usr/src/* && \
     chmod -R 777 /var/www/html/public/admin && \
     chmod -R 777  /var/www/html/application/languages && \
     chmod -R 777 /var/www/html/application/settings/cache.php && \
+    chmod -R 777 /var/www/html/application/packages && \
     chmod 666 /var/www/html/application/settings/mail.php && \
     chmod 666 /var/www/html/application/settings/general.php
-    
-
