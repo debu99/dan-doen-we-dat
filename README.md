@@ -214,6 +214,22 @@ The privacy is set by admin page=>settings=>profile questions=>edit Last Name=>s
 Zend framwork 1 reference: https://framework.zend.com/apidoc/1.12/index.html
 
 
+## Social Engine Plugin Installation Process
+1. Install the core libraries via the free Core Plugin
+2. Don't install the plugin yet, but go to the SocialApps.tech Core Plugin admin page=>Login with your SEAO credentials=>Upgrade
+3. Now install the plugin. The link in the second last screen doesnt work. Fish out the url with dev tools and open in a new tab. Keep the other tab open.
+4. The continue button will fail too. Go back to the previous tab and refresh.
+
+# Payment implementation strategies:
+Figure out the plugin checkout flow through subscription and tickets with paypal
+Implement stripe
+
+Use an existing plugin and customize it.
+
+
+## Payment Gateways
+https://www.dandoenwedat.com/events/order/success/some-test-event-no-101/state/active/order_id/65
+
 # Plugins
 
 Using plugins of: https://socialnetworking.solutions/

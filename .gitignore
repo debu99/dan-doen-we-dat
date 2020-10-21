@@ -15,3 +15,4 @@ application/web/logs/apache2/**
 
 terraform/prod/.terraform
 terraform/dev/.terraform
+/vendor/
