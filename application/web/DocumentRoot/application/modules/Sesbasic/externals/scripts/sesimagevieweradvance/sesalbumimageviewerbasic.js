@@ -347,25 +347,38 @@ sesJqueryObject(document).on('click','.ses-image-viewer',function(e){
 		return false;
 });
 function getImageViewerObjectData(imageURL,requestedURL,manageData){
-		 if(typeof manageData != 'undefined'){
-				var url = requestedURL;
-        if(sesCustomPhotoURL) {
-          requestedURL = en4.core.baseUrl+'sesbasic/lightbox/image-viewer-detail/';
-        } else { 
-          requestedURL = en4.core.baseUrl+'albums/photo/ses-compatibility-code/';
-        }
-		 }else
+		if(sesJqueryObject('.ses_media_lightbox_information').children().length == 0){
+			sesJqueryObject('.ses_media_lightbox_information').hide();
+		}
+		if(typeof manageData != 'undefined'){
+			var url = requestedURL;
+			if(sesCustomPhotoURL) {
+			requestedURL = en4.core.baseUrl+'sesbasic/lightbox/image-viewer-detail/';
+			} else { 
+			requestedURL = en4.core.baseUrl+'albums/photo/ses-compatibility-code/';
+			}
+		} else
 				var url = '';
-		 imageViewerGetRequest = new Request.HTML({
-      url :requestedURL,
-      data : {
-        format : 'html',
-				url:url,
-      },
+		imageViewerGetRequest = new Request.HTML({
+		url :requestedURL,
+		data : {
+			format : 'html',
+					url:url,
+		},
       onSuccess : function(responseTree, responseElements, responseHTML, responseJavaScript)
-      {
-					sesJqueryObject('.ses_media_lightbox_content').html('');
-      		sesJqueryObject('.ses_media_lightbox_content').html(responseHTML);
+      {	
+					 let isValidHtml = true; 
+					 try {
+						  let response = JSON.parse(responseHTML);
+						  if(response.status == false) isValidHtml = false;
+					  }
+					  catch(e) {
+						if(responseHTML == null) isValidHtml = false;
+					  }
+					if(isValidHtml) {
+						sesJqueryObject('.ses_media_lightbox_content').html('');
+						sesJqueryObject('.ses_media_lightbox_content').html(responseHTML);
+					}
 					var height = sesJqueryObject('.ses_media_lightbox_content').height();
 					var width = sesJqueryObject('.ses_media_lightbox_left').width();
 					sesJqueryObject('#media_photo_next_ses').css('height',height+'px');
@@ -392,7 +405,7 @@ function getImageViewerObjectData(imageURL,requestedURL,manageData){
 					 start : sesJqueryObject('#ses_media_lightbox_media_info'),
 					});
 					window.wheelzoom(document.querySelector('#gallery-img'));
-					//initImage();
+					// initImage();
 					/*if(sesJqueryObject('#map-canvas').length>0 && !map)
 						initializeSesAlbumMap();*/
 					return true;
