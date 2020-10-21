@@ -1164,7 +1164,7 @@ protected function exportFile($records) {
 		$_POST['starttime'] = $starttime = isset($_POST['start_date']) ? date('Y-m-d H:i:s',strtotime($_POST['start_date'].' '.$_POST['start_time'])) : '';
 		$_POST['endtime'] = $endtime = isset($_POST['end_date']) ? date('Y-m-d H:i:s',strtotime($_POST['end_date'].' '.$_POST['end_time'])) : '';
 
-    if (strtotime($starttime) > strtotime($event->endtime) || strtotime($endtime) > strtotime($event->endtime)) {
+    if (strtotime($starttime . " " . $event->timezone) > strtotime($event->endtime) || strtotime($endtime . " " . $event->timezone) > strtotime($event->endtime)) {
       $form->addError($this->view->translate("Event ticket end date must be less than event end date."));
       return;
     }
@@ -1375,10 +1375,11 @@ protected function exportFile($records) {
           return;
         }
      }
-    if (strtotime($starttime) > strtotime($event->endtime) || strtotime($endtime) > strtotime($event->endtime)) {
+    if (strtotime($starttime . " " . $event->timezone) > strtotime($event->endtime) || strtotime($endtime . " " . $event->timezone) > strtotime($event->endtime)) {
       $form->addError($this->view->translate("Event ticket end date must be less than event end date."));
       return;
     }
+    
     $db = Engine_Api::_()->getDbtable('tickets', 'sesevent')->getAdapter();
     $db->beginTransaction();
 

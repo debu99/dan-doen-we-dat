@@ -34,7 +34,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			<label for="locationSes" class="required"><?php echo $this->translate("Location"); ?></label>
 		</div>
 		<div id="location-element" class="form-element">
-			<input type="text" name="location" id="locationSes" value="<?php echo $location; ?>" />
+			<input type="text" name="location" placeholder="<?php echo $this->translate("Enter a location"); ?>" id="locationSes" value="<?php echo $location; ?>" />
 		</div>
 		<div id="online_event-wrapper" class="form-wrapper" style="display:none;">
 		<div id="online_event-label" class="form-label">

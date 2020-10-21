@@ -53,7 +53,9 @@ class Sesevent_Form_Create extends Engine_Form {
 			$hideClass = '';
 		$viewer = Engine_Api::_()->user()->getViewer();
     
-    $this->setTitle('Create New Event')
+    $translate = Zend_Registry::get('Zend_Translate');  
+
+    $this->setTitle($translate->translate('Create New Event'))
             ->setAttrib('id', 'sesevent_create_form')
 					  ->setAttrib('enctype', 'multipart/form-data')
             ->setMethod("POST")
@@ -62,7 +64,6 @@ class Sesevent_Form_Create extends Engine_Form {
     if($this->getSmoothboxType())
       $this->setAttrib('class','global_form sesevent_smoothbox_create');
     
-    $translate = Zend_Registry::get('Zend_Translate');  
     $settings = Engine_Api::_()->getApi('settings', 'core');
     $request = Zend_Controller_Front::getInstance()->getRequest();
     $moduleName = $request->getModuleName();
@@ -100,7 +101,7 @@ class Sesevent_Form_Create extends Engine_Form {
         $tinymce = false;
         
     $this->addElement('Text', 'title', array(
-        'label' => 'Event Name',
+        'label' => $translate->translate('Event Name'),
         'autocomplete' => 'off',
         'allowEmpty' => false,
         'required' => true,
@@ -118,7 +119,7 @@ class Sesevent_Form_Create extends Engine_Form {
 		if($actionName !=  'edit'){
 			// Custom Url
 			$this->addElement('Dummy', 'custom_url_event', array(
-					'label' => 'Custom URL',
+					'label' => $translate->translate('Custom URL'),
 					'content' => '<input type="text" name="custom_url" id="custom_url" value="' . $custom_url_value . '"><i class="fa fa-check" id="sesevent_custom_url_correct" style="display:none;"></i><i class="fa fa-times" id="sesevent_custom_url_wrong" style="display:none;"></i><span class="sesevent_check_availability_btn"><img src="application/modules/Core/externals/images/loading.gif" id="sesevent_custom_url_loading" alt="Loading" style="display:none;" /><button id="check_custom_url_availability" type="button" name="check_availability" >Check Availability</button></span>',
 			));
 		}
@@ -142,7 +143,7 @@ class Sesevent_Form_Create extends Engine_Form {
     
     if($eevecredescription) {
 				 $this->addElement('Textarea', 'description', array(
-	      'label' => 'Event Description',
+	      'label' => $translate->translate('Event Description'),
 				'allowEmpty'=>$allowEmpty,
         'required'=>$required,
         'class'=> $viewer->isAdmin()? 'tinymce': "",
@@ -165,7 +166,7 @@ class Sesevent_Form_Create extends Engine_Form {
        }
      $categories = array('' => 'Choose Category') + $categories;
      $this->addElement('Select', 'category_id', array(
-         'label' => 'Category',
+         'label' => $translate->translate('Category'),
          'multiOptions' => $categories,
          'allowEmpty' => $allowEmpty,
          'required' => $required,
@@ -210,7 +211,7 @@ class Sesevent_Form_Create extends Engine_Form {
 			$requiredClass = $required ? ' requiredClass' : '';
 			//Main Photo
 			$this->addElement('File', 'photo', array(
-					'label' => 'Main Photo',
+					'label' => $translate->translate('Main Photo'),
 					'onclick'=>'javascript:sesJqueryObject("#photo").val("")',
 					'onchange'=>'handleFileBackgroundUpload(this,event_main_photo_preview)',
 			));
@@ -235,23 +236,23 @@ class Sesevent_Form_Create extends Engine_Form {
       ));
     }
   
-    $this->addDisplayGroup(array('title','custom_url_event','description', 'category_id','subcat_id','subsubcat_id','photo-uploader','event_main_photo_preview','photo'), "what", array("legend"=> "What"));
+    $this->addDisplayGroup(array('title','custom_url_event','description', 'category_id','subcat_id','subsubcat_id','photo-uploader','event_main_photo_preview','photo'), "what", array("legend"=> $translate->translate('What')));
 
     $this->addElement('text', 'min_participants', array(
-      'label' => 'Minimum Participants',
+      'label' => $translate->translate('Minimum Participants'),
       'required' => true,
       'allowEmpty' => false,
-      'placeholder' => 'minimum 2 participants',
+      'placeholder' => $translate->translate('minimum 2 participants'),
       'validators' => $viewer->isAdmin()? array(): array(
         array('GreaterThan', true, array(1)),
       )
     ));
     
     $this->addElement('text', 'max_participants', array(
-      'label' => 'Maximum Participants',
+      'label' => $translate->translate('Maximum Participants'),
       'required' => true,
       'allowEmpty' => false,
-      'placeholder' => $viewer->isAdmin()? 'maximum participants':'maximum 30 participants',
+      'placeholder' => $viewer->isAdmin()? $translate->translate('maximum participants'): $translate->translate('maximum 30 participants'),
       'validators' => $viewer->isAdmin()? array(): array(
         array('LessThan', true, array(31)),
       )
@@ -323,7 +324,7 @@ class Sesevent_Form_Create extends Engine_Form {
       );
   
       $this->addElement('select', 'choose_host', array(
-        'label' => 'Organizer Name',
+        'label' => $translate->translate('Organizer Name'),
         'description' => 'Choose Organizer?',
         'multiOptions' => $hostarray,
         'required' => false,
@@ -331,7 +332,7 @@ class Sesevent_Form_Create extends Engine_Form {
       ));
       
       $this->addElement('select', 'host_type', array(
-        'label' => 'Organizer Name',
+        'label' => $translate->translate('Organizer Name'),
         'description' => 'Host Type',
         'multiOptions' => $hostarraya,
         'required' => false,
@@ -443,19 +444,19 @@ class Sesevent_Form_Create extends Engine_Form {
     ));
     
     $options = array(
-      'Undistributed' => "Undistributed",
+      'Undistributed' => $translate->translate("Undistributed"),
       '50/50' => "50/50"
     );
 
     if($viewer->isAdmin()) {
-      $options['Ladies only'] = "Ladies only";
-      $options['Men only'] = "Men only";
+      $options['Ladies only'] = $translate->translate("Ladies only");
+      $options['Men only'] = $translate->translate("Men only");
     } else {
       $genderUser = $viewer->getGender()['label'];
       if( $genderUser === "Male") {
-        $options['Men only'] = "Men only";
+        $options['Men only'] = $translate->translate("Men only");
       } else if ($genderUser === "Female") {
-        $options['Ladies only'] = "Ladies only";
+        $options['Ladies only'] = $translate->translate("Ladies only");
       }
     }
     $this->addElement('Radio', 'gender_destribution', array(
@@ -464,7 +465,7 @@ class Sesevent_Form_Create extends Engine_Form {
       'required' => false,
       'value' => 'Undistributed'
     ));
-    $this->addDisplayGroup(array('choose_host','host_type','event_host','selectonsitehost','host_name','host_email','host_phone','host_description','host_photo','include_social_links','facebook_url','twitter_url','website_url','linkdin_url','googleplus_url','min_participants', 'max_participants','age_categories', 'gender_destribution'), "who", array("legend"=> "Who"));
+    $this->addDisplayGroup(array('choose_host','host_type','event_host','selectonsitehost','host_name','host_email','host_phone','host_description','host_photo','include_social_links','facebook_url','twitter_url','website_url','linkdin_url','googleplus_url','min_participants', 'max_participants','age_categories', 'gender_destribution'), "who", array("legend"=> $translate->translate('Who')));
 
  
 
@@ -687,38 +688,38 @@ class Sesevent_Form_Create extends Engine_Form {
       ));
     }
 
-    $this->addDisplayGroup(array('event_custom_datetimes','event_timezone_popup'), "when", array("legend"=> "When"));
+    $this->addDisplayGroup(array('event_custom_datetimes','event_timezone_popup'), "when", array("legend"=> $translate->translate("When")));
 
     $this->addElement('text', 'tel_host', array(
-      'label' => 'Tel. Host',
+      'label' => $translate->translate('Tel. Host'),
       'required' => true,
-      'placeholder' => 'Telephone Number Host',
-      'description' => 'This will only be visible to people who\'ve joined the event.',
+      'placeholder' => $translate->translate('Telephone Number Host'),
+      'description' => $translate->translate('This will only be visible to people who\'ve joined the event.'),
       'validators' => array(
         array('Regex', true, array('/^\+{0,1}[0-9]{8,20}$/')),
       )
     ));
 
     $this->addElement('text', 'meeting_time', array(
-      'label' => 'Meeting Time',
+      'label' => $translate->translate('Meeting Time'),
       'required' => false,
-      'placeholder' => 'e.g. 12:00',
+      'placeholder' => $translate->translate('e.g. 12:00')
     ));
 
     $this->addElement('text', 'meeting_point', array(
-      'label' => 'Meeting Point',
+      'label' => $translate->translate('Meeting Point'),
       'required' => false,
-      'placeholder' => 'e.g. In front of the cinema',
-      'description' => "Specify the meeting point in max 50 characters.",
+      'placeholder' => $translate->translate('e.g. In front of the cinema'),
+      'description' => $translate->translate("Specify the meeting point in max 50 characters."),
       'validators' => array(
         array('StringLength', false, array("max" => 50)),
       )
     ));
-    $this->addDisplayGroup(array('tel_host','meeting_time','meeting_point'), "meeting", array("legend"=> "Meeting Point"));
+    $this->addDisplayGroup(array('tel_host','meeting_time','meeting_point'), "meeting", array("legend"=> $translate->translate("Meeting Point")));
 
     
     $this->addElement('Checkbox', 'is_additional_costs', array(
-      'label' => 'Additional Costs',
+      'label' => $translate->translate('Additional Costs'),
       'onchange' => 'additionalCostsToggle();',
       'value' => 0,
     ));
@@ -730,7 +731,7 @@ class Sesevent_Form_Create extends Engine_Form {
     );
 
     $this->addElement('Text', 'additional_costs_amount', array(
-      'label' => 'Amount',
+      'label' => $translate->translate('Amount'),
       'placeholder' => $translate->translate('0.00'),
       'class' => 'additional-costs-toggle',
       'validators' => array(
@@ -739,11 +740,11 @@ class Sesevent_Form_Create extends Engine_Form {
     ));
 
     $this->addElement('TinyMce', 'additional_costs_description', array(
-      'label' => 'Additional Costs description',
+      'label' => $translate->translate('Additional Costs description'),
       'class'=>$viewer->isAdmin()? 'additional-costs-toggle': 'additional-costs-toggle',
       'editorOptions' => $editorOptions,
-      'placeholder' => "e.g. Museum ticket, payable in cash",
-      'description' => "Specify what the costs are for and how it needs to be payed. Max. 100 characters.",
+      'placeholder' => $translate->translate("e.g. Museum ticket, payable in cash"),
+      'description' => $translate->translate("Specify what the costs are for and how it needs to be payed. Max. 100 characters."),
       'validators' => array(
         array('StringLength', false, array("max"=> 100)),
       )
@@ -751,8 +752,6 @@ class Sesevent_Form_Create extends Engine_Form {
     ));
 
     $this->addDisplayGroup(array('is_additional_costs', 'additional_costs_amount','additional_costs_description'), "costs", array("legend"=> "Costs"));
-
-
 
     $defaultProfileId = "0_0_" . $this->getDefaultProfileId();
     $customFields = new Sesbasic_Form_Custom_Fields(array(
@@ -784,7 +783,7 @@ class Sesevent_Form_Create extends Engine_Form {
 		if($eventcustom && $viewer->isAdmin()) {
       if(!empty($_GET['sesapi_platform']) && $_GET['sesapi_platform'] == 1){
         $this->addElement('select', 'is_custom_term_condition', array(
-          'label' => 'Custom Term And Condition',
+          'label' => $translate->translate('Custom Term And Conditions'),
           'description' => "",
           'multiOptions' => array('1'=>'Yes','0'=>'No'),
           'value' => '0'
@@ -792,21 +791,21 @@ class Sesevent_Form_Create extends Engine_Form {
       } else{
         // Custom Term And Condition
         $this->addElement('Checkbox', 'is_custom_term_condition', array(
-            'label' => 'Custom Term And Condition',
+            'label' => $translate->translate('Custom Term And Conditions'),
             'value' => 0
         ));
       }
 			if($tinymce){
         //Overview
         $this->addElement('TinyMce', 'custom_term_condition', array(
-            'label' => 'Term And Condition Description',
+            'label' => $translate->translate('Term And Conditions Description'),
             'class'=>'tinymce',
             'editorOptions' => $editorOptions,
         ));
 			} else {
 					 //Overview
 	      $this->addElement('Textarea', 'custom_term_condition', array(
-	        'label' => 'Term And Condition Description',
+	        'label' =>  $translate->translate('Term And Conditions Description'),
 	        'filters' => array(
 	            'StripTags',
 	            new Engine_Filter_Censor(),
@@ -929,8 +928,8 @@ class Sesevent_Form_Create extends Engine_Form {
         // Make select box
       } else {
         $this->addElement('Select', 'auth_view', array(
-            'label' => 'View Privacy',
-            'description' => 'Who may see this event?',
+            'label' =>  $translate->translate('View Privacy'),
+            'description' => $translate->translate('Who may see this event?'),
 						'class'=>$hideClass,
             'multiOptions' => $viewOptions,
             'value' => key($viewOptions),
@@ -947,8 +946,8 @@ class Sesevent_Form_Create extends Engine_Form {
         // Make select box
       } else {
         $this->addElement('Select', 'auth_comment', array(
-            'label' => 'Comment Privacy',
-            'description' => 'Who may post comments on this event?',
+            'label' => $translate->translate('Comment Privacy'),
+            'description' => $translate->translate('Who may post comments on this event?'),
 						'class'=>$hideClass,
             'multiOptions' => $commentOptions,
             'value' => key($commentOptions),
@@ -966,8 +965,8 @@ class Sesevent_Form_Create extends Engine_Form {
         // Make select box
       } else {
         $this->addElement('Select', 'auth_photo', array(
-            'label' => 'Photo Upload Privacy',
-            'description' => 'Who may upload photos to this event?',
+            'label' => $translate->translate('Photo Upload Privacy'),
+            'description' => $translate->translate('Who may upload photos to this event?'),
             'multiOptions' => $photoOptions,
 						'class'=>$hideClass,
             'value' => key($photoOptions)
@@ -986,8 +985,8 @@ class Sesevent_Form_Create extends Engine_Form {
         // Make select box
       } else {
         $this->addElement('Select', 'auth_video', array(
-            'label' => 'Video Upload Privacy',
-            'description' => 'Who may upload videos to this event?',
+            'label' => $translate->translate('Video Upload Privacy'),
+            'description' => $translate->translate('Who may upload videos to this event?'),
             'multiOptions' => $videoOptions,
 						'class'=>$hideClass,
             'value' => key($videoOptions)
@@ -1005,8 +1004,8 @@ class Sesevent_Form_Create extends Engine_Form {
         // Make select box
       } else {
         $this->addElement('Select', 'auth_music', array(
-            'label' => 'Music Upload Privacy',
-            'description' => 'Who may upload musics to this event?',
+            'label' => $translate->translate('Music Upload Privacy'),
+            'description' => $translate->translate('Who may upload musics to this event?'),
 						'class'=>$hideClass,
             'multiOptions' => $musicOptions,
             'value' => key($musicOptions)
@@ -1023,9 +1022,9 @@ class Sesevent_Form_Create extends Engine_Form {
         // Make select box
       } else {
         $this->addElement('Select', 'auth_topic', array(
-            'label' => 'Topic Post Privacy',
+            'label' => $translate->translate('Topic Post Privacy'),
 						'class'=>$hideClass,
-            'description' => 'Who may post topics to this event?',
+            'description' => $translate->translate('Who may post topics to this event?'),
             'multiOptions' => $topicOptions,
             'value' => key($topicOptions)
         ));
@@ -1036,7 +1035,7 @@ class Sesevent_Form_Create extends Engine_Form {
 
     // Search
     $this->addElement('Checkbox', 'search', array(
-        'label' => 'People can search for this event',
+        'label' => $translate->translate('People can search for this event'),
 				'class'=>$hideClass,
         'value' => True
     ));
@@ -1044,7 +1043,7 @@ class Sesevent_Form_Create extends Engine_Form {
     if(Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventsponsorship') && Engine_Api::_()->getApi('settings', 'core')->getSetting('seseventsponsorship.pluginactivated')) {
 			// Search
 	    $this->addElement('Checkbox', 'is_sponsorship', array(
-	        'label' => 'Do you want to enable sponsorship for this event',
+	        'label' => $translate->translate('Do you want to enable sponsorship for this event'),
 					'class'=>$hideClass,
 	        'value' => false
       ));
@@ -1054,7 +1053,7 @@ class Sesevent_Form_Create extends Engine_Form {
     if($settings->getSetting('sesevent.rsvpevent', 1)) {
 	    // Approval
 	    $this->addElement('Checkbox', 'approval', array(
-	        'label' => 'People must be invited to RSVP for this event',
+	        'label' => $translate->translate('People must be invited to RSVP for this event'),
 					'class'=>$hideClass,
 	        'value' => false,
       ));
@@ -1064,7 +1063,7 @@ class Sesevent_Form_Create extends Engine_Form {
     if($settings->getSetting('sesevent.inviteguest', 1)) {
 	    // Invite
 	    $this->addElement('Checkbox', 'auth_invite', array(
-	        'label' => 'Invited guests can invite other people as well',
+	        'label' => $translate->translate('Invited guests can invite other people as well'),
 					'class'=>$hideClass,
 	        'value' => true
       ));
@@ -1084,7 +1083,7 @@ class Sesevent_Form_Create extends Engine_Form {
 	    $this->addElement('Select', 'draft', array(
 	        'label' => 'Status',
 					'class'=> $hideClass,
-	        'description' => 'If this entry is published, it cannot be switched back to draft mode.',
+	        'description' => $translate->translate('If this entry is published, it cannot be switched back to draft mode.'),
 	        'multiOptions' => array( '1' => 'Published','0' => 'Saved As Draft',),
 	        'value' => 1,
 	    ));
@@ -1149,7 +1148,7 @@ class Sesevent_Form_Create extends Engine_Form {
         '1' => "Yes",
         '0' => "No",
       ),
-      "label" => '<span class="terms">I agree with the <a  href="https://dandoenwedat.com/pages/event-regulations" target="_blank">event regulations</a> of dandoenwedat.</span>',
+      "label" => $translate->translate('<span class="terms">I agree with the <a  href="https://dandoenwedat.com/pages/event-regulations" target="_blank">event regulations</a> of dandoenwedat.</span>'),
     ));
 
     $this->has_agreed->addValidator(new Zend_Validate_Accepted());
