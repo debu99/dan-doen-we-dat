@@ -5460,7 +5460,6 @@ date_default_timezone_set($oldTz);
   }
     public function lightboxAction(){
 
-
         $photo = Engine_Api::_()->getItem('estore_photo', $this->_getParam('photo_id'));
         $store_id = $this->_getparam('store_id', $photo->store_id);
 
