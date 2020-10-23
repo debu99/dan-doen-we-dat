@@ -474,6 +474,7 @@ class Sesadvpmnt_Plugin_Gateway_Stripe extends Engine_Payment_Plugin_Abstract
             case 'processed':
             case 'canceled_reversal':
             case 'succeeded':
+            case 'paid':
                 $paymentStatus = 'okay';
                 $orderStatus = 'complete';
             break;

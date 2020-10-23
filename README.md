@@ -227,6 +227,10 @@ Implement stripe
 Use an existing plugin and customize it.
 
 
+## Stripe checkout flows
+https://stripe.com/docs/legacy-checkout
+https://stripe.com/docs/payments/accept-a-payment?integration=elements
+https://support.stripe.com/questions/using-metadata-with-checkout-sessions
 ## Payment Gateways
 https://www.dandoenwedat.com/events/order/success/some-test-event-no-101/state/active/order_id/65
 

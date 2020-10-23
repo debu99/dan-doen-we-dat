@@ -185,9 +185,6 @@ class Sesadvpmnt_Plugin_Gateway_User_Stripe extends Engine_Payment_Plugin_Abstra
 
         // Check payment status
         if( $paymentStatus == 'okay' || ($paymentStatus == 'pending' && $giveBenefit) ) {
-
-
-
                 // Update order table info
             $orderPayment->gateway_id = $transaction->metadata->gateway_id;
             $orderPayment->gateway_transaction_id = $transaction->id;

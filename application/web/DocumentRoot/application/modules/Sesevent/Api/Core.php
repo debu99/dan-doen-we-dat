@@ -686,7 +686,11 @@ class Sesevent_Api_Core extends Core_Api_Abstract {
           $orderTicket->credit_value =  $sessionCredit->purchaseValue;
           $orderTicket->save();
           $userCreditDetailTable = Engine_Api::_()->getDbTable('details', 'sescredit');
-          $userCreditDetailTable->update(array('total_credit' => new Zend_Db_Expr('total_credit - ' . $sessionCredit->credit_value)), array('owner_id = ?' => $order->user_id));
+          try {
+            $userCreditDetailTable->update(array('total_credit' => new Zend_Db_Expr('total_credit - ' . $sessionCredit->credit_value)), array('owner_id =?' => $order->user_id));
+          } catch(Exception $e){
+
+          }
         }
 				$orderAmount = round($orderTicket->total_service_tax + $orderTicket->total_entertainment_tax + $orderTicket->total_amount,2);
 				$commissionValue = round($orderTicket->commission_amount,2);
