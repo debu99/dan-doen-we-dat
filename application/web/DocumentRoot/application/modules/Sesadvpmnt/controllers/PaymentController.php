@@ -75,12 +75,14 @@ class Sesadvpmnt_PaymentController extends Core_Controller_Action_Standard
     }
   }
   public function newstripefulfillAction(){
-
-      \Stripe\Stripe::setApiKey('sk_test_51B5YZmBIUyDQdS4SQs1CjebTjtYLWsSRoB7dVLZDwYKPucyJOueJOXEUZ5xom7sDHXS6bcVpXtajw5GzMkXAodaO00OeoFxIdm');
+      $table = Engine_Api::_()->getDbtable('gateways', 'payment');
+      $select =  $table->select()
+        ->where('`plugin` = ?', 'Sesadvpmnt_Plugin_Gateway_Stripe');
+      $gateway = $table->fetchRow($select);
       
-      // You can find your endpoint's secret in your webhook settings
-      $endpoint_secret = 'whsec_9nS0DAGMlm1s2J3IA5QCjTVVhiN3dq7R';
-      
+      \Stripe\Stripe::setApiKey($gateway->config['sesadvpmnt_stripe_secret']);
+      $endpoint_secret = $gateway->config['sesadvpmnt_endpoint_secret']; 
+    
       $payload = @file_get_contents('php://input');
       $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
       $event = null;
@@ -94,48 +96,43 @@ class Sesadvpmnt_PaymentController extends Core_Controller_Action_Standard
         http_response_code(400);
         exit();
       } catch(\Stripe\Exception\SignatureVerificationException $e) {
-        // Invalid signature
         http_response_code(400);
         exit();
       }
       
-      log("Passed signature verification!");
-
-      // Handle the checkout.session.completed event
       if ($event->type == 'checkout.session.completed' || $event->type == "charge.succeeded") {
         $session = $event->data->object;
-      
-        // Fulfill the purchase...
-        $this->fulfill_order($session);
+              $this->fulfill_order($session);
+      } else {
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(TRUE);
+        http_response_code(200);
       }
-
-      $this->_helper->layout->disableLayout();
-      $this->_helper->viewRenderer->setNoRender(TRUE);
-      http_response_code(200);
-
   }
 
   function fulfill_order($session) {
+    $transaction = array(
+      "id"=> $session->id, 
+      "status"=> "succeeded",
+      "currency"=> "EUR", 
+      "amount" => $session->amount_total, 
+      "metadata"=> (object) array(
+        "type"=> $session->metadata['order_type'],
+        "order_id"=> $session->metadata['order_id'],
+        "gateway_id"=> $session->metadata['gateway_id'],
+      )
+    );
+    $transaction = (object) $transaction;
+    
+
     switch($session['metadata']['order_type']) {
       case 'user':
-              // $this->returnAction($transaction);
-      break;
+        $this->returnAction($transaction);
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(TRUE);
+        http_response_code(200);
+        break;
       case 'sesevent_order':
-
-        $transaction = array(
-          "id"=> $session->id, 
-          "status"=> "succeeded",
-          "currency"=> "EUR", 
-          "amount" => $session->amount, //null
-          "metadata"=> (object) array(
-            "type"=> $session->metadata['order_type'],
-            "order_id"=> $session->metadata['order_id'],
-            "gateway_id"=> $session->metadata['gateway_id'],
-          )
-        );
-        $transaction = (object) $transaction;
-        
-
         $orderPayment = Engine_Api::_()->getItem('payment_order', $transaction->metadata->order_id);
         $orderEvent = Engine_Api::_()->getItem('sesevent_order',$orderPayment->source_id);
         $event = Engine_Api::_()->getItem('sesevent_event',$orderEvent->event_id);
@@ -150,25 +147,14 @@ class Sesadvpmnt_PaymentController extends Core_Controller_Action_Standard
 
         $orderPayment = Engine_Api::_()->getItem('payment_order', $session['metadata']['order_id']);
         $plugin->createOrderTransactionReturn($orderPayment,$transaction);
-
-        // return $this->_helper->redirector->gotoRoute(array('action' => 'return','order_id'=>$orderPayment->source_id), 'sesproduct_payment');
-      break;
-    }
-  }
-
-  public function newstripeSuccessAction(){
-    switch($transaction->metadata->type) {
-      case 'user':
-              $this->returnAction($transaction);
-      break;
-      case 'product':
-              $orderPayment = Engine_Api::_()->getItem('payment_order', $transaction->metadata->order_id);
-              $plugin = $this->_gateway->getPlugin();
-              $plugin->createOrderTransactionReturn($orderPayment,$transaction);
-              Engine_Api::_()->getDbTable('orders','sesproduct')->update(array('state' => 'complete'), array('order_id =?' => $this->order_id));
-              Engine_Api::_()->getDbtable('orders', 'payment')->update(array('state' => 'complete'), array('order_id =?' => $this->order_id));
-              return $this->_helper->redirector->gotoRoute(array('action' => 'return','order_id'=>$orderPayment->source_id), 'sesproduct_payment');
-      break;
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(TRUE);
+        http_response_code(200);
+        break;
+      default:
+        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(TRUE);
+        http_response_code(400);
     }
   }
 
@@ -176,122 +162,6 @@ class Sesadvpmnt_PaymentController extends Core_Controller_Action_Standard
     return $this->_helper->redirector->gotoRoute(array('action'=>'index','status'=>'failure'));
   }
 
-  public function newstripeAction(){
-    $gateway = Engine_Api::_()->getItem('payment_gateway', $this->_getParam('gateway_id'));
-    $gateway->config['sesadvpmnt_stripe_publish'];
-    $viewer = Engine_Api::_()->user()->getViewer();
-    $settings = Engine_Api::_()->getApi('settings', 'core');
-    $ordersTable = Engine_Api::_()->getDbtable('orders', 'payment');
-    $requestType = $this->_getParam('type',null);
-
-    if($requestType == "sesevent_order"){
-      $gatewayId = $this->_getParam('gateway_id', $this->_session->gateway_id);
-      if(!$gatewayId ||
-          !($gateway = Engine_Api::_()->getItem('payment_gateway', $gatewayId)) ||
-          !($gateway->enabled)) {
-          return false;
-      }
-      $this->_gateway = $gateway;
-      $this->order_id = $this->_getParam('order_id',$this->_session->order_id);
-      $order = Engine_Api::_()->getItem('sesevent_order',$this->order_id);
-      $ordersTable->insert(array(
-          'user_id' => $viewer->getIdentity(),
-          'gateway_id' => $gateway->gateway_id,
-          'state' => 'pending',
-          'creation_date' => new Zend_Db_Expr('NOW()'),
-          'source_type' => 'sesevent_order',
-          'source_id' => $order->order_id,
-      ));
-      $this->_session->sesevent_order_id = $order_id = $ordersTable->getAdapter()->lastInsertId();  
-      $currentCurrency = Engine_Api::_()->sesevent()->getCurrentCurrency();
-      $defaultCurrency = Engine_Api::_()->sesevent()->defaultCurrency();
-      $settings = Engine_Api::_()->getApi('settings', 'core');
-      $currencyValue = 1;
-      if($currentCurrency != $defaultCurrency){
-          $currencyValue = $settings->getSetting('sesmultiplecurrency.'.$currentCurrency);
-      }
-      $ticket_order = array();
-      $event = Engine_Api::_()->getItem('sesevent_event', $order->event_id);
-      $orderTicket = $order->getTicket(array('order_id'=>$order->order_id,'event_id'=>$event->event_id,'user_id'=>$viewer->user_id));
-      $priceTotal = $entertainment_tax = $service_tax = $totalTicket =  0;
-      $line_items = array();
-      foreach($orderTicket as $val){
-        $ticket = Engine_Api::_()->getItem('sesevent_ticket', $val['ticket_id']);
-        $price = @round($ticket->price*$currencyValue,2);
-        $entertainmentTax = @round($ticket->entertainment_tax,2);
-        $taxEntertainment = @round($price *($entertainmentTax/100),2);
-        $serviceTax = @round($ticket->service_tax,2);
-        $taxService = @round($price *($serviceTax/100),2);
-        $priceTotal = @round($val['quantity']*$price + $priceTotal,2);		 
-        $service_tax = @round(($taxService*$val['quantity']) + $service_tax,2);
-        $entertainment_tax = @round(($taxEntertainment * $val['quantity']) + $entertainment_tax,2);
-        $totalTicket = $val['quantity']+$totalTicket;
-
-        array_push($line_items,  [
-          'price_data' => [
-            'currency' => 'eur',
-            'product_data' => [
-              'name' => $ticket->name,
-            ],
-            'unit_amount' => ($price + $taxService +  $taxEntertainment) * 100,
-          ],
-          'quantity' => $val['quantity'],
-        ]);
-      }
-      if(Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('ecoupon')):
-        $couponSessionCode = '-'.'-'.$event->getType().'-'.$event->event_id.'-0'; 
-        $priceTotal = @isset($_SESSION[$couponSessionCode]) ? round($priceTotal - $_SESSION[$couponSessionCode]['discount_amount']) : $priceTotal;
-      endif;
-      if(Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('sescredit')):
-        $creditCode =  'credit'.'-sesevent-'.$event->event_id.'-'.$event->event_id;
-        $sessionCredit = new Zend_Session_Namespace($creditCode);
-        if(isset($sessionCredit->total_amount) && $sessionCredit->total_amount > 0): 
-          $priceTotal = $sessionCredit->total_amount;
-        endif;
-      endif;
-      $totalTaxtAmt = @round($service_tax+$entertainment_tax,2);
-      $subTotal = @round($priceTotal-$totalTaxtAmt,2);
-      $order->total_amount = @round(($priceTotal/$currencyValue),2);
-      $order->change_rate = $currencyValue;
-      $order->total_service_tax = @round(($service_tax/$currencyValue),2);
-      $order->total_entertainment_tax = @round(($entertainment_tax/$currencyValue),2);
-      $order->creation_date	= date('Y-m-d H:i:s');
-      $totalAmount = round($priceTotal+$service_tax+$entertainment_tax,2);
-      $order->total_tickets = $totalTicket;
-      $order->gateway_type = 'Stripe';
-      $commissionType = Engine_Api::_()->authorization()->getPermission($viewer,'sesevent_event','event_admincomn');
-      $commissionTypeValue = Engine_Api::_()->authorization()->getPermission($viewer,'sesevent_event','event_commission');
-      //%age wise
-      if($commissionType == 1 && $commissionTypeValue > 0){
-          $order->commission_amount = round(($priceTotal/$currencyValue) * ($commissionTypeValue/100),2);
-      }else if($commissionType == 2 && $commissionTypeValue > 0){
-          $order->commission_amount = $commissionTypeValue;
-      }
-      $order->save();
-      $this->view->amount = $params['amount'] = @round($priceTotal+$totalTaxtAmt, 2);
-      $this->view->currency = $params['currency'] = $currentCurrency;
-      $params['type'] = "sesevent_order";
-      $params['order_id'] = $order_id;
-    } 
-
-    $session = \Stripe\Checkout\Session::create([
-      'payment_method_types' => ['card', 'ideal'],
-      'line_items' =>  $line_items,
-      'mode' => 'payment',
-      'success_url' => $this->getHelper('ServerUrl')->getHost() . "/sesadvpmnt/payment/newstripeSuccessAction/route/default/type/sesevent_order/order_id/",
-      'cancel_url' =>$this->getHelper('ServerUrl')->getHost() . "/sesadvpmnt/payment/newstripeFailureAction/route/default/type/sesevent_order/order_id/",
-      'metadata' => array(
-        "order_id"=> $this->order_id,
-        "order_type"=> "sesevent_order" // sesevent_order
-      )
-    ]);
-
-    $this->_helper->layout->disableLayout();
-    $this->_helper->viewRenderer->setNoRender(TRUE);
-
-    echo json_encode ([ 'id' => $session->id ]);
-    exit;
-  }
   public function indexAction()
   { 
     $viewer = Engine_Api::_()->user()->getViewer();
@@ -339,6 +209,21 @@ class Sesadvpmnt_PaymentController extends Core_Controller_Action_Standard
             $this->view->amount = $params['amount'];
             $params['type'] = "user";
             $this->view->currency =  $params['currency'] = $settings->getSetting('payment.currency', 'USD');
+            
+            $intent = \Stripe\PaymentIntent::create([
+              'amount' =>$params['amount'] * 100,
+              'currency' => 'eur',
+              'payment_method_types' => ['ideal', 'card'],
+              'metadata' => [
+                "order_type"=> "user",
+                "order_id"=> $params['order_id'],
+                "gateway_id"=>  $gateway->gateway_id
+              ],
+            ]);
+            $host_name = getenv('HTTP_HOST');
+            $intent->return_url = "https://{$host_name}/payment/subscription/finish/state/active";
+            $this->view->intent = $intent;
+            $this->view->isRecurring = $package->recurrence > 0;
         }
     } elseif($requestType == "pagepackage") {
         $this->_gateway = $gateway;
@@ -635,8 +520,7 @@ class Sesadvpmnt_PaymentController extends Core_Controller_Action_Standard
       $intent = \Stripe\PaymentIntent::create([
         'amount' =>($priceTotal+$totalTaxtAmt) * 100,
         'currency' => 'eur',
-        'payment_method_types' => ['ideal'],
-        // Verify your integration in this guide by including this parameter
+        'payment_method_types' => ['ideal', 'card'],
         'metadata' => [
           "order_type"=> "sesevent_order",
           "order_id"=> $order_id,
@@ -644,7 +528,8 @@ class Sesadvpmnt_PaymentController extends Core_Controller_Action_Standard
         ],
       ]);
       $this->view->intent = $intent;
-      $this->view->intent->return_url = "https://www.dandoenwedat.com/sesevent/order/success/event_id/{$event->custom_url}/order_id/{$this->order_id}/state/active";
+      $host_name = getenv('HTTP_HOST');
+      $this->view->intent->return_url = "https://{$host_name}/sesevent/order/success/event_id/{$event->custom_url}/order_id/{$this->order_id}/state/active";
 
     } 
     elseif($requestType == "sesevent_userpayrequest"){
@@ -709,6 +594,7 @@ class Sesadvpmnt_PaymentController extends Core_Controller_Action_Standard
     $this->view->title = $title = $gateway->config['sesadvpmnt_stripe_title'];
     $this->view->description = $description = $gateway->config['sesadvpmnt_stripe_description'];
     $this->view->logo = $logo = $gateway->config['sesadvpmnt_stripe_logo'];
+    $this->view->request_type = $requestType;
     $plugin = $this->_gateway->getPlugin(); 
     $this->_type = $this->_getParam('type');
       // Unset certain keys
@@ -864,12 +750,11 @@ class Sesadvpmnt_PaymentController extends Core_Controller_Action_Standard
 
   }
   public function returnAction($transaction)
-  {
+  { 
     // Get order
     if( !$this->_user ||
         !($orderId = $transaction->metadata->order_id) ||
         !($order = Engine_Api::_()->getItem('payment_order', $orderId)) ||
-        $order->user_id != $this->_user->getIdentity() ||
         $order->source_type != 'payment_subscription' ||
         !($subscription = $order->getSource()) ||
         !($package = $subscription->getPackage()) ||

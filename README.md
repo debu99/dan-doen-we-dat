@@ -195,7 +195,6 @@ drwxr-xr-x piepongwong piepongwong
 ## MYSQL Migration Scripts
 mysqldump --column-statistics=0 -h prodhost -u DANDOE_ROOT -p dandoe_se > ddwd.sql
 mysql -u root -P 3306 -h 127.0.0.1 -p dandoe_se5 < ddwd.sql
-
 ## Adding Translations
 If a fully new translation is added through the language manager, it's first added to custom.csv. Only after regenerating the php arrays it's added in the respective en.php en nl.php. You can do this by going to https://www.dandoenwedat.com/admin/core/settings/performance, ticket the translation performance box and save.
 
@@ -231,6 +230,8 @@ Use an existing plugin and customize it.
 https://stripe.com/docs/legacy-checkout
 https://stripe.com/docs/payments/accept-a-payment?integration=elements
 https://support.stripe.com/questions/using-metadata-with-checkout-sessions
+
+stripe listen --skip-verify --forward-to https://dandoenwedat.com/sesadvpmnt/payment/newstripefulfill/route/default/type/sesevent_order/order_id/dummy/gateway_id/dummy
 ## Payment Gateways
 https://www.dandoenwedat.com/events/order/success/some-test-event-no-101/state/active/order_id/65
 

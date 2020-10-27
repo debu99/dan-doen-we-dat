@@ -65,9 +65,9 @@ class Payment_AdminGatewayController extends Core_Controller_Action_Admin
     $form->populate($gateway->toArray());
     if( is_array($gateway->config) ) {
       $form->populate($gateway->config);
-      if(!in_array($gateway->plugin, array('Payment_Plugin_Gateway_Free', 'Payment_Plugin_Gateway_Bank', 'Payment_Plugin_Gateway_Cash', 'Payment_Plugin_Gateway_Cheque'))) {
-        $form->test_mode->setValue($gateway->test_mode);
-      }
+      // if(!in_array($gateway->plugin, array('Payment_Plugin_Gateway_Free', 'Payment_Plugin_Gateway_Bank', 'Payment_Plugin_Gateway_Cash', 'Payment_Plugin_Gateway_Cheque'))) {
+      //   $form->test_mode->setValue($gateway->test_mode);
+      // }
     }
 
     // Check method/valid

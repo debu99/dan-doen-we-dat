@@ -7,16 +7,18 @@ services:
             --providers.docker.swarmMode=true
             --entrypoints.web.address=:80
             --entrypoints.websecure.address=:443
-            --certificatesresolvers.myresolver.acme.email=info@tech-savvy.io
-            --certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json
-            --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
+            --providers.file.directory=/configuration
+            # --certificatesresolvers.myresolver.acme.email=info@tech-savvy.io
+            # --certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json
+            # --certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web
         ports:
             - "8080:8080"
             - "80:80"
             - "443:443"
         volumes:
-            - "./letsencrypt:/letsencrypt"
-            - "/var/run/docker.sock:/var/run/docker.sock"
+            - ./traefik/config:/configuration
+            - ./traefik/certs:/etc/traefik/certs
+            - /var/run/docker.sock:/var/run/docker.sock
     dandoenwedat:
         image: piepongwong/apache-php-se-dev:v1.11
         container_name: 'dandoenwedat-web'

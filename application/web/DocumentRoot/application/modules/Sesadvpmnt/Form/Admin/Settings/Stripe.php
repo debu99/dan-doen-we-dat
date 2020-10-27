@@ -51,8 +51,17 @@ class Sesadvpmnt_Form_Admin_Settings_Stripe extends Engine_Form {
             'label' => 'Stripe Secret key',
             'required' => true,
             'allowEmpty' => false,
-     ));
-    $this->addElement('Text', "sesadvpmnt_stripe_title", array(
+      ));
+      $this->addElement('Text', "sesadvpmnt_endpoint_secret", array(
+       'label' => 'Stripe Endpoint Secret',
+       'required' => true,
+       'description'=> "<span>You need to register a webhook via the stripe dashboard with the following url: <small>https://dandoenwedat.com/sesadvpmnt/payment/newstripefulfill/route/default/type/sesevent_order/order_id/dummy/gateway_id/dummy</small></span>",
+       'allowEmpty' => false,
+       'escape'=>false
+      ));
+      $this->getElement("sesadvpmnt_endpoint_secret")->getDecorator('Description')->setEscape(false);
+
+      $this->addElement('Text', "sesadvpmnt_stripe_title", array(
             'label' => 'Stripe Form Title.',
      ));
      $this->addElement('Text', "sesadvpmnt_stripe_description", array(
