@@ -1,5 +1,5 @@
 provider "aws" {
-  profile = "default"
+  profile = "ddwd"
   region  = var.AWS_REGION
   shared_credentials_file = "~/.aws/credentials"
 }
@@ -33,6 +33,14 @@ resource "aws_db_instance" "ddwd" {
 
 resource "random_id" "id" {
 	  byte_length = 8
+}
+data "aws_iam_policy" "ReadOnlyAccess" {
+  arn = "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
+}
+
+resource "aws_iam_role_policy_attachment" "sto-readonly-role-policy-attach" {
+  role       = "${aws_iam_role.ec2_s3_access.name}"
+  policy_arn = data.aws_iam_policy.ReadOnlyAccess.arn
 }
 
 resource "aws_s3_bucket" "ddwd" {
@@ -241,7 +249,7 @@ resource "aws_instance" "ddwd" {
 }
 
 resource "aws_route53_zone" "ddwd" {
-  name = "dandoenwedat.com.com"
+  name = "dandoenwedat.com"
 }
 
 resource "aws_route53_record" "ddwd-www" {
