@@ -29,7 +29,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 <div id="seslocation-wrapper" class="form-wrapper" id="who-wrapper">
 	<fieldset id="fieldset-where">
 
-		<legend>Where</legend>
+		<legend><?php echo $this->translate("Where"); ?></legend>
 		<div id="location-label" class="form-label">
 			<label for="locationSes" class="required"><?php echo $this->translate("Location"); ?></label>
 		</div>

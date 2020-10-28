@@ -563,13 +563,13 @@ class Sesevent_Form_Create extends Engine_Form {
         if($_GET['sesapi_platform'] != 1){
 //             Start time
             $startdate = new Engine_Form_Element_Date('start_date');
-            $startdate->setLabel("Start Date");
+            $startdate->setLabel($translate->translate("Start Date"));
             $startdate->setAllowEmpty(false);
             $startdate->setRequired(true);
             $this->addElement($startdate);
 
             $start = new Engine_Form_Element_Date('start_time');
-            $start->setLabel("Start Time");
+            $start->setLabel($translate->translate("Start Time"));
             $start->setAllowEmpty(false);
             $start->setRequired(true);
             $this->addElement($start);
@@ -577,26 +577,26 @@ class Sesevent_Form_Create extends Engine_Form {
             if($viewer->isAdmin()) {
               // End time
               $enddate = new Engine_Form_Element_Date('end_date');
-              $enddate->setLabel("End Date");
+              $enddate->setLabel($translate->translate("End Date"));
               $enddate->setAllowEmpty(false);
               $enddate->setRequired(true);
               $this->addElement($enddate);
             }
 
             $end = new Engine_Form_Element_Date('end_time');
-            $end->setLabel("End Time");
+            $end->setLabel($translate->translate("End Time"));
             $end->setAllowEmpty(false);
             $end->setRequired(true);
             $this->addElement($end);
         }else{
             $startdate = new Engine_Form_Element_Date('start_time');
-            $startdate->setLabel("Start Date & Time");
+            $startdate->setLabel($translate->translate("Start Date & Time"));
             $startdate->setAllowEmpty(false);
             $startdate->setRequired(true);
             $this->addElement($startdate);
 
             $start = new Engine_Form_Element_Date('end_time');
-            $start->setLabel("End Date & Time");
+            $start->setLabel($translate->translate("End Date & Time"));
             $start->setAllowEmpty(false);
             $start->setRequired(true);
             $this->addElement($start);
@@ -1093,7 +1093,7 @@ class Sesevent_Form_Create extends Engine_Form {
 
     // Buttons
     $this->addElement('Button', 'submit', array(
-        'label' => 'Save Changes',
+        'label' => $translate->translate('Save Changes'),
         'type' => 'submit',
         'ignore' => true,
         'decorators' => array(
@@ -1102,7 +1102,7 @@ class Sesevent_Form_Create extends Engine_Form {
     ));
 		if(!$this->getSmoothboxType()){
 			$this->addElement('Cancel', 'cancel', array(
-					'label' => 'cancel',
+					'label' => $translate->translate('cancel'),
 					'link' => true,
 					'href' =>  Zend_Controller_Front::getInstance()->getRouter()->assemble(array('action' => 'manage'), 'sesevent_general', true),
 					'prependText' => ' or ',
@@ -1145,8 +1145,8 @@ class Sesevent_Form_Create extends Engine_Form {
     $this->addElement('Radio', 'has_agreed', array(
       'value' => '0',
       'multiOptions' => array(
-        '1' => "Yes",
-        '0' => "No",
+        '1' => $translate->translate("Yes"),
+        '0' => $translate->translate("No"),
       ),
       "label" => $translate->translate('<span class="terms">I agree with the <a  href="https://dandoenwedat.com/pages/event-regulations" target="_blank">event regulations</a> of dandoenwedat.</span>'),
     ));
@@ -1158,9 +1158,6 @@ class Sesevent_Form_Create extends Engine_Form {
             'FormElements',
             'DivDivDivWrapper',
         ),
-    ));
-
-
-  
+    ));  
   }
 }
