@@ -332,7 +332,7 @@ sesJqueryObject(document).click(function(event){
           $height = isset($imageHeightWidthData[1]) ? $imageHeightWidthData[1] : '200'; ?>
          		<li id="thumbs-photo-<?php echo $photo->photo_id ?>" data-w="<?php echo $width ?>" data-h="<?php echo $height; ?>" class="ses_album_image_viewer sesevent_album_list_flex_thumb sesevent_album_list_photo_grid sesevent_album_list_grid sesbasic_list_photo_grid sesea-i-inside sesea-i-<?php echo (isset($this->fixHover) && $this->fixHover == 'fix') ? 'fix' : 'over'; ?>">
               <?php $imageViewerURL = $photo->getHref() ?>
-              <a class="sesevent_album_list_flex_img ses-image-viewer" onclick="openLightBoxForSesPlugins('<?php echo $imageViewerURL	; ?>','<?php echo $photo->getPhotoUrl(); ?>')" href="<?php echo $photo->getHref(); ?>"> 
+              <a class="sesevent_album_list_flex_img"  href="<?php echo $photo->getHref(); ?>"> 
                 <img data-src="<?php echo $imageURL; ?>" src="<?php $this->layout()->staticBaseUrl; ?>application/modules/Sesevent/externals/images/blank-img.gif" /> 
               </a>
               <?php 
