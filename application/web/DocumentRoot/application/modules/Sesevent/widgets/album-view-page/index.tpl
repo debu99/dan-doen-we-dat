@@ -257,7 +257,7 @@ sesJqueryObject(document).click(function(event){
            if($this->view_type != 'masonry'){ ?>
             <li id="thumbs-photo-<?php echo $photo->photo_id ?>" class="ses_album_image_viewer sesevent_album_list_photo_grid sesevent_album_list_grid  sesea-i-<?php echo (isset($this->insideOutside) && $this->insideOutside == 'outside') ? 'outside' : 'inside'; ?> sesea-i-<?php echo (isset($this->fixHover) && $this->fixHover == 'fix') ? 'fix' : 'over'; ?> sesbm" style="width:<?php echo is_numeric($this->width) ? $this->width.'px' : $this->width ?>;">
               <?php $imageURL = $photo->getHref(); ?>
-              <a class="sesevent_album_list_grid_img ses-image-viewer" href="<?php echo $photo->getHref(); ?>" style="height:<?php echo is_numeric($this->height) ? $this->height.'px' : $this->height ?>;"> 
+              <a class="sesevent_album_list_grid_img" href="<?php echo $photo->getHref(); ?>" style="height:<?php echo is_numeric($this->height) ? $this->height.'px' : $this->height ?>;"> 
                 <span style="background-image: url(<?php echo $photo->getPhotoUrl('thumb.normalmain'); ?>);"></span>
               </a>
               <?php 
