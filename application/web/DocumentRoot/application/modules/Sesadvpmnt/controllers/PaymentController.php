@@ -12,8 +12,6 @@
  */
 include_once APPLICATION_PATH . "/application/modules/Sesadvpmnt/Api/Stripe/init.php";
 require 'vendor/autoload.php';
-// This is your real test secret API key.
-\Stripe\Stripe::setApiKey('sk_test_51B5YZmBIUyDQdS4SQs1CjebTjtYLWsSRoB7dVLZDwYKPucyJOueJOXEUZ5xom7sDHXS6bcVpXtajw5GzMkXAodaO00OeoFxIdm');
 
 class Sesadvpmnt_PaymentController extends Core_Controller_Action_Standard
 {
@@ -210,6 +208,7 @@ class Sesadvpmnt_PaymentController extends Core_Controller_Action_Standard
             $params['type'] = "user";
             $this->view->currency =  $params['currency'] = $settings->getSetting('payment.currency', 'USD');
             
+            \Stripe\Stripe::setApiKey($gateway->config['sesadvpmnt_stripe_secret']);
             $intent = \Stripe\PaymentIntent::create([
               'amount' =>$params['amount'] * 100,
               'currency' => 'eur',
@@ -517,6 +516,7 @@ class Sesadvpmnt_PaymentController extends Core_Controller_Action_Standard
       $params['type'] = "sesevent_order";
       $params['order_id'] = $order_id;
 
+      \Stripe\Stripe::setApiKey($gateway->config['sesadvpmnt_stripe_secret']);
       $intent = \Stripe\PaymentIntent::create([
         'amount' =>($priceTotal+$totalTaxtAmt) * 100,
         'currency' => 'eur',
