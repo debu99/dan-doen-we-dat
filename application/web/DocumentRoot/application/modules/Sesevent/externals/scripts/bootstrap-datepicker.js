@@ -701,7 +701,9 @@
 			var cls = [],
 				year = this.viewDate.getUTCFullYear(),
 				month = this.viewDate.getUTCMonth(),
-				today = new Date();
+				today = new Date(),
+				yesterday = new Date()
+				yesterday.setDate(yesterday.getDate() -1)
 			if (date.getUTCFullYear() < year || (date.getUTCFullYear() === year && date.getUTCMonth() < month)){
 				cls.push('old');
 			}
@@ -721,7 +723,7 @@
 				cls.push('active');
 				cls.push('disabled');
 			}
-			if (date.valueOf() < this.o.startDate || date.valueOf() > this.o.endDate ||
+			if (date.valueOf() < yesterday || date.valueOf() > this.o.endDate ||
 				$.inArray(date.getUTCDay(), this.o.daysOfWeekDisabled) !== -1){
 				cls.push('disabled');
 			}
