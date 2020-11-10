@@ -723,10 +723,10 @@
 				cls.push('active');
 				cls.push('disabled');
 			}
-			if (date.valueOf() < yesterday || date.valueOf() > this.o.endDate ||
-				$.inArray(date.getUTCDay(), this.o.daysOfWeekDisabled) !== -1){
-				cls.push('disabled');
-			}
+			// if (date.valueOf() < yesterday || date.valueOf() > this.o.endDate ||
+			// 	$.inArray(date.getUTCDay(), this.o.daysOfWeekDisabled) !== -1){
+			// 	cls.push('disabled');
+			// }
 			if (this.range){
 				if (date > this.range[0] && date < this.range[this.range.length-1]){
 					cls.push('range');
