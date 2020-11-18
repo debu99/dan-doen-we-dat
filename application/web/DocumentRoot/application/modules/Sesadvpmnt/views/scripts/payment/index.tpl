@@ -68,6 +68,7 @@
     style: {
       base: {
         padding: '10px 12px',
+        width: '200px',
         color: '#32325d',
         fontSize: '16px',
         '::placeholder': {
