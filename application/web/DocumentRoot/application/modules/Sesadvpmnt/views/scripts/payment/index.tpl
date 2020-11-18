@@ -82,6 +82,8 @@
   idealBank.mount('#ideal-bank-element');
 
   var form = document.getElementById('payment-form');
+  form.style.width = "200px";
+  
   var accountholderName = document.getElementById('accountholder-name');
 
   form.addEventListener('submit', function(event) {
