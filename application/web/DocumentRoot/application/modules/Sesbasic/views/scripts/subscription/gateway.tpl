@@ -49,8 +49,13 @@
                 <?php if( !$first ): ?>
                   <?php echo $this->translate('or') ?>
                 <?php endif; ?>
+                
                 <button type="submit" name="execute" onclick="$('gateway_id').set('value', '<?php echo $gateway->gateway_id ?>')">
-                  <?php echo $this->translate('Pay with %1$s', $this->translate($gateway->title)) ?>
+                  <?php if($gateway->title === "Stripe") {?>
+                    <?php echo $this->translate('Pay with IDeal or Creditcard') ?>
+                  <?php } else {?>
+                    <?php echo $this->translate('Pay with %1$s', $this->translate($gateway->title)) ?>
+                  <?php }?>
                 </button>
               <?php endforeach; ?>
           </div>
