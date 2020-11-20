@@ -384,6 +384,11 @@ class Payment_SubscriptionController extends Core_Controller_Action_Standard
   public function finishAction()
   {
     $this->view->status = $status = $this->_getParam('state');
+    $redirect_status =  $this->_getParam('redirect_status');
+    if(isset($redirect_status) && $redirect_status == "failed") {
+      $baseUrl = new Zend_View_Helper_BaseUrl();
+      $this->getResponse()->setRedirect($baseUrl->baseUrl().'/payment/subscription/finish/state/failure');
+    }
     $this->view->error = $this->_session->errorMessage;
     $this->view->url = $this->view->url(array(), 'default', true);
     // If user's member level changed then redirect to edit profile page.
