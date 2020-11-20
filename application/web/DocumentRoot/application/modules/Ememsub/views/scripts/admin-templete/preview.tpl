@@ -65,7 +65,7 @@
                     }
                 ?>
                 <span><?php echo sprintf($this->translate('%1$s'), $priceStr); ?></span>
-                <?php if($typeStr):?><sub>/&nbsp;<?php echo $typeStr; ?></sub><?php endif;?>
+                <?php if($typeStr && $package->recurrence > 0):?><sub>/&nbsp;<?php echo $typeStr; ?></sub><?php endif;?>
               </p>
               <p class="duration">
                 <?php $typeStr = $this->translate(array($package->duration_type, $package->duration_type . 's', $package->duration)); ?>
