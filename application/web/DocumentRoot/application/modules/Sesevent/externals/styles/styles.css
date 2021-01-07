@@ -2685,9 +2685,7 @@ div.sesevent_photo_view > div.comments{
 .sesevent_order_error_msg{
 	font-size:17px;
 }
-.sesevent_order_error_msg{
-	color:#f00;
-}
+
 .sesevent_order_success_box li{
 	padding:5px 0;
 }
