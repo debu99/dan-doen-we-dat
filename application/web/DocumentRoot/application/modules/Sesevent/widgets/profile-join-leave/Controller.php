@@ -43,9 +43,9 @@ class Sesevent_Widget_ProfileJoinLeaveController extends Engine_Content_Widget_A
         $this->view->showMenOnly = $genderUser === "Female" && $event->gender_destribution == "Men only";
 
         $currentTime = time();
-        if (strtotime($subject->starttime) > $currentTime) {
+        if (strtotime($event->starttime) > $currentTime) {
             $status = 'notStarted';
-        } else if (strtotime($subject->endtime) < $currentTime) {
+        } else if (strtotime($event->endtime) < $currentTime) {
             $status = 'expire';
         } else {
             $status = 'onGoing';
