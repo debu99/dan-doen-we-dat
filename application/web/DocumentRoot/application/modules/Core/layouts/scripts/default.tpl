@@ -173,7 +173,6 @@
         ->prependFile($staticBaseUrl . 'application/modules/User/externals/scripts/core.js')
         ->prependFile($staticBaseUrl . 'application/modules/Core/externals/scripts/core.js')
         ->prependFile($staticBaseUrl . 'externals/chootools/chootools.js')
-        ->prependFile($staticBaseUrl . 'externals/mootools/mootools-more-1.4.0.1-full-compat-' . (APPLICATION_ENV == 'development' ? 'nc' : 'yc') . '.js')
         ->prependFile($staticBaseUrl . 'externals/mootools/mootools-core-1.4.5-full-compat-' . (APPLICATION_ENV == 'development' ? 'nc' : 'yc') . '.js')
         ->prependFile($staticBaseUrl . 'externals/jQuery/jquery.min.js');
     // Process
