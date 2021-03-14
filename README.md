@@ -6,7 +6,7 @@ If you are new to this project, you probably want to start with "How to Run Loca
 
 1. [How to Run Locally](./_docs/how_to_run_locally.md)
 2. [Test Accounts](./_docs/test_accounts.md)
-3. [Deployment](./_docs/deployment.md) [![dandoenwedat](https://circleci.com/github/dandoenwedat/dandoenwedat.svg?style=svg)](https://app.circleci.com/pipelines/github/dandoenwedat)
+3. [Deployment](./_docs/deployment.md) [![dandoenwedat](https://circleci.com/gh/dandoenwedat/dandoenwedat.svg?style=svg&circle-token=e4cec459b102bf7bada814f2c7db4d05b885ede4)](https://app.circleci.com/pipelines/github/dandoenwedat)
 4. [How to Debug Locally](./_docs/how_to_debug_locally.md)
 5. [General Se Notes](./_docs/general_notes_se.md)
 6. [Onboarding Notes](./_docs/onboarding.md)
