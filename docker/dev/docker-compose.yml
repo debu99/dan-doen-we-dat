@@ -20,7 +20,7 @@ services:
             - ./traefik/certs:/etc/traefik/certs
             - /var/run/docker.sock:/var/run/docker.sock
     dandoenwedat:
-        image: piepongwong/apache-php-se-dev:v1.11
+        image: dandoenwedat/apache-php-se:dev-V1.11
         container_name: 'dandoenwedat-web'
         volumes:
             - ../../application/web/DocumentRoot:/var/www/html

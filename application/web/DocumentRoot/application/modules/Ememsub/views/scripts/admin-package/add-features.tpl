@@ -16,7 +16,6 @@
 $this->headScript()->appendFile($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/scripts/jscolor/jscolor.js');
 ?>
 <?php include APPLICATION_PATH .  '/application/modules/Ememsub/views/scripts/dismiss_message.tpl';?>
-<?php $this->headScript()->appendFile($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/scripts/jquery.min.js'); ?>
 <?php $this->headScript()->appendFile($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/scripts/jquery1.11.js'); ?>
 <div class="ememsub_search_reasult">
   <?php echo $this->htmlLink(array('action' => 'index', 'reset' => false), $this->translate('Back to Manage Features'), array('class' => 'buttonlink  ememsub_icon_back')) ?>

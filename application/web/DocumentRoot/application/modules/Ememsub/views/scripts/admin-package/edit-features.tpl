@@ -18,7 +18,6 @@ $this->headScript()->appendFile($this->layout()->staticBaseUrl . 'application/mo
 ?>
 
 <?php include APPLICATION_PATH .  '/application/modules/Ememsub/views/scripts/dismiss_message.tpl';?>
-<?php $this->headScript()->appendFile($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/scripts/jquery.min.js'); ?>
 <?php $this->headScript()->appendFile($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/scripts/jquery1.11.js'); ?>
 
 <div class="ememsub_search_reasult">
