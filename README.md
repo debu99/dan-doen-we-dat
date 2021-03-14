@@ -11,4 +11,3 @@ If you are new to this project, you probably want to start with "How to Run Loca
 5. [General Se Notes](./_docs/general_notes_se.md)
 6. [Onboarding Notes](./_docs/onboarding.md)
 
-
