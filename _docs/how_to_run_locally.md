@@ -50,4 +50,4 @@ To seed the database run: `mysql -u root -P 3306 -h 127.0.0.1 -p dandoe_se5 < dd
 Make sure the mysql service is up (`docker service list`) and that only the docker instance of MYSQL is running. If you already have a regular MySql installation installed it interferes with the Docker instance. Make sure your regular MySql installation doesn't boot on startup, restart your computer and try again.
 
 ## Final
-Now you can make live changes to the code, which is in the `application` directory. You should only have to refresh the page in order for the changes to take effect. You probably one to use one of the [test acounts](./test_acounts.md)
+Now you can make live changes to the code, which is in the `application` directory. You should only have to refresh the page in order for the changes to take effect. You probably want to use one of the [test acounts](./test_acounts.md).
