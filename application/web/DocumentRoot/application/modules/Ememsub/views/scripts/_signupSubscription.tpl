@@ -14,6 +14,7 @@
 <?php $templeteId = Engine_Api::_()->getDbTable('templates','ememsub')->getSelectedTempleteId(); ?>
 <?php $this->headLink()->appendStylesheet($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/styles/styles.css'); ?>
 <?php $this->headLink()->appendStylesheet($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/styles/customscrollbar.css'); ?>
+<?php $this->headScript()->appendFile($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/scripts/jquery.min.js'); ?>
 <?php $this->headScript()->appendFile($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/scripts/customscrollbar.concat.min.js'); ?>
 
 <?php $template = Engine_Api::_()->getItem('ememsub_template',$templeteId); ?>
