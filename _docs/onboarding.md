@@ -16,9 +16,9 @@ New developers need access to the following:
 * Live test accounts credentials 
      * admin account to be newly created in the dandoenwedat live site settings
      * test accounts like radi.schaefers@gmail.com / password provided separately
-## Admin Users
+## Admin Developer
 * root access to aws
-* root acces to production mysqldb
+* root access to production mysqldb
      * whitelist ip address
 * mijnhosting net
 * Simple Email Service credentials

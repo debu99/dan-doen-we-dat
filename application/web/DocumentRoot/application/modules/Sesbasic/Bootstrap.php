@@ -32,7 +32,7 @@ class Sesbasic_Bootstrap extends Engine_Application_Bootstrap_Abstract {
       //Load google map if any of the given ses plugin install
       $pluginNames = array('sesalbum', 'sesvideo', 'sesevent', 'sesblog', 'sesgroupalbum', 'sesmember',"sesadvancedactivity"); //pass comma seprated string of modules
       if (Engine_Api::_()->getApi('settings', 'core')->getSetting('ses.mapApiKey', '') && Engine_Api::_()->getApi('settings', 'core')->getSetting('enableglocation', 1)) {
-        $headScript->appendFile('https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=' . Engine_Api::_()->getApi('settings', 'core')->getSetting('ses.mapApiKey', ''), "text/javascript", array("defer"=> true));
+        $headScript->appendFile('https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=' . Engine_Api::_()->getApi('settings', 'core')->getSetting('ses.mapApiKey', ''), "text/javascript");
       }
       if (Engine_Api::_()->sesbasic()->isModuleEnable($pluginNames)) {
         $headScript->appendFile(Zend_Registry::get('StaticBaseUrl')

@@ -1,4 +1,4 @@
-# Genere Notes Social Engine
+# General Notes Social Engine
 
 ## Database setup
 in DocumentRoot/application/settings/database.php
@@ -165,12 +165,6 @@ It would be more performant to have the first and lastname as separate columns i
 usefull function: `$fieldValues = Engine_Api::_()->fields()->getFieldsValuesByAlias($this);`
 
 The privacy is set by admin page=>settings=>profile questions=>edit Last Name=>setting everything on hide.
-
-## Documentation
-
-Zend framwork 1 reference: https://framework.zend.com/apidoc/1.12/index.html
-
-
 ## Social Engine Plugin Installation Process
 1. Install the core libraries via the free Core Plugin
 2. Don't install the plugin yet, but go to the SocialApps.tech Core Plugin admin page=>Login with your SEAO credentials=>Upgrade
