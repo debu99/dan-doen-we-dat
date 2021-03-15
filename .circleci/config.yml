@@ -26,7 +26,10 @@ workflows:
   version: 2.1
   build-and-deploy:
     jobs:
-      - build
+      - build:
+          filters: 
+            branches:
+              only: production # possibly extend to staging later
       - deploy:
           requires:
             - build # only deploy once build job has completed
