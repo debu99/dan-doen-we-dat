@@ -31,7 +31,6 @@ Now open ** Chrome ** and go to www.dandoenwedat.com. You'll get an warning abou
 Now you'll see an error screen of the application itself. This is because the database isn't set up yet. Up to step 3!
 
 ## 3. Seeding the Local Database
-
 You need the mysql cli client in order to complete this step. You do not necessarily need mysql server locally, but if you already have the full mysql installation, the required mysql client is included. Installation guides:
 
 * [mysql for macos] (https://dev.mysql.com/doc/refman/8.0/en/osx-installation-pkg.html)
@@ -43,7 +42,7 @@ This repo contains a copy of production database of 13 March 2021. You can use t
 In case you DO have the production credentials nad you DO need a newer clone run the following command: 
 `mysqldump --column-statistics=0 -h ddwd-prod-restore-3.cf0o1nyizsus.eu-central-1.rds.amazonaws.com -u DANDOE_ROOT -p dandoe_se > ddwd_currentDay_currentMonth_currentYear.sql`
 
-If you do have the credentials, be very careful. Faulty usage might result in destructive operations. It's advisable to make a backup first via AWS RDS. 
+If you do have the credentials, be very careful. Faulty usage might result in destructive operations. It's advisable to make a backup first via AWS RDS. You need to contact or be an admin developer in order to do this. 
 
 To seed the database run: `mysql -u root -P 3306 -h 127.0.0.1 -p dandoe_se5 < ddwd_13_march_21.sql`. The password is `root`.
 
