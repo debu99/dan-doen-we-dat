@@ -1,22 +1,16 @@
-<?php
-/**
- * SocialEngine
- *
- * @copyright  Copyright 2006-2010 Webligo Developments
- * @license    http://www.socialengine.com/license/
- * @version    $Id: database.sample.php 9747 2012-07-26 02:08:08Z john $
- */
-defined('_ENGINE') or die('Access Denied'); return array(
+<?php defined('_ENGINE') or die('Access Denied'); return array (
   'adapter' => 'mysqli',
-  'params' => array(
-    'host' => "127.0.0.1",
-    'username' => "db_username",
-    'password' => "db_password",
-    'dbname'   => "db_name",
-    'charset'  => 'UTF-8',
+  'params' => 
+  array (
+    'host' => getenv('MYSQL_HOST'),
+    'username' => getenv('MYSQL_USER'),
+    'password' => getenv('MYSQL_PASSWORD'),
+    'dbname' => getenv('MYSQL_DATABASE'),
+    'charset' => 'UTF8',
     'adapterNamespace' => 'Zend_Db_Adapter',
+    'port' => NULL,
   ),
   'isDefaultTableAdapter' => true,
-  'tablePrefix' => "engine4_",
-  'tableAdapterClass' => "Engine_Db_Table",
-);
+  'tablePrefix' => 'engine4_',
+  'tableAdapterClass' => 'Engine_Db_Table',
+); ?>

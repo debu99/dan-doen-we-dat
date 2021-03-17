@@ -58,3 +58,8 @@ vendor/cilex/console-service-provider/src/Cilex/Provider/Console/BaseConsoleServ
 vendor/cilex/console-service-provider/src/Cilex/Provider/Console/ConsoleServiceProvider.php
 vendor/cilex/console-service-provider/src/Cilex/Provider/Console/ContainerAwareApplication.php
 vendor/cilex/console-service-provider/src/Cilex/Provider/Console/Adapter/Silex/ConsoleServiceProvider.php
+
+/application/web/DocumentRoot/nbproject/private/
+/application/web/DocumentRoot/application/settings/database.php
+/application/web/DocumentRoot/application/settings/cache.php
+/application/web/DocumentRoot/application/settings/mail.php
