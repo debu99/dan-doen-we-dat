@@ -14,7 +14,7 @@
 ?>
 <?php $this->headLink()->appendStylesheet($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/styles/styles.css'); ?>
 <?php $this->headLink()->appendStylesheet($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/styles/customscrollbar.css'); ?>
-<?php $this->headScript()->appendFile($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/scripts/jquery1.11.js'); ?>
+<?php $this->headScript()->appendFile($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/scripts/jquery.min.js'); ?>
 <?php $this->headScript()->appendFile($this->layout()->staticBaseUrl . 'application/modules/Ememsub/externals/scripts/customscrollbar.concat.min.js'); ?>
 <?php $packages = Engine_Api::_()->getDbtable('packages', 'payment')->getEnabledPackages(); ?>
 <?php $settings = Engine_Api::_()->getApi('settings', 'core'); ?>
