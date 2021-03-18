@@ -611,6 +611,5 @@ sesJqueryObject(document).on('click','.tab_pulldown_contents ul li',function(){
  sesJqueryObject('.layout_core_container_tabs').children().eq(index+totalLi).show();
 });
 }
-document.getElement("#profile_options > ul > li > .sesevent_profile_share").style.display = "none";
 </script>
 <?php }?>
