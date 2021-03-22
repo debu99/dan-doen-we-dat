@@ -530,7 +530,7 @@
     <?php 
       $currentFormattedDate = $this->eventStartDate($event);
       $currentDateString = "{$currentFormattedDate['day']} {$currentFormattedDate['date']} {$currentFormattedDate['month']}";
-      $shortLocation = $this->shortLocation($event->location);
+      $shortLocation = ($event->is_webinar) ? $this->translate('Online Event') : $this->shortLocation($event->location);
       $prevFormattedDate = $this->eventStartDate($prevEvent);
       $prevDateString = "{$prevFormattedDate['day']} {$prevFormattedDate['date']} {$prevFormattedDate['month']}";
 
