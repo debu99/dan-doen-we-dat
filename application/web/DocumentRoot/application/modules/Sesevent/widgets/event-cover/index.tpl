@@ -316,6 +316,16 @@ if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventtic
                <?php if (in_array('advShare', $this->show_criterias)) {?>
                  <div><?php echo $this->content()->renderWidget('sesevent.advance-share', array('options' => $this->show_calander)); ?></div>
                <?php }?>
+				<?php if($this->subject->is_webinar): ?>
+				<div class="btn-icon online-event">
+					<div class="text-online-event">
+						<?php echo $this->translate('Online') ?>
+					</div>
+					<div class="_icon-online-event">
+						<i class="fas fa-video" ></i>
+					</div>
+				</div>
+				<?php endif;?>
   </div>
           </div>
          <?php if ($this->actionA != 'buy') {?>
