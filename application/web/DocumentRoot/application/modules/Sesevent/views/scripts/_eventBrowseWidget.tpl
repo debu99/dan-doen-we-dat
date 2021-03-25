@@ -533,6 +533,13 @@
       $shortLocation = ($event->is_webinar) ? $this->translate('Online Event') : $this->shortLocation($event->location);
       $prevFormattedDate = $this->eventStartDate($prevEvent);
       $prevDateString = "{$prevFormattedDate['day']} {$prevFormattedDate['date']} {$prevFormattedDate['month']}";
+        $favStatus = Engine_Api::_()->getDbtable('favourites', 'sesevent')->isFavourite(array('resource_type'=>'sesevent_event','resource_id'=>$event->getIdentity()));
+        if ($favStatus){
+            $favoriteIcon = "<i class='fas fa-star'></i>";
+        } else {
+            $favoriteIcon = "<i class='far fa-star'></i>";
+        };
+        $favouriteElement = (Engine_Api::_()->user()->getViewer()->getIdentity()) ? "<a class='list-item-favourite' id='list-item-favourite-{$event->getIdentity()}' onclick='favouriteEvent({$event->getIdentity()});'>{$favoriteIcon}</a>" : "";
 
       $sameDate = $prevDateString == $currentDateString;
       $listViewData .= 
@@ -541,6 +548,7 @@
           <div class='list-item-date'>
             <h1>".(!$sameDate? $currentDateString: '')."</h1>
           </div>
+            {$favouriteElement}
           <a href='{$event->getHref()}' class='list-item-info'>
               <div class='list-item-info--title--location'>
                   <h1>{$event->title}</h1>
