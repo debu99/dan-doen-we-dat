@@ -4717,6 +4717,10 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 	width: 30%;
 }
 
+.sesevents_list_view_wrapper .list-item  .list-item-favourite {
+    margin-top: 8px;
+    cursor: pointer;
+}
 .sesevents_list_view_wrapper .list-item-info--title--location h1, .sesevents_list_view_wrapper .list-item-info--title--location h3 {
 	padding: 5px;
 	margin: 0px;

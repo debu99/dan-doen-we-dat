@@ -297,3 +297,19 @@ sesJqueryObject (document).on('click', '.sesevent_favourite_sesevent_host', func
 function chnageManifestUrl(type) {
   window.location.href = en4.core.staticBaseUrl + eventURLsesevent + '/' + type;
 }
+
+function favouriteEvent(object_id) {
+    sesJqueryObject.ajax({
+        type: 'POST',
+        url: en4.core.baseUrl + 'events/favourite/type/sesevent_event/id/' + object_id,
+        success: function () {
+            const elementId = "list-item-favourite-" + object_id;
+            const element = document.getElementById(elementId);
+            if (element.getElementsByTagName("i")[0].className === "far fa-star") {
+                element.innerHTML = "<i class='fas fa-star'></i>";
+            } else {
+                element.innerHTML = "<i class='far fa-star'></i>";
+            }
+        }
+    });
+}

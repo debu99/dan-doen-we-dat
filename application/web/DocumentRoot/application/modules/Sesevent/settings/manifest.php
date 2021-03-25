@@ -392,6 +392,14 @@ return array(
               'action' => 'account-details',
           ),
         ),
+        'sesevent_event_favourite' => array(
+            'route' => $eventsRoute . '/favourite/*',
+            'defaults' => array(
+                'module' => 'sesevent',
+                'controller' => 'index',
+                'action' => 'favourite',
+            )
+        ),
     )
 );
 ?>
