@@ -382,3 +382,27 @@ ul.sesevent_discussions_thread .sesevent_discussions_thread_body blockquote{
 .sesevent_dashboard_sub_tabs li._active a{
 	color:$theme_button_background_color;
 }
+.layout_sesevent_event_cover .sesevent_cover_inner .sesevent_cover_cont .sesevent_cover_buttons{
+	.online-event {
+		padding: 5px 20px;
+		justify-content: space-between;
+		border-radius: 1px;
+		background-color: #FE4497;
+		display: flex ;
+		width: auto;
+		position: absolute;
+		right: 100px;
+	}
+	.online-event .text-online-event {
+		padding-right: 10px;
+		font-size: 20px;
+		color: white;
+	}
+	.online-event ._icon-online-event {
+		font-size: 20px;
+		margin-right: 2px;
+	}
+	.online-event ._icon-online-event .fa-video {
+		color: white;
+	}
+}
