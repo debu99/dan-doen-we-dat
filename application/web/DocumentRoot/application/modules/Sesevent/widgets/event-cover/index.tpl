@@ -169,6 +169,12 @@ if ($this->photo == 'oPhoto') {
               <?php echo $this->eventStartEndDates($this->subject, $dateinfoParams); ?>
             </div>
           <?php }?>
+			  <?php
+				  $start = date_create($this->subject->starttime);
+				  $end = date_create($this->subject->endtime);
+				  $timeInfo = date_format($start,"j M Y H:i") . " - " . date_format($end,"j M Y H:i");
+				  $meetingInfo = (!$this->subject->is_webinar) ? $this->subject->meeting_point : "";
+			  ?>
           <?php if (in_array('minimalisticCover', $this->show_criterias)) {?>
             <div class="sesevent_minimalistic_cover">
             <?php $formattedDate = $this->eventStartDate($this->subject, $dateinfoParams);?>
@@ -180,6 +186,8 @@ if ($this->photo == 'oPhoto') {
                 <div class="divider"></div>
                 <div class="seevent-cover-title">
                   <h1><?php echo $this->subject->getTitle(); ?></h1>
+				  <div class="time_info"><?= $timeInfo ?></div>
+				  <div class="meeting_info"><?= $meetingInfo ?></div>
                 </div>
             </div>
           <?php }?>
