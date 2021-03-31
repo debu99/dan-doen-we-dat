@@ -47,13 +47,12 @@
 	margin-top: 10px;
 	font-size: 26px;
 	color: white;
-	width: 35%;
+        margin-right: 10px;
 }
 .seevent-cover-title .description .meeting_info{
 	margin-top: 10px;
 	font-size: 26px;
 	color: white;
-	width: 65%;
 }
 .sesevent_minimalistic_cover .seevent-cover-date {
 	display: flex;
