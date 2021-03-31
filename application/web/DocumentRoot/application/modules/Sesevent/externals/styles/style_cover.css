@@ -37,7 +37,22 @@
 
 .seevent-cover-title {
 	display: flex;
-	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.seevent-cover-title .description {
+	display: flex;
+}
+.seevent-cover-title .description .time_info{
+	margin-top: 10px;
+	font-size: 26px;
+	color: white;
+        margin-right: 10px;
+}
+.seevent-cover-title .description .meeting_info{
+	margin-top: 10px;
+	font-size: 26px;
+	color: white;
 }
 .sesevent_minimalistic_cover .seevent-cover-date {
 	display: flex;

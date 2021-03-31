@@ -4714,7 +4714,7 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 	padding-top: 5px;
 }
 .sesevents_list_view_wrapper .list-item .list-item-date {
-	width: 30%;
+	width: 25%;
 }
 
 .sesevents_list_view_wrapper .list-item  .list-item-favourite {
@@ -4737,7 +4737,50 @@ body.sesevent_category_carousel .sesevent_slick_slider{
     margin: 1em 0;
     padding: 0;
 }
+.list-item-info--title--location {
+    width: 100%;
+}
+.list-item-info .list-item-info--title--location .title-wrapper {
+    display: flex;
+}
+.list-item-info .list-item-info--title--location .title-wrapper .nieuw {
+    margin-top: 6px;
+}
+.list-item-info .list-item-info--title--location .title-wrapper .nieuw .nieuw-label {
+    background-color: #FE4497;
+    padding: 3px 3px 3px 3px;
+    color: white;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+.list-item-info .list-item-info--title--location .title-wrapper .last_minute {
+    margin-top: 6px;
+}
+.list-item-info .list-item-info--title--location .title-wrapper .last_minute .last_minute-label{
+    background-color: #2ebf2e;
+    padding: 3px 3px 3px 3px;
+    color: white;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+.list-item-info--title--location .list-item-info-description {
+    display: flex;
+}
+.sesevents_list_view_wrapper .list-item-info--title--location h3:first-child {
+    flex-basis: 60%;
+}
 
+.sesevents_list_view_wrapper .list-item-info--title--location h3:not(:first-child):not(:nth-child(2)) {
+    padding-left: 20px;
+}
+
+.sesevents_list_view_wrapper .list-item-info--title--location h3:not(:first-child) {
+    width: 20%;
+}
+
+.sesevents_list_view_wrapper i.fas.fa-user {
+    margin-right: 10px;
+}
 .sesevents_list_view_wrapper .list-item-info {
 	width: 80%;
 	display: flex;
