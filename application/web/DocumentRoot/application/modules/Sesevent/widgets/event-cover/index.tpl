@@ -170,9 +170,12 @@ if ($this->photo == 'oPhoto') {
             </div>
           <?php }?>
 			  <?php
-				  $start = date_create($this->subject->starttime);
-				  $end = date_create($this->subject->endtime);
-				  $timeInfo = date_format($start,"j M Y H:i") . " - " . date_format($end,"j M Y H:i");
+				  $timezone = $this->subject->timezone;
+				  $timeStart = new DateTime($this->subject->starttime, new DateTimeZone('UTC'));
+				  $timeEnd = new DateTime($this->subject->endtime, new DateTimeZone('UTC'));
+				  $timeStart->setTimeZone(new DateTimeZone($timezone));
+				  $timeEnd->setTimeZone(new DateTimeZone($timezone));
+				  $timeInfo = date_format($timeStart,"H:i") . " - " . date_format($timeEnd,"H:i");
 				  $meetingInfo = (!$this->subject->is_webinar) ? $this->subject->meeting_point : "";
 			  ?>
           <?php if (in_array('minimalisticCover', $this->show_criterias)) {?>
@@ -186,8 +189,10 @@ if ($this->photo == 'oPhoto') {
                 <div class="divider"></div>
                 <div class="seevent-cover-title">
                   <h1><?php echo $this->subject->getTitle(); ?></h1>
-				  <div class="time_info"><?= $timeInfo ?></div>
-				  <div class="meeting_info"><?= $meetingInfo ?></div>
+					  <div class="description">
+						  <div class="time_info"><?= $timeInfo ?></div>
+						  <div class="meeting_info"><?= $meetingInfo ?></div>
+					  </div>
                 </div>
             </div>
           <?php }?>

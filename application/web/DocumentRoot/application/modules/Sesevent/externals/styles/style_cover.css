@@ -40,15 +40,20 @@
 	justify-content: center;
 	flex-direction: column;
 }
-.seevent-cover-title .time_info{
+.seevent-cover-title .description {
+	display: flex;
+}
+.seevent-cover-title .description .time_info{
 	margin-top: 10px;
 	font-size: 26px;
 	color: white;
+	width: 35%;
 }
-.seevent-cover-title .meeting_info{
-	margin-top: 5px;
+.seevent-cover-title .description .meeting_info{
+	margin-top: 10px;
 	font-size: 26px;
 	color: white;
+	width: 65%;
 }
 .sesevent_minimalistic_cover .seevent-cover-date {
 	display: flex;
