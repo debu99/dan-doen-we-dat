@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "sesevent",
-  "version": "5.0.0",
+  "version": "5.0.0p1",
   "revision": null,
   "path": "application\/modules\/Sesevent",
   "repository": null,

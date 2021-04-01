@@ -336,7 +336,7 @@ if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventtic
 				<?php if($this->subject->is_webinar): ?>
 				<div class="btn-icon online-event">
 					<div class="text-online-event">
-						<?php echo $this->translate('Online') ?>
+						<a href="<?php echo $this->subject->meeting_url;?>" target="_blank"><?php echo $this->translate('Online'); ?></a>
 					</div>
 					<div class="_icon-online-event">
 						<i class="fas fa-video" ></i>

@@ -396,6 +396,8 @@ ul.sesevent_discussions_thread .sesevent_discussions_thread_body blockquote{
 	.online-event .text-online-event {
 		padding-right: 10px;
 		font-size: 20px;
+	}
+	.online-event .text-online-event a {
 		color: white;
 	}
 	.online-event ._icon-online-event {

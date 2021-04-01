@@ -31,20 +31,22 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 
 		<legend><?php echo $this->translate("Where"); ?></legend>
 		<div id="location-label" class="form-label">
-			<label for="locationSes" class="required"><?php echo $this->translate("Location"); ?></label>
+			<label class="required"><?php echo $this->translate("Location"); ?></label>
 		</div>
-		<div id="location-element" class="form-element">
-			<input type="text" name="location" placeholder="<?php echo $this->translate("Enter a location"); ?>" id="locationSes" value="<?php echo $location; ?>" />
+        <!-- Add Location -->
+		<div id="location-add_location" class="form-wrapper">
+			<div id="location-element" class="form-element">
+				<input type="text" name="location" placeholder="<?php echo $this->translate("Enter a location"); ?>" id="locationSes" value="<?php echo $location; ?>" />
+			</div>
 		</div>
+        <!-- Online Event -->
 		<div id="online_event-wrapper" class="form-wrapper" style="display:none;">
-		<div id="online_event-label" class="form-label">
-			<label for="online_event" class="optional"><?php echo $this->translate("Location"); ?></label>
+			<div id="online_event-element" class="form-element">
+				<div class="tip"><span><?php echo $this->translate("This is an online event"); ?></span></div>
+			</div>
 		</div>
-		<div id="online_event-element" class="form-element">
-			<div class="tip"><span><?php echo $this->translate("This is an online event"); ?></span></div>
-		</div>
-		</div>
-			<div id="sesevent_location_data-wrapper" style="display:none;">
+        <!-- Enter Address -->
+		<div id="sesevent_location_data-wrapper" style="display:none;">
 			<div class="sesevent_create_location_details">
 				<div id="venue_name-wrapper" class="sesevent_create_location_field _full">
 					<input type="text" name="venue_name" class="location_value" id="venue_name" value="<?php echo $venue_name; ?>" placeholder="<?php echo $this->translate("Venue Name"); ?>" />
@@ -60,16 +62,17 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			</div>
 			<?php } ?>
 		</div>
+
 		<div style="clear:both"></div>
 		<div id="location_options">
 			<a id="sesevent_online_event" href="javascript:;" class="form-link"><i class="fa fa-globe"></i><?php echo $this->translate("Online Event"); ?></a>
 			<a id="sesevent_enter_address" href="javascript:;" class="form-link"><i class="fas fa-map-marker-alt"></i><?php echo $this->translate("Enter Address"); ?></a>
-			<a id="sesevent_add_location" style="display:none" href="javascript:;"  class="form-link"><i class="fa fa-plus"></i><?php echo $this->translate("Add Location"); ?></a>
+			<a id="sesevent_add_location" style="display:none" href="javascript:;"  class="form-link"><i class="fa fa-plus"></i><?php echo $this->translate("Regular Event"); ?></a>
 		<?php if(Engine_Api::_()->getApi('settings', 'core')->getSetting('enableglocation', 1)) { ?>
 			<a id="sesevent_reset_location" style="display:none" href="javascript:;" class="form-link"><i class="fa fa-sync"></i><?php echo $this->translate("Reset Location"); ?></a>
 		<?php } ?>
 		</div>
-		
+
 
 			<!-- Lat lng wrapper -->
 		<div id="seseventlat-wrapper" class="form-wrapper" style="display:none">
@@ -83,88 +86,111 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			<div id="lng-element" class="form-element">
 				<input type="text" name="lng" id="lngSes" value="<?php echo $lng; ?>" style="display:none" />
 			</div>
-		</div>	
+		</div>
 	</fieldset>
 </div>
 
 <script type="application/javascript">
  en4.core.runonce.add(function() {
 
-	if(typeof locationcreatedata == 'undefined'){
-		locationcreatedata = true;
-		sesJqueryObject(document).on('click','#sesevent_online_event',function(){
-			sesJqueryObject('#sesevent_location_map_data').hide();
-			sesJqueryObject('#seslocation-wrapper').hide();
-			sesJqueryObject('#online_event-wrapper').show();
-			sesJqueryObject('#sesevent_location_data-wrapper').hide();
-			sesJqueryObject('#sesevent_online_event').hide();
-			sesJqueryObject('#sesevent_add_location').show();
-			sesJqueryObject('#sesevent_enter_address').hide();
-			sesJqueryObject('.location_value').val('');
-			sesJqueryObject('#locationSesList').val('');
-			sesJqueryObject('#lngSesList').val('');
-			sesJqueryObject('#latSesList').val('');
-	});
-	sesJqueryObject(document).on('click','#sesevent_add_location',function(){
-			sesJqueryObject('#sesevent_location_map_data').hide();
-			sesJqueryObject('#seslocation-wrapper').show();
-			sesJqueryObject('#online_event-wrapper').hide();
-			sesJqueryObject('#sesevent_location_data-wrapper').hide();
-			sesJqueryObject('#sesevent_online_event').show();
-			sesJqueryObject('#sesevent_add_location').hide();
-			sesJqueryObject('#sesevent_enter_address').show();
-			sesJqueryObject('.location_value').val('');
-			sesJqueryObject('#locationSesList').val('');
-			sesJqueryObject('#lngSesList').val('');
-			sesJqueryObject('#latSesList').val('');
-	});
-	sesJqueryObject(document).on('click','#sesevent_enter_address',function(){
-			sesJqueryObject('#seslocation-wrapper').show();
-			sesJqueryObject('#online_event-wrapper').hide();
-			sesJqueryObject('#sesevent_location_data-wrapper').show();
-			sesJqueryObject('#sesevent_online_event').hide();
-			sesJqueryObject('#sesevent_add_location').hide();
-			sesJqueryObject('#sesevent_enter_address').hide();
-			sesJqueryObject('#sesevent_reset_location').show();
-			var lat = sesJqueryObject('#latSes').val();
-			var lng = sesJqueryObject('#lngSes').val();
-			if(lat && lng ){
-				sesJqueryObject('#sesevent_location_map_data').show();
-				sesJqueryObject('#sesevent_location_map').show();
-				sesJqueryObject('#sesevent_default_map').hide();
-				createEventLoadMap();
-			}else{
-				sesJqueryObject('#sesevent_location_map_data').show();
-				sesJqueryObject('#sesevent_location_map').hide();
-				sesJqueryObject('#sesevent_default_map').show();
-			}
-	});
-	sesJqueryObject(document).on('click','#sesevent_reset_location',function(){
-		var confirmAc = confirm('Are you sure that you want to reset this location? It will not be recoverable after being deleted.');
-		if(confirmAc == true){
-			sesJqueryObject('#sesevent_location_map_data').hide();
-			sesJqueryObject('#seslocation-wrapper').show();
-			sesJqueryObject('#online_event-wrapper').hide();
-			sesJqueryObject('#sesevent_location_data-wrapper').hide();
-			sesJqueryObject('#sesevent_online_event').show();
-			sesJqueryObject('#sesevent_add_location').hide();
-			sesJqueryObject('#sesevent_enter_address').show();
-			sesJqueryObject('#sesevent_reset_location').hide();
-			sesJqueryObject('.location_value').val('');
-			sesJqueryObject('#locationSes').val('');
-			sesJqueryObject('#lngSes').val('');
-			sesJqueryObject('#latSes').val('');
-		}
-			return false;
-	});
- }
+	 sesJqueryObject(document).ready(function (){
+
+	 });
+	 if (typeof locationcreatedata == 'undefined') {
+		 locationcreatedata = true;
+		 sesJqueryObject(document).on('click', '#sesevent_online_event', function () {
+			 sesJqueryObject('#sesevent_location_data-wrapper').hide();
+			 sesJqueryObject('#location-add_location').hide();
+			 sesJqueryObject('#online_event-wrapper').show();
+
+			 sesJqueryObject('#sesevent_online_event').hide();
+			 sesJqueryObject('#sesevent_add_location').show();
+			 sesJqueryObject('#sesevent_enter_address').hide();
+
+			 sesJqueryObject('#meeting_point-wrapper').hide();
+			 sesJqueryObject('#meeting_url-wrapper').show();
+
+			 sesJqueryObject('.location_value').val('');
+			 sesJqueryObject('#locationSesList').val('');
+			 sesJqueryObject('#lngSesList').val('');
+			 sesJqueryObject('#latSesList').val('');
+		 });
+		 sesJqueryObject(document).on('click', '#sesevent_add_location', function () {
+			 sesJqueryObject('#sesevent_location_data-wrapper').hide();
+			 sesJqueryObject('#location-add_location').show();
+			 sesJqueryObject('#online_event-wrapper').hide();
+
+			 sesJqueryObject('#sesevent_online_event').show();
+			 sesJqueryObject('#sesevent_add_location').hide();
+			 sesJqueryObject('#sesevent_enter_address').show();
+
+			 sesJqueryObject('#meeting_point-wrapper').show();
+			 sesJqueryObject('#meeting_url-wrapper').hide();
+
+			 sesJqueryObject('.location_value').val('');
+			 sesJqueryObject('#locationSesList').val('');
+			 sesJqueryObject('#lngSesList').val('');
+			 sesJqueryObject('#latSesList').val('');
+		 });
+		 sesJqueryObject(document).on('click', '#sesevent_enter_address', function () {
+			 sesJqueryObject('#online_event-wrapper').hide();
+			 sesJqueryObject('#location-add_location').hide();
+			 sesJqueryObject('#sesevent_location_data-wrapper').show();
+
+			 sesJqueryObject('#meeting_point-wrapper').show();
+			 sesJqueryObject('#meeting_url-wrapper').hide();
+
+			 sesJqueryObject('#sesevent_online_event').hide();
+			 sesJqueryObject('#sesevent_add_location').hide();
+			 sesJqueryObject('#sesevent_enter_address').hide();
+			 sesJqueryObject('#sesevent_reset_location').show();
+
+			 var lat = sesJqueryObject('#latSes').val();
+			 var lng = sesJqueryObject('#lngSes').val();
+			 if (lat && lng) {
+				 sesJqueryObject('#sesevent_location_map_data').show();
+				 sesJqueryObject('#sesevent_location_map').show();
+				 sesJqueryObject('#sesevent_default_map').hide();
+				 createEventLoadMap();
+			 } else {
+				 sesJqueryObject('#sesevent_location_map_data').show();
+				 sesJqueryObject('#sesevent_location_map').hide();
+				 sesJqueryObject('#sesevent_default_map').show();
+			 }
+		 });
+		 sesJqueryObject(document).on('click', '#sesevent_reset_location', function () {
+			 const confirmAc = confirm('Are you sure that you want to reset this location? It will not be recoverable after being deleted.');
+			 if (confirmAc === true) {
+				 sesJqueryObject('#online_event-wrapper').hide();
+				 sesJqueryObject('#location-add_location').show();
+				 sesJqueryObject('#sesevent_location_data-wrapper').hide();
+
+				 sesJqueryObject('#sesevent_online_event').show();
+				 sesJqueryObject('#sesevent_add_location').hide();
+				 sesJqueryObject('#sesevent_enter_address').show();
+				 sesJqueryObject('#sesevent_reset_location').hide();
+
+				 sesJqueryObject('.location_value').val('');
+				 sesJqueryObject('#locationSes').val('');
+				 sesJqueryObject('#lngSes').val('');
+				 sesJqueryObject('#latSes').val('');
+			 }
+			 return false;
+		 });
+	 }
 <?php if($is_webinar){ ?>
 	sesJqueryObject('#sesevent_online_event').trigger('click');
+	 sesJqueryObject('#meeting_point-wrapper').hide();
+	 sesJqueryObject('#meeting_url-wrapper').show();
 <?php }else if($location != '' && ($venue_name != '' || $city != '' || $state != '' || $country != '' || $zip != '' || $address != '' || $address2 != '')){ ?>
 	checkinD = true;
 	sesJqueryObject('#sesevent_enter_address').trigger('click');
+	sesJqueryObject('#meeting_point-wrapper').show();
+	sesJqueryObject('#meeting_url-wrapper').hide();
 <?php }else{ ?>
 	//sesJqueryObject('#sesevent_enter_address').trigger('click');
+	sesJqueryObject('#meeting_point-wrapper').show();
+	sesJqueryObject('#meeting_url-wrapper').hide();
 <?php } ?>
 	mapLoad_event = false;
 	initializeSesEventMapList();

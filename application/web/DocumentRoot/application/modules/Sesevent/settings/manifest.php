@@ -31,7 +31,7 @@ return array(
 	    'type' => 'module',
 	    'name' => 'sesevent',
 	    //'sku' => 'sesevent',
-	    'version' => '5.0.0',
+	    'version' => '5.0.0p1',
 		'dependencies' => array(
             array(
                 'type' => 'module',
