@@ -189,10 +189,13 @@ if ($this->photo == 'oPhoto') {
                 <div class="seevent-cover-title">
                   <h1><?php echo $this->subject->getTitle(); ?></h1>
                     <div class="description">
-                            <div class="time_info"><?= $timeInfo ?></div>
-                            <?php if (!$this->subject->is_webinar):?>
-                                <div class="meeting_info"><?php echo $this->shortLocation($this->subject->location) ?></div>
-                            <?php endif?>
+                        <?php echo $timeInfo ?>
+                        <?php if (!$this->subject->is_webinar):?>
+                            <?php 
+                                $locations = explode(',', $this->shortLocation($this->subject->location) );
+                                echo $locations[0];
+                            ?>
+                        <?php endif?>
                     </div>
                 </div>
             </div>

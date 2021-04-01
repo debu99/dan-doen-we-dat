@@ -43,13 +43,7 @@
 .seevent-cover-title .description {
 	display: flex;
 }
-.seevent-cover-title .description .time_info{
-	margin-top: 10px;
-	font-size: 26px;
-	color: white;
-        margin-right: 10px;
-}
-.seevent-cover-title .description .meeting_info{
+.seevent-cover-title .description{
 	margin-top: 10px;
 	font-size: 26px;
 	color: white;
