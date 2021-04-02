@@ -715,7 +715,17 @@ class Sesevent_Form_Create extends Engine_Form {
         array('StringLength', false, array("max" => 50)),
       )
     ));
-    $this->addDisplayGroup(array('tel_host','meeting_time','meeting_point'), "meeting", array("legend"=> $translate->translate("Meeting Point")));
+
+       $this->addElement('text', 'meeting_url', array(
+           'label' => $translate->translate('Meeting Url'),
+           'required' => false,
+           'placeholder' => $translate->translate('e.g. https://dandoenwedat.com'),
+           'validators' => array(
+               array('Regex', true, array('(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})'))
+           )
+       ));
+       $this->getElement('meeting_url')->getValidator('Regex')->setMessage('Meeting Point must be url when this event is online', 'regexNotMatch');
+    $this->addDisplayGroup(array('tel_host','meeting_time','meeting_point','meeting_url'), "meeting", array("legend"=> $translate->translate("Meeting Point")));
 
     
     $this->addElement('Checkbox', 'is_additional_costs', array(

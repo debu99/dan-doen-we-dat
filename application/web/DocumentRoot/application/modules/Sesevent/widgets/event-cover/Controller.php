@@ -34,9 +34,11 @@ class Sesevent_Widget_EventCoverController extends Engine_Content_Widget_Abstrac
 
     	$this->view->socialshare_enable_plusicon = $this->_getParam('socialshare_enable_plusicon', 1);
     	$this->view->socialshare_icon_limit = $this->_getParam('socialshare_icon_limit', 2);
+        
     
 		$this->view->photo = $this->_getParam('photo','mPhoto');
     	$subject = $this->view->subject = Engine_Api::_()->core()->getSubject('sesevent_event');
+        $this->view->isAttending = $subject->membership()->getRow($viewer)->rsvp === 2;
 		$this->view->can_edit = $editOverview = $subject->authorization()->isAllowed($viewer, 'edit');		
 		$user = Engine_Api::_()->getItem('sesevent_host', $subject->host);
 		$params['href'] = $user->getHref();

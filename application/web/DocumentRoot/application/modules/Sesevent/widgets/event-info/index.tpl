@@ -10,6 +10,9 @@
  * @author     SocialEngineSolutions
  */
 ?>
+<?php
+    $whereUrl = ($this->subject->is_webinar) ? $this->subject->meeting_url : $this->url(array('resource_id' => $this->subject->event_id,'resource_type'=>'sesevent_event','action'=>'get-direction'), 'sesbasic_get_direction', true);
+?>
 <div class='sesevent_profile_info sesbasic_clearfix sesbasic_bxs'>
   <div class="sesevent_profile_info_row">
     <div class="sesevent_profile_info_head"><h3> <?php echo $this->event_title;?></h3></div>
@@ -103,7 +106,7 @@
       <li class="sesbasic_clearfix">
         <?php if($this->isAttending) { ?>
           <span><?php echo $this->translate("Where"); ?></span>
-          <span> <a href='<?php echo $this->url(array('resource_id' => $this->subject->event_id,'resource_type'=>'sesevent_event','action'=>'get-direction'), 'sesbasic_get_direction', true); ?>' class="openSmoothbox"><?php echo $this->location == ""? "Online":  $this->location; ?> </a> </span>
+          <span> <a href="<?php echo $whereUrl ?>" <?php echo ($this->subject->is_webinar) ? "target='_blank'" : "class='openSmoothbox'" ?> ><?php echo $this->location == ""? "Online":  $this->location; ?> </a> </span>
         <?php } else { ?>
           <span>
             <?php echo $this->translate("Where"); ?>

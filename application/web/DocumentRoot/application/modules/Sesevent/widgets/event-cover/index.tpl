@@ -176,7 +176,6 @@ if ($this->photo == 'oPhoto') {
 				  $timeStart->setTimeZone(new DateTimeZone($timezone));
 				  $timeEnd->setTimeZone(new DateTimeZone($timezone));
 				  $timeInfo = date_format($timeStart,"H:i") . " - " . date_format($timeEnd,"H:i");
-				  $meetingInfo = (!$this->subject->is_webinar) ? $this->subject->meeting_point : "";
 			  ?>
           <?php if (in_array('minimalisticCover', $this->show_criterias)) {?>
             <div class="sesevent_minimalistic_cover">
@@ -189,10 +188,15 @@ if ($this->photo == 'oPhoto') {
                 <div class="divider"></div>
                 <div class="seevent-cover-title">
                   <h1><?php echo $this->subject->getTitle(); ?></h1>
-					  <div class="description">
-						  <div class="time_info"><?= $timeInfo ?></div>
-						  <div class="meeting_info"><?= $meetingInfo ?></div>
-					  </div>
+                    <div class="description">
+                        <?php echo $timeInfo ?>
+                        <?php if (!$this->subject->is_webinar):?>
+                            <?php 
+                                $locations = explode(',', $this->shortLocation($this->subject->location) );
+                                echo $locations[0];
+                            ?>
+                        <?php endif?>
+                    </div>
                 </div>
             </div>
           <?php }?>
@@ -332,7 +336,7 @@ if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('seseventtic
 				<?php if($this->subject->is_webinar): ?>
 				<div class="btn-icon online-event">
 					<div class="text-online-event">
-						<?php echo $this->translate('Online') ?>
+						<a href="<?php echo $this->isAttending ? $this->subject->meeting_url : 'javascript:;';?>" <?php if ($this->isAttending):?>target="_blank"<?php endif?>><?php echo $this->translate('Online'); ?></a>
 					</div>
 					<div class="_icon-online-event">
 						<i class="fas fa-video" ></i>

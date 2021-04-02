@@ -534,7 +534,7 @@
       $shortLocation = ($event->is_webinar) ? $this->translate('Online Event') : $this->shortLocation($event->location);
         $lastMinute = $event->isLastMinute() ? "<span class='last_minute-label'>{$this->translate('Last Minute')}</span>" : "";
         $ageCategory = $event->age_category_from . " - " . $event->age_category_to . " " . $this->translate('jr') . ".";
-        $participants = $event->member_count ." / ". $event->max_participants;
+        $participants = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id' => $event->getIdentity(), 'type' => 'attending'))->getTotalItemCount() ." / ". $event->max_participants;
       $prevFormattedDate = $this->eventStartDate($prevEvent);
       $prevDateString = "{$prevFormattedDate['day']} {$prevFormattedDate['date']} {$prevFormattedDate['month']}";
         $favStatus = Engine_Api::_()->getDbtable('favourites', 'sesevent')->isFavourite(array('resource_type'=>'sesevent_event','resource_id'=>$event->getIdentity()));
@@ -556,14 +556,16 @@
           <a href='{$event->getHref()}' class='list-item-info'>
               <div class='list-item-info--title--location'>
                   <div class='title-wrapper'>
-                      <div class='nieuw'>{$nieuw}</div>
-                      <div class='last_minute'>{$this->translate($lastMinute)}</div>
+                      {$nieuw}
+                      {$this->translate($lastMinute)}
                       <h1>{$event->title}</h1>
                   </div>
+                  <div class='list-item-info-location'>
+                      {$shortLocation}
+                  </div>
                   <div class='list-item-info-description'>
-                      <h3><span>{$shortLocation}</span></h3>
-                      <h3>{$ageCategory}</h3>
-                      <h3><i class='fas fa-user'></i>{$participants}</h3>
+                      <span>{$ageCategory}</span>
+                      <span><i class='fas fa-user'></i>{$participants}</span>
                   </div>
               </div>
           </a>

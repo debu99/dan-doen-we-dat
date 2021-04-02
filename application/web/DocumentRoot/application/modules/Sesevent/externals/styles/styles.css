@@ -4720,6 +4720,7 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 .sesevents_list_view_wrapper .list-item  .list-item-favourite {
     margin-top: 8px;
     cursor: pointer;
+    margin-right: 5px;
 }
 .sesevents_list_view_wrapper .list-item-info--title--location h1, .sesevents_list_view_wrapper .list-item-info--title--location h3 {
 	padding: 5px;
@@ -4738,46 +4739,39 @@ body.sesevent_category_carousel .sesevent_slick_slider{
     padding: 0;
 }
 .list-item-info--title--location {
+    padding-right: 10px;
     width: 100%;
 }
-.list-item-info .list-item-info--title--location .title-wrapper {
-    display: flex;
+.list-item-info--title--location .list-item-info-location {
+    font-size: 1.2em;
 }
-.list-item-info .list-item-info--title--location .title-wrapper .nieuw {
-    margin-top: 6px;
+.list-item-info .list-item-info--title--location .title-wrapper h1{
+    line-height: 27px;
 }
-.list-item-info .list-item-info--title--location .title-wrapper .nieuw .nieuw-label {
+.list-item-info .list-item-info--title--location .title-wrapper .nieuw-label {
     background-color: #FE4497;
-    padding: 3px 3px 3px 3px;
+    padding: 0 10px;
     color: white;
-    border-radius: 5px;
-    margin-left: 5px;
+    border-radius: 4px;
+    margin-top: 7px;
+    margin-right: 2px;
+    float: left;
+    line-height: 24px;
 }
-.list-item-info .list-item-info--title--location .title-wrapper .last_minute {
-    margin-top: 6px;
-}
-.list-item-info .list-item-info--title--location .title-wrapper .last_minute .last_minute-label{
+.list-item-info .list-item-info--title--location .title-wrapper .last_minute-label{
     background-color: #2ebf2e;
-    padding: 3px 3px 3px 3px;
+    padding: 0 10px;
     color: white;
-    border-radius: 5px;
-    margin-left: 5px;
+    border-radius: 4px;
+    margin-top: 7px;
+    margin-right: 2px;
+    float: left;
+    line-height: 24px;
+    white-space: nowrap;
 }
-.list-item-info--title--location .list-item-info-description {
-    display: flex;
+.list-item-info-description span {
+    margin-right: 20px;
 }
-.sesevents_list_view_wrapper .list-item-info--title--location h3:first-child {
-    flex-basis: 60%;
-}
-
-.sesevents_list_view_wrapper .list-item-info--title--location h3:not(:first-child):not(:nth-child(2)) {
-    padding-left: 20px;
-}
-
-.sesevents_list_view_wrapper .list-item-info--title--location h3:not(:first-child) {
-    width: 20%;
-}
-
 .sesevents_list_view_wrapper i.fas.fa-user {
     margin-right: 10px;
 }
@@ -4788,20 +4782,24 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 }
 
 @media (max-width: 650px){
+    .list-item-info .list-item-info--title--location .title-wrapper .last_minute-label ,
+    .list-item-info .list-item-info--title--location .title-wrapper .nieuw-label {
+        line-height: 20px;
+        margin-top: 4px;
+    }
 	.sesevents_list_view_wrapper .list-item h1 {
 		padding: 0;
 	}
 	.sesevents_list_view_wrapper .list-item .list-item-date {
 		width: 15%;
 		text-align: center;
-		font-size: 0.9em;
 		margin-right: 5px;
 	}
 	.sesevents_list_view_wrapper .list-item .list-item-date h1 {
 		padding: 0;
 	}
 	.sesevents_list_view_wrapper .list-item {
-		font-size: 0.5em;
+		font-size: 0.8em;
 		align-items: center;
 	}
 
@@ -4812,9 +4810,7 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 	}
 	.sesevents_list_view_wrapper .list-item .list-item-info--title--location h1 {
 		padding: 0;
-		overflow: hidden;
 		text-overflow: ellipsis;
-		max-height: 50px;
 	}
 
 	.sesevents_list_view_wrapper .list-item .list-item-info--title--location h3 {
