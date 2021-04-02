@@ -534,7 +534,7 @@
       $shortLocation = ($event->is_webinar) ? $this->translate('Online Event') : $this->shortLocation($event->location);
         $lastMinute = $event->isLastMinute() ? "<span class='last_minute-label'>{$this->translate('Last Minute')}</span>" : "";
         $ageCategory = $event->age_category_from . " - " . $event->age_category_to . " " . $this->translate('jr') . ".";
-        $participants = $event->member_count ." / ". $event->max_participants;
+        $participants = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id' => $event->getIdentity(), 'type' => 'attending'))->getTotalItemCount() ." / ". $event->max_participants;
       $prevFormattedDate = $this->eventStartDate($prevEvent);
       $prevDateString = "{$prevFormattedDate['day']} {$prevFormattedDate['date']} {$prevFormattedDate['month']}";
         $favStatus = Engine_Api::_()->getDbtable('favourites', 'sesevent')->isFavourite(array('resource_type'=>'sesevent_event','resource_id'=>$event->getIdentity()));
