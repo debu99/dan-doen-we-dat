@@ -190,13 +190,15 @@ if ($this->photo == 'oPhoto') {
                   <h1><?php echo $this->subject->getTitle(); ?></h1>
                     <div class="description">
                         <?php echo $timeInfo ?>
-                        <?php if (!$this->subject->is_webinar):?>
+                    </div>
+                    <?php if (!$this->subject->is_webinar):?>
+                        <div class="description" style="margin-top: 0;">
                             <?php 
                                 $locations = explode(',', $this->shortLocation($this->subject->location) );
                                 echo $locations[0];
                             ?>
-                        <?php endif?>
-                    </div>
+                        </div>
+                    <?php endif?>
                 </div>
             </div>
           <?php }?>
