@@ -1573,3 +1573,6 @@ http://[host][object_link]
 "This Month";"This Month"
 
 "SES - Advanced Events Plugin";"Events"
+
+"You have %s times remain to change event title.";"You have %s times remain to change event title."
+"You can change title of event maximum %s time.";"You can change title of event maximum %s time."

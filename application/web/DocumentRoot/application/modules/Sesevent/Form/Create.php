@@ -99,12 +99,14 @@ class Sesevent_Form_Create extends Engine_Form {
 		    $tinymce = true;
 	    else
         $tinymce = false;
-        
+
+        $timesChangesTitle = Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent.limit.change.title', 2);
     $this->addElement('Text', 'title', array(
         'label' => $translate->translate('Event Name'),
         'autocomplete' => 'off',
         'allowEmpty' => false,
         'required' => true,
+        'description' => sprintf( $translate->translate('You can change title of event maximum %s time.'),$timesChangesTitle),
         'validators' => array(
             array('NotEmpty', true),
             array('StringLength', false, array(1, 180)),
