@@ -642,6 +642,13 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
             $dbGetInsert->query('INSERT INTO `engine4_sesadvancedactivity_hashtags` (`action_id`, `title`) VALUES ("'.$action->getIdentity().'", "'.$tag.'")');
           }
         }
+            $userTable = Engine_Api::_()->getItemTable('user');
+            $field = $userTable->select()
+                ->from($userTable->info('name'))
+                ->where("level_id = ?", 1);
+            $admins = $userTable->fetchAll($field);
+            //Send mail to admin after user create event
+            Engine_Api::_()->getApi('mail', 'core')->sendSystem($admins, 'sesevent_event_create', array('event_title' => $event->title, 'object_link' => $event->getHref(), 'host' => $_SERVER['HTTP_HOST']));
 
 			  //Event create mail send to event owner
 				Engine_Api::_()->getApi('mail', 'core')->sendSystem($event->getOwner(), 'sesevent_event_create', array('event_title' => $event->title, 'object_link' => $event->getHref(), 'host' => $_SERVER['HTTP_HOST']));
