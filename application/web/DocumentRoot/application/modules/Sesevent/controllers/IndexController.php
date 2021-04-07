@@ -372,6 +372,9 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
 				'defaultProfileId' => $defaultProfileId,
 				'smoothboxType'=>$sessmoothbox,
     ));
+    if (isset($event) && ($viewer->getIdentity() == $event->user_id)){
+        $this->view->form->setDefaults($event->getCleanData());
+    }
     // Not post/invalid
     if (!$this->getRequest()->isPost()) {
       return;
