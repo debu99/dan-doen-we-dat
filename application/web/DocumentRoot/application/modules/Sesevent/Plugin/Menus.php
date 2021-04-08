@@ -335,4 +335,28 @@ class Sesevent_Plugin_Menus {
         ),
     );
   }
+
+    public function onMenuInitialize_SeseventProfileCopy()
+    {
+        $viewer = Engine_Api::_()->user()->getViewer();
+        $subject = Engine_Api::_()->core()->getSubject();
+        if ($subject->getType() !== 'sesevent_event') {
+            throw new Sesevent_Model_Exception('This event does not exist.');
+        }
+        if (!$viewer->getIdentity()) {
+            return false;
+        }
+        if ($viewer->getIdentity() != $subject->user_id){
+            return false;
+        }
+        return array(
+            'label' => 'Copy This Event',
+            'route' => 'default',
+            'params' => array(
+                'module' => 'sesevent',
+                'action' => 'create',
+                'event_id' => $subject->getIdentity(),
+            ),
+        );
+    }
 }

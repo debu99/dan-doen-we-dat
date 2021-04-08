@@ -66,8 +66,10 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
     $viewer = Engine_Api::_()->user()->getViewer();
     if (!($this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid() || $event->isOwner($viewer)))
      return $this->_forward('notfound', 'error', 'core');
+      $timesChangesTitle = Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent.limit.change.title', 2);
+      $timesChangesTitleRemain = $timesChangesTitle - $event->change_title_count;
     // Create form
-    $this->view->form = $form = new Sesevent_Form_Edit(array('parent_type' => $event->parent_type, 'parent_id' => $event->parent_id, 'defaultProfileId' => $defaultProfileId));
+    $this->view->form = $form = new Sesevent_Form_Edit(array('parent_type' => $event->parent_type, 'parent_id' => $event->parent_id, 'defaultProfileId' => $defaultProfileId, 'timeChangeTitleRemain'=>$timesChangesTitleRemain));
 
     $this->view->category_id = $event->category_id;
     $this->view->subcat_id = $event->subcat_id;
@@ -193,6 +195,16 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
     // Process
     $db = Engine_Api::_()->getItemTable('sesevent_event')->getAdapter();
     $db->beginTransaction();
+      $timesChangesTitle = Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent.limit.change.title', 2);
+      $isTitleChange = (strcmp($event->title, $values['title']) != 0);
+      if ($event->change_title_count >= $timesChangesTitle) {
+          if (!$viewer->isAdmin() && $isTitleChange) {
+              $form->addError(Zend_Registry::get('Zend_Translate')->_('The event has exceeded the number of title changes.'));
+              return;
+          }
+      } else if (!$viewer->isAdmin() && $isTitleChange) {
+          $event->change_title_count++;
+      }
     try {
 	    $current_starttime = $values['starttime'];
 	    $current_endtime = $values['endtime'];

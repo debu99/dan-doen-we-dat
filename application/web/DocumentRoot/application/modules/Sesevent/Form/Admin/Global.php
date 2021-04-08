@@ -422,7 +422,19 @@ class Sesevent_Form_Admin_Global extends Engine_Form {
           ),
           'value' => $settings->getSetting('sesevent.other.moduleevents', 1),
       ));
-
+        $this->addElement('Text', "sesevent_limit_change_title", array(
+            'label' => 'Times of title changes',
+            'description' => 'Number of times the owner can change their event title!',
+            'allowEmpty' => false,
+            'required' => true,
+            'value' => $settings->getSetting('sesevent.limit.change.title', 2),
+            'validators' => array(
+                array('NotEmpty', true),
+                array('Int', true),
+                new Engine_Validate_AtLeast(1)
+            )
+        ));
+        $this->getElement('sesevent_limit_change_title')->getDecorator('Description')->setOptions(array('placement' => 'PREPEND', 'escape' => false));
 	    // Add submit button
 	    $this->addElement('Button', 'submit', array(
 	        'label' => 'Save Changes',
