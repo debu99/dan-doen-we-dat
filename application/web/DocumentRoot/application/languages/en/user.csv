@@ -538,6 +538,7 @@ following Callback URL: %2$s"
 "This account still requires either email verification or admin approval.";"This account still requires either email verification or admin approval."
 "Click <a href=""%s"">here</a> to resend the email.";"Click <a href=""%s"">here</a> to resend the email."
 
+"Select region(s) that you want to receive event notification from.";"Select region(s) that you want to receive event notification from."
 
 # notification types
 "{item:$subject} has posted on your {item:$object:profile}.";"{item:$subject} has posted on your {item:$object:profile}."

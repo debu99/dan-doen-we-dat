@@ -185,6 +185,18 @@ class User_SettingsController extends Core_Controller_Action_User
 
         $user->save();
 
+        $regionValues = $form->getValue('region');
+        $regionValueTable = Engine_Api::_()->getDbtable('regionvalues', 'user');
+        $db = $regionValueTable->getAdapter();
+        $db->beginTransaction();
+        $regionValueTable->delete(array('user_id = ?' => $user->getIdentity()));
+        foreach ($regionValues as $value){
+            $row = $regionValueTable->createRow();
+            $row->user_id = $user->getIdentity();
+            $row->region_id = $value;
+            $row->save();
+        }
+        $db->commit();
 
         // Update account type
         /*

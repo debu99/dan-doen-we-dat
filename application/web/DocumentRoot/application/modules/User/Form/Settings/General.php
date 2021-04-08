@@ -201,7 +201,24 @@ class User_Form_Settings_General extends Engine_Form
       'multiOptions' => $localeMultiOptions
     ));
 
-    
+      //Region
+      $regionOptions = array();
+      foreach (Engine_Api::_()->getDbtable('regions', 'user')->fetchAll() as $key => $region) {
+          $regionOptions[$key] = $region->getTitle();
+      }
+      $regionValueTable = Engine_Api::_()->getDbtable('regionvalues', 'user');
+      $select = $regionValueTable->select()->where('user_id = ?', $this->_item->getIdentity());
+      $regionData = array();
+      foreach ($regionValueTable->fetchAll($select) as $value) {
+          array_push($regionData, $value->region_id);
+      }
+      $this->addElement('MultiCheckbox', 'region', array(
+          'label' => 'Region',
+          'description' => 'Select region(s) that you want to receive event notification from.',
+          'multiOptions' => $regionOptions,
+          'value' => $regionData
+      ));
+
     // Init submit
     $this->addElement('Button', 'submit', array(
       'label' => 'Save Changes',
