@@ -12,25 +12,6 @@
  */
  
 ?>
-<div class="layout_middle">
-	<div class="generic_layout_container">
-    <div class="headline">
-      <h2>
-        <?php echo $this->translate('My Settings');?>
-      </h2>
-      <div class="tabs">
-        <?php
-          // Render the menu
-          echo $this->navigation()
-            ->menu()
-            ->setContainer($this->navigation)
-            ->render();
-        ?>
-      </div>
-    </div>
-  </div>
-  <div class="generic_layout_container ">  
-
 <?php if( $this->isAdmin ): ?>
   <div class="tip">
     <span>
@@ -189,8 +170,6 @@
       </div>
     </div>
   <?php } ?>
-  </div>
-</div>  
 <script type="text/javascript">
   function onFormSubmit($id)
   {  

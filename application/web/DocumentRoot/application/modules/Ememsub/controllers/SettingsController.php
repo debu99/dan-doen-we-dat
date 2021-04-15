@@ -43,6 +43,7 @@ class Ememsub_SettingsController extends Core_Controller_Action_User
   
   public function indexAction()
   {
+      $this->_helper->content->setEnabled();
     $user = Engine_Api::_()->core()->getSubject('user');
 
     // Check if they are an admin or moderator (don't require subscriptions from them)
