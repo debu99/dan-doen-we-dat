@@ -989,3 +989,21 @@ scriptJquery(document).on('change',"input[type='file']",function() {
     }
   }
 });
+
+en4.core.runonce.add(function() {
+    if ($$('.generic_layout_container.layout_left .tabs .navigation').length) {
+        $$('.generic_layout_container.layout_left .tabs').each(function(el) {
+            if (el.getElements('.navigation > li.active > a').length) {
+                var activeMenuTitle = el.getElements('.navigation > li.active > a')[0].innerText;
+                new Element('input', {
+                    'type': 'checkbox'
+                }).inject(el, 'top');
+                
+                new Element('span', {
+                    'class': 'tab-active-menu',
+                    'html': activeMenuTitle + '<i class="fa fa-angle-down"></i>'
+                }).inject(el, 'top');
+            }
+        })
+    }
+})

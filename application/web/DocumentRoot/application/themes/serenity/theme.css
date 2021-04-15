@@ -3100,3 +3100,79 @@ html .browse-range-wrapper select{
 	color: #03598F;
 	font-weight: bold;
 }
+// Left menu for tabs
+.generic_layout_container.layout_left {
+    .tabs {
+        margin-left: 0;
+        & > ul {
+            & > li {
+                border-left: 3px solid transparent;
+                margin-top: 5px;
+                display: block;
+                padding-left: 20px;
+                & > a {
+                    background: none;
+                    color: initial;
+                    padding: 4px 0;
+                }
+                &.active {
+                    border-left-color: $serenity_header_background_color;
+                }
+                &:hover {
+                    & > a {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .tab-active-menu, .tab-active-menu + input[type="checkbox"] {
+            display: none;
+        }
+    }
+}
+@media (max-width:600px) {
+    .generic_layout_container.layout_left {
+        .tabs {
+            position: relative;
+            overflow: initial;
+            .tab-active-menu {
+                border: 1px solid #e5e5e5;
+                padding: 10px 30px 10px 20px;
+                background: #ffffff;
+                display: block;
+                border-radius: 25px;
+                position: relative;
+                color: #555555;
+                & > i {
+                    position: absolute;
+                    right: 20px;
+                    font-size: 20px;
+                }
+                & + input[type="checkbox"] {
+                    position: absolute;
+                    display: block;
+                    width: 100%;
+                    top: 0;
+                    height: 44px;
+                    opacity: 0;
+                    margin: 0;
+                    cursor: pointer;
+                    &:checked + .navigation{
+                        display: block;
+                    }
+                }
+            }
+            .navigation {
+                margin: 0;
+                position: absolute;
+                width: 100%;
+                background: #fff;
+                z-index: 2;
+                border: 1px solid #e5e5e5;
+                margin-top: 2px;
+                display: none;
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,0.4);
+            }
+        }
+    }
+}
