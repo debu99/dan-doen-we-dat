@@ -25,6 +25,8 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 <?php $state = isset($_POST['state']) ? $_POST['state'] : (isset($this->itemlocation) && !empty($this->itemlocation->state) ? $this->itemlocation->state : '') ; ?>
 <?php $country = isset($_POST['country']) ? $_POST['country'] : (isset($this->itemlocation) && !empty($this->itemlocation->country) ? $this->itemlocation->country : '') ; ?>
 <?php $zip = isset($_POST['zip']) ? $_POST['zip'] : (isset($this->itemlocation) && !empty($this->itemlocation->zip) ? $this->itemlocation->zip : '') ; ?>
+<?php $regionOptions = isset($_POST['regionOptions']) ? $_POST['regionOptions'] : (isset($this->regionOptions) && !empty($this->regionOptions) ? $this->regionOptions : '') ; ?>
+<?php $regionValue = isset($_POST['regionValue']) ? $_POST['regionValue'] : (isset($this->regionValue) && !empty($this->regionValue) ? $this->regionValue : '') ; ?>
 <script>var checkinD = false;</script>
 <div id="seslocation-wrapper" class="form-wrapper" id="who-wrapper">
 	<fieldset id="fieldset-where">
@@ -62,6 +64,17 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			</div>
 			<?php } ?>
 		</div>
+		<!-- Region -->
+		<div id="sesevent_location_region" class="form-wrapper" style="display:none">
+			<div id="region-label" class="form-label">
+				<label for="region"><?php echo $this->translate("Region"); ?></label>
+			</div>
+			<select id="region" name="region">
+				<?php foreach($regionOptions as $key => $region): ?>
+					<option value="<?php echo $key ?>"><?php echo $region ?></option>
+				<?php endforeach; ?>
+			</select>
+		</div>
 
 		<div style="clear:both"></div>
 		<div id="location_options">
@@ -92,10 +105,11 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 
 <script type="application/javascript">
  en4.core.runonce.add(function() {
-
-	 sesJqueryObject(document).ready(function (){
-
-	 });
+	 var region_value = '<?php echo $regionValue ?>';
+	 if (region_value != 0){
+		 sesJqueryObject('#sesevent_location_region').show();
+		 sesJqueryObject('#region').val(region_value);
+	 }
 	 if (typeof locationcreatedata == 'undefined') {
 		 locationcreatedata = true;
 		 sesJqueryObject(document).on('click', '#sesevent_online_event', function () {
@@ -106,6 +120,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			 sesJqueryObject('#sesevent_online_event').hide();
 			 sesJqueryObject('#sesevent_add_location').show();
 			 sesJqueryObject('#sesevent_enter_address').hide();
+			 sesJqueryObject('#sesevent_location_region').hide();
 
 			 sesJqueryObject('#meeting_point-wrapper').hide();
 			 sesJqueryObject('#meeting_url-wrapper').show();
@@ -123,6 +138,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			 sesJqueryObject('#sesevent_online_event').show();
 			 sesJqueryObject('#sesevent_add_location').hide();
 			 sesJqueryObject('#sesevent_enter_address').show();
+			 sesJqueryObject('#sesevent_location_region').hide();
 
 			 sesJqueryObject('#meeting_point-wrapper').show();
 			 sesJqueryObject('#meeting_url-wrapper').hide();
@@ -144,6 +160,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			 sesJqueryObject('#sesevent_add_location').hide();
 			 sesJqueryObject('#sesevent_enter_address').hide();
 			 sesJqueryObject('#sesevent_reset_location').show();
+			 sesJqueryObject('#sesevent_location_region').hide();
 
 			 var lat = sesJqueryObject('#latSes').val();
 			 var lng = sesJqueryObject('#lngSes').val();
@@ -169,6 +186,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 				 sesJqueryObject('#sesevent_add_location').hide();
 				 sesJqueryObject('#sesevent_enter_address').show();
 				 sesJqueryObject('#sesevent_reset_location').hide();
+				 sesJqueryObject('#sesevent_location_region').hide();
 
 				 sesJqueryObject('.location_value').val('');
 				 sesJqueryObject('#locationSes').val('');
@@ -198,79 +216,81 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
   function createEventLoadMap() {
 	 var lat = sesJqueryObject('#latSes').val();
 	 var lng = sesJqueryObject('#lngSes').val();
-		if(lat && lng && sesJqueryObject('#sesevent_location_map_data').css('display') == 'none'){
-			sesJqueryObject('#sesevent_enter_address').trigger('click');
-		}
-	 if(lat && lng && sesJqueryObject('#sesevent_location_map_data').css('display') == 'block'){
-		sesJqueryObject('#sesevent_location_map').show();
-		sesJqueryObject('#sesevent_default_map').hide();
-		var myLatlng = new google.maps.LatLng(lat, lng);
-		var myOptions = {
-		 zoom: 17,
-		 center: myLatlng,
-		 mapTypeId: google.maps.MapTypeId.ROADMAP
-		}
-		var mapLocationCreate = new google.maps.Map(document.getElementById("sesevent_location_map"), myOptions);
-		var marker = new google.maps.Marker({
-			position: myLatlng,
-			map: mapLocationCreate,
-		});
-		google.maps.event.addListener(mapLocationCreate, 'click', function() {
-			google.maps.event.trigger(mapLocationCreate, 'resize');
-			mapLocationCreate.setZoom(17);
-			mapLocationCreate.setCenter(myLatlng);
-		});
-		if(checkinD){
-			checkinD = false;
-			return ;
-		}
-		var geocoder = new google.maps.Geocoder(); 
-   geocoder.geocode({'latLng': new google.maps.LatLng(lat, lng)}, function(results, status) {
-					if (status == google.maps.GeocoderStatus.OK && results.length) {
-						
-							if (results[0]) {
-									for(var i=0; i<results[0].address_components.length; i++)
-									{
-											var postalCode = results[0].address_components[i].long_name;
-									 }
-							 }
-							
-							if (results[1]) {
-								var indice=0;
-								for (var j=0; j<results.length; j++)
-								{
-										if (results[j].types[0]=='locality')
-										{
-												indice=j;
-												break;
-										}
-								}
-								for (var i=0; i<results[j].address_components.length; i++)
-								{
-										if (results[j].address_components[i].types[0] == "locality") {
-														//this is the object you are looking for
-														city = results[j].address_components[i].long_name;
-												}
-										if (results[j].address_components[i].types[0] == "administrative_area_level_1") {
-														//this is the object you are looking for
-														state = results[j].address_components[i].long_name;
-												}
-										if (results[j].address_components[i].types[0] == "country") {
-														//this is the object you are looking for
-														country = results[j].address_components[i].long_name;
-												}
-								}
-								if(postalCode)
-									sesJqueryObject('#zip').val(postalCode);
-								if(city)
-									sesJqueryObject('#city').val(city);
-								if(state)
-									sesJqueryObject('#state').val(state);
-								if(country)
-									sesJqueryObject('#country').val(country);
-							}
-						} 
-        });		
+	 if (lat && lng && sesJqueryObject('#sesevent_location_map_data').css('display') == 'none') {
+		 sesJqueryObject('#sesevent_enter_address').trigger('click');
+	 }
+	 if (lat && lng && sesJqueryObject('#sesevent_location_map_data').css('display') == 'block') {
+		 sesJqueryObject('#sesevent_location_map').show();
+		 sesJqueryObject('#sesevent_default_map').hide();
+		 var myLatlng = new google.maps.LatLng(lat, lng);
+		 var myOptions = {
+			 zoom: 17,
+			 center: myLatlng,
+			 mapTypeId: google.maps.MapTypeId.ROADMAP
+		 }
+		 var mapLocationCreate = new google.maps.Map(document.getElementById("sesevent_location_map"), myOptions);
+		 var marker = new google.maps.Marker({
+			 position: myLatlng,
+			 map: mapLocationCreate,
+		 });
+		 google.maps.event.addListener(mapLocationCreate, 'click', function () {
+			 google.maps.event.trigger(mapLocationCreate, 'resize');
+			 mapLocationCreate.setZoom(17);
+			 mapLocationCreate.setCenter(myLatlng);
+		 });
+		 if (checkinD) {
+			 checkinD = false;
+			 return;
+		 }
+		 var geocoder = new google.maps.Geocoder();
+		 geocoder.geocode({'latLng': new google.maps.LatLng(lat, lng)}, function (results, status) {
+			 var country_code;
+			 var country;
+			 var state;
+			 var city;
+			 if (status == google.maps.GeocoderStatus.OK && results.length) {
+				 if (results[0]) {
+					 for (var i = 0; i < results[0].address_components.length; i++) {
+						 var postalCode = results[0].address_components[i].long_name;
+					 }
+				 }
+				 if (results[1]) {
+					 var indice = 0;
+					 for (var j = 0; j < results.length; j++) {
+						 if (results[j].types[0] == 'locality') {
+							 indice = j;
+							 break;
+						 }
+					 }
+					 for (var i = 0; i < results[j].address_components.length; i++) {
+						 if (results[j].address_components[i].types[0] == "locality") {
+							 //this is the object you are looking for
+							 city = results[j].address_components[i].long_name;
+						 }
+						 if (results[j].address_components[i].types[0] == "administrative_area_level_1") {
+							 //this is the object you are looking for
+							 state = results[j].address_components[i].long_name;
+						 }
+						 if (results[j].address_components[i].types[0] == "country") {
+							 //this is the object you are looking for
+							 country = results[j].address_components[i].long_name;
+							 country_code = results[j].address_components[i].short_name;
+						 }
+					 }
+					 if (postalCode)
+						 sesJqueryObject('#zip').val(postalCode);
+					 if (city)
+						 sesJqueryObject('#city').val(city);
+					 if (state)
+						 sesJqueryObject('#state').val(state);
+					 if (country)
+						 sesJqueryObject('#country').val(country);
+					 if (country_code === 'NL') {
+						 sesJqueryObject('#sesevent_location_region').show();
+					 }
+				 }
+			 }
+		 });
 	 }
  }
 </script>

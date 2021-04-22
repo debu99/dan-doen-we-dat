@@ -402,16 +402,17 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
     } else {
       $endtime = isset($_POST['end_date']) ? date('Y-m-d H:i:s',strtotime($_POST['end_date'].' '.$_POST['end_time'])) : '';
     }
-    $values = $form->getValues();
-    $values['user_id'] = $viewer->getIdentity();
-    $values['parent_type'] = $parent_type;
-    $values['parent_id'] = $parent_id;
-		$values['timezone'] = isset($_POST['timezone']) ? $_POST['timezone'] : '';
-		$values['location'] = isset($_POST['location']) ? $_POST['location'] : '';
-		$values['show_timezone'] = !empty($_POST['show_timezone']) ? $_POST['show_timezone'] : '0';
-		$values['show_endtime'] = !empty($_POST['show_endtime']) ? $_POST['show_endtime'] : '0';
-		$values['show_starttime'] = !empty($_POST['show_starttime']) ? $_POST['show_starttime'] : '0';
-    $values['venue_name'] = isset($_POST['venue_name']) ? $_POST['venue_name'] : '';
+      $values = $form->getValues();
+      $values['user_id'] = $viewer->getIdentity();
+      $values['parent_type'] = $parent_type;
+      $values['parent_id'] = $parent_id;
+      $values['timezone'] = isset($_POST['timezone']) ? $_POST['timezone'] : '';
+      $values['location'] = isset($_POST['location']) ? $_POST['location'] : '';
+      $values['show_timezone'] = !empty($_POST['show_timezone']) ? $_POST['show_timezone'] : '0';
+      $values['show_endtime'] = !empty($_POST['show_endtime']) ? $_POST['show_endtime'] : '0';
+      $values['show_starttime'] = !empty($_POST['show_starttime']) ? $_POST['show_starttime'] : '0';
+      $values['venue_name'] = isset($_POST['venue_name']) ? $_POST['venue_name'] : '';
+      $values['region_id'] = $_POST['region'] ?? '';
     
     if(isset($values['additional_costs_amount'])){
       $values['additional_costs_amount'] = floatval(str_replace(",", ".", $values['additional_costs_amount']));
