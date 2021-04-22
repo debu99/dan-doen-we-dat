@@ -36,6 +36,7 @@ class User_Form_Settings_General extends Engine_Form
 
   public function init()
   {
+      $view = Zend_Registry::get('Zend_View');
     // @todo fix form CSS/decorators
     // @todo replace fake values with real values
     $this->setTitle('General Settings')
@@ -201,7 +202,24 @@ class User_Form_Settings_General extends Engine_Form
       'multiOptions' => $localeMultiOptions
     ));
 
-    
+      //Region
+      $regionOptions = array();
+      foreach (Engine_Api::_()->getDbtable('regions', 'user')->fetchAll() as $key => $region) {
+          $regionOptions[$key] = $region->getTitle();
+      }
+      $regionValueTable = Engine_Api::_()->getDbtable('regionvalues', 'user');
+      $select = $regionValueTable->select()->where('user_id = ?', $this->_item->getIdentity());
+      $regionData = array();
+      foreach ($regionValueTable->fetchAll($select) as $value) {
+          array_push($regionData, $value->region_id);
+      }
+      $this->addElement('MultiCheckbox', 'region', array(
+          'label' => $view->translate('Region'),
+          'description' => $view->translate('Select region(s) that you want to receive event notification from.'),
+          'multiOptions' => $regionOptions,
+          'value' => $regionData
+      ));
+
     // Init submit
     $this->addElement('Button', 'submit', array(
       'label' => 'Save Changes',

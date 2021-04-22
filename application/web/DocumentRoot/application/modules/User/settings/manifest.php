@@ -88,6 +88,8 @@ return array(
         'user_list',
         'user_list_item',
         'user_code',
+        'user_regions',
+        'user_region_values'
     ),
     // Routes --------------------------------------------------------------------
     'routes' => array(
