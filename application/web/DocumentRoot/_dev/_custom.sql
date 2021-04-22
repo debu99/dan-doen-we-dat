@@ -40,3 +40,10 @@ create table `engine4_user_regionvalues` (
      `region_id` int(11) unsigned not null,
      `user_id` int(11) unsigned not null
 );
+
+
+insert ignore into `engine4_core_mailtemplates` (`type`, `module`, `vars`, `default`) values
+('sesevent_new_event', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1),
+('sesevent_last_minute_event', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1),
+('sesevent_new_online_event', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1),
+('sesevent_last_minute_online_event', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1);

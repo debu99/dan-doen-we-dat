@@ -1564,6 +1564,54 @@ http://[host][object_link]
 
 [footer]"
 
+# sesevent_new_event
+"_EMAIL_SESEVENT_NEW_EVENT_TITLE";"New Event"
+"_EMAIL_SESEVENT_NEW_EVENT_DESCRIPTION";"This email is sent to user when they have a new event."
+"_EMAIL_SESEVENT_NEW_EVENT_SUBJECT";"The new event [object_title]"
+"_EMAIL_SESEVENT_NEW_EVENT_BODY";"[header]
+
+The new event ""[object_title]"". Please click the following link to view it:
+
+http://[host][object_link]
+
+[footer]"
+
+# sesevent_last_minute_event
+"_EMAIL_SESEVENT_LAST_MINUTE_EVENT_TITLE";"Last Minute Event"
+"_EMAIL_SESEVENT_LAST_MINUTE_EVENT_DESCRIPTION";"This email is sent to user when they have a last minute event."
+"_EMAIL_SESEVENT_LAST_MINUTE_EVENT_SUBJECT";"The last minute event [object_title]"
+"_EMAIL_SESEVENT_LAST_MINUTE_EVENT_BODY";"[header]
+
+The last minute event ""[object_title]"". Please click the following link to view it:
+
+http://[host][object_link]
+
+[footer]"
+
+# sesevent_new_online_event
+"_EMAIL_SESEVENT_NEW_ONLINE_EVENT_TITLE";"New Online Event"
+"_EMAIL_SESEVENT_NEW_ONLINE_EVENT_DESCRIPTION";"This email is sent to user when they have a new online event."
+"_EMAIL_SESEVENT_NEW_ONLINE_EVENT_SUBJECT";"The new online event [object_title]"
+"_EMAIL_SESEVENT_NEW_ONLINE_EVENT_BODY";"[header]
+
+The new online event ""[object_title]"". Please click the following link to view it:
+
+http://[host][object_link]
+
+[footer]"
+
+# sesevent_last_minute_online_event
+"_EMAIL_SESEVENT_LAST_MINUTE_ONLINE_EVENT_TITLE";"Last Minute Online Event"
+"_EMAIL_SESEVENT_LAST_MINUTE_ONLINE_EVENT_DESCRIPTION";"This email is sent to user when they have a last minute online event."
+"_EMAIL_SESEVENT_LAST_MINUTE_ONLINE_EVENT_SUBJECT";"The last minute online event [object_title]"
+"_EMAIL_SESEVENT_LAST_MINUTE_ONLINE_EVENT_BODY";"[header]
+
+The last minute online event ""[object_title]"". Please click the following link to view it:
+
+http://[host][object_link]
+
+[footer]"
+
 "Let us find events for you, Free.";"Let us find events for you, Free."
 "What are you planning?";"What are you planning?"
 "Select Category";"Select Category"
