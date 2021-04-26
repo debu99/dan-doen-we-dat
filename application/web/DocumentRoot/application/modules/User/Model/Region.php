@@ -18,8 +18,4 @@
  */
 class User_Model_Region extends Core_Model_Item_Abstract
 {
-    public function getTitle()
-    {
-        return $this->region_title;
-    }
 }

@@ -204,8 +204,8 @@ class User_Form_Settings_General extends Engine_Form
 
       //Region
       $regionOptions = array();
-      foreach (Engine_Api::_()->getDbtable('regions', 'user')->fetchAll() as $key => $region) {
-          $regionOptions[$key] = $region->getTitle();
+      foreach (Engine_Api::_()->getDbtable('regions', 'user')->fetchAll() as $region) {
+          $regionOptions[$region->getIdentity()] = $region->getTitle();
       }
       $regionValueTable = Engine_Api::_()->getDbtable('regionvalues', 'user');
       $select = $regionValueTable->select()->where('user_id = ?', $this->_item->getIdentity());
