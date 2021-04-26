@@ -49,3 +49,6 @@ insert ignore into `engine4_core_mailtemplates` (`type`, `module`, `vars`, `defa
 ('sesevent_last_minute_online_event', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1);
 
 alter table `engine4_sesevent_events` add `region_id` int(10) after `location`;
+
+/* update type 128 characters for engine4_user_emailsettings */
+alter table `engine4_user_emailsettings` change column `type` `type` varchar(128);
