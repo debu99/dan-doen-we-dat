@@ -529,29 +529,61 @@ class User_SettingsController extends Core_Controller_Action_User
         $notificationTypes = Engine_Api::_()->getDbtable('notificationTypes', 'activity')->getNotificationTypes();
         $notificationSettings = Engine_Api::_()->getDbtable('notificationSettings', 'activity')->getEnabledNotifications($user);
 
+        $hireNotification = array(
+            'commented',
+            'commented_commented',
+            'liked',
+            'liked_commented',
+            'message_new',
+            'post_user',
+            'shared',
+            'tagged',
+            'sesadvancedactivity_reacted_angr',
+            'sesadvancedactivity_reacted_haha',
+            'sesadvancedactivity_reacted_love',
+            'sesadvancedactivity_reacted_sad',
+            'sesadvancedactivity_reacted_wow',
+            'sesadvancedactivity_scheduled_li',
+            'sesadvancedactivity_tagged_item',
+            'sesadvancedactivity_tagged_peopl',
+            'sesevent_accepted',
+            'sesevent_approve',
+            'sesevent_eventfollow',
+            'sesevent_eventsave',
+            'sesevent_favourite_event',
+            'sesevent_favourite_eventhost',
+            'sesevent_favourite_eventlist',
+            'sesevent_favourite_eventspeaker',
+            'sesevent_like_event',
+            'sesevent_like_eventalbum',
+            'sesevent_like_eventhost',
+            'sesevent_like_eventlist',
+            'sesevent_like_eventspeaker',
+            'sesevent_sitefriend_ashost'
+        );
         $notificationTypesAssoc = array();
         $notificationSettingsAssoc = array();
         foreach( $notificationTypes as $type ) {
-            if( isset($modules[$type->module]) ) {
-                $category = 'ACTIVITY_CATEGORY_TYPE_' . strtoupper($type->module);
-                $translateCategory = Zend_Registry::get('Zend_Translate')->_($category);
-                if( $translateCategory === $category ) {
-                    $elementName = preg_replace('/[^a-zA-Z0-9]+/', '_', $type->module);
-                    $category = $modules[$type->module]->title;
-                    $category = str_replace(array("SES - ", " Plugin", "SNS: ", "Advanced ", "Professional "), array("","", "", "",""), $category);
+            if (!in_array($type->type, $hireNotification)) {
+                if (isset($modules[$type->module])) {
+                    $category = 'ACTIVITY_CATEGORY_TYPE_' . strtoupper($type->module);
+                    $translateCategory = Zend_Registry::get('Zend_Translate')->_($category);
+                    if ($translateCategory === $category) {
+                        $elementName = preg_replace('/[^a-zA-Z0-9]+/', '_', $type->module);
+                        $category = $modules[$type->module]->title;
+                        $category = str_replace(array("SES - ", " Plugin", "SNS: ", "Advanced ", "Professional "), array("", "", "", "", ""), $category);
+                    } else {
+                        $elementName = preg_replace('/[^a-zA-Z0-9]+/', '_', strtolower($translateCategory));
+                    }
                 } else {
-                    $elementName = preg_replace('/[^a-zA-Z0-9]+/', '_', strtolower($translateCategory));
+                    $elementName = 'misc';
+                    $category = 'Misc';
                 }
-            } else {
-                $elementName = 'misc';
-                $category = 'Misc';
-            }
-
-            $notificationTypesAssoc[$elementName]['category'] = $category;
-            $notificationTypesAssoc[$elementName]['types'][$type->type] = 'ACTIVITY_TYPE_' . strtoupper($type->type);
-
-            if( in_array($type->type, $notificationSettings) ) {
-                $notificationSettingsAssoc[$elementName][] = $type->type;
+                $notificationTypesAssoc[$elementName]['category'] = $category;
+                $notificationTypesAssoc[$elementName]['types'][$type->type] = 'ACTIVITY_TYPE_' . strtoupper($type->type);
+                if (in_array($type->type, $notificationSettings)) {
+                    $notificationSettingsAssoc[$elementName][] = $type->type;
+                }
             }
         }
 
