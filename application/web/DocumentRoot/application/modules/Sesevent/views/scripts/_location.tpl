@@ -106,7 +106,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 <script type="application/javascript">
  en4.core.runonce.add(function() {
 	 var region_value = '<?php echo $regionValue ?>';
-	 if (region_value != 0){
+	 if (region_value){
 		 sesJqueryObject('#sesevent_location_region').show();
 		 sesJqueryObject('#region').val(region_value);
 	 }
@@ -152,6 +152,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			 sesJqueryObject('#online_event-wrapper').hide();
 			 sesJqueryObject('#location-add_location').hide();
 			 sesJqueryObject('#sesevent_location_data-wrapper').show();
+			 (region_value) ? sesJqueryObject('#sesevent_location_region').show() : sesJqueryObject('#sesevent_location_region').hide()
 
 			 sesJqueryObject('#meeting_point-wrapper').show();
 			 sesJqueryObject('#meeting_url-wrapper').hide();
@@ -160,7 +161,6 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			 sesJqueryObject('#sesevent_add_location').hide();
 			 sesJqueryObject('#sesevent_enter_address').hide();
 			 sesJqueryObject('#sesevent_reset_location').show();
-			 sesJqueryObject('#sesevent_location_region').hide();
 
 			 var lat = sesJqueryObject('#latSes').val();
 			 var lng = sesJqueryObject('#lngSes').val();

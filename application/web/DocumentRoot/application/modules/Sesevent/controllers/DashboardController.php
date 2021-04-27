@@ -274,6 +274,8 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
         }
       }else{
 				$event->location = '';
+           $event->region_id = null;
+           $event->venue_name = '';
 				$event->save();
 				//remove sescore entry
 				$dbGetInsert->query("DELETE FROM engine4_sesbasic_locations WHERE resource_id = ".$event->event_id .' AND resource_type = "sesevent_event"');
