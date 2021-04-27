@@ -38,7 +38,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
         <!-- Add Location -->
 		<div id="location-add_location" class="form-wrapper">
 			<div id="location-element" class="form-element">
-				<input type="text" name="location" placeholder="<?php echo $this->translate("Enter a location"); ?>" id="locationSes" value="<?php echo $location; ?>" />
+				<input type="text" name="location" id="locationSes" value="<?php echo $location; ?>" placeholder="<?php echo $this->translate("Enter a location"); ?>"/>
 			</div>
 		</div>
         <!-- Online Event -->

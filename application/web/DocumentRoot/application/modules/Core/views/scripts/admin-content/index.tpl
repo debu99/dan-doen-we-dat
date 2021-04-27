@@ -629,7 +629,7 @@ $allowedAdminTitle = array('core.html-block', 'core.rich-text-block'); ?>
   var newContentIndex = 1;
   var currentParent;
   var currentNextSibling;
-  var contentByName = '<?php echo Zend_Json::encode($this->contentByName) ?>';
+  var contentByName = <?php echo Zend_Json::encode($this->contentByName) ?>;
   var currentModifications = [];
   var currentLayout = '<?php echo $this->pageObject->layout ?>';
   var ContentSortables;
