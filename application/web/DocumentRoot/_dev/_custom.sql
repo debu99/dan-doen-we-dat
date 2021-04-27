@@ -17,10 +17,10 @@ drop table if exists `engine4_user_regions`;
 create table `engine4_user_regions`
 (
     `region_id`    int(11) unsigned not null auto_increment primary key,
-    `region_title` varchar(128) not null
+    `title` varchar(128) not null
 );
 
-insert ignore into `engine4_user_regions` (`region_title`) values
+insert ignore into `engine4_user_regions` (`title`) values
 ('Noord-Holland'),
 ('Zuid-Holland'),
 ('Zeeland'),
