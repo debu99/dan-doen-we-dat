@@ -52,3 +52,7 @@ alter table `engine4_sesevent_events` add `region_id` int(10) after `location`;
 
 /* update type 128 characters for engine4_user_emailsettings */
 alter table `engine4_user_emailsettings` change column `type` `type` varchar(128);
+
+/* add task to send mail for last minute event */
+insert ignore into `engine4_core_tasks` (`title`, `module`, `plugin`, `timeout`)
+values ('Last Minute Event Mail', 'sesevent', 'Sesevent_Plugin_Task_LastMinuteMail', 43200);
