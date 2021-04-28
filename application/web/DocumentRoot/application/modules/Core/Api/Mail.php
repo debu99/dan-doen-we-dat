@@ -521,6 +521,7 @@ class Core_Api_Mail extends Core_Api_Abstract
             if( 'development' == APPLICATION_ENV ) {
                 if($this->getLog()) {
                   $this->getLog()->log(sprintf('[%s] (%s) %s <- %s', 'System', $type, join(', ', $mail->getRecipients()), $mail->getFrom()), Zend_Log::DEBUG);
+                  $this->getLog()->log($bodyHtmlTemplate, Zend_Log::DEBUG);
                 }
             }
         }

@@ -1570,7 +1570,7 @@ http://[host][object_link]
 "_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_SUBJECT";"The new event [object_title]"
 "_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_BODY";"[header]
 
-The new event ""[object_title]"". Please click the following link to view it:
+Event ""[object_title]"" has been create. Check more here:
 
 http://[host][object_link]
 
@@ -1582,7 +1582,7 @@ http://[host][object_link]
 "_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_SUBJECT";"The last minute event [object_title]"
 "_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_BODY";"[header]
 
-The last minute event ""[object_title]"". Please click the following link to view it:
+Event ""[object_title]"" will be started soon. Check more here:
 
 http://[host][object_link]
 
@@ -1594,7 +1594,7 @@ http://[host][object_link]
 "_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_SUBJECT";"The new online event [object_title]"
 "_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_BODY";"[header]
 
-The new online event ""[object_title]"". Please click the following link to view it:
+Event ""[object_title]"" has been create. Check more here:
 
 http://[host][object_link]
 
@@ -1606,7 +1606,7 @@ http://[host][object_link]
 "_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_SUBJECT";"The last minute online event [object_title]"
 "_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_BODY";"[header]
 
-The last minute online event ""[object_title]"". Please click the following link to view it:
+Event ""[object_title]"" will be started soon. Check more here:
 
 http://[host][object_link]
 

@@ -8,10 +8,10 @@ VALUES ('sesevent_profile_copy', 'sesevent', 'Copy This Event', 'Sesevent_Plugin
 
 INSERT IGNORE INTO `engine4_activity_notificationtypes`
     (`type`, `module`, `body`, `is_request`, `handler`, `default`, `sesandoidapp_enable_pushnotification`)
-VALUES ('sesevent_new_event', 'sesevent', 'New event {item:$object} on your region.', 0, '', 1, 1),
-       ('sesevent_last_minute_event', 'sesevent', 'Event {item:$object} last minute on your region.', 0, '', 1, 1),
-       ('sesevent_new_online_event', 'sesevent', 'New online event {item:$object}.', 0, '', 1, 1),
-       ('sesevent_last_minute_online_event', 'sesevent', 'Online event {item:$object} last minute.', 0, '', 1, 1);
+VALUES ('sesevent_new_event', 'sesevent', 'Event {item:$object} has been created.', 0, '', 1, 1),
+       ('sesevent_last_minute_event', 'sesevent', 'Event {item:$object} will be started soon.', 0, '', 1, 1),
+       ('sesevent_new_online_event', 'sesevent', 'Event {item:$object} has been created.', 0, '', 1, 1),
+       ('sesevent_last_minute_online_event', 'sesevent', 'Event {item:$object} will be started soon.', 0, '', 1, 1);
 
 drop table if exists `engine4_user_regions`;
 create table `engine4_user_regions`

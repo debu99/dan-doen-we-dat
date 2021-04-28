@@ -492,8 +492,8 @@ class Sesevent_Form_Create extends Engine_Form {
                }
            }
            $regionOptions = array();
-           foreach (Engine_Api::_()->getDbtable('regions', 'user')->fetchAll() as $key => $region) {
-               $regionOptions[$key] = $region->getTitle();
+           foreach (Engine_Api::_()->getDbtable('regions', 'user')->fetchAll() as $region) {
+               $regionOptions[$region->getIdentity()] = $region->getTitle();
            }
            $this->addElement('dummy', 'event_location', array(
                'decorators' => array(array('ViewScript', array(

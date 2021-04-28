@@ -651,31 +651,33 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
             $userTable = Engine_Api::_()->getItemTable('user');
         $users = $userTable->fetchAll();
         //email to user
-        foreach ($users as $user) {
-            if ($user->getIdentity() != $event->getOwner()->getIdentity() && $event->is_approved == 1) {
-                if ($event->is_webinar) {
-                    //notify and email to user register its for online event
-                    Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
-                        $user,
-                        $viewer,
-                        $event,
-                        'sesevent_new_online_event',
-                        array(
-                            'queue' => true
-                        )
-                    );
-                } elseif (isset($event->region_id)) {
-                    //notify and email to user register its for new event in their region
-                    if ($user->checkInRegion($event->region_id)) {
+        if ($event->is_approved == 1) {
+            foreach ($users as $user) {
+                if ($user->getIdentity() != $event->getOwner()->getIdentity()) {
+                    if ($event->is_webinar) {
+                        //notify and email to user register its for online event
                         Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
                             $user,
                             $viewer,
                             $event,
-                            'sesevent_new_event',
+                            'sesevent_new_online_event',
                             array(
                                 'queue' => true
                             )
                         );
+                    } elseif (isset($event->region_id)) {
+                        //notify and email to user register its for new event in their region
+                        if ($user->checkInRegion($event->region_id)) {
+                            Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                                $user,
+                                $viewer,
+                                $event,
+                                'sesevent_new_event',
+                                array(
+                                    'queue' => true
+                                )
+                            );
+                        }
                     }
                 }
             }
