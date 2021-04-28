@@ -380,13 +380,13 @@ class Sesevent_Form_Create extends Engine_Form {
         'required' => false,
         'value' => '',
       ));
-      
+
       $this->addElement('file', 'host_photo', array(
         'label' => 'Host Photo',
         'required' => false,
         'value' => '',
       ));
-  
+
       if($_GET['sesapi_platform'] != 1){
         $this->addElement('Checkbox', 'include_social_links', array(
             'label' => 'Include Social Links',
@@ -404,25 +404,25 @@ class Sesevent_Form_Create extends Engine_Form {
           'label' => 'Host Facebook URL',
           'required' => false,
           'value' => '',
-  
+
       ));
      $this->addElement('text', 'twitter_url', array(
           'label' => 'Host Twitter URL',
           'required' => false,
           'value' => '',
-  
+
       ));
       $this->addElement('text', 'website_url', array(
           'label' => 'Host Website URL',
           'required' => false,
           'value' => '',
-  
+
       ));
      $this->addElement('text', 'linkdin_url', array(
           'label' => 'Host LinkedIn URL',
           'required' => false,
           'value' => '',
-  
+
       ));
 
      $this->addElement('text', 'googleplus_url', array(
@@ -435,7 +435,7 @@ class Sesevent_Form_Create extends Engine_Form {
     $keyAgeCategoryUser = $viewer->getAgeCategory();
     $selectedAgeCatoriesWithoutConstraint = $selectedAgeCategories;
     $selectedAgeCategories[$keyAgeCategoryUser] = $allAgeCategories[$keyAgeCategoryUser];
-    
+
     $this->addElement('MultiCheckbox', 'age_categories', array(
       'label' => $translate->translate('Age Categories'),
       'multiOptions' => $allAgeCategories,
@@ -444,7 +444,7 @@ class Sesevent_Form_Create extends Engine_Form {
       "disable"=> $viewer->isAdmin()? array(): array($keyAgeCategoryUser),
       "description" =>$viewer->isAdmin()? "": $translate->translate('Your own age category can\'t be unchecked'),
     ));
-    
+
     $options = array(
       'Undistributed' => $translate->translate("Undistributed"),
       '50/50' => "50/50"
@@ -469,41 +469,44 @@ class Sesevent_Form_Create extends Engine_Form {
     ));
     $this->addDisplayGroup(array('choose_host','host_type','event_host','selectonsitehost','host_name','host_email','host_phone','host_description','host_photo','include_social_links','facebook_url','twitter_url','website_url','linkdin_url','googleplus_url','min_participants', 'max_participants','age_categories', 'gender_destribution'), "who", array("legend"=> $translate->translate('Who')));
 
- 
 
-  if(Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent_enable_location', 1)){
+       if (Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent_enable_location', 1)) {
 
-      $locale = Zend_Registry::get('Zend_Translate')->getLocale();
-      $territories = Zend_Locale::getTranslationList('territory', $locale, 2);
-      asort($territories);
-      $countrySelect = '';
-      $countrySelected = '';
-      if(count($territories)){
-        $countrySelect = '<option value="">Choose Country</option>';
-        if(isset($event)){
-          $itemlocation = Engine_Api::_()->getDbtable('locations', 'sesbasic')->getLocationData('sesevent_event',$event->getIdentity());
-          if($itemlocation)
-            $countrySelected = $itemlocation->country;
-        }
-        foreach($territories as $key=>$valCon){
-          if($valCon == $countrySelected)
-            $countrySelect .= '<option value="'.$valCon.'" selected >'.$valCon.'</option>';
-          else
-            $countrySelect .= '<option value="'.$valCon.'" >'.$valCon.'</option>';
-        }
-      }
-
-		 $this->addElement('dummy', 'event_location', array(
-				'decorators' => array(array('ViewScript', array(
-                  'viewScript' => 'application/modules/Sesevent/views/scripts/_location.tpl',
-                  'class' => 'form element',
-                  'event'=>isset($event) ? $event : '',
-                  'countrySelect' => $countrySelect,
-                  'itemlocation'=>isset($itemlocation) ? $itemlocation : '',
-        )))
-      ));
-      // display group is in the viewscript
-    }		
+           $locale = Zend_Registry::get('Zend_Translate')->getLocale();
+           $territories = Zend_Locale::getTranslationList('territory', $locale, 2);
+           asort($territories);
+           $countrySelect = '';
+           $countrySelected = '';
+           if (count($territories)) {
+               $countrySelect = '<option value="">Choose Country</option>';
+               if (isset($event)) {
+                   $itemlocation = Engine_Api::_()->getDbtable('locations', 'sesbasic')->getLocationData('sesevent_event', $event->getIdentity());
+                   if ($itemlocation)
+                       $countrySelected = $itemlocation->country;
+               }
+               foreach ($territories as $key => $valCon) {
+                   if ($valCon == $countrySelected)
+                       $countrySelect .= '<option value="' . $valCon . '" selected >' . $valCon . '</option>';
+                   else
+                       $countrySelect .= '<option value="' . $valCon . '" >' . $valCon . '</option>';
+               }
+           }
+           $regionOptions = array();
+           foreach (Engine_Api::_()->getDbtable('regions', 'user')->fetchAll() as $region) {
+               $regionOptions[$region->getIdentity()] = $region->getTitle();
+           }
+           $this->addElement('dummy', 'event_location', array(
+               'decorators' => array(array('ViewScript', array(
+                   'viewScript' => 'application/modules/Sesevent/views/scripts/_location.tpl',
+                   'class' => 'form element',
+                   'event' => $event ?? '',
+                   'countrySelect' => $countrySelect,
+                   'itemlocation' => $itemlocation ?? '',
+                   'regionOptions' => $regionOptions ?? '',
+                   'regionValue' => $event->region_id ?? 0
+               )))
+           ));
+       }
 
     if($actionName == 'create') {
 	    if($settings->getSetting('sesevent.eevecretimezone', 1))
@@ -631,7 +634,7 @@ class Sesevent_Form_Create extends Engine_Form {
 			$end_date = date('m/d/Y',strtotime($_POST['end_date']));
 			$end_time = date('H:i',strtotime($_POST['end_time']));
 		}
-    
+
 		$this->addElement('dummy', 'event_custom_datetimes', array(
 			'decorators' => array(array('ViewScript', array(
 									'viewScript' => 'application/modules/Sesevent/views/scripts/_customdates.tpl',
@@ -729,7 +732,7 @@ class Sesevent_Form_Create extends Engine_Form {
        $this->getElement('meeting_url')->getValidator('Regex')->setMessage('Meeting Point must be url when this event is online', 'regexNotMatch');
     $this->addDisplayGroup(array('tel_host','meeting_time','meeting_point','meeting_url'), "meeting", array("legend"=> $translate->translate("Meeting Point")));
 
-    
+
     $this->addElement('Checkbox', 'is_additional_costs', array(
       'label' => $translate->translate('Additional Costs'),
       'onchange' => 'additionalCostsToggle();',
@@ -828,7 +831,7 @@ class Sesevent_Form_Create extends Engine_Form {
      $optionalElementsForDisplayGroup[] = 'is_custom_term_condition';
      $optionalElementsForDisplayGroup[] = 'custom_term_condition';
     }
-    
+
     if($actionName == 'create') {
 	    if($settings->getSetting('sesevent.eevecretags', 1))
 		    $eevecretags = true;
@@ -900,7 +903,7 @@ class Sesevent_Form_Create extends Engine_Form {
     $musicOptions = (array) Engine_Api::_()->authorization()->getAdapter('levels')->getAllowed('sesevent_event', $viewer, 'auth_music');
     $topicOptions = (array) Engine_Api::_()->authorization()->getAdapter('levels')->getAllowed('sesevent_event', $viewer, 'auth_topic');
     $ratingOptions = (array) Engine_Api::_()->authorization()->getAdapter('levels')->getAllowed('sesevent_event', $viewer, 'auth_rating');
-    
+
     if ($this->_parent_type == 'user') {
       $availableLabels = array(
           'everyone' => 'Everyone',
@@ -931,7 +934,7 @@ class Sesevent_Form_Create extends Engine_Form {
       $photoOptions = array_intersect_key($availableLabels, array_flip($photoOptions));
     }
 
-    
+
     // View
     if (!empty($viewOptions) && count($viewOptions) >= 1) {
       // Make a hidden field
@@ -1170,6 +1173,6 @@ class Sesevent_Form_Create extends Engine_Form {
             'FormElements',
             'DivDivDivWrapper',
         ),
-    ));  
+    ));
   }
 }

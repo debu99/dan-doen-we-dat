@@ -185,6 +185,18 @@ class User_SettingsController extends Core_Controller_Action_User
 
         $user->save();
 
+        $regionValues = $form->getValue('region');
+        $regionValueTable = Engine_Api::_()->getDbtable('regionvalues', 'user');
+        $db = $regionValueTable->getAdapter();
+        $db->beginTransaction();
+        $regionValueTable->delete(array('user_id = ?' => $user->getIdentity()));
+        foreach ($regionValues as $value){
+            $row = $regionValueTable->createRow();
+            $row->user_id = $user->getIdentity();
+            $row->region_id = $value;
+            $row->save();
+        }
+        $db->commit();
 
         // Update account type
         /*
@@ -254,6 +266,7 @@ class User_SettingsController extends Core_Controller_Action_User
             'item' => $user,
         ));
 
+        $form->removeElement('publishTypes');
         // Init blocked
         $this->view->blockedUsers = array();
 
@@ -517,16 +530,48 @@ class User_SettingsController extends Core_Controller_Action_User
         $notificationTypes = Engine_Api::_()->getDbtable('notificationTypes', 'activity')->getNotificationTypes();
         $notificationSettings = Engine_Api::_()->getDbtable('notificationSettings', 'activity')->getEnabledNotifications($user);
 
+        $hideNotificationsType = array(
+            'commented',
+            'commented_commented',
+            'liked',
+            'liked_commented',
+            'message_new',
+            'post_user',
+            'shared',
+            'tagged',
+            'sesadvancedactivity_reacted_angr',
+            'sesadvancedactivity_reacted_haha',
+            'sesadvancedactivity_reacted_love',
+            'sesadvancedactivity_reacted_sad',
+            'sesadvancedactivity_reacted_wow',
+            'sesadvancedactivity_scheduled_li',
+            'sesadvancedactivity_tagged_item',
+            'sesadvancedactivity_tagged_peopl',
+            'sesevent_accepted',
+            'sesevent_approve',
+            'sesevent_eventfollow',
+            'sesevent_eventsave',
+            'sesevent_favourite_event',
+            'sesevent_favourite_eventhost',
+            'sesevent_favourite_eventlist',
+            'sesevent_favourite_eventspeaker',
+            'sesevent_like_event',
+            'sesevent_like_eventalbum',
+            'sesevent_like_eventhost',
+            'sesevent_like_eventlist',
+            'sesevent_like_eventspeaker',
+            'sesevent_sitefriend_ashost'
+        );
         $notificationTypesAssoc = array();
         $notificationSettingsAssoc = array();
-        foreach( $notificationTypes as $type ) {
-            if( isset($modules[$type->module]) ) {
+        foreach ($notificationTypes as $type) {
+            if (isset($modules[$type->module])) {
                 $category = 'ACTIVITY_CATEGORY_TYPE_' . strtoupper($type->module);
                 $translateCategory = Zend_Registry::get('Zend_Translate')->_($category);
-                if( $translateCategory === $category ) {
+                if ($translateCategory === $category) {
                     $elementName = preg_replace('/[^a-zA-Z0-9]+/', '_', $type->module);
                     $category = $modules[$type->module]->title;
-                    $category = str_replace(array("SES - ", " Plugin", "SNS: ", "Advanced ", "Professional "), array("","", "", "",""), $category);
+                    $category = str_replace(array("SES - ", " Plugin", "SNS: ", "Advanced ", "Professional "), array("", "", "", "", ""), $category);
                 } else {
                     $elementName = preg_replace('/[^a-zA-Z0-9]+/', '_', strtolower($translateCategory));
                 }
@@ -534,11 +579,11 @@ class User_SettingsController extends Core_Controller_Action_User
                 $elementName = 'misc';
                 $category = 'Misc';
             }
-
-            $notificationTypesAssoc[$elementName]['category'] = $category;
-            $notificationTypesAssoc[$elementName]['types'][$type->type] = 'ACTIVITY_TYPE_' . strtoupper($type->type);
-
-            if( in_array($type->type, $notificationSettings) ) {
+            if (!in_array($type->type, $hideNotificationsType)) {
+                $notificationTypesAssoc[$elementName]['category'] = $category;
+                $notificationTypesAssoc[$elementName]['types'][$type->type] = 'ACTIVITY_TYPE_' . strtoupper($type->type);
+            }
+            if (in_array($type->type, $notificationSettings)) {
                 $notificationSettingsAssoc[$elementName][] = $type->type;
             }
         }
@@ -591,6 +636,9 @@ class User_SettingsController extends Core_Controller_Action_User
             }
         }
 
+        // enable for type hide notifications
+        $values = array_merge($values, $hideNotificationsType);
+
         // Set notification setting
         Engine_Api::_()->getDbtable('notificationSettings', 'activity')
             ->setEnabledNotifications($user, $values);
@@ -608,16 +656,38 @@ class User_SettingsController extends Core_Controller_Action_User
         $emailTypes = Engine_Api::_()->getDbTable('mailTemplates', 'core')->getEmailTypes();
         $emailSettings = Engine_Api::_()->getDbtable('emailSettings', 'user')->getEnabledEmails($user);
 
+        $hideEmailsType = array(
+            'notify_commented',
+            'notify_commented_commented',
+            'notify_liked',
+            'notify_liked_commented',
+            'notify_friend_follow_request',
+            'notify_post_user',
+            'notify_tagged',
+            'notify_sesevent_approve',
+            'notify_sesevent_discussion_response',
+            'notify_sesevent_discussion_reply',
+            'sesevent_ticketpurchased_eventowner',
+            'sesevent_ticketpayment_requestadmin',
+            'sesevent_ticketpayment_adminrequestcancel',
+            'sesevent_ticketpayment_adminrequestapproved',
+            'sesevent_sponsorshippurchased_eventowner',
+            'sesevent_sponsorshippayment_requestadmin',
+            'sesevent_sponsorshippayment_adminrequestcancel',
+            'sesevent_sponsorshippayment_adminrequestapproved',
+            'sesevent_rsvp_change',
+            'sesevent_payment_ticket_pending'
+        );
         $emailTypesAssoc = array();
         $emailSettingsAssoc = array();
         foreach( $emailTypes as $type ) {
-            if( isset($modules[$type->module]) ) {
+            if (isset($modules[$type->module])) {
                 $category = 'ACTIVITY_CATEGORY_TYPE_' . strtoupper($type->module);
                 $translateCategory = Zend_Registry::get('Zend_Translate')->_($category);
-                if( $translateCategory === $category ) {
+                if ($translateCategory === $category) {
                     $elementName = preg_replace('/[^a-zA-Z0-9]+/', '_', $type->module);
                     $category = $modules[$type->module]->title;
-                    $category = str_replace(array("SES - ", " Plugin", "SNS: ", "Advanced ", "Professional "), array("","", "", "",""), $category);
+                    $category = str_replace(array("SES - ", " Plugin", "SNS: ", "Advanced ", "Professional "), array("", "", "", "", ""), $category);
                 } else {
                     $elementName = preg_replace('/[^a-zA-Z0-9]+/', '_', strtolower($translateCategory));
                 }
@@ -625,11 +695,11 @@ class User_SettingsController extends Core_Controller_Action_User
                 $elementName = 'misc';
                 $category = 'Misc';
             }
-
-            $emailTypesAssoc[$elementName]['category'] = $category;
-            $emailTypesAssoc[$elementName]['types'][$type->type] = '_EMAIL_' . strtoupper($type->type) . '_TITLE';
-
-            if( in_array($type->type, $emailSettings) ) {
+            if (!in_array($type->type, $hideEmailsType)) {
+                $emailTypesAssoc[$elementName]['category'] = $category;
+                $emailTypesAssoc[$elementName]['types'][$type->type] = '_EMAIL_' . strtoupper($type->type) . '_TITLE';
+            }
+            if (in_array($type->type, $emailSettings)) {
                 $emailSettingsAssoc[$elementName][] = $type->type;
             }
         }
@@ -693,6 +763,9 @@ class User_SettingsController extends Core_Controller_Action_User
                 $values[] = $svalue;
             }
         }
+
+        //enable for hide emails
+        $values = array_merge($values,$hideEmailsType);
 
         // Disable all email
         $user->disable_email = !empty($form->getElement('disable_email')->getValue()) ? $form->getElement('disable_email')->getValue() : '0';

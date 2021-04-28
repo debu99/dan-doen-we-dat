@@ -402,16 +402,17 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
     } else {
       $endtime = isset($_POST['end_date']) ? date('Y-m-d H:i:s',strtotime($_POST['end_date'].' '.$_POST['end_time'])) : '';
     }
-    $values = $form->getValues();
-    $values['user_id'] = $viewer->getIdentity();
-    $values['parent_type'] = $parent_type;
-    $values['parent_id'] = $parent_id;
-		$values['timezone'] = isset($_POST['timezone']) ? $_POST['timezone'] : '';
-		$values['location'] = isset($_POST['location']) ? $_POST['location'] : '';
-		$values['show_timezone'] = !empty($_POST['show_timezone']) ? $_POST['show_timezone'] : '0';
-		$values['show_endtime'] = !empty($_POST['show_endtime']) ? $_POST['show_endtime'] : '0';
-		$values['show_starttime'] = !empty($_POST['show_starttime']) ? $_POST['show_starttime'] : '0';
-    $values['venue_name'] = isset($_POST['venue_name']) ? $_POST['venue_name'] : '';
+      $values = $form->getValues();
+      $values['user_id'] = $viewer->getIdentity();
+      $values['parent_type'] = $parent_type;
+      $values['parent_id'] = $parent_id;
+      $values['timezone'] = isset($_POST['timezone']) ? $_POST['timezone'] : '';
+      $values['location'] = isset($_POST['location']) ? $_POST['location'] : '';
+      $values['show_timezone'] = !empty($_POST['show_timezone']) ? $_POST['show_timezone'] : '0';
+      $values['show_endtime'] = !empty($_POST['show_endtime']) ? $_POST['show_endtime'] : '0';
+      $values['show_starttime'] = !empty($_POST['show_starttime']) ? $_POST['show_starttime'] : '0';
+      $values['venue_name'] = isset($_POST['venue_name']) ? $_POST['venue_name'] : '';
+      $values['region_id'] = $_POST['region'] ?? '';
     
     if(isset($values['additional_costs_amount'])){
       $values['additional_costs_amount'] = floatval(str_replace(",", ".", $values['additional_costs_amount']));
@@ -628,33 +629,67 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
 				$event->custom_url = $event->event_id;
 			$event->save();
 			//Activity Feed Work
-        if ($event->draft == 1 && $event->is_approved == 1) {
-            $activityApi = Engine_Api::_()->getDbtable('actions', 'activity');
-            $action = $activityApi->addActivity($viewer, $event, 'sesevent_create');
-            if ($action) {
-                $activityApi->attachActivity($action, $event);
-            }
+	    if($event->draft == 1 && $event->is_approved == 1) {
+				$activityApi = Engine_Api::_()->getDbtable('actions', 'activity');
+				$action = $activityApi->addActivity($viewer, $event, 'sesevent_create');
+				if ($action) {
+					$activityApi->attachActivity($action, $event);
+			 	}
 
-            //Tag Work
-            if (Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('sesadvancedactivity') && $tags) {
-                $dbGetInsert = Engine_Db_Table::getDefaultAdapter();
-                foreach ($tags as $tag) {
-                    $dbGetInsert->query('INSERT INTO `engine4_sesadvancedactivity_hashtags` (`action_id`, `title`) VALUES ("' . $action->getIdentity() . '", "' . $tag . '")');
-                }
-            }
-        }
-        //mail
-        $userTable = Engine_Api::_()->getItemTable('user');
-        $field = $userTable->select()
-            ->from($userTable->info('name'))
-            ->where("level_id = ?", 1);
-        $admins = $userTable->fetchAll($field);
-        //Send mail to admin after user create event
-        Engine_Api::_()->getApi('mail', 'core')->sendSystem($admins, 'sesevent_event_create', array('user_name' => $event->getOwner()->getTitle(), 'event_title' => $event->title, 'object_link' => $event->getHref(), 'host' => $_SERVER['HTTP_HOST']));
-        //Event create mail send to event owner
+        //Tag Work
+        if(Engine_Api::_()->getDbtable('modules', 'core')->isModuleEnabled('sesadvancedactivity') && $tags) {
+          $dbGetInsert = Engine_Db_Table::getDefaultAdapter();
+          foreach($tags as $tag) {
+            $dbGetInsert->query('INSERT INTO `engine4_sesadvancedactivity_hashtags` (`action_id`, `title`) VALUES ("'.$action->getIdentity().'", "'.$tag.'")');
+          }
+        }            
+
+			//Event create mail send to event owner
         if (!$event->getOwner()->isAdmin()){
             Engine_Api::_()->getApi('mail', 'core')->sendSystem($event->getOwner(), 'sesevent_event_create', array('event_title' => $event->title, 'object_link' => $event->getHref(), 'host' => $_SERVER['HTTP_HOST']));
         }
+	    }
+            
+            $userTable = Engine_Api::_()->getItemTable('user');
+        $users = $userTable->fetchAll();
+        //email to user
+        if ($event->is_approved == 1) {
+            foreach ($users as $user) {
+                if ($user->getIdentity() != $event->getOwner()->getIdentity()) {
+                    if ($event->is_webinar) {
+                        //notify and email to user register its for online event
+                        Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                            $user,
+                            $viewer,
+                            $event,
+                            'sesevent_new_online_event',
+                            array(
+                                'queue' => true
+                            )
+                        );
+                    } elseif (isset($event->region_id)) {
+                        //notify and email to user register its for new event in their region
+                        if ($user->checkInRegion($event->region_id)) {
+                            Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                                $user,
+                                $viewer,
+                                $event,
+                                'sesevent_new_event',
+                                array(
+                                    'queue' => true
+                                )
+                            );
+                        }
+                    }
+                }
+            }
+        }
+            $field = $userTable->select()
+                ->from($userTable->info('name'))
+                ->where("level_id = ?", 1);
+            $admins = $userTable->fetchAll($field);
+            //Send mail to admin after user create event
+            Engine_Api::_()->getApi('mail', 'core')->sendSystem($admins, 'sesevent_event_create', array('event_title' => $event->title, 'object_link' => $event->getHref(), 'host' => $_SERVER['HTTP_HOST']));
 
       // Redirect
 			$autoOpenSharePopup = Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent.autoopenpopup', 1);

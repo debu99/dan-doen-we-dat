@@ -146,17 +146,18 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
       $endtime = isset($_POST['end_date']) ? date('Y-m-d H:i:s',strtotime($_POST['end_date'].' '.$_POST['end_time'])) : '';
     }
     // Process
-    $values = $form->getValues();
-		$values['timezone'] = $_POST['timezone'] ? $_POST['timezone'] : '';
-		$values['location'] = $_POST['location'] ? $_POST['location'] : '';
-		$values['show_timezone'] = !empty($_POST['show_timezone']) ? $_POST['show_timezone'] : '0';
-		$values['show_endtime'] = !empty($_POST['show_endtime']) ? $_POST['show_endtime'] : '0';
-		$values['show_starttime'] = !empty($_POST['show_starttime']) ? $_POST['show_starttime'] : '0';
-		$values['venue_name'] = isset($_POST['venue_name']) ? $_POST['venue_name'] : '';
-		if (empty($values['timezone'])) {
-      $form->addError(Zend_Registry::get('Zend_Translate')->_('Timezone is a required field.'));
-      return;
-    }
+      $values = $form->getValues();
+      $values['timezone'] = $_POST['timezone'] ? $_POST['timezone'] : '';
+      $values['location'] = $_POST['location'] ? $_POST['location'] : '';
+      $values['show_timezone'] = !empty($_POST['show_timezone']) ? $_POST['show_timezone'] : '0';
+      $values['show_endtime'] = !empty($_POST['show_endtime']) ? $_POST['show_endtime'] : '0';
+      $values['show_starttime'] = !empty($_POST['show_starttime']) ? $_POST['show_starttime'] : '0';
+      $values['venue_name'] = isset($_POST['venue_name']) ? $_POST['venue_name'] : '';
+      $values['region_id'] = $_POST['region'] ?? '';
+      if (empty($values['timezone'])) {
+          $form->addError(Zend_Registry::get('Zend_Translate')->_('Timezone is a required field.'));
+          return;
+      }
 
     if($values['is_additional_costs'] == ''){
       $values['is_additional_costs'] = 0;
@@ -273,6 +274,8 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
         }
       }else{
 				$event->location = '';
+           $event->region_id = null;
+           $event->venue_name = '';
 				$event->save();
 				//remove sescore entry
 				$dbGetInsert->query("DELETE FROM engine4_sesbasic_locations WHERE resource_id = ".$event->event_id .' AND resource_type = "sesevent_event"');

@@ -1130,6 +1130,10 @@ Myanmar [Burma]"Favourites";"Myanmar [Burma]"
 "ACTIVITY_TYPE_SESEVENT_EVENT_PAYMENTREQUEST";"When payment is requested."
 "ACTIVITY_TYPE_SESEVENT_EVENT_TICKETPURCHASED";"When some purchase event tickets."
 "ACTIVITY_TYPE_SESEVENT_SITEFRIEND_ASHOST";"When site member is made host of an event."
+"ACTIVITY_TYPE_SESEVENT_LAST_MINUTE_EVENT";"Last minute event."
+"ACTIVITY_TYPE_SESEVENT_LAST_MINUTE_ONLINE_EVENT";"Last minute online event."
+"ACTIVITY_TYPE_SESEVENT_NEW_EVENT";"New event."
+"ACTIVITY_TYPE_SESEVENT_NEW_ONLINE_EVENT";"New online event."
 
 "Manage Events";"Manage Events"
 "Event Members";"Event Members"
@@ -1555,6 +1559,54 @@ http://[host][object_link]
 "_EMAIL_SESEVENT_EVENT_ADMINDISAPPROVED_BODY";"[header]
 
 Thank you for creating a event our social network. Click the following link and go to you event:
+
+http://[host][object_link]
+
+[footer]"
+
+# notify_sesevent_new_event
+"_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_TITLE";"New Event"
+"_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_DESCRIPTION";"This email is sent to user when they have a new event."
+"_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_SUBJECT";"The new event [object_title]"
+"_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_BODY";"[header]
+
+Event ""[object_title]"" has been create. Check more here:
+
+http://[host][object_link]
+
+[footer]"
+
+# notify_sesevent_last_minute_event
+"_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_TITLE";"Last Minute Event"
+"_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_DESCRIPTION";"This email is sent to user when they have a last minute event."
+"_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_SUBJECT";"The last minute event [object_title]"
+"_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_BODY";"[header]
+
+Event ""[object_title]"" will be started soon. Check more here:
+
+http://[host][object_link]
+
+[footer]"
+
+# notify_sesevent_new_online_event
+"_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_TITLE";"New Online Event"
+"_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_DESCRIPTION";"This email is sent to user when they have a new online event."
+"_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_SUBJECT";"The new online event [object_title]"
+"_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_BODY";"[header]
+
+Event ""[object_title]"" has been create. Check more here:
+
+http://[host][object_link]
+
+[footer]"
+
+# notify_sesevent_last_minute_online_event
+"_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_TITLE";"Last Minute Online Event"
+"_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_DESCRIPTION";"This email is sent to user when they have a last minute online event."
+"_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_SUBJECT";"The last minute online event [object_title]"
+"_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_BODY";"[header]
+
+Event ""[object_title]"" will be started soon. Check more here:
 
 http://[host][object_link]
 

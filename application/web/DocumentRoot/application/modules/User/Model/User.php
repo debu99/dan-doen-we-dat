@@ -763,4 +763,14 @@ class User_Model_User extends Core_Model_Item_Abstract
       );
     }      
   }
+
+    public function checkInRegion($regionId): bool
+    {
+        $regionValueTable = Engine_Api::_()->getDbtable('regionvalues', 'user');
+        $select = $regionValueTable->select()
+            ->where('user_id = ?', $this->getIdentity())
+            ->where('region_id = ?', $regionId)
+            ->limit(1);
+        return (bool) $regionValueTable->fetchRow($select);
+    }
 }
