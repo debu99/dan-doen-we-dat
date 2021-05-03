@@ -2,10 +2,10 @@
   'adapter' => 'mysqli',
   'params' => 
   array (
-    'host' => 'localhost',
-    'username' => 'root',
-    'password' => 'root',
-    'dbname' => '_os_dandoenwedat',
+    'host' => getenv('MYSQL_HOST'),
+    'username' => getenv('MYSQL_USER'),
+    'password' => getenv('MYSQL_PASSWORD'),
+    'dbname' => getenv('MYSQL_DATABASE'),
     'charset' => 'UTF8',
     'adapterNamespace' => 'Zend_Db_Adapter',
     'port' => NULL,
