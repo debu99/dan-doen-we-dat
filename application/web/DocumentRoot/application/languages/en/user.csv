@@ -541,6 +541,7 @@ following Callback URL: %2$s"
 "Region";"Region"
 "Select region(s) that you want to receive event notification from.";"Select region(s) that you want to receive event notification from."
 
+
 # notification types
 "{item:$subject} has posted on your {item:$object:profile}.";"{item:$subject} has posted on your {item:$object:profile}."
 "You and {item:$subject} are now friends.";"You and {item:$subject} are now friends."

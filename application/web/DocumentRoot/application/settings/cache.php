@@ -1,4 +1,11 @@
 <?php
+/**
+ * SocialEngine
+ *
+ * @copyright  Copyright 2006-2010 Webligo Developments
+ * @license    http://www.socialengine.com/license/
+ * @version    $Id: cache.sample.php 9747 2012-07-26 02:08:08Z john $
+ */
 defined('_ENGINE') or die('Access Denied');
 return array (
   'default_backend' => 'File',
@@ -10,16 +17,12 @@ return array (
       'cache_id_prefix' => 'Engine4_',
       'lifetime' => '300',
       'caching' => true,
-      'gzip' => true,
     ),
   ),
-  'backend' => 
-  array (
-    'File' => 
-    array (
-      'file_locking' => true,
-      'cache_dir' => '/var/www/html/temporary/cache',
-    ),
-  ),
-  'default_file_path' => '/var/www/html/temporary/cache',
-); ?>
+  'backend' => array(
+    'File' => array(
+      'cache_dir' => APPLICATION_PATH . '/temporary/cache'
+    )
+  )
+);
+?>
