@@ -3175,4 +3175,8 @@ html .browse-range-wrapper select{
             }
         }
     }
+    .global_left_panel #global_content {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 }

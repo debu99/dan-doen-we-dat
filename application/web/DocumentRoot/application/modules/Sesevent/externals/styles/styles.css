@@ -4791,7 +4791,7 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 		padding: 0;
 	}
 	.sesevents_list_view_wrapper .list-item .list-item-date {
-		width: 15%;
+		width: 20%;
 		text-align: center;
 		margin-right: 5px;
 	}
@@ -4799,12 +4799,11 @@ body.sesevent_category_carousel .sesevent_slick_slider{
 		padding: 0;
 	}
 	.sesevents_list_view_wrapper .list-item {
-		font-size: 0.8em;
+		font-size: 0.7em;
 		align-items: center;
 	}
 
 	.sesevents_list_view_wrapper .list-item .list-item-info--title--location {
-		margin-left: 5px;
 		max-width: 60vw;
 		line-height: 0.9;
 	}
