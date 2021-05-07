@@ -70,3 +70,16 @@ values ('Last Minute Event Mail', 'sesevent', 'Sesevent_Plugin_Task_LastMinuteMa
 
 -- add field is_sent_lastminute for engine4_sesevent_events
 alter table `engine4_sesevent_events` add `is_send_lastminute` tinyint default 0 after `is_approved`;
+
+-- notification for organizer and participants
+INSERT IGNORE INTO `engine4_activity_notificationtypes`
+(`type`, `module`, `body`, `is_request`, `handler`, `default`, `sesandoidapp_enable_pushnotification`)
+VALUES ('sesevent_organizer_reach_minimum_partis', 'sesevent', 'Your event {item:$object} reach a minimum number of participants.', 0, '', 1, 1),
+       ('sesevent_organizer_reach_maximum_partis', 'sesevent', 'Your event {item:$object} reach a maximum number of participants.', 0, '', 1, 1),
+       ('sesevent_joined_reach_minimum_partis', 'sesevent', 'The event {item:$object} you joined reach a minimum number of participants.', 0, '', 1, 1),
+       ('sesevent_joined_reach_maximum_partis', 'sesevent', 'The event {item:$object} you joined reach a maximum number of participants.', 0, '', 1, 1);
+insert ignore into `engine4_core_mailtemplates` (`type`, `module`, `vars`, `default`) values
+('notify_sesevent_organizer_reach_minimum_partis', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1),
+('notify_sesevent_organizer_reach_maximum_partis', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1),
+('notify_sesevent_joined_reach_minimum_partis', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_date],[object_time],[object_link],[object_photo],[object_description]',1),
+('notify_sesevent_joined_reach_maximum_partis', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1);

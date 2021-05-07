@@ -88,6 +88,62 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
 
       $row->rsvp = 2; //attending
       $row->save();
+
+        $owner = Engine_Api::_()->user()->getUser($event->user_id);
+        $members = $event->membership()->getMembership(array("event_id" => $event->getIdentity()));
+        if ($event->getAttendingCount() == $event->min_participants) {
+            //notification and email for organizer when event reach minimum participants
+            Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                $owner,
+                $viewer,
+                $event,
+                'sesevent_organizer_reach_minimum_partis',
+                array(
+                    'queue' => true
+                )
+            );
+            //notification and email for joined when event reach minimum participants
+            foreach ($members as $member) {
+                if ($member->user_id != $event->user_id) {
+                    Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                        Engine_Api::_()->user()->getUser($member->user_id),
+                        $viewer,
+                        $event,
+                        'sesevent_joined_reach_minimum_partis',
+                        array(
+                            'queue' => true
+                        )
+                    );
+                }
+            }
+        }
+        if ($event->getAttendingCount() == $event->max_participants) {
+            //notification and email for organizer when event reach maximum participants
+            Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                $owner,
+                $viewer,
+                $event,
+                'sesevent_organizer_reach_maximum_partis',
+                array(
+                    'queue' => true
+                )
+            );
+            //notification and email for joined when event reach maximum participants
+            foreach ($members as $member) {
+                if ($member->user_id != $event->user_id) {
+                    Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                        Engine_Api::_()->user()->getUser($member->user_id),
+                        $viewer,
+                        $event,
+                        'sesevent_joined_reach_maximum_partis',
+                        array(
+                            'queue' => true
+                        )
+                    );
+                }
+            }
+        }
+
       $db->commit();
     }catch (Exception $e) {
       $db->rollBack();

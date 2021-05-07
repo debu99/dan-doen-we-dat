@@ -1134,6 +1134,10 @@ Myanmar [Burma]"Favourites";"Myanmar [Burma]"
 "ACTIVITY_TYPE_SESEVENT_LAST_MINUTE_ONLINE_EVENT";"Last minute online event."
 "ACTIVITY_TYPE_SESEVENT_NEW_EVENT";"New event."
 "ACTIVITY_TYPE_SESEVENT_NEW_ONLINE_EVENT";"New online event."
+"ACTIVITY_TYPE_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS";"When event that you are Organizer reach a minimum number of participants."
+"ACTIVITY_TYPE_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS";"When event that you are Organizer reach a maximum number of participants."
+"ACTIVITY_TYPE_SESEVENT_JOINED_REACH_MINIMUM_PARTIS";"When event that you have joined reach a minimum number of participants."
+"ACTIVITY_TYPE_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS";"When event that you have joined reach a maximum number of participants."
 
 "Manage Events";"Manage Events"
 "Event Members";"Event Members"
@@ -1607,6 +1611,82 @@ http://[host][object_link]
 "_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_BODY";"[header]
 
 Event ""[object_title]"" will be started soon. Check more here:
+
+http://[host][object_link]
+
+[footer]"
+
+# notify_sesevent_organizer_reach_minimum_partis
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_TITLE";"Minimum reach number participants of your organize event"
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_DESCRIPTION";"Your organize event has been reach for minimum number participants."
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_SUBJECT";"minimum reached"
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_BODY";"[header]
+
+Yes! Your minimum number of participants has been reached for ""[object_title]"".
+
+Nice! The minimum number of participants that you have entered for your event has been reached.
+As soon as your event is full, you will receive another message.
+
+Have Lots of fun!
+
+Click the following link and go to your event:
+
+http://[host][object_link]
+
+[footer]"
+
+# notify_sesevent_organizer_reach_maximum_partis
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_TITLE";"Maximum reach number participants of your organize event"
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_DESCRIPTION";"Your organize event has been reach for maximum number participants."
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_SUBJECT";"maximum reached"
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_BODY";"[header]
+
+Yes! Your maximum number of participants has been reached for ""[object_title]"".
+
+Nice! The minimum number of participants that you have entered for your event has been reached.
+Member can apply now for the waiting list!
+
+Have Lots of fun!
+
+Click the following link and go to your event:
+
+http://[host][object_link]
+
+[footer]"
+
+# notify_sesevent_joined_reach_minimum_partis
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_TITLE";"Minimum reach number participants of your joined event"
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_DESCRIPTION";"Your joined event has been reach for minimum number participants."
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_SUBJECT";"minimum reached"
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_BODY";"[header]
+
+Hi ""[recipient_title]"",
+
+You are going to ""[object_title]"" on ""[object_date]"" at ""[object_time]""
+Yes! The minimum number of participants has been reached! For ""[object_title]"".
+
+Click the following link and go to your event:
+
+http://[host][object_link]
+
+[footer]"
+
+# notify_sesevent_joined_reach_maximum_partis
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_TITLE";"Maximum reach number participants of your joined event"
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_DESCRIPTION";"Your joined event has been reach for maximum number participants."
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_SUBJECT";"maximum reached"
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_BODY";"[header]
+
+Hi ""[recipient_title]"",
+
+You are going to ""[object_title]"" on ""[object_date]"" at ""[object_time]""
+The event is full and Members can participate for the waiting list.
+
+Are you still going?
+
+You can Leave the Event so that a spot becomes available again.
+
+Click the following link and go to your event:
 
 http://[host][object_link]
 

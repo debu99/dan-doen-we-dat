@@ -1,0 +1,76 @@
+
+# notify_sesevent_organizer_reach_minimum_partis
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_TITLE";"Minimum reach number participants of your organize event"
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_DESCRIPTION";"Your organize event has been reach for minimum number participants."
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_SUBJECT";"minimum reached"
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_BODY";"[header]
+
+Yes! je minimaal aantal deelnemers is bereikt voor ""[object_title]"".
+
+Wat leuk! Het minimaal aantal deelnemers dat je hebt opgegeven voor je event is bereikt.
+Zodra je event vol is ontvang je weer een bericht.
+
+Veel plezier!
+
+Klik op de volgende link en ga naar je event:
+
+http://[host][object_link]
+
+[footer]"
+
+# notify_sesevent_organizer_reach_maximum_partis
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_TITLE";"Maximum reach number participants of your organize event"
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_DESCRIPTION";"Your organize event has been reach for maximum number participants."
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_SUBJECT";"maximum reached"
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_BODY";"[header]
+
+Yes! je maximaal aantal deelnemers is bereikt voor ""[object_title]"".
+
+Wat leuk! Het maximale aantal deelnemers dat je hebt opgegeven voor je event is bereikt.
+Leden komen nu op de wachtlijst!
+
+Veel plezier!
+
+Klik op de volgende link en ga naar je event:
+
+http://[host][object_link]
+
+[footer]"
+
+# notify_sesevent_joined_reach_minimum_partis
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_TITLE";"Minimum reach number participants of your joined event"
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_DESCRIPTION";"Your joined event has been reach for minimum number participants."
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_SUBJECT";"minimum reached"
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_BODY";"[header]
+
+Hoi [recipient_title],
+
+Je bent aangemeld voor [object_title] op [object_date] om [object_time]
+Yes! het minimale aantal deelnemers is bereikt! voor [object_title]
+
+Klik op de volgende link en ga naar je event:
+
+http://[host][object_link]
+
+[footer]"
+
+# notify_sesevent_joined_reach_maximum_partis
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_TITLE";"Maximum reach number participants of your joined event"
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_DESCRIPTION";"Your joined event has been reach for maximum number participants."
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_SUBJECT";"maximum reached"
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_BODY";"[header]
+
+Hoi [recipient_title],
+
+Je bent aangemeld voor [object_title]  op [object_date] om [object_time]
+Het event is vol en Leden komen nu op de wachtlijst.
+
+Weet je zeker dat je nog steeds kunt?
+
+Afmelden Ik meld me af, zodat er weer een plekje vrijkomt,
+
+Klik op de volgende link en ga naar je event:
+
+http://[host][object_link]
+
+[footer]"
