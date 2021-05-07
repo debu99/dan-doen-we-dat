@@ -17,7 +17,8 @@ class Sesevent_Plugin_Task_LastMinuteMail extends Core_Plugin_Task_Abstract
         $eventSelect = $eventTable->select()
             ->where('starttime < ? ', date('Y-m-d h:m:s', time() + 3 * 24 * 60 * 60))
             ->where('starttime > ? ', date('Y-m-d h:m:s', time()))
-            ->where('is_approved = 1');
+            ->where('is_approved = 1')
+            ->where('is_send_lastminute = 0');
         $events = $eventTable->fetchAll($eventSelect);
         foreach ($events as $event) {
             foreach ($users as $user) {
@@ -49,6 +50,8 @@ class Sesevent_Plugin_Task_LastMinuteMail extends Core_Plugin_Task_Abstract
                     }
                 }
             }
+            $event->is_send_lastminute = 1;
+            $event->save();
         }
     }
 }

@@ -67,3 +67,6 @@ alter table `engine4_user_emailsettings` change column `type` `type` varchar(128
 /* add task to send mail for last minute event */
 insert ignore into `engine4_core_tasks` (`title`, `module`, `plugin`, `timeout`)
 values ('Last Minute Event Mail', 'sesevent', 'Sesevent_Plugin_Task_LastMinuteMail', 43200);
+
+-- add field is_sent_lastminute for engine4_sesevent_events
+alter table `engine4_sesevent_events` add `is_send_lastminute` tinyint default 0 after `is_approved`;
