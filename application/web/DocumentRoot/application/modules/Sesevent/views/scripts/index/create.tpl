@@ -491,6 +491,7 @@ sesJqueryObject('#sesevent_create_form').submit(function(e){
 						}
 						return false;	
 					}else{
+                                            if (sesJqueryObject('#sesevent_start_time').length && sesJqueryObject('#sesevent_end_time').length) {
 						var lastTwoDigit = sesJqueryObject('#sesevent_end_time').val().slice('-2');
 						var endDate = new Date(sesJqueryObject('#sesevent_end_date').val()+' '+sesJqueryObject('#sesevent_end_time').val().replace(lastTwoDigit,'')+':00 '+lastTwoDigit);
 						var lastTwoDigitStart = sesJqueryObject('#sesevent_start_time').val().slice('-2');
@@ -507,21 +508,22 @@ sesJqueryObject('#sesevent_create_form').submit(function(e){
 						}else{
 							sesJqueryObject('#event_error_time-wrapper').hide();
 						}
-						if(!validUrl){
-							objectError = sesJqueryObject('#custom_url');
-							alert('<?php echo $this->translate("Invalid Custom Url"); ?>');
-							if(typeof objectError != 'undefined'){
-							 var errorFirstObject = sesJqueryObject(objectError).parent().parent();
-							 sesJqueryObject('html, body').animate({
-								scrollTop: errorFirstObject.offset().top
-							 }, 2000);
-							}
-						return false;	
-						}else{
-							sesJqueryObject('#submit').attr('disabled',true);
-							sesJqueryObject('#submit').html('<?php echo $this->translate("Submitting Form ...") ; ?>');
-							return true;
-						}
+                                            }
+                                            if(!validUrl){
+                                                    objectError = sesJqueryObject('#custom_url');
+                                                    alert('<?php echo $this->translate("Invalid Custom Url"); ?>');
+                                                    if(typeof objectError != 'undefined'){
+                                                     var errorFirstObject = sesJqueryObject(objectError).parent().parent();
+                                                     sesJqueryObject('html, body').animate({
+                                                            scrollTop: errorFirstObject.offset().top
+                                                     }, 2000);
+                                                    }
+                                                return false;	
+                                            }else{
+                                                    sesJqueryObject('#submit').attr('disabled',true);
+                                                    sesJqueryObject('#submit').html('<?php echo $this->translate("Submitting Form ...") ; ?>');
+                                                    return true;
+                                            }
 					}			
 	});
 });
