@@ -108,6 +108,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 	 var region_value = '<?php echo $regionValue ?>';
 	 if (region_value){
 		 sesJqueryObject('#sesevent_location_region').show();
+		 sesJqueryObject('#region').prop('required', true);
 		 sesJqueryObject('#region').val(region_value);
 	 }
 	 if (typeof locationcreatedata == 'undefined') {
@@ -121,6 +122,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			 sesJqueryObject('#sesevent_add_location').show();
 			 sesJqueryObject('#sesevent_enter_address').hide();
 			 sesJqueryObject('#sesevent_location_region').hide();
+			 sesJqueryObject('#region').prop('required', false);
 
 			 sesJqueryObject('#meeting_point-wrapper').hide();
 			 sesJqueryObject('#meeting_url-wrapper').show();
@@ -139,6 +141,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			 sesJqueryObject('#sesevent_add_location').hide();
 			 sesJqueryObject('#sesevent_enter_address').show();
 			 sesJqueryObject('#sesevent_location_region').hide();
+			 sesJqueryObject('#region').prop('required', false);
 
 			 sesJqueryObject('#meeting_point-wrapper').show();
 			 sesJqueryObject('#meeting_url-wrapper').hide();
@@ -152,7 +155,13 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			 sesJqueryObject('#online_event-wrapper').hide();
 			 sesJqueryObject('#location-add_location').hide();
 			 sesJqueryObject('#sesevent_location_data-wrapper').show();
-			 (region_value) ? sesJqueryObject('#sesevent_location_region').show() : sesJqueryObject('#sesevent_location_region').hide()
+			 if(region_value){
+				 sesJqueryObject('#sesevent_location_region').show();
+				 sesJqueryObject('#region').prop('required', true);
+			 } else {
+				 sesJqueryObject('#sesevent_location_region').hide();
+				 sesJqueryObject('#region').prop('required', false);
+			 }
 
 			 sesJqueryObject('#meeting_point-wrapper').show();
 			 sesJqueryObject('#meeting_url-wrapper').hide();
@@ -187,6 +196,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 				 sesJqueryObject('#sesevent_enter_address').show();
 				 sesJqueryObject('#sesevent_reset_location').hide();
 				 sesJqueryObject('#sesevent_location_region').hide();
+				 sesJqueryObject('#region').prop('required', false);
 
 				 sesJqueryObject('.location_value').val('');
 				 sesJqueryObject('#locationSes').val('');
@@ -287,6 +297,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 						 sesJqueryObject('#country').val(country);
 					 if (country_code === 'NL') {
 						 sesJqueryObject('#sesevent_location_region').show();
+						 sesJqueryObject('#region').prop('required', true);
 					 }
 				 }
 			 }
