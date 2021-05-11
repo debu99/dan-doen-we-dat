@@ -331,8 +331,21 @@ function validateForm(){
 		sesJqueryObject('#sesevent_create_form input, #sesevent_create_form select,#sesevent_create_form checkbox,#sesevent_create_form textarea,#sesevent_create_form radio').each(
 				function(index){
 
-						var input = sesJqueryObject(this);
-						if(sesJqueryObject(this).closest('div').parent().not('fieldset').css('display') != 'none' && sesJqueryObject(this).closest('div').parent().not('fieldset').find('.form-label').find('label').first().hasClass('required') && sesJqueryObject(this).prop('type') != 'hidden' && sesJqueryObject(this).closest('div').parent().not('fieldset').attr('class') != 'form-elements'){	
+					var input = sesJqueryObject(this);
+					var checkRegion = (
+							sesJqueryObject(this).hasClass('required') &&
+							sesJqueryObject(this).hasClass('region') &&
+							sesJqueryObject(this).css('display') !== 'none'
+					);
+					if (
+						(
+							sesJqueryObject(this).closest('div').parent().not('fieldset').css('display') != 'none' &&
+							sesJqueryObject(this).closest('div').parent().not('fieldset').find('.form-label').find('label').first().hasClass('required') &&
+							sesJqueryObject(this).prop('type') != 'hidden' &&
+							sesJqueryObject(this).closest('div').parent().not('fieldset').attr('class') != 'form-elements'
+						)
+						|| (checkRegion)
+					) {
 						  if(sesJqueryObject(this).prop('type') == 'checkbox'){
 								value = '';
 								if(sesJqueryObject('input[name="'+sesJqueryObject(this).attr('name')+'"]:checked').length > 0) { 
