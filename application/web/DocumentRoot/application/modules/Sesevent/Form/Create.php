@@ -492,7 +492,7 @@ class Sesevent_Form_Create extends Engine_Form {
                }
            }
            $regionOptions = array();
-           $regionOptions[''] = $translate->translate("Please select event's region");
+           $regionOptions[''] = $translate->translate("Please select region");
            foreach (Engine_Api::_()->getDbtable('regions', 'user')->fetchAll() as $region) {
                $regionOptions[$region->getIdentity()] = $region->getTitle();
            }
