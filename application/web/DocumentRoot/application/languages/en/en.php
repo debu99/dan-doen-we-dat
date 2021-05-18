@@ -105,7 +105,7 @@ return array (
     0 => 'My Request (%d)',
     1 => 'My Requests (%d)',
   ),
-  'Nothing has been posted here yet - be the first!' => 'Nothing has been posted here yet - be the first!',
+  'Nothing has been posted here yet - be the first!' => 'Questions, comments, traveling together? - mention or ask here!',
   'The page you have attempted to access could not be found.' => 'The page you have attempted to access could not be found.',
   'Activity Item Not Found' => 'Activity Item Not Found',
   '%d new update is available - click this to show it.' => 
@@ -116,8 +116,8 @@ return array (
   'ACTIVITY_TYPE_ACTIVITY_COMMENT' => 'When someone comments on something I have posted.',
   'ACTIVITY_TYPE_ACTIVITY_LIKE' => 'When someone likes something I have posted.',
   'ACTIVITY_TYPE_ACTIVITY_POST' => 'When someone posts on my profile.',
-  'ACTIVITY_TYPE_FRIEND_ACCEPTED' => 'When someone accepts my friend request.',
-  'ACTIVITY_TYPE_FRIEND_REQUEST' => 'When I receive a friend request.',
+  'ACTIVITY_TYPE_FRIEND_ACCEPTED' => 'When someone accepts my connection request.',
+  'ACTIVITY_TYPE_FRIEND_REQUEST' => 'When I receive a connection request.',
   'ACTIVITY_TYPE_POST_COMMENTED_COMMENTED' => 'When someone comments on a post I commented on.',
   'ACTIVITY_TYPE_POST_LIKED_COMMENTED' => 'When someone likes a post I commented on.',
   'ACTIVITY_TYPE_COMMENTED_ACTIVITY_ACTION' => 'When someone comments on activity I commented on.',
@@ -1186,9 +1186,9 @@ asterisk (*) as a wildcard character.',
   'Welcome' => 'Welcome',
   'Welcome With Password' => 'Welcome With Password',
   'Also Commented' => 'Also Commented',
-  'Friend Approved' => 'Friend Approved',
-  'Friend Request' => 'Friend Request',
-  'Friend Follow' => 'Friend Follow',
+  'Friend Approved' => 'Connection Approved',
+  'Friend Request' => 'Connection Request',
+  'Friend Follow' => 'Connection Follow',
   'Comment on Liked' => 'Comment on Liked',
   'Follow Approved' => 'Follow Approved',
   'Follow Request' => 'Follow Request',
@@ -1729,7 +1729,7 @@ http://[host][object_link]
   'provided for any unused portion of your current plan.' => 'provided for any unused portion of your current plan.',
   'Subscriptions are not required for ' => 'Subscriptions are not required for ',
   'SNS - Membership Subscription Pricing Table & Plan Layout Plugin' => 'SNS - Membership Subscription Pricing Table & Plan Layout Plugin',
-  'Subscription' => 'Subscription',
+  'Subscription' => 'Membership',
   'The plan you are currently subscribed ' => 'The plan you are currently subscribed ',
   'to is: %1$s' => 'to is: %1$s',
   'You are currently paying: %1$s' => 'You are currently paying: %1$s',
@@ -1916,8 +1916,8 @@ http://[host][object_link]
   'total views' => 'total views',
   'total members' => 'total members',
   'last updated' => 'last updated',
-  'Add Friend' => 'Add Friend',
-  'Remove Friend' => 'Remove Friend',
+  'Add Friend' => 'Add Connection',
+  'Remove Friend' => 'Remove Connection',
   'Remove Member' => 'Remove Member',
   'Approve Request' => 'Approve Request',
   'Reject Request' => 'Reject Request',
@@ -1939,7 +1939,7 @@ http://[host][object_link]
   'Member Promoted' => 'This member has been successfully promoted.',
   'Member Demoted' => 'This member has been successfully demoted.',
   'Group member removed.' => 'This member has been successfully removed from the group.',
-  'Members invited' => 'Members invited',
+  'Members invited' => 'The selected members have been successfully invited.',
   'Group request approved' => 'This member\'s group request has been approved.',
   'Member title changed' => 'This member\'s title has been successfully changed.',
   'Changes saved' => 'Your changes have been saved.',
@@ -2033,7 +2033,7 @@ http://[host][object_link]
     0 => 'This group has %1$s member that matched the query "%2$s".',
     1 => 'This group has %1$s members that matched the query "%2$s".',
   ),
-  'See Waiting' => 'See Waiting',
+  'See Waiting' => 'View invited users and users waiting for approval/rejection',
   'View all approved members' => 'View all approved members',
   'This group has %s member waiting approval or waiting for a invite response.' => 'This group has %s member waiting approval or waiting for a invite response.',
   'Send me notifications when other members reply to this topic.' => 'Send me notifications when other members reply to this topic.',
@@ -2273,8 +2273,8 @@ http://[host][object_link]
   ),
   'If the person you invited decide to join, he/she will automatically receive a friend request from you.' => 
   array (
-    0 => 'If the person you invited decide to join, he/she will automatically receive a friend request from you.',
-    1 => 'If the persons you invited decide to join, they will automatically receive a friend request from you.',
+    0 => 'If the person you invited decide to join, he/she will automatically receive a connection request from you.',
+    1 => 'If the persons you invited decide to join, they will automatically receive a connection request from you.',
   ),
   'Invites were not sent to these email addresses because they do not appear to be valid:' => 'Invites were not sent to these email addresses because they do not appear to be valid:',
   'Some of the email addresses you provided belong to existing members:' => 'Some of the email addresses you provided belong to existing members:',
@@ -2460,7 +2460,7 @@ http://[host][object_link]
   'year' => 
   array (
     0 => 'year',
-    1 => 'years',
+    1 => 'year',
   ),
   'daily' => 'daily',
   'weekly' => 'weekly',
@@ -2503,8 +2503,7 @@ gateways.',
   'PAYMENT_FORM_GATEWAY_BANK_DESCRIPTION' => 'Make the payment on the below given details of Bank and then upload the receipt of your transaction.',
   'PAYMENT_FORM_GATEWAY_CASH_DESCRIPTION' => 'Make the payment for the Membership Subscription by Cash and then upload the receipt of your transaction.',
   'PAYMENT_FORM_GATEWAY_CHEQUE_DESCRIPTION' => 'Make the payment on the below given details of Cheque and then upload the receipt of your transaction.',
-  'PAYMENT_VIEWS_ADMIN_INDEX_INDEX_DESCRIPTION' => 'Browse transactions. The search
-box will look through the member name, username, email, transaction ID, and
+  'PAYMENT_VIEWS_ADMIN_INDEX_INDEX_DESCRIPTION' => 'Browse transactions. The search box will look through the member name, username, email, transaction ID, and
 order ID.',
   '%s transaction found' => 
   array (
@@ -2553,7 +2552,7 @@ order ID.',
   'Day' => 'Day',
   'Week' => 'Week',
   'Month' => 'Month',
-  'Year' => 'Year',
+  'Year' => 'year',
   'The member will be placed into this level upon subscribing to this plan. If left empty, the default level at the time a subscription is chosen will be used.' => 'The member will be placed into this level upon subscribing to this plan. If left empty, the default level at the time a subscription is chosen will be used.',
   'The amount to charge the member. This will be charged once for one-time plans, and each billing cycle for recurring plans. Setting this to zero will make this a free plan.' => 'The amount to charge the member. This will be charged once for one-time plans, and each billing cycle for recurring plans. Setting this to zero will make this a free plan.',
   'One-time' => 'One-time',
@@ -2571,8 +2570,7 @@ order ID.',
   'Show on signup?' => 'Show on signup?',
   'Create Plan' => 'Create Plan',
   'Manage Subscriptions' => 'Manage Subscriptions',
-  'PAYMENT_VIEWS_ADMIN_SUBSCRIPTION_INDEX_DESCRIPTION' => 'Browse and manage
-subscriptions. The search box will look through member name, username, and
+  'PAYMENT_VIEWS_ADMIN_SUBSCRIPTION_INDEX_DESCRIPTION' => 'Browse and manage subscriptions. The search box will look through member name, username, and
 email.',
   '%s subscription found' => 
   array (
@@ -2758,7 +2756,7 @@ New [gateway_type] payment has been received for the subscription of membership 
 
 [footer]',
   'You are about to subscribe to the plan: %1$s' => 'You are about to subscribe to the plan: %1$s',
-  'Are you sure you want to do this? You will be charged: %1$s' => 'Are you sure you want to do this? You will be charged: %1$s',
+  'Are you sure you want to do this? You will be charged: %1$s' => 'You will be charged: %1$s',
   'If yes, click the button below and you will be taken to a payment page. When you have completed your payment, please remember to click the button that takes you back to our site.' => 'If yes, click the button below and you will be taken to a payment page. When you have completed your payment, please remember to click the button that takes you back to our site.',
   'Please note that no refund will be provided for any unused portion of your current plan.' => 'Please note that no refund will be provided for any unused portion of your current plan.',
   'The plan you are currently subscribed to is: %1$s' => 'The plan you are currently subscribed to is: %1$s',
@@ -2773,7 +2771,7 @@ New [gateway_type] payment has been received for the subscription of membership 
   'Thank you! Your payment has completed successfully.' => 'Thank you! Your payment has completed successfully.',
   'Our payment processor has notified us that your payment could not be completed successfully. We suggest that you try again with another credit card or funding source.' => 'Our payment processor has notified us that your payment could not be completed successfully. We suggest that you try again with another credit card or funding source.',
   'Payment Failed' => 'Payment Failed',
-  'Pay for Access' => 'Pay for Access',
+  'Pay for Access' => 'Membership dan+doen+we+dat',
   'You have selected an account type that requires recurring subscription payments. You will be taken to a secure checkout area where you can setup your subscription. Remember to continue back to our site after your purchase to sign in to your account.' => 'You have selected an account type that requires recurring subscription payments. You will be taken to a secure checkout area where you can setup your subscription. Remember to continue back to our site after your purchase to sign in to your account.',
   'Please setup your subscription to continue:' => 'Please setup your subscription to continue:',
   'Please pay a one-time fee to continue:' => 'Please pay a one-time fee to continue:',
@@ -2800,7 +2798,7 @@ New [gateway_type] payment has been received for the subscription of membership 
   'Approve Payment' => 'Approve Payment',
   'Cancel Payment' => 'Cancel Payment',
   'Choose Plan:' => 'Choose Plan:',
-  'Plan Expiry Date: ' => 'Plan Expiry Date: ',
+  'Plan Expiry Date: ' => 'Membership Expiry Date:',
   'Member Level: ' => 'Member Level: ',
   'Subscription Day Left: <b>%s Day</b>' => 
   array (
@@ -2858,9 +2856,9 @@ New [gateway_type] payment has been received for the subscription of membership 
   'With your webcam' => 'With your webcam',
   'Click to Take Photo' => 'Click to Take Photo',
   'Select a photo' => 'Select a photo',
-  'See All Friend Request' => 'See All Friend Request',
-  'Friend Requests' => 'Friend Requests',
-  'You have no any friend request.' => 'You have no any friend request.',
+  'See All Friend Request' => 'See All Connection Request',
+  'Friend Requests' => 'Connection Requests',
+  'You have no any friend request.' => 'You have no connection request.',
   'Find Friends' => 'Find Friends',
   'Enter name of member.' => 'Enter name of member.',
   'Find' => 'Find',
@@ -2889,7 +2887,7 @@ New [gateway_type] payment has been received for the subscription of membership 
   'Select' => 'Select',
   'It is a long established fact that a reader will be distracted' => 'It is a long established fact that a reader will be distracted',
   'Post on Wall' => 'Post on Wall',
-  'Add Friends to See More Feeds' => 'Add Friends to See More Feeds',
+  'Add Friends to See More Feeds' => 'Add Connection to See More Feeds',
   'You’ll have more feeds in your Activity Feed wall, once you add more friends here.' => 'You’ll have more feeds in your Activity Feed wall, once you add more friends here.',
   'Add your birthday to your profile' => 'Add your birthday to your profile',
   'Let people know when the big day arrives.' => 'Let people know when the big day arrives.',
@@ -3046,6 +3044,14 @@ New [gateway_type] payment has been received for the subscription of membership 
   'SES - Advanced Nested Comments with Attachments Plugin' => 'Comments',
   'Write a comment...' => 'Write a comment...',
   'No stickers in this category.' => 'No stickers in this category.',
+  'SESADVPMNT_FORM_ADMIN_GATEWAY_STRIPE_DESCRIPTION' => '<b>Steps to generate Stripe API Keys:<b><br />
+1) If you haven\'t already created any account, you will need to establish a <a target=""_blank"" href=""%1$s"">Stripe account</a>.<br />
+2) If you have created earlier, then log in to <b>your Stripe<b> dashboard.<br />
+3) Click your account name in the top left.<br />
+4) Click API in the left menu.<br />
+5) Your secret and publishable keys should be on this page.<br />
+Note: You may be promoted to enter your password to receive the secret key.<br />
+6) Enable <a target=""_blank"" href=""%2$s"">Instant Payment Notifications</a> via: <em>Developers &gt; Webhooks &gt;.  The <em>IPN messages</em> should be <strong>enabled</strong>, and the <em>Notification URL</em> should be set to:<br /><strong>%3$s</strong>',
   'Required Parameters missing.' => 'Required Parameters missing.',
   'Facebook Login Currently disabled.' => 'Facebook Login Currently disabled.',
   'Database error, please try again later.' => 'Database error, please try again later.',
@@ -3587,7 +3593,7 @@ You have successfully purchased [point] credit points. Please check your transac
   'Venue:' => 'Venue:',
   'There are currently no list created yet.' => 'There are currently no list created yet',
   'Search List' => 'Search List',
-  'View' => 'Views',
+  'View' => 'View',
   'List By' => 'List By',
   'Most Joined' => 'Most Joined',
   'Everyone\'s Events' => 'Everyone\'s Events',
@@ -3617,7 +3623,7 @@ You have successfully purchased [point] credit points. Please check your transac
   'Check Availability' => 'Check Availability',
   'Location' => 'Location',
   'Online Event' => 'Online Event',
-  'Enter Address' => 'Enter Address',
+  'Enter Address' => 'Event Location',
   'Timezone Setting' => 'Timezone Setting',
   '2nd-level Category' => '2nd-level Category',
   '3rd-level Category' => '3rd-level Category',
@@ -3645,9 +3651,9 @@ You have successfully purchased [point] credit points. Please check your transac
   'Host Phone' => 'Host Phone',
   'Host Description' => 'Host Description',
   'Select Your Time Zone' => 'Select Your Time Zone',
-  'Enter a location' => 'Enter a location',
+  'Enter a location' => 'Enter a location (Google Maps)',
   'No Map' => 'No Map',
-  'Venue Name' => 'Venue Name',
+  'Venue Name' => 'Venue Name or Website',
   'Address' => 'Address',
   'Address 2' => 'Address 2',
   'Zip' => 'Zip',
@@ -3673,9 +3679,9 @@ You have successfully purchased [point] credit points. Please check your transac
   'Add Music' => 'Add Music',
   'Add Video' => 'Add Video',
   'Updates' => 'Updates',
-  'Add Overview' => 'Add Overview',
-  'There are currently no Overview.' => 'There are currently no Overview.',
-  'Overview' => 'Overview',
+  'Add Overview' => 'Add Update',
+  'There are currently no Overview.' => 'There are currently no Updates',
+  'Overview' => 'Update',
   'Approval or Waiting Request' => 'Approval or Waiting Request',
   'Add New Album' => 'Add New Album',
   '%s Album' => 
@@ -3695,7 +3701,7 @@ You have successfully purchased [point] credit points. Please check your transac
   'Drag & Drop Photos Here' => 'Drag & Drop Photos Here',
   'Enter Image URL to upload' => 'Enter Image URL to upload',
   'Manage Speakers' => 'Manage Speakers',
-  'Dashboard' => 'Dashboard',
+  'Dashboard' => 'Edit Event',
   'Add to Favourite' => 'Add to Favourite',
   'Maybe' => 'Maybe',
   'Not' => 'Not',
@@ -3737,10 +3743,10 @@ You have successfully purchased [point] credit points. Please check your transac
   ),
   'Event ongoing.' => 'Event Ongoing.',
   'Save this event' => 'Save this event',
-  'Change Event Overview' => 'Change Event Overview',
+  'Change Event Overview' => 'Event Update',
   'Event not started' => 'Event not started',
-  'Detailed Overview' => 'Detailed Overview',
-  'Enter detailed overview about the Event.' => 'Enter detailed overview about the Event.',
+  'Detailed Overview' => 'Detailed Update',
+  'Enter detailed overview about the Event.' => 'Enter Update about the Event.',
   'Seo' => 'Seo',
   'Background Photo' => 'Background Photo',
   'Contact Information' => 'Contact Information',
@@ -3804,9 +3810,9 @@ You have successfully purchased [point] credit points. Please check your transac
   'Event Contact Name' => 'Event Contact Name',
   'Event Contact Email' => 'Event Contact Email',
   'Event Contact Phone' => 'Event Contact Phone',
-  'Event Contact Facebook URL' => 'Event Contact Facebook URL',
-  'Event Contact Linkedin URL' => 'Event Contact Linkedin URL',
-  'Event Contact Twitter URL' => 'Event Contact Twitter URL',
+  'Event Contact Facebook URL' => 'Event Information',
+  'Event Contact Linkedin URL' => 'Event Information',
+  'Event Contact Twitter URL' => 'Event Information',
   'Event Contact Website URL' => 'Event Contact Website URL',
   'Change Photo' => 'Change Photo',
   'There are currently no speakers.' => 'There are currently no speakers.',
@@ -3897,7 +3903,7 @@ You have successfully purchased [point] credit points. Please check your transac
   'Share Review' => 'Share Review',
   'Add to Calendar' => 'Add to Calendar',
   'ITEM_TYPE_SESEVENT_HOST' => 'Event Host',
-  'ITEM_TYPE_SESEVENT_TICKET' => 'SesEvent Ticket',
+  'ITEM_TYPE_SESEVENT_TICKET' => 'Event Ticket',
   'Everywhere' => 'Everywhere',
   'Event' => 'Event',
   'Events' => 'Events',
@@ -3962,7 +3968,7 @@ You have successfully purchased [point] credit points. Please check your transac
   'Please scan the two-dimensional code, complete payment' => 'Please scan the two-dimensional code, complete payment',
   'Wechat site URL' => 'Wechat site URL',
   'Something went wrong try again later.' => 'Something went wrong try again later.',
-  'Pay' => 'Pay',
+  'Pay' => 'Payment Options',
   'Get Direction' => 'Get Direction',
   'Order Summary' => 'Order Summary',
   'Total Tax' => 'Total Tax',
@@ -4015,7 +4021,7 @@ You have successfully purchased [point] credit points. Please check your transac
   'Print Ticket' => 'Print Ticket',
   'Email Ticket' => 'Email Ticket',
   'There are no tickets to display.' => 'There are no tickets to display.',
-  'Book Now' => 'Book Now',
+  'Book Now' => 'Join Event',
   'Ticket Type' => 'Ticket Type',
   'Ticket Stats' => 'Ticket Stats',
   'Quantity' => 'Quantity',
@@ -4130,7 +4136,7 @@ You have successfully purchased [point] credit points. Please check your transac
   'attending' => 'attending',
   'maybe attending' => 'maybe attending',
   'not attending' => 'not attending',
-  'Attending' => 'Attending',
+  'Attending' => 'Going',
   'Maybe Attending' => 'Maybe Attending',
   'Not Attending' => 'Not Attending',
   'Your RSVP' => 'Your RSVP',
@@ -4198,33 +4204,33 @@ You have successfully purchased [point] credit points. Please check your transac
   ),
   'This event has %s member waiting approval or waiting for a invite response.' => 'This event has %s member waiting approval or waiting for a invite response.',
   'This event has %s members waiting approval or waiting for a invite response.' => 'This event has %s members waiting approval or waiting for a invite response.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_CREATE' => 'SES Advanced Events - When a user (subject) creates a new event (object).',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_JOIN' => 'SES Advanced Events - When a user (subject) joins an event (object).',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_PHOTO_UPLOAD' => 'SES Advanced Events - When a user (subject) uploads a photo to an event (object).',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_TOPIC_CREATE' => 'SES Advanced Events - When a user (subject) creates a new event topic (object).',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_TOPIC_REPLY' => 'SES Advanced Events - When a user (subject) replies to an event topic (object).',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_CREATETICKET' => 'SES Advanced Events - When a event owner (subject) creates a new event ticket (object).',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTDATE' => 'SES Advanced Events - When an event owner (subject) edit an event\'s (object) date.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTOVERVIEW' => 'SES Advanced Events - When an event owner (subject) edit an event\'s (object) overview.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTVIDEO' => 'SES Advanced Events - When an event owner (subject) edit an event\'s (object) video.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITLOCATION' => 'SES Advanced Events -  When an event owner (subject) edit an event\'s (object) location.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITTICKETDATE' => 'SES Advanced Events -  When an event owner (subject) edit date of an event\'s (object) ticket.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITVENUE' => 'SES Advanced Events -  When an event owner (subject) edit an event\'s (object) venue.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_FOLLOW' => 'SES Advanced Events -  When a user (subject) follows an event (object).',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_SAVE' => 'SES Advanced Events -  When a user (subject) saves an event (object).',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_TICKETPURCHASED' => 'SES Advanced Events -  When a user (subject) purchase an event\'s (object) ticket.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENT' => 'SES Advanced Events -  When a user (subject) marks an event (object) as favourite.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENTHOST' => 'SES Advanced Events -  When a user (subject) marks an event\'s host (object) as favourite.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENTLIST' => 'SES Advanced Events -  When a user (subject) mark a list (object) as favourite.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENTSPEAKER' => 'SES Advanced Events -  When a user (subject) mark an event\'s speaker (object) as favourite.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_LIST' => 'SES Advanced Events -  When a user (subject) mark a list (object) as favourite.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENT' => 'SES Advanced Events -  When a user (subject) likes an event (object).',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTALBUM' => 'SES Advanced Events -  When a user (subject) likes an event\'s (object) album.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTHOST' => 'SES Advanced Events -  When a user (subject) likes an event\'s (object) host.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTLIST' => 'SES Advanced Events -  When a user (subject) likes an event\'s (object) list.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTPHOTO' => 'SES Advanced Events -  When a user (subject) likes an event\'s (object) album photo.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTSPEAKER' => 'SES Advanced Events -  When a user (subject) likes an event\'s (object) speaker.',
-  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIST_CREATE' => 'SES Advanced Events -  When a user (subject) creates a new list (object).',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_CREATE' => 'Advanced Events - When a user (subject) creates a new event (object).',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_JOIN' => 'Advanced Events - When a user (subject) joins an event (object).',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_PHOTO_UPLOAD' => 'Advanced Events - When a user (subject) uploads a photo to an event (object).',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_TOPIC_CREATE' => 'Advanced Events - When a user (subject) creates a new event topic (object).',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_TOPIC_REPLY' => 'Advanced Events - When a user (subject) replies to an event topic (object).',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_CREATETICKET' => 'Advanced Events - When a event owner (subject) creates a new event ticket (object).',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTDATE' => 'Advanced Events - When an event owner (subject) edit an event\'s (object) date.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTOVERVIEW' => 'Advanced Events - When an event owner (subject) edit an event\'s (object) overview.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTVIDEO' => 'Advanced Events - When an event owner (subject) edit an event\'s (object) video.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITLOCATION' => 'Advanced Events -  When an event owner (subject) edit an event\'s (object) location.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITTICKETDATE' => 'Advanced Events -  When an event owner (subject) edit date of an event\'s (object) ticket.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITVENUE' => 'Advanced Events -  When an event owner (subject) edit an event\'s (object) venue.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_FOLLOW' => 'Advanced Events -  When a user (subject) follows an event (object).',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_SAVE' => 'Advanced Events -  When a user (subject) saves an event (object).',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_TICKETPURCHASED' => 'Advanced Events -  When a user (subject) purchase an event\'s (object) ticket.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENT' => 'Advanced Events -  When a user (subject) marks an event (object) as favourite.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENTHOST' => 'Advanced Events -  When a user (subject) marks an event\'s host (object) as favourite.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENTLIST' => 'Advanced Events -  When a user (subject) mark a list (object) as favourite.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENTSPEAKER' => 'Advanced Events -  When a user (subject) mark an event\'s speaker (object) as favourite.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_LIST' => 'Advanced Events -  When a user (subject) mark a list (object) as favourite.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENT' => 'Advanced Events -  When a user (subject) likes an event (object).',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTALBUM' => 'Advanced Events -  When a user (subject) likes an event\'s (object) album.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTHOST' => 'Advanced Events -  When a user (subject) likes an event\'s (object) host.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTLIST' => 'Advanced Events -  When a user (subject) likes an event\'s (object) list.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTPHOTO' => 'Advanced Events -  When a user (subject) likes an event\'s (object) album photo.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTSPEAKER' => 'Advanced Events -  When a user (subject) likes an event\'s (object) speaker.',
+  'ADMIN_ACTIVITY_TYPE_SESEVENT_LIST_CREATE' => 'Advanced Events -  When a user (subject) creates a new list (object).',
   '_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EVENTMUSIC' => 'Adding new music to an event.',
   '_ACTIVITY_ACTIONTYPE_SESEVENT_CREATE' => 'New events.',
   '_ACTIVITY_ACTIONTYPE_SESEVENT_JOIN' => 'Joining an event',
@@ -4232,7 +4238,7 @@ You have successfully purchased [point] credit points. Please check your transac
   '_ACTIVITY_ACTIONTYPE_SESEVENT_TOPIC_CREATE' => 'Creating an event discussion topic',
   '_ACTIVITY_ACTIONTYPE_SESEVENT_TOPIC_REPLY' => 'Replying to an event discussion topic',
   '_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EDITEVENTDATE' => 'Editing event date.',
-  '_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EDITEVENTOVERVIEW' => 'Editing event overview.',
+  '_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EDITEVENTOVERVIEW' => 'Editing event update.',
   '_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EDITLOCATION' => 'Editing event location.',
   '_ACTIVITY_ACTIONTYPE_SESEVENT_EDITTICKETDATE' => 'Editing event ticket date.',
   '_ACTIVITY_ACTIONTYPE_SESEVENT_EDITVENUE' => 'Editing event venue.',
@@ -4278,7 +4284,7 @@ You have successfully purchased [point] credit points. Please check your transac
   'ACTIVITY_TYPE_SESEVENT_EVENT_EDITLOCATION' => 'When someone edit event location.',
   'ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTVIDEO' => 'When someone edit event video.',
   'ACTIVITY_TYPE_SESEVENT_EDITEVENTDATE' => 'When someone edit event date.',
-  'ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTOVERVIEW' => 'When someone edit event overview.',
+  'ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTOVERVIEW' => 'When someone edit event update.',
   'ACTIVITY_TYPE_SESEVENT_ACCEPTED' => 'When my request to attend an event is approved.',
   'ACTIVITY_TYPE_SESEVENT_APPROVE' => 'When someone request to join my event.',
   'ACTIVITY_TYPE_SESEVENT_CREATE' => 'When a new event is created',
@@ -4296,6 +4302,14 @@ You have successfully purchased [point] credit points. Please check your transac
   'ACTIVITY_TYPE_SESEVENT_EVENT_PAYMENTREQUEST' => 'When payment is requested.',
   'ACTIVITY_TYPE_SESEVENT_EVENT_TICKETPURCHASED' => 'When some purchase event tickets.',
   'ACTIVITY_TYPE_SESEVENT_SITEFRIEND_ASHOST' => 'When site member is made host of an event.',
+  'ACTIVITY_TYPE_SESEVENT_LAST_MINUTE_EVENT' => 'Last minute event.',
+  'ACTIVITY_TYPE_SESEVENT_LAST_MINUTE_ONLINE_EVENT' => 'Last minute online event.',
+  'ACTIVITY_TYPE_SESEVENT_NEW_EVENT' => 'New event.',
+  'ACTIVITY_TYPE_SESEVENT_NEW_ONLINE_EVENT' => 'New online event.',
+  'ACTIVITY_TYPE_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS' => 'When the event that you Organized reached the Minimum number of participants.',
+  'ACTIVITY_TYPE_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS' => 'When the event that you Organized reached the Maximum number of participants.',
+  'ACTIVITY_TYPE_SESEVENT_JOINED_REACH_MINIMUM_PARTIS' => 'When the event that you Joined reached the Minimum number of participants.',
+  'ACTIVITY_TYPE_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS' => 'When the event that you Joined reached the Maximum number of participants.',
   'Manage Events' => 'Manage Events',
   'Event Members' => 'Event Members',
   'SESEVENT_FORM_ADMIN_LEVEL_DESCRIPTION' => 'These settings are applied on a per member level basis. Start by selecting the member level you want to modify, then adjust the settings for that level below.',
@@ -4578,7 +4592,7 @@ Event Link: http://[host][object_link]
 [footer]',
   '_EMAIL_SESEVENT_EVENT_CREATE_TITLE' => 'Event Create',
   '_EMAIL_SESEVENT_EVENT_CREATE_DESCRIPTION' => 'This is the email that gets sent when a member create a event.',
-  '_EMAIL_SESEVENT_EVENT_CREATE_SUBJECT' => 'Thank you for creating a event \'[event_title]\' on dan+doen+we+dat!',
+  '_EMAIL_SESEVENT_EVENT_CREATE_SUBJECT' => 'Thank you for creating an event \'[event_title]\' on dan+doen+we+dat!',
   '_EMAIL_SESEVENT_EVENT_CREATE_BODY' => '[header]
 
 Thank you for creating a event on dan+doen+we+dat. Click the following link and go to you event:
@@ -4606,12 +4620,123 @@ Thank you for creating a event on dan+doen+we+dat. Click the following link and 
 http://[host][object_link]
 
 [footer]',
+  '_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_TITLE' => 'New Event',
+  '_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_DESCRIPTION' => 'This email is sent to user when they have a new event.',
+  '_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_SUBJECT' => 'New Event [object_title]',
+  '_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_BODY' => '[header]
+
+Event "[object_title]" has been create. Check more here:
+
+http://[host][object_link]
+
+[footer]',
+  '_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_TITLE' => 'Last Minute Event',
+  '_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_DESCRIPTION' => 'This email is sent to user when they have a last minute event.',
+  '_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_SUBJECT' => 'Last Minute Event [object_title]',
+  '_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_BODY' => '[header]
+
+Event "[object_title]" will be started soon. Check more here:
+
+http://[host][object_link]
+
+[footer]',
+  '_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_TITLE' => 'New Online Event',
+  '_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_DESCRIPTION' => 'This email is sent to user when there is a new online event.',
+  '_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_SUBJECT' => 'New online Event [object_title]',
+  '_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_BODY' => '[header]
+
+Event "[object_title]" has been create. Check more here:
+
+http://[host][object_link]
+
+[footer]',
+  '_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_TITLE' => 'Last Minute Online Event',
+  '_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_DESCRIPTION' => 'This email is sent to user when there is a last minute online event.',
+  '_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_SUBJECT' => 'Last Minute Online Event [object_title]',
+  '_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_BODY' => '[header]
+
+Event "[object_title]" will be started soon. Check more here:
+
+http://[host][object_link]
+
+[footer]',
+  '_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_TITLE' => 'Organizer e-mail Minimum number of participants reached',
+  '_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_DESCRIPTION' => 'Your organize event has been reach for minimum number participants.',
+  '_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_SUBJECT' => 'Yes! Your minimum number of participants has been reached for "[object_title]".',
+  '_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_BODY' => '[header]
+
+Yes! Your minimum number of participants has been reached for "[object_title]".
+
+Nice! The minimum number of participants that you have entered for your event has been reached.
+As soon as your event is full, you will receive another message.
+
+Have Lots of fun!
+
+Click the following link and go to your event:
+
+http://[host][object_link]
+
+[footer]',
+  '_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_TITLE' => 'Organizer e-mail Maximum number of participants reached',
+  '_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_DESCRIPTION' => 'Your organize event has been reach for maximum number participants.',
+  '_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_SUBJECT' => 'Yes! Your maximum number of participants has been reached for "[object_title]".',
+  '_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_BODY' => '[header]
+
+Yes! Your maximum number of participants has been reached for "[object_title]".
+
+Nice! The minimum number of participants that you have entered for your event has been reached.
+Member can apply now for the waiting list!
+
+Have Lots of fun!
+
+Click the following link and go to your event:
+
+http://[host][object_link]
+
+[footer]',
+  '_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_TITLE' => 'Participant e-mail Minimum number of participants reached',
+  '_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_DESCRIPTION' => 'Your joined event has been reach for minimum number participants.',
+  '_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_SUBJECT' => 'Yes! The minimum number of participants has been reached for "[object_title]".',
+  '_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_BODY' => '[header]
+
+Hi "[recipient_title]",
+
+You are going to "[object_title]" on "[object_date]" at "[object_time]"
+Yes! The minimum number of participants has been reached! For "[object_title]".
+
+Click the following link and go to your event:
+
+http://[host][object_link]
+
+[footer]',
+  '_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_TITLE' => 'Participant e-mail Maximum number of participants reached',
+  '_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_DESCRIPTION' => 'Your joined event has been reach for maximum number participants.',
+  '_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_SUBJECT' => 'Yes! The maximum number of participants has been reached for "[object_title]".',
+  '_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_BODY' => '[header]
+
+Hi "[recipient_title]",
+
+You are going to "[object_title]" on "[object_date]" at "[object_time]"
+The event is full and Members can participate for the waiting list.
+
+Are you still going?
+
+You can Leave the Event so that a spot becomes available again.
+
+Click the following link and go to your event:
+
+http://[host][object_link]
+
+[footer]',
   'Let us find events for you, Free.' => 'Let us find events for you, Free.',
   'What are you planning?' => 'What are you planning?',
   'Select Category' => 'Select Category',
   'Everyone\'\'s Events' => 'Everyone\'\'s Events',
   'Only My Friend\'\'s Events' => 'Only My Friend\'\'s Events',
   'SES - Advanced Events Plugin' => 'Events',
+  'You have %s times remain to change event title.' => 'You have %s times remain to change event title.',
+  'You can change title of event maximum %s time.' => 'You can change title of event maximum %s time.',
+  'Please select event\'s region' => 'Please select event\'s region',
   'SESREVIEW_PLUGIN' => 'Event Reviews & Ratings Plugin',
   '_EMAIL_SESEVENT_PAYMENT_TICKET_PENDING_TITLE' => 'Event Ticket Payment Pending',
   '_EMAIL_SESEVENT_PAYMENT_TICKET_PENDING_DESCRIPTION' => 'This is the email that gets sent to a member when they purchased ticket from event and payment is pending.',
@@ -4933,7 +5058,7 @@ Thank you for your patience.
   'Optout' => 'Optout',
   'We use cookies to personalise site content, social media features and to analyse our traffic. We also share information about your use of this site with our advertising and social media partners.' => 'We use cookies to personalise site content, social media features and to analyse our traffic. We also share information about your use of this site with our advertising and social media partners.',
   'Cookie Settings' => 'Cookie Settings',
-  '_EMAIL_SESGDPR_ADMIN_REPLY_TITLE' => 'SES - Professional GDPR Plugin - Reply to Members Who Contacted Admin through GDPR related form',
+  '_EMAIL_SESGDPR_ADMIN_REPLY_TITLE' => 'Reply to Members Who Contacted Admin through GDPR related form.',
   '_EMAIL_SESGDPR_ADMIN_REPLY_DESCRIPTION' => 'This is the email that is sent to a member when admin reply to his / her request made through GDPR related form.',
   '_EMAIL_SESGDPR_ADMIN_REPLY_SUBJECT' => '[subject].',
   '_EMAIL_SESGDPR_ADMIN_REPLY_BODY' => '[header]
@@ -4941,7 +5066,7 @@ Thank you for your patience.
 [body]
 
 [footer]',
-  '_EMAIL_SESGDPR_CONSENT_USER_TITLE' => 'SES - Professional GDPR Plugin - New Form Submission for GDPR related request',
+  '_EMAIL_SESGDPR_CONSENT_USER_TITLE' => 'New Form Submission for GDPR related request.',
   '_EMAIL_SESGDPR_CONSENT_USER_DESCRIPTION' => 'This is the email that gets sent to the admin when a member contact through GDPR form in the Privacy Center.',
   '_EMAIL_SESGDPR_CONSENT_USER_SUBJECT' => '[subject].',
   '_EMAIL_SESGDPR_CONSENT_USER_BODY' => '[header]
@@ -5027,19 +5152,19 @@ CDN that uses FTP or SCP.',
   'Profile Style' => 'Profile Style',
   'Add your own CSS code above to give your profile a more personalized look.' => 'Add your own CSS code above to give your profile a more personalized look.',
   'Save Styles' => 'Save Styles',
-  'Would you like to add this member as a friend?' => 'Would you like to add this member as a friend?',
-  'Cancel Friend Request' => 'Cancel Friend Request',
-  'Do you want to cancel your friend request?' => 'Do you want to cancel your friend request?',
+  'Would you like to add this member as a friend?' => 'Would you like to add this member as a connection?',
+  'Cancel Friend Request' => 'Cancel Connection Request',
+  'Do you want to cancel your friend request?' => 'Do you want to cancel your connection request?',
   'Confirm Friend' => 'Confirm Friend',
-  'Would you like to confirm this member as a friend?' => 'Would you like to confirm this member as a friend?',
+  'Would you like to confirm this member as a friend?' => 'Would you like to confirm this member as a connection?',
   'Reject Friend' => 'Reject Friend',
-  'Would you like to reject this member as a friend?' => 'Would you like to reject this member as a friend?',
-  'Are you sure you want to remove this member as a friend?' => 'Are you sure you want to remove this member as a friend?',
+  'Would you like to reject this member as a friend?' => 'Would you like to reject this member as a connection?',
+  'Are you sure you want to remove this member as a friend?' => 'Are you sure you want to remove this member as a connection?',
   'Delete Account' => 'Delete Account',
   'Are you sure you want to delete your account? Any content you\'ve uploaded in the past will be permanently deleted. You will be immediately signed out and will no longer be able to sign in with this account.' => 'Are you sure you want to delete your account? Any content you\'ve uploaded in the past will be permanently deleted. You will be immediately signed out and will no longer be able to sign in with this account.',
   'Yes, Delete My Account' => 'Yes, Delete My Account',
   'This is the last super admin account. Please reconsider before deleting this account.' => 'This is the last super admin account. Please reconsider before deleting this account.',
-  'My Settings' => 'My Settings',
+  'My Settings' => 'My Account',
   'General' => 'General',
   'Notifications' => 'Notifications',
   'General Settings' => 'General Settings',
@@ -5055,7 +5180,7 @@ CDN that uses FTP or SCP.',
   'Locale' => 'Locale',
   'Dates, times, and other settings will be displayed using this locale setting.' => 'Dates, times, and other settings will be displayed using this locale setting.',
   'Email Alerts' => 'Email Alerts',
-  'Which of the these do you want to receive email alerts about?' => 'Which of the these do you want to receive email alerts about?',
+  'Which of the these do you want to receive email alerts about?' => 'Which of these do you want to receive email alerts about?',
   'Join Network' => 'Join Network',
   'Change Password' => 'Change Password',
   'Old Password' => 'Old Password',
@@ -5094,10 +5219,10 @@ CDN that uses FTP or SCP.',
   'New list...' => 'New list...',
   '%s friend request' => 
   array (
-    0 => '%s friend request',
-    1 => '%s friend requests',
+    0 => '%s connection request',
+    1 => '%s connection requests',
   ),
-  '%1$s has sent you a friend request.' => '%1$s has sent you a friend request.',
+  '%1$s has sent you a friend request.' => '%1$s has sent you a connection request.',
   'Browse Members' => 'Browse Members',
   '%s member found.' => 
   array (
@@ -5171,10 +5296,10 @@ CDN that uses FTP or SCP.',
   'You cannot befriend yourself.' => 'You cannot befriend yourself.',
   'You are already friends with this member.' => 'You are already connected with this member.',
   'Friendship request was not sent because you blocked this member.' => 'Connection request was not sent because you blocked this member.',
-  'Your friend request has been sent.' => 'Your friend request has been sent.',
-  'Your friend request has been cancelled.' => 'Your friend request has been cancelled.',
+  'Your friend request has been sent.' => 'Your connection request has been sent.',
+  'Your friend request has been cancelled.' => 'Your connection request has been cancelled.',
   'You are now friends with %1$s' => 'You are now connected with %1$s',
-  'You ignored a friend request from %1$s' => 'You ignored a friend request from %1$s',
+  'You ignored a friend request from %1$s' => 'You ignored a connection request from %1$s',
   'This person has been removed from your friends.' => 'This person has been removed from your connections.',
   'Settings saved.' => 'Settings saved.',
   'Network not found' => 'Network not found',
@@ -5196,7 +5321,7 @@ following Callback URL: %2$s',
   'You must agree to the terms of service to continue.' => 'You must agree to the terms of service to continue.',
   'This will be the end of your profile link, for example: <br /> <span id="profile_address">http://%s</span>' => 'This will be the end of your profile link, for example: <br /> <span id="profile_address">http://%s</span>',
   'You ignored %s\'s request to follow you' => 'You ignored %s\'s request to follow you',
-  'You ignored a friend request from %s' => 'You ignored a friend request from %s',
+  'You ignored a friend request from %s' => 'You ignored a connection request from %s',
   'You are now following this member.' => 'You are now following this member.',
   'You are now friends with this member.' => 'You are now connected with this member.',
   'Delete User' => 'Delete User',
@@ -5379,9 +5504,11 @@ following Callback URL: %2$s',
   'Member Settings Navigation Menu' => 'Member Settings Navigation Menu',
   'This account still requires either email verification or admin approval.' => 'This account still requires either email verification or admin approval.',
   'Click <a href="%s">here</a> to resend the email.' => 'Click <a href="%s">here</a> to resend the email.',
+  'Region' => 'Province, County',
+  'Select region(s) that you want to receive event notification from.' => 'Select the region(s) that you want to receive event notification from.',
   '{item:$subject} has posted on your {item:$object:profile}.' => '{item:$subject} has posted on your {item:$object:profile}.',
   'You and {item:$subject} are now friends.' => 'You and {item:$subject} are now friends.',
-  '{item:$subject} has requested to be your friend.' => '{item:$subject} has requested to be your friend.',
+  '{item:$subject} has requested to be your friend.' => '{item:$subject} has requested to be your connection.',
   '{item:$subject} has requested to follow you.' => '{item:$subject} has requested to follow you.',
   'You are now following {item:$subject}.' => 'You are now following {item:$subject}.',
   '{item:$subject} is now following you.' => '{item:$subject} is now following you.',
@@ -5396,17 +5523,17 @@ Your account has been approved by an administrator. Please click the following l
 http://[host][object_link]
 
 [footer]',
-  '_EMAIL_NOTIFY_FRIEND_ACCEPTED_TITLE' => 'Friend Approved',
-  '_EMAIL_NOTIFY_FRIEND_ACCEPTED_DESCRIPTION' => 'This is the email that gets sent to a member when their friendship request have been approved.',
-  '_EMAIL_NOTIFY_FRIEND_ACCEPTED_SUBJECT' => '[sender_title] has approved you as a friend.',
+  '_EMAIL_NOTIFY_FRIEND_ACCEPTED_TITLE' => 'Connection Approved',
+  '_EMAIL_NOTIFY_FRIEND_ACCEPTED_DESCRIPTION' => 'This is the email that gets sent to a member when their connection request have been approved.',
+  '_EMAIL_NOTIFY_FRIEND_ACCEPTED_SUBJECT' => '[sender_title] has approved you as a connection.',
   '_EMAIL_NOTIFY_FRIEND_ACCEPTED_BODY' => '[header]
 
-[sender_title] has approved you as a friend. Please click the following link to sign in:
+[sender_title] has approved you as a connection. Please click the following link to sign in:
 
 http://[host][object_link]
 
 [footer]',
-  '_EMAIL_NOTIFY_FRIEND_FOLLOW_TITLE' => 'Friend Follow',
+  '_EMAIL_NOTIFY_FRIEND_FOLLOW_TITLE' => 'Connection Follow',
   '_EMAIL_NOTIFY_FRIEND_FOLLOW_DESCRIPTION' => 'This is the email that gets sent to a member when another member starts following them.',
   '_EMAIL_NOTIFY_FRIEND_FOLLOW_SUBJECT' => '[sender_title] has started following you.',
   '_EMAIL_NOTIFY_FRIEND_FOLLOW_BODY' => '[header]
@@ -5436,12 +5563,12 @@ http://[host][object_link]
 http://[host][object_link]
 
 [footer]',
-  '_EMAIL_NOTIFY_FRIEND_REQUEST_TITLE' => 'Friend Request',
+  '_EMAIL_NOTIFY_FRIEND_REQUEST_TITLE' => 'Connection Request',
   '_EMAIL_NOTIFY_FRIEND_REQUEST_DESCRIPTION' => 'This is the email that gets sent to a member when they are requested to be a friend by another member.',
   '_EMAIL_NOTIFY_FRIEND_REQUEST_SUBJECT' => '[sender_title] has added you as a connection.',
   '_EMAIL_NOTIFY_FRIEND_REQUEST_BODY' => '[header]
 
-[sender_title] has added you as a friend. Please click the following link to sign in and confirm this friendship request:
+[sender_title] has added you as a connection. Please click the following link to sign in and confirm this connection request:
 
 http://[host][sender_link]
 
@@ -5466,13 +5593,13 @@ You have been tagged in a [object_type_name]. Please click the following link to
 http://[host][object_link]
 
 [footer]',
-  'Send a friend request if the user(s) join(s) the network' => 'Send friend a request if the user(s) join(s) the network',
+  'Send a friend request if the user(s) join(s) the network' => 'Send connections a request if the user(s) join(s) the network',
   'Thanks for joining!' => 'Thanks for joining!',
   'Linking your Facebook account will let you login with Facebook' => 'Linking your Facebook account will let you login with Facebook',
   'Linking your Facebook account will let you login with Facebook and publish content to your Facebook wall.' => 'Linking your Facebook account will let you login with Facebook and publish content to your Facebook wall.',
   'Profile Information' => 'Profile Information',
   'Add Your Photo' => 'Add Your Photo',
-  'Approve Friend Request' => 'Approve Friend Request',
+  'Approve Friend Request' => 'Approve Connection Request',
   'Available Networks' => 'Available Networks',
   'There are currently no avaliable networks to join.' => 'There are currently no avaliable networks to join.',
   'There are no networks containing that keyword.' => 'There are no networks containing that keyword.',
@@ -5522,9 +5649,7 @@ Verification Code: [code]
   '_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_TITLE' => 'Event Spot availability',
   '_EMAIL_JOIN_LEAVE_BODYHTML' => 'A spot has become avaialbe!<br>[header]<br> <br> [body]<br> <br> [footer]',
   '_EMAIL_NOTIFY_FRIEND_ACCEPTED_BODYHTML' => '[header]<br> <br> [sender_title] has approved you as a connection. Please click the following link to sign in:<br> <br> http://[host][object_link]<br> <br> [footer]',
-  '_EMAIL_NOTIFY_FRIEND_REQUEST_BODYHTML' => '[header]<br> <br> [sender_title] has added you as a connection. Please click the following link to sign in and confirm this friendship request:<br> <br> http://[host][sender_link]<br> <br> [footer]',
-  '_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_SUBJECT' => 'A Spot has opened up for [event_title]',
-  '_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_BODYHTML' => '[header]<br><br>A Spot has become available for [event_title]. Be quick to grab it before somebody beats you to it! You can sign up on the event page: [event_url].<br> <br><br> [footer]',
+  '_EMAIL_NOTIFY_FRIEND_REQUEST_BODYHTML' => '[header]<br> <br> [sender_title] has added you as a connection. Please click the following link to sign in and confirm this connection request:<br> <br> http://[host][sender_link]<br> <br> [footer]',
   '_EMAIL_SESEVENT_RSVP_CHANGE_BODYHTML' => '[header]<br> <br> [viewer_name] has been changed rsvp for event: [event_title]<br> <br> Event Link: http://[host][object_link]<br> <br> [footer]',
   'test' => 'test',
   '_EMAIL_CORE_VERIFICATION_PASSWORD_BODYHTML' => '<p>[header]<br> <br> Thank you for joining dan+doen+we+dat.</p>
@@ -5561,35 +5686,93 @@ Verification Code: [code]
 <p class="p1">If you have not received a confirmation e-mail within 48 hours, there is unfortunately no place available at the moment.</p>
 <p class="p1">It may therefore happen that you are temporarily unable to become a member. Or you cannot renew your membership. Do not panic. As soon as space becomes available, you will immediately receive a message via e-mail to participate.</p>
 <p><br><br> [footer]</p>',
-  '_EMAIL_CORE_WELCOME_BODYHTML' => '<p>[header]<br><br>Thank you for joining dan+doen+we+dat.</p>
+  '0.00' => '0.00',
+  'notif_sescredit_send_by_site' => 'When I receive credit points from dan+doen+we+dat.',
+  'ACTIVITY_TYPE_NOTIF_SESCREDIT_SEND_BY_SITE' => 'When I receive credit points from dan+doen+we+dat.',
+  '_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_TITLE ' => 'SES - Credits - New Membership Upgrade Request',
+  'Meeting Time' => 'Meeting Time',
+  '  \'&#187' => 
+  array (
+    0 => ' Discussions\' => \'&#187',
+    1 => ' Discussions\',',
+  ),
+  '_EMAIL_NOTIFY_MESSAGE_NEW_BODYHTML' => '[header]<br> <br> You have just received a new message from [sender_title]:<br> <br> [object_description]<br> <br> Please click the following link to login and view it:<br> <br> http://[host][object_link]<br><br><br> <br> [footer]',
+  'Event Invite' => 'Event Invite',
+  'sesevent invite' => 'Event Invite',
+  'PAY WITH PAYPAL' => 'PayPal',
+  'Pay with IDeal or Creditcard' => 'iDeal / Creditcard',
+  '2) Enable <a target="_blank" href="%1$s">API access</a> on your Paypal account via: <em>My Account &gt' => 
+  array (
+    0 => ' Profile &gt',
+    1 => ' API Access &gt',
+  ),
+  'Emails' => 'Email',
+  'Nieuwe mensen ontmoeten   Nieuwe dingen beleven' => 'Meeting new people + Experiencing new moments',
+  'Nieuwe mensen ontmoeten + Nieuwe dingen beleven' => 'Nieuwe mensen ontmoeten + Nieuwe dingen beleven',
+  '_EMAIL_SESEVENT_EVENT_ADMINDISAPPROVED_BODYHTML' => '[header]<br> <br>Click the following link and go to you event:<br> <br> http://[host][object_link]<br> <br> [footer]',
+  'Your payment has been cancelled and not been charged. If this is not correct, please try again later.' => 'Your payment has been cancelled and not been charged. 
+
+You have accidentally closed your payment window? 
+Your payment is stuck on pending? 
+
+Wait for 15 minutes and please try again later.',
+  '_EMAIL_INVITE_BODYHTML' => '<p>[header]<br> <br> You have been invited by [sender_title] to join dan+doen+we+dat.<br><br></p>
+<p>To join, please follow the link below:<br> <br> http://[host][object_link]<br> <br><br> [message]<br><br><br><br><br> [footer]</p>',
+  'make payment' => 'make payment',
+  'Make Payment' => 'extend membership',
+  '_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_DESCRIPTION' => 'e-mail join_leave spot availability',
+  'e.g. 12:00' => 'for example: 12:00 p.m.',
+  'e.g. In front of the cinema' => 'for example: In front of the cinema',
+  'e.g. Museum ticket, payable in cash' => 'for example: Museum ticket, payable in cash',
+  'Dat er geen gezelschap is, kan heerlijk zijn.  Maar soms is het gezellig om met een clubje op pad te gaan.  Wat als je nieuw bent in de stad?  Of als je iemand zoekt in je directe omgeving met dezelfde interesses als jij?' => '----Dat er geen gezelschap is, kan heerlijk zijn.  Maar soms is het gezellig om met een clubje op pad te gaan.  Wat als je nieuw bent in de stad?  Of als je iemand zoekt in je directe omgeving met dezelfde interesses als jij?',
+  'Nieuw' => 'New',
+  'e.g.' => 'for example:',
+  'e.g. https://dandoenwedat.com' => 'for example URL:  https://teams.microsoft or zoom.com/meetup-join/etc',
+  'You can change title of event maximum 2 time.' => 'You can change the title of the event up to 2 times.',
+  'You have 2 times remain to change event title.' => 'You can change the title of the event 2 more times.',
+  'You have 1 times remain to change event title.' => 'You can change the title of the event one more time.',
+  'You have 0 times remain to change event title.' => 'You can no longer change the title of the event.',
+  '_EMAIL_INVITE_CODE_BODYHTML' => '[header] <br><br>You have been invited by [sender_title] to join dan+doen+we+dat. <br><br>To join, please follow the link below: <br>http://[host][object_link] <br><br>[message] <br><br>The dan+doen+we+dat committee recommends on the admission of new members. You will receive confirmation by e-mail and be able to log in and participate within 48 hours. <br><br>If you do not receive a confirmation e-mail within 48 hours, there is unfortunately no admission available at the moment. <br><br>Do not panic. <br><br>As soon as a spot becomes available, you will immediately receive a message by e-mail to participate. <br>If you do not receive a confirmation email, please check your spam folder. <br><br>[footer]',
+  '_EMAIL_SESEVENT_EVENT_ADMINAPPROVED_BODYHTML' => '<p>[header]<br> <br>Your event [event_title] is now online.&nbsp;<br>You can Promote your event! by sending members a message or invitation.</p>
+<p><br><br>Click the following link and go to you event:<br> http://[host][object_link]<br> <br> [footer]</p>',
+  '_EMAIL_SESEVENT_EVENT_CREATE_BODYHTML' => '[header]<br> <br>Thank you for creating the event \'[event_title]\' on dan+doen+we+dat.<br>Your event is not online yet! It takes up to 24 hours. Events are reviewed and approved by the editors. This is done 3 times a day.<br><br>You will automatically receive a message when your event is online!<br><br>Click the following link and go to you event:<br> <br> http://[host][object_link]<br> <br> [footer]',
+  '<p>To maximize the chance of like-minded people during the events, our system constantly checks for:<br><br>&bull' => 
+  array (
+    0 => ' Recognizable profile picture<br>&bull',
+    1 => ' Fully completed profiles<br>&bull',
+  ),
+  'Nested Comments with Attachments' => 'Comments',
+  'Calendar' => 'Calendar',
+  '_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_SUBJECT' => 'A Spot has opened up for [event_title]',
+  '_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_BODYHTML' => '<p>[header]<br><br>A Spot has become available for [event_title]. <br>You can sign up on the event page: [event_url].</p>
+<p><br>Be quick and&nbsp;take your spot.<br><br>[footer]<br><br><br></p>',
+  '_EMAIL_CORE_WELCOME_BODYHTML' => '<p>Welcome [header]<br><br>Thank you for joining dan+doen+we+dat.</p>
 <p>&nbsp;</p>
 <p>Click the following link and enter your information below to login:</p>
 <p><br><br>http://[host][object_link]<br><br>Email: [email]<br><br><br></p>
 <p class="p1">&nbsp;</p>
 <br>[footer]',
-  '_EMAIL_CORE_WELCOME_PASSWORD_BODYHTML' => '<p>[header]<br> <br> Thank you for joining dan+doen+we+dat.</p>
-<p>&nbsp;</p>
-<p>Click the following link and enter your information below to login:<br> <br> http://[host][object_link]</p>
-<p>&nbsp;</p>
-<p><br> Email: [email]<br> Password: [password]</p>
-<p>&nbsp;</p>
-<p class="p1"><br> [footer]</p>',
-  '_EMAIL_USER_ACCOUNT_APPROVED_BODYHTML' => '<p>[header]<br> <br> Thank you for Joining dan+doen+we+dat!</p>
-<p>Your account has been approved, Welcome!</p>
+  '_EMAIL_CORE_WELCOME_PASSWORD_BODYHTML' => 'Welcome [header]<br>Thank you for joining dan+doen+we+dat. <br><br>The dan+doen+we+dat committee recommends on the admission of new members.<br>You will receive confirmation by e-mail and be able to log in and participate within 48 hours. <br><br>Click the following link and enter your information below to login: <br>http://[host][object_link] <br>Email: [email] <br>Password: [password] <br><br>If you do not receive a confirmation e-mail within 48 hours, there is unfortunately no admission available at the moment. <br><br>Do not panic.<br><br> As soon as a spot becomes available you will immediately receive a message by e-mail to participate. <br>If you do not receive an email, please check your spam folder. <br><br>[footer]',
+  '_EMAIL_USER_ACCOUNT_APPROVED_BODYHTML' => '<p>Welcome [header]<br> <br> Thank you for Joining dan+doen+we+dat!</p>
+<p>Your account has been approved,&nbsp;</p>
 <p>&nbsp;</p>
 <p>Please click the following link to sign in:<br> <br> http://[host][object_link]</p>
 <p>&nbsp;</p>
-<p>To maximize the chance of like-minded people during the events, our system constantly checks for:<br><br>&bull; Recognizable profile picture<br>&bull; Fully completed profiles<br>&bull; Balance in the different age categories and regions<br>&bull; Balance of men and women<br>&bull; Balance with regard to different interests<br>&bull; Balance of new versus long-time members.<br><br><br>-----------------------------------------------------------------------------------------------------------------------<br>It may therefore happen that you are temporarily unable to renew your membership. <br><br>Do not panic. <br><br>As soon as space becomes available, you will immediately receive a message via e-mail to participate.<br>-----------------------------------------------------------------------------------------------------------------------<br><br><br> [footer]</p>',
-  '_EMAIL_INVITE_BODYHTML' => '<p>[header]<br> <br> You have been invited by [sender_title] to join dan+doen+we+dat.</p>
-<p>To join, please follow the link below:<br> <br> http://[host][object_link]<br> <br>-----------------------------------------------------------------------------------------------------------------------<br> [message]<br><br>If you don\'t receive a confirmation e-mail within 48 hours, there is unfortunately no place available at the moment.&nbsp;It may therefore happen that you are temporarily unable to become a member. Do not panic. As soon as space becomes available, you will immediately receive a message via e-mail to participate.<br>-----------------------------------------------------------------------------------------------------------------------</p>
-<p class="p1">&nbsp;</p>
-<p>If you do not receive a confirmation email, please check your spam folder before contacting us.<br><br> [footer]</p>',
-  '_EMAIL_INVITE_CODE_BODYHTML' => '<p>[header]<br> <br> You have been invited by [sender_title] to join dan+doen+we+dat.<br>To join, please follow the link below:<br> <br> http://[host][object_link]<br> <br> -----------------------------------------------------------------------------------------------------------------------<br> [message]</p>
-<p>If you don\'t receive a confirmation e-mail within 48 hours, there is unfortunately no place available at the moment.&nbsp;It may therefore happen that you are temporarily unable to become a member. Do not panic. As soon as space becomes available, you will immediately receive a message via e-mail to participate.<br>-----------------------------------------------------------------------------------------------------------------------</p>
-<p class="p1">If you do not receive a confirmation email, please check your spam folder before contacting us.<br><br> [footer]</p>',
-  '0.00' => '0.00',
-  'notif_sescredit_send_by_site' => 'When I receive credit points from dan+doen+we+dat.',
-  'ACTIVITY_TYPE_NOTIF_SESCREDIT_SEND_BY_SITE' => 'When I receive credit points from dan+doen+we+dat.',
-  '_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_TITLE ' => 'SES - Credits - New Membership Upgrade Request',
+<p>To maximize the chance of like-minded people during the events, our system constantly checks for:<br><br>&bull; Recognizable profile picture<br>&bull; Fully completed profiles<br>&bull; Balance in the different age categories and regions<br>&bull; Balance with regard to different interests,&nbsp;men and women,&nbsp;new versus long-time members<br><br><br><br><br> [footer]</p>',
+  'saved the event' => 'saved the event',
+  'Event Discussie' => 'Event Discussion',
+  'Reacties' => 'Reactions',
+  'Copy This Event' => 'Copy This Event',
+  '_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_BODYHTML' => '[header]<br> <br>Online-Event "[object_title]" will start soon.<br><br> Check more here:<br> <br> http://[host][object_link]<br> <br> [footer]',
+  '_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_BODYHTML' => '[header]<br> <br>Online-Event "[object_title]"&nbsp;Is New, you can join the event and participate! <br><br>Check more here:<br> <br> http://[host][object_link]<br> <br> [footer]',
+  '_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_BODYHTML' => '<p>[header]<br> <br> Event "[object_title]"&nbsp;Is New, you can join the event and participate!<br><br></p>
+<p>Check more here:<br> <br> http://[host][object_link]<br> <br> [footer]</p>',
+  '_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_BODYHTML' => '[header]<br> <br> Event "[object_title]" will start soon. <br><br><br>Check more here:<br> <br> http://[host][object_link]<br> <br> [footer]<br>',
+  '_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_BODYHTML' => '<p>[header]<br> <br> Hi "[recipient_title]",<br> <br> You are going to "[object_title]" on "[object_date]" at "[object_time]"<br> The event is full and Members can Sign Up for the waiting list.<br> <br> Are you still going?<br>If not,&nbsp;You can \'Leave\' the Event so that a spot becomes available again.</p>
+<p><br> Click the following link and go to your event:<br> <br> http://[host][object_link]<br> <br> [footer]</p>',
+  '_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_BODYHTML' => '[header]<br><br>Hi "[recipient_title]",<br><br>You are going to "[object_title]" on "[object_date]" at "[object_time]"<br><br>The minimum number of participants has been reached! For "[object_title]".<br><br>Click the following link and go to your event:<br><br>http://[host][object_link]<br><br>[footer]',
+  '_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_BODYHTML' => '[header]<br> <br><br> Nice! The minimum number of participants that you have entered for your event has been reached.<br> Member can&nbsp;Sign Up for the waiting list!<br> <br> Have Lots of fun!<br> <br> Click the following link and go to your event:<br> <br> http://[host][object_link]<br> <br> [footer]',
+  '_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_BODYHTML' => '[header]<br> <br><br> Nice! The minimum number of participants that you have entered for your event has been reached.<br> As soon as your event is full, you will receive another message.<br> <br> Have Lots of fun!<br> <br> Click the following link and go to your event:<br> <br> http://[host][object_link]<br> <br> [footer]',
+  'Please select event’s region' => 'Please select event’s region',
 );
 ?>

@@ -172,7 +172,6 @@ Privacyreglement dan+doen+we+dat versie maart 2020
 "_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_TITLE";"Event Spot availability"
 "_EMAIL_JOIN_LEAVE_SUBJECT";"Place available"
 "_EMAIL_JOIN_LEAVE_BODYHTML";"A spot has become avaialbe!<br>[header]<br> <br> [body]<br> <br> [footer]"
-"_EMAIL_SESEVENT_EVENT_CREATE_SUBJECT";"Thank you for creating a event '[event_title]' on dan+doen+we+dat!"
 "_EMAIL_SESEVENT_EVENT_CREATE_BODY";"[header]
 
 Thank you for creating a event on dan+doen+we+dat. Click the following link and go to you event:
@@ -320,12 +319,10 @@ Password: [password]
 [footer]"
 "_EMAIL_CORE_LOSTPASSWORD_SUBJECT";"dan+doen+we+dat - Lost Password"
 "Welcome to our Social Network!!";"Welcome to dan+doen+we+dat !!"
-"_EMAIL_NOTIFY_FRIEND_ACCEPTED_SUBJECT";"[sender_title] has approved you as a friend."
+"_EMAIL_NOTIFY_FRIEND_ACCEPTED_SUBJECT";"[sender_title] has approved you as a connection."
 "_EMAIL_NOTIFY_FRIEND_ACCEPTED_BODYHTML";"[header]<br> <br> [sender_title] has approved you as a connection. Please click the following link to sign in:<br> <br> http://[host][object_link]<br> <br> [footer]"
 "_EMAIL_NOTIFY_FRIEND_REQUEST_SUBJECT";"[sender_title] has added you as a connection."
-"_EMAIL_NOTIFY_FRIEND_REQUEST_BODYHTML";"[header]<br> <br> [sender_title] has added you as a connection. Please click the following link to sign in and confirm this friendship request:<br> <br> http://[host][sender_link]<br> <br> [footer]"
-"_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_SUBJECT";"A Spot has opened up for [event_title]"
-"_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_BODYHTML";"[header]<br><br>A Spot has become available for [event_title]. Be quick to grab it before somebody beats you to it! You can sign up on the event page: [event_url].<br> <br><br> [footer]"
+"_EMAIL_NOTIFY_FRIEND_REQUEST_BODYHTML";"[header]<br> <br> [sender_title] has added you as a connection. Please click the following link to sign in and confirm this connection request:<br> <br> http://[host][sender_link]<br> <br> [footer]"
 "_EMAIL_SESEVENT_RSVP_CHANGE_SUBJECT";"[viewer_name] has change rsvp to [rsvp_changetext]."
 "_EMAIL_SESEVENT_RSVP_CHANGE_BODYHTML";"[header]<br> <br> [viewer_name] has been changed rsvp for event: [event_title]<br> <br> Event Link: http://[host][object_link]<br> <br> [footer]"
 "Networking";"Networking"
@@ -339,7 +336,7 @@ Password: [password]
 "Only members in their networks";"Only members in their networks"
 "USER_FORM_ADMIN_SETTINGS_LEVEL_BLOCK_DESCRIPTION";"If set to ""yes"", members can block other members from sending them private messages, requesting their friendship, and viewing their profile. This helps fight spam and network abuse."
 "Network Stats";"Network Stats"
-"Send a friend request if the user(s) join(s) the network";"Send friend a request if the user(s) join(s) the network"
+"Send a friend request if the user(s) join(s) the network";"Send connections a request if the user(s) join(s) the network"
 "Available Networks";"Available Networks"
 "There are currently no avaliable networks to join.";"There are currently no avaliable networks to join."
 "There are no networks containing that keyword.";"There are no networks containing that keyword."
@@ -395,40 +392,610 @@ Password: [password]
 <p class=""p1"">If you have not received a confirmation e-mail within 48 hours, there is unfortunately no place available at the moment.</p>
 <p class=""p1"">It may therefore happen that you are temporarily unable to become a member. Or you cannot renew your membership. Do not panic. As soon as space becomes available, you will immediately receive a message via e-mail to participate.</p>
 <p><br><br> [footer]</p>"
+"0.00";"0.00"
+"notif_sescredit_send_by_site";"When I receive credit points from dan+doen+we+dat."
+"ACTIVITY_TYPE_NOTIF_SESCREDIT_SEND_BY_SITE";"When I receive credit points from dan+doen+we+dat."
+"_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_TITLE ";"SES - Credits - New Membership Upgrade Request"
+"%s year old";"%s year old";"%s years old"
+"year";"year";"year"
+"yearly";"yearly"
+"Year(s)";"Year(s)"
+"Year";"year"
+"This year";"This year"
+"By Year";"By Year"
+"Which of the these do you want to receive email alerts about?";"Which of these do you want to receive email alerts about?"
+"Add Friend";"Add Connection"
+"Add Friends to See More Feeds";"Add Connection to See More Feeds"
+"Would you like to add this member as a friend?";"Would you like to add this member as a connection?"
+"_EMAIL_SESGDPR_ADMIN_REPLY_TITLE";"Reply to Members Who Contacted Admin through GDPR related form."
+"_EMAIL_SESGDPR_CONSENT_USER_TITLE";"New Form Submission for GDPR related request."
+"Be the first to %1$screate%2$s one!";"Be the first to %1$screate%2$s one!"
+"Nothing has been posted here yet - be the first!";"Questions, comments, traveling together? - mention or ask here!"
+"No events in this category. Be the first to post one in this category!";"No events in this category. Be the first to post one in this category!"
+"Would you like to confirm this member as a friend?";"Would you like to confirm this member as a connection?"
+"Would you like to reject this member as a friend?";"Would you like to reject this member as a connection?"
+"Are you sure you want to remove this member as a friend?";"Are you sure you want to remove this member as a connection?"
+"_EMAIL_NOTIFY_FRIEND_ACCEPTED_BODY";"[header]
+
+[sender_title] has approved you as a connection. Please click the following link to sign in:
+
+http://[host][object_link]
+
+[footer]"
+"_EMAIL_NOTIFY_FRIEND_REQUEST_BODY";"[header]
+
+[sender_title] has added you as a connection. Please click the following link to sign in and confirm this connection request:
+
+http://[host][sender_link]
+
+[footer]"
+"Meeting Time";"Meeting Time"
+"When";"When"
+"Age";"Age"
+"You can create a message to say hello to the world here!";"You can create a message to say hello to the world here!"
+"Message";"Message"
+"engagement";"engagement"
+"adult beverages";"adult beverages"
+"a marriage ceremony";"a marriage ceremony"
+"the real estate agent";"the real estate agent"
+"The image you selected was too large.";"The image you selected was too large."
+"GROUP_FORM_ADMIN_LEVEL_VIEW_DESCRIPTION";"Do you want to let users view groups? If set to no, some other settings on this page may not apply."
+"GROUP_FORM_ADMIN_LEVEL_CREATE_DESCRIPTION";"Do you want to let users create groups? If set to no, some other settings on this page may not apply. This is useful if you want users to be able to view groups and manage their subscriptions, but only want certain levels to be able to create groups."
+"GROUP_VIEWS_SCRIPTS_ADMINMANAGE_INDEX_DESCRIPTION";"This page lists all of the group entries your users have posted. You can use this page to monitor these groups and delete offensive material if necessary."
+"Manage Groups";"Manage Groups"
+"Do you want to let members delete groups? If set to no, some other settings on this page may not apply.";"Do you want to let members delete groups? If set to no, some other settings on this page may not apply."
+"_EMAIL_NOTIFY_GROUP_DISCUSSION_REPLY_BODY";"[header]
+
+[sender_title] has posted a reply to your topic ""[object_title]"" in the group ""[object_parent_title]"":
+
+""[message]""
+
+Please click the following link to view it:
+
+http://[host][object_link]
+
+[footer]"
+"_EMAIL_NOTIFY_GROUP_DISCUSSION_RESPONSE_BODY";"[header]
+
+[sender_title] has posted a reply to the topic ""[object_title]"" you replied to in the group ""[object_parent_title]"":
+
+""[message]""
+
+Please click the following link to view it:
+
+http://[host][object_link]
+
+[footer]"
+"Message Members";"Message Members"
+"Manage Photos";"Manage Photos"
+"Thumbnails Per Page";"Thumbnails Per Page"
+"How many albums will be shown per page?";"How many albums will be shown per page?"
+"ALBUM_VIEWS_SCRIPTS_ADMINMANAGE_DELETE_DESCRIPTION";"Are you sure that you want to delete this photo album? It will not be recoverable after being deleted."
+"ALBUM_FORM_ADMIN_LEVEL_VIEW_DESCRIPTION";"Do you want to let users view photo albums? If set to no, some other settings on this page may not apply."
+"ALBUM_FORM_ADMIN_LEVEL_CREATE_DESCRIPTION";"Do you want to let users create photo albums? If set to no, some other settings on this page may not apply. This is useful if you want users to be able to view photo albums and manage their subscriptions, but only want certain levels to be able to create photo albums."
+"ALBUM_FORM_ADMIN_LEVEL_AUTHVIEW_DESCRIPTION";"Your users can choose from any of the options checked below when they decide who can see their albums. These options appear on your users' ""Create Album"" and ""Edit Album"" pages. If you do not check any options, settings will default to the last saved configuration. If you select only one option, members of this level will not have a choice."
+"ALBUM_VIEWS_SCRIPTS_ADMINMANAGE_INDEX_DESCRIPTION";"This page lists all of the photo albums your users have posted. You can use this page to monitor these albums and delete offensive material if necessary."
+"Attached Image";"Attached Image"
+"%s total view";"%s total view";"%s total views"
+"total views";"total views"
+"GROUP_VIEWS_SCRIPTS_ADMINSETTINGS_CATEGORIES_DESCRIPTION";"If you want to allow your users to categorize their groups, create the categories below. This feature is useful if you want to list all your users' group that If you have no categories, your users will not be given the option of assigning a group category."
+"SESREVIEW_PLUGIN";"Event Reviews & Ratings Plugin"
+"View";"View"
+"Views";"Views"
+"Reviews";"Reviews"
+"SESEVENT_VIEWS_SCRIPTS_ADMINMANAGE_INDEX_DESCRIPTION";"This page lists all of the event entries your users have posted. You can use this page to monitor these events and delete offensive material if necessary."
+"SESEVENT_VIEWS_SCRIPTS_ADMINSETTINGS_CATEGORIES_DESCRIPTION";"If you want to allow your users to categorize their events, create the categories below. This feature is useful if you want to list all your users' event that If you have no categories, your users will not be given the option of assigning a event category."
+"ITEM_TYPE_SESEVENTREVIEW_REVIEW";"Event Reviews"
+"Profile Views:";"Profile Views:"
+"%s view";"%s view";"%s views"
+"%1$s view";"%1$s view";"%1$s views"
+"USER_VIEWS_SCRIPTS_ADMINSIGNUP_INDEX_DESCRIPTION";"When new members sign up, they are led through a step-by-step process that helps them create an account and fill out their profile. You can customize most aspects of this sign-up process here. On the left, there is a list of steps that make up the sign-up process. You can change the order of these steps by clicking on the arrows and dragging up or down."
+"USER_VIEWS_SCRIPTS_AUTH_FORGOT_DESCRIPTION";"You have been sent an email with instructions how to reset your password. If the email does not arrive within several minutes, be sure to check your spam or junk mail folders."
+"AUTHORIZATION_VIEWS_SCRIPTS_ADMINLEVEL_DESCRIPTION";"Member levels can be used to give certain members more privileges than others. You can grant/restrict a member level's access to features, sections of the community. You can also assign levels that have moderation or administrative capabilities.<br /><br />One of your member levels must be marked as the ""default level"". When new members sign up, they will automatically belong to this level. You can change a specific member's level by editing their account details from the %s page. If you want all members in your community to have the same features and limits, you will only need a single member level (aside from the Super Admin level)."
+"STORAGE_VIEWS_ADMIN_SERVICES_INDEX_DESCRIPTION";"View and manage storage
+system services. The storage system is used to handle file uploads for your
+site. You can configure this to use Amazon's S3 or CloudFront service or any
+CDN that uses FTP or SCP."
+"STORAGE_VIEWS_ADMIN_MANAGE_INDEX_DESCRIPTION";"View and manage uploaded files."
+"FIELDS_VIEWS_SCRIPTS_ADMINFIELDS_DESCRIPTION";"Your members will be asked to provide some information about themselves when joining the community or editing their profile. Create some profile questions that allow them to describe themselves in a way that relates to the theme of your community. To reorder the profile questions, click on their names and drag them up or down. If you want to show different sets of questions to different types of members, you can create multiple ""profile types"". This is useful, for example, if you want your community to have ""fans"" and ""musicians"", each with a different set of profile questions."
+"Political Views";"Political Views"
+"PAYMENT_VIEWS_ADMIN_GATEWAYS_INDEX_DESCRIPTION";"Browse and manage payment
+gateways."
+"PAYMENT_VIEWS_ADMIN_INDEX_INDEX_DESCRIPTION";"Browse transactions. The search box will look through the member name, username, email, transaction ID, and
+order ID."
+"PAYMENT_VIEWS_ADMIN_PACKAGES_INDEX_DESCRIPTION";"Browse and manage subscription plans."
+"PAYMENT_VIEWS_ADMIN_SUBSCRIPTION_INDEX_DESCRIPTION";"Browse and manage subscriptions. The search box will look through member name, username, and
+email."
+"_CORE_ADMIN_STATS_CORE_VIEWS";"Page views"
+"Total Views Allowed";"Total Views Allowed"
+"The campaign will end when this number of views is reached. Enter ""0"" for unlimited views.";"The campaign will end when this number of views is reached. Enter ""0"" for unlimited views."
+"CORE_FORM_ADMIN_ADS_CREATE_LIMITCTR_DESCRIPTION";"If you specify a minimum CTR (click-through ratio, which is the ratio of clicks to views) and the campaign's CTR goes below your limit, the campaign will end. If you decide to specify a minimum CTR limit, you should enter it as a percentage of clicks to views (e.g. 0.05%). To create a campaign with no definite end, don't specify limits and your campaign will continue until you choose to end it."
+"CORE_VIEWS_SCRIPTS_FANCYUPLOAD_DESCRIPTION";"This form is just an example fallback for the unobtrusive behaviour of FancyUpload. If this part is not changed, something must be wrong with your code."
+"CORE_VIEWS_SCRIPTS_FANCYUPLOAD_ADDPHOTOS";"Click ""Add Photos"" to select a photo from your computer. After you have selected the photos, they will begin to upload right away. When your upload is finished, you will be able to preview the advertisement."
+"CORE_VIEWS_SCRIPTS_ADMINLANGUAGE_EDIT_DESCRIPTION";"The language phrases in this pack are show below. If you're looking for a specific phrase, use the search box below to find it. Be sure to click ""Save Changes"" before moving to the next page of phrases if you want to keep your changes. Benealth each phrase, you'll see the original phrase for your reference. This is useful if you've lost or accidentally deleted a phrase. Some phrases are in plural form - you'll see examples of numbers used for these phrases in italics."
+"CORE_VIEWS_SCRIPTS_ADMINLANGUAGE_INDEX_DESCRIPTION";"The layout of your community includes hundreds of phrases of text which are stored in a language pack. If you want to change any of these phrases, you can edit a language pack below. If you want to allow your members to pick from multiple languages, you can also create or import additional packs. If you have multiple packs installed, the pack you've marked as your ""default"" will be the language that displays if a member has not specified their language of choice."
+"CORE_VIEWS_SCRIPTS_ADMINSTATS_INDEX_DESCRIPTION";"Stay connected to the pulse of your community by observing your site-wide statistics. The filters below allow you to observe various metrics and their change over different time periods."
+"CORE_VIEWS_SCRIPTS_ADMINSTATS_REFERRERS_DESCRIPTION";"These are the 100 most common referring URLs tracked from your homepage. This indicates where most of your new traffic is coming from. Clearing the list periodically will give you fresh referrer data."
+"CORE_VIEWS_SCRIPTS_ADMINSYSTEM_LOG_DESCRIPTION";"System logs are helpful for troubleshooting and debugging. Select the log you would like to view below."
+"CORE_VIEWS_SCRIPTS_ADMINTHEMES_INDEX_DESCRIPTION";"Customize your community's overall look and feel by editing your current theme or choosing a new one. Themes consist of CSS files, which you can edit directly right here or via FTP on your server. If you want to make custom changes here, select the CSS file you want to edit from the pull-down menu below. If you would rather just pick an entirely different theme, use the theme chooser at the bottom. Customize your community's overall look and feel by editing your current theme or choosing a new one. Your theme consists of several CSS files. If you want to make custom changes to these files, select the one you want to edit from the pull-down below. If you would rather just pick an entirely different theme, use the theme chooser at the bottom."
+"CORE_VIEWS_SCRIPTS_ADMINTHEMES_INDEX_REVERTTHEMEFILE";"Are you sure that you want to revert all the changes you have made to this theme? If yes, the original theme will be restored immediately and your changes lost. If you want to backup your changes, export it to your computer first."
+"CORE_VIEWS_SCRIPTS_ADMINTHEMES_INDEX_STYLESHEETSPERMISSION";"The stylesheets for your current theme are not writeable. Please set full permissions recursively (CHMOD -R 0777) on ""application/themes/%s"" and try again."
+"CORE_VIEWS_SCRIPTS_ADMINTHEMES_INDEX_REVERTTHEMECHANGES";"Are you sure that you want to revert all the changes you have made to this theme? If yes, the original theme will be restored immediately and your changes lost. If you want to backup your changes, export it to your computer first."
+"Page Views";"Page Views"
+"Remove Friend";"Remove Connection"
+"Event Contact Information";"Event Contact Information"
+"Event Contact Name";"Event Contact Name"
+"Event Contact Email";"Event Contact Email"
+"Event Contact Phone";"Event Contact Phone"
+"Event Contact Facebook URL";"Event Information"
+"Event Contact Linkedin URL";"Event Information"
+"Event Contact Twitter URL";"Event Information"
+"Event Contact Website URL";"Event Contact Website URL"
+"Dashboard";"Edit Event"
+"Plan Expiry Date: ";"Membership Expiry Date:"
+"&#187; Discussions";"&#187; Discussions"
+"Discussions";"Discussions"
+"GROUP_FORM_ADMIN_LEVEL_AUTHCOMMENT_DESCRIPTION";"Your users can choose from any of the options checked below when they decide who can post to their group discussions. If you do not check any options, settings will default to the last saved configuration. If you select only one option, members of this level will not have a choice."
+"Group Profile Discussions";"Group Profile Discussions"
+"SESEVENT_FORM_ADMIN_LEVEL_AUTHCOMMENT_DESCRIPTION";"Your users can choose from any of the options checked below when they decide who can post to their event discussions. If you do not check any options, settings will default to the last saved configuration. If you select only one option, members of this level will not have a choice."
+"Event Profile Discussions";"Event Profile Discussions"
+"  '&#187";" Discussions' => '&#187";" Discussions',"
+"_EMAIL_SESEVENT_PAYMENT_TICKET_PENDING_TITLE";"Event Ticket Payment Pending"
+"_EMAIL_SESEVENT_PAYMENT_TICKET_PENDING_DESCRIPTION";"This is the email that gets sent to a member when they purchased ticket from event and payment is pending."
+"_EMAIL_SESEVENT_PAYMENT_TICKET_PENDING_SUBJECT";"Your ticket payment is pending."
+"_EMAIL_SESEVENT_PAYMENT_TICKET_PENDING_BODY";"[header]
+
+Your ticket payment is pending, awaiting completion of the transaction.
+Thank you for your patience.
+
+[event_title]
+[event_description]
+[object_link]
+
+[footer]"
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_CREATETICKET";"Creating an event ticket."
+"ITEM_TYPE_SESEVENT_HOST";"Event Host"
+"ITEM_TYPE_SESEVENT_TICKET";"Event Ticket"
+"%s sesevent invite";"%s event invite";"%s event invites"
+"ADMIN_ACTIVITY_TYPE_SESEVENT_CREATE";"Advanced Events - When a user (subject) creates a new event (object)."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_JOIN";"Advanced Events - When a user (subject) joins an event (object)."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_PHOTO_UPLOAD";"Advanced Events - When a user (subject) uploads a photo to an event (object)."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_TOPIC_CREATE";"Advanced Events - When a user (subject) creates a new event topic (object)."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_TOPIC_REPLY";"Advanced Events - When a user (subject) replies to an event topic (object)."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_CREATETICKET";"Advanced Events - When a event owner (subject) creates a new event ticket (object)."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTDATE";"Advanced Events - When an event owner (subject) edit an event's (object) date."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTOVERVIEW";"Advanced Events - When an event owner (subject) edit an event's (object) overview."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTVIDEO";"Advanced Events - When an event owner (subject) edit an event's (object) video."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITLOCATION";"Advanced Events -  When an event owner (subject) edit an event's (object) location."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITTICKETDATE";"Advanced Events -  When an event owner (subject) edit date of an event's (object) ticket."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_EDITVENUE";"Advanced Events -  When an event owner (subject) edit an event's (object) venue."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_FOLLOW";"Advanced Events -  When a user (subject) follows an event (object)."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_SAVE";"Advanced Events -  When a user (subject) saves an event (object)."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_EVENT_TICKETPURCHASED";"Advanced Events -  When a user (subject) purchase an event's (object) ticket."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENT";"Advanced Events -  When a user (subject) marks an event (object) as favourite."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENTHOST";"Advanced Events -  When a user (subject) marks an event's host (object) as favourite."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENTLIST";"Advanced Events -  When a user (subject) mark a list (object) as favourite."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_EVENTSPEAKER";"Advanced Events -  When a user (subject) mark an event's speaker (object) as favourite."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_FAVOURITE_LIST";"Advanced Events -  When a user (subject) mark a list (object) as favourite."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENT";"Advanced Events -  When a user (subject) likes an event (object)."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTALBUM";"Advanced Events -  When a user (subject) likes an event's (object) album."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTHOST";"Advanced Events -  When a user (subject) likes an event's (object) host."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTLIST";"Advanced Events -  When a user (subject) likes an event's (object) list."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTPHOTO";"Advanced Events -  When a user (subject) likes an event's (object) album photo."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_LIKE_EVENTSPEAKER";"Advanced Events -  When a user (subject) likes an event's (object) speaker."
+"ADMIN_ACTIVITY_TYPE_SESEVENT_LIST_CREATE";"Advanced Events -  When a user (subject) creates a new list (object)."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EVENTMUSIC";"Adding new music to an event."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_CREATE";"New events."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_JOIN";"Joining an event"
+"_ACTIVITY_ACTIONTYPE_SESEVENT_PHOTO_UPLOAD";"Uploading a photo to an event"
+"%s group invite";"%s group invite";"%s group invites"
+"This group has %s member waiting for approval or waiting for an invite response.";"This group has %s member waiting for approval or waiting for an invite response.";"This group has %s members waiting for approval or waiting for an invite response."
+"Cancel Invite";"Cancel Invite"
+"You have accepted the invite to the group %s";"You have accepted the invite to the group %s"
+"You have ignored the invite to the group %s";"You have ignored the invite to the group %s"
+"Members invited";"The selected members have been successfully invited."
+"Let members invite others?";"Let members invite others?"
+"Yes, members can invite other people.";"Yes, members can invite other people."
+"No, only officers can invite other people.";"No, only officers can invite other people."
+"Invite Members";"Invite Members"
+"Choose the people you want to invite to this group.";"Choose the people you want to invite to this group."
+"Send Invites";"Send Invites"
+"%1$s has invited you to the group %2$s";"%1$s has invited you to the group %2$s"
+"See Waiting";"View invited users and users waiting for approval/rejection"
+"This group has %s member waiting approval or waiting for a invite response.";"This group has %s member waiting approval or waiting for a invite response."
+"ACTIVITY_TYPE_GROUP_INVITE";"When I'm invited to join a group."
+"{item:$subject} has invited you to the group {item:$object}.";"{item:$subject} has invited you to the group {item:$object}."
+"_EMAIL_NOTIFY_GROUP_INVITE_TITLE";"Group Invitation"
+"_EMAIL_NOTIFY_GROUP_INVITE_DESCRIPTION";"This email is sent to the member when they are invited to a group."
+"_EMAIL_NOTIFY_GROUP_INVITE_SUBJECT";"You have been invited to join the group [object_title]"
+"_EMAIL_NOTIFY_GROUP_INVITE_BODY";"[header]
+
+You have been invited to join the group ""[object_title]"". Please click the following link to view it:
+
+http://[host][object_link]
+
+[footer]"
+"%s event invite";"%s event invite";"%s event invites"
+"Invite Guests";"Invite Guests"
+"Your invite request has been sent.";"Your invite request has been sent."
+"Your invite request has been cancelled.";"Your invite request has been cancelled."
+"Event invite accepted";"Event invite accepted"
+"Event invite rejected";"Event invite rejected"
+"Approve Invite Request";"Approve Invite Request"
+"Would you like to approve this invite request?";"Would you like to approve this invite request?"
+"Cancel Invite Request";"Cancel Invite Request"
+"Would you like to cancel your request for an invite to this event?";"Would you like to cancel your request for an invite to this event?"
+"People must be invited to RSVP for this event";"People must be invited to RSVP for this event"
+"Invited guests can invite other people as well";"Invited guests can invite other people as well"
+"Choose the people you want to invite to this event.";"Choose the people you want to invite to this event."
+"This event has %s member waiting approval or waiting for a invite response.";"This event has %s member waiting approval or waiting for a invite response."
+"This event has %s members waiting approval or waiting for a invite response.";"This event has %s members waiting approval or waiting for a invite response."
+"_EMAIL_NOTIFY_MESSAGE_NEW_SUBJECT";"You have received a new message from [sender_title]."
+"_EMAIL_NOTIFY_MESSAGE_NEW_BODYHTML";"[header]<br> <br> You have just received a new message from [sender_title]:<br> <br> [object_description]<br> <br> Please click the following link to login and view it:<br> <br> http://[host][object_link]<br><br><br> <br> [footer]"
+"Event Invite";"Event Invite"
+"sesevent invite";"Event Invite"
+"Book Now";"Join Event"
+"SESADVPMNT_FORM_ADMIN_GATEWAY_STRIPE_DESCRIPTION";"<b>Steps to generate Stripe API Keys:<b><br />
+1) If you haven't already created any account, you will need to establish a <a target=""""_blank"""" href=""""%1$s"""">Stripe account</a>.<br />
+2) If you have created earlier, then log in to <b>your Stripe<b> dashboard.<br />
+3) Click your account name in the top left.<br />
+4) Click API in the left menu.<br />
+5) Your secret and publishable keys should be on this page.<br />
+Note: You may be promoted to enter your password to receive the secret key.<br />
+6) Enable <a target=""""_blank"""" href=""""%2$s"""">Instant Payment Notifications</a> via: <em>Developers &gt; Webhooks &gt;.  The <em>IPN messages</em> should be <strong>enabled</strong>, and the <em>Notification URL</em> should be set to:<br /><strong>%3$s</strong>"
+"Payment Requests";"Payment Requests"
+"Payment Statistics";"Payment Statistics"
+"Payment Request";"Payment Request"
+"No request made yet.";"You have not any pending payment resquests yet."
+"Payment Transactions";"Payment Transactions"
+"Payment details not submited yet %1$sClick Here%2$s to submit.";"Payment details not submited yet %1$sClick Here%2$s to submit."
+"Please scan the two-dimensional code, complete payment";"Please scan the two-dimensional code, complete payment"
+"Pay with %1$s";"Pay with %1$s"
+"Pay";"Payment Options"
+"Payment Method";"Payment Method"
+"Payment Information";"Payment Information"
+"Payment method: %s";"Payment method: %s"
+"Make Request For Payment.";"Make Request For Payment."
+"Sponsorship Payment Transaction";"Sponsorship Payment Transaction"
+"No sponsorship payment request made yet.";"No sponsorship payment request made yet."
+"ACTIVITY_TYPE_SESEVENT_EVENT_ADMINPAYMENTAPPROVE";"When admin approve event ticket payment."
+"ACTIVITY_TYPE_SESEVENT_EVENT_ADMINPAYMENTCANCEL";"When event ticket payment is cancelled."
+"ACTIVITY_TYPE_SESEVENT_EVENT_PAYMENTREQUEST";"When payment is requested."
+"_EMAIL_NOTIFY_SESEVENT_PAYMENT_SUCCESS_TITLE";"Your Tickets Registration Numbers"
+"_EMAIL_NOTIFY_SESEVENT_PAYMENT_SUCCESS_DESCRIPTION";"This email is sent to the member when ticket purchse done successful."
+"_EMAIL_NOTIFY_SESEVENT_PAYMENT_SUCCESS_SUBJECT";"Your Tickets for Event [item_title]"""""
+"_EMAIL_NOTIFY_SESEVENT_PAYMENT_SUCCESS_BODY";"[header]
+
+Your tickets with registration number(s) [registration_number]""have been booked successfully."
+"_EMAIL_SESEVENT_TICKETPAYMENT_REQUESTADMIN_TITLE";"Ticket Payment Request By Event Owner"
+"_EMAIL_SESEVENT_TICKETPAYMENT_REQUESTADMIN_DESCRIPTION";"This is the email that gets sent to a site admin when event owner send a request for ticket payment."
+"_EMAIL_SESEVENT_TICKETPAYMENT_REQUESTADMIN_SUBJECT";"Payment Request by event owner [event_title]"
+"_EMAIL_SESEVENT_TICKETPAYMENT_REQUESTADMIN_BODY";"[header]
+
+[event_owner] has been send you payment request for his event: [event_title]
+
+Event Link: http://[host][object_link]
+
+[footer]"
+"_EMAIL_SESEVENT_TICKETPAYMENT_ADMINREQUESTCANCEL_TITLE";"Ticket Payment Request Cancel By Admin"
+"_EMAIL_SESEVENT_TICKETPAYMENT_ADMINREQUESTCANCEL_DESCRIPTION";"This is the email that gets sent to a event owner when admin cancel payment request."
+"_EMAIL_SESEVENT_TICKETPAYMENT_ADMINREQUESTCANCEL_SUBJECT";"Admin cancel ticket payment request for [event_title]"
+"_EMAIL_SESEVENT_TICKETPAYMENT_ADMINREQUESTCANCEL_BODY";"[header]
+
+Site Admin has been cancelled your ticket payment request for event: [event_title]
+
+Event Link: http://[host][object_link]
+
+[footer]"
+"_EMAIL_SESEVENT_TICKETPAYMENT_ADMINREQUESTAPPROVED_TITLE";"Ticket Payment Request Approve By Admin"
+"_EMAIL_SESEVENT_TICKETPAYMENT_ADMINREQUESTAPPROVED_DESCRIPTION";"This is the email that gets sent to a event owner when admin approve payment request."
+"_EMAIL_SESEVENT_TICKETPAYMENT_ADMINREQUESTAPPROVED_SUBJECT";"Admin approve ticket payment request for [event_title]"
+"_EMAIL_SESEVENT_TICKETPAYMENT_ADMINREQUESTAPPROVED_BODY";"[header]
+
+Site Admin has been approved your ticket payment request for event: [event_title]
+
+Event Link: http://[host][object_link]
+
+[footer]"
+"_EMAIL_SESEVENT_SPONSORSHIPPAYMENT_REQUESTADMIN_TITLE";"Sponsorship Payment Request By Event Owner"
+"_EMAIL_SESEVENT_SPONSORSHIPPAYMENT_REQUESTADMIN_DESCRIPTION";"This is the email that gets sent to a site admin when event owner send a request for sponsorship payment."
+"_EMAIL_SESEVENT_SPONSORSHIPPAYMENT_REQUESTADMIN_SUBJECT";"Payment Request by event owner [event_title]"
+"_EMAIL_SESEVENT_SPONSORSHIPPAYMENT_REQUESTADMIN_BODY";"[header]
+
+[event_owner] has been send you payment request for his event: [event_title]
+
+Event Link: http://[host][object_link]
+
+[footer]"
+"_EMAIL_SESEVENT_SPONSORSHIPPAYMENT_ADMINREQUESTCANCEL_TITLE";"Sponsorship Payment Request Cancel By Admin"
+"PAY WITH PAYPAL";"PayPal"
+"Pay with IDeal or Creditcard";"iDeal / Creditcard"
+"2) Enable <a target=""_blank"" href=""%1$s"">API access</a> on your Paypal account via: <em>My Account &gt";" Profile &gt";" API Access &gt"
+"PayPal";"PayPal"
+"Payment Gateway: PayPal";"Payment Gateway: PayPal"
+"PAYMENT_FORM_ADMIN_GATEWAY_PAYPAL_DESCRIPTION";"Paypal Account Configuration: <br />
+1) If you haven't already, you will need to establish a <a target=""_blank"" href=""%1$s"">Paypal account</a>.<br />
+2) Enable <a target=""_blank"" href=""%1$s"">API access</a> on your Paypal account via: <em>My Account &gt; Profile &gt; API Access &gt; Request API credentials &gt; Request API Signature</em>.<br />
+3) Insert the Paypal API <a target=""_blank"" href=""%1$s"">username, password, and signature</a> values into this form.<br />
+4) Enable <a target=""_blank"" href=""%2$s"">Instant Payment Notifications</a> via: <em>My Account &gt; Profile &gt; Instant Payment Notification Preferences &gt; Choose IPN Settings</em>.  The <em>IPN messages</em> should be <strong>enabled</strong>, and the <em>Notification URL</em> should be set to:<br /><strong>%3$s</strong>"
+"Pay for Access";"Membership dan+doen+we+dat"
+"My Settings";"My Account"
+"Emails";"Email"
+"This is the subject line of emails sent to invited people.  Use %siteName% to include your site's name.";"This is the subject line of emails sent to invited people.  Use %siteName% to include your site's name."
+"The ""Reply-To"" address for emails";"The ""Reply-To"" address for emails"
+"Fill up the form to unsubscribe and stop receiving all marketing emails from us.";"Fill up the form to unsubscribe and stop receiving all marketing emails from us."
+"System Emails";"System Emails"
+"_CORE_ADMIN_STATS_CORE_EMAILS";"Emails Sent"
+"CORE_FORM_ADMIN_SETTINGS_EMAIL_DESCRIPTION";"Various notification emails are sent to your members as they interact with the community. Use this form to customize the content of these emails. Any changes you make here will only be saved after you click the ""Save Changes"" button at the bottom of the form."
+"Enter the name you want the emails from the system to come from in the field below.";"Enter the name you want the emails from the system to come from in the field below."
+"Enter the email address you want the emails from the system to come from in the field below.";"Enter the email address you want the emails from the system to come from in the field below."
+"Utilizing an email queue, you can allow your website to throttle the emails being sent out to prevent overloading the mail server.";"Utilizing an email queue, you can allow your website to throttle the emails being sent out to prevent overloading the mail server."
+"No, always send emails immediately";"No, always send emails immediately"
+"Send emails through an SMTP server";"Send emails through an SMTP server"
+"Emails Sent";"Emails Sent"
+"CORE_FORM_ADMIN_MESSAGE_MAIL_DESCRIPTION";"Using this form, you will be able to send an email out to all of your members. Emails are sent out using a queue system, so they will be sent out over time. An email will be sent to you when all emails have been sent."
+"Send Emails";"Send Emails"
+"_EMAIL_HEADER_DESCRIPTION";"This can be added to other emails using the [header] placeholder."
+"_EMAIL_FOOTER_DESCRIPTION";"This can be added to other emails using the [footer] placeholder."
+"_EMAIL_HEADER_MEMBER_DESCRIPTION";"This can be added to other emails using the [header] placeholder."
+"_EMAIL_FOOTER_MEMBER_DESCRIPTION";"This can be added to other emails using the [footer] placeholder."
+"PAGETITLE-USER-EMAILS-ADMIN-SETTINGS";"Default Email Alerts"
+"Nieuwe mensen ontmoeten   Nieuwe dingen beleven";"Meeting new people + Experiencing new moments"
+"Nieuwe mensen ontmoeten + Nieuwe dingen beleven";"Nieuwe mensen ontmoeten + Nieuwe dingen beleven"
+"_EMAIL_SESEVENT_EVENT_ADMINDISAPPROVED_SUBJECT";"Your event '[event_title]' is dis-approved!"
+"_EMAIL_SESEVENT_EVENT_ADMINDISAPPROVED_BODYHTML";"[header]<br> <br>Click the following link and go to you event:<br> <br> http://[host][object_link]<br> <br> [footer]"
+"_EMAIL_NOTIFY_FRIEND_ACCEPTED_DESCRIPTION";"This is the email that gets sent to a member when their connection request have been approved."
+"Your payment has been cancelled and not been charged. If this is not correct, please try again later.";"Your payment has been cancelled and not been charged. 
+
+You have accidentally closed your payment window? 
+Your payment is stuck on pending? 
+
+Wait for 15 minutes and please try again later."
+"_EMAIL_INVITE_SUBJECT";"You have received an invitation to join dan+doen+we+dat."
+"_EMAIL_INVITE_BODYHTML";"<p>[header]<br> <br> You have been invited by [sender_title] to join dan+doen+we+dat.<br><br></p>
+<p>To join, please follow the link below:<br> <br> http://[host][object_link]<br> <br><br> [message]<br><br><br><br><br> [footer]</p>"
+"Are you sure you want to do this? You ";"Are you sure you want to do this? You "
+"Are you sure you want to do this? You will be charged: %1$s";"You will be charged: %1$s"
+"make payment";"make payment"
+"Make Payment";"extend membership"
+"_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_DESCRIPTION";"e-mail join_leave spot availability"
+"Yes, allow viewing and subscription of groups.";"Yes, allow viewing and subscription of groups."
+"Yes, allow viewing and subscription of photo albums.";"Yes, allow viewing and subscription of photo albums."
+"Yes, allow viewing and subscription of photo events.";"Yes, allow viewing and subscription of photo events."
+"SESEVENT_FORM_ADMIN_LEVEL_CREATE_DESCRIPTION";"Do you want to let users create events? If set to no, some other settings on this page may not apply. This is useful if you want users to be able to view events and manage their subscriptions [Join events and choose their RSVP], but only want certain levels to be able to create events."
+"ACTIVITY_TYPE_SESMEMBERSHIPSWITCH_CHANGENOTIFI";"When my subscription level is modified."
+"ACTIVITY_TYPE_SESMEMBERSHIPSWITCH_NOTIFICATION";"For my subscription plan expiry."
+"_EMAIL_SESMEMBERSHIPSWITCH_LEVEL_CHANGE_TITLE";"Subscription Plan Changed"
+"_EMAIL_SESMEMBERSHIPSWITCH_LEVEL_CHANGE_DESCRIPTION";"This is the email that gets sent to a member when their subscription plan changed."
+"_EMAIL_SESMEMBERSHIPSWITCH_LEVEL_CHANGE_SUBJECT";"Your subscription plan changed."
+"_EMAIL_SESMEMBERSHIPSWITCH_LEVEL_CHANGE_BODY";"[header]
+
+Your subscription plan changed from [current_plan] to [changed_plan].
+
+[subscription_title]
+[subscription_description]
+[subscription_terms]
+
+You may follow the link below to sign in.
+
+[object_link]
+
+[footer]"
+"_EMAIL_SESMEMBERSHIPSWITCH_LEVEL_NOTIFY_TITLE";"Subscription Plan Expire Notification"
+"_EMAIL_SESMEMBERSHIPSWITCH_LEVEL_NOTIFY_DESCRIPTION";"This is the email that gets sent to a member when their subscription plan going to expire."
+"_EMAIL_SESMEMBERSHIPSWITCH_LEVEL_NOTIFY_SUBJECT";"Your subscription plan soon going to expire."
+"_EMAIL_SESMEMBERSHIPSWITCH_LEVEL_NOTIFY_BODY";"[header]
+
+Your subscription plan [plan_name] going to expire soon in [period].
+
+You may follow the link below to sign in.
+
+[object_link]
+
+[footer]"
+"ADMIN_SIGNUP_STEP_EMEMSUB_PLUGIN_SIGNUP_SUBSCRIPTION";"Enable Membership Subscription Plans"
+"Confirm Subscription";"Confirm Subscription"
+"Subscriptions are not required for ";"Subscriptions are not required for "
+"SNS - Membership Subscription Pricing Table & Plan Layout Plugin";"SNS - Membership Subscription Pricing Table & Plan Layout Plugin"
+"Subscription";"Membership"
+"subscription, please select an option below.";"subscription, please select an option below."
+"subscription plan. Please choose one now below.";"subscription plan. Please choose one now below."
+"Subscription Plan";"Subscription Plan"
+"Please select a subscription plan from the list below.";"Please select a subscription plan from the list below."
+"ADMIN_SIGNUP_STEP_PAYMENT_PLUGIN_SIGNUP_SUBSCRIPTION";"Choose Subscription"
+"Subscriptions";"Subscriptions"
+"PAYMENT_FORM_ADMIN_GATEWAY_BANK_DESCRIPTION";"If you want to enable the Bank Gateway for the Membership Subscription for your website then fill the below given details of the Bank for the users."
+"PAYMENT_FORM_ADMIN_GATEWAY_CASH_DESCRIPTION";"Enabling the Cash Gateway for the Membership Subscriptions for your website will allow you to accept offsite manual payments."
+"PAYMENT_FORM_ADMIN_GATEWAY_CHEQUE_DESCRIPTION";"If you want to enable the Cheque Gateway for the Membership Subscription for your website then fill the below given details of Cheque for the users."
+"PAYMENT_FORM_GATEWAY_CASH_DESCRIPTION";"Make the payment for the Membership Subscription by Cash and then upload the receipt of your transaction."
+"Manage Subscription Plans";"Manage Subscription Plans"
+"The member will be placed into this level upon subscribing to this plan. If left empty, the default level at the time a subscription is chosen will be used.";"The member will be placed into this level upon subscribing to this plan. If left empty, the default level at the time a subscription is chosen will be used."
+"Create Subscription Plan";"Create Subscription Plan"
+"Manage Subscriptions";"Manage Subscriptions"
+"%s subscription found";"%s subscription found";"%s subscriptions found"
+"ACTIVITY_TYPE_PAYMENT_SUBSCRIPTION_CHANGED";"When your plan is changed"
+"ACTIVITY_TYPE_PAYMENT_SUBSCRIPTION_EXPIREDSOON";"When plan is about to expire"
+"_EMAIL_PAYMENT_SUBSCRIPTION_ACTIVE_TITLE";"Subscription Activated"
+"_EMAIL_PAYMENT_SUBSCRIPTION_ACTIVE_DESCRIPTION";"This is the email that gets sent to a member when their subscription is activated."
+"_EMAIL_PAYMENT_SUBSCRIPTION_ACTIVE_SUBJECT";"Your subscription is now active."
+"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_TITLE";"Subscription Cancelled"
+"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_DESCRIPTION";"This is the email that gets sent to a member when their subscription is cancelled."
+"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_SUBJECT";"Your subscription has been cancelled."
+"_EMAIL_PAYMENT_SUBSCRIPTION_CANCELLED_BODY";"[header]
+
+Your subscription has been cancelled.
+
+[subscription_title]
+[subscription_description]
+[subscription_terms]
+
+Please follow the link below to renew your subscription.
+
+[object_link]
+
+[footer]"
+"_EMAIL_PAYMENT_SUBSCRIPTION_EXPIRED_TITLE";"Subscription Expired"
+"e.g. 12:00";"for example: 12:00 p.m."
+"e.g. In front of the cinema";"for example: In front of the cinema"
+"This will be the end of your profile link, for example: <br /> <span id=""profile_address"">http://%s</span>";"This will be the end of your profile link, for example: <br /> <span id=""profile_address"">http://%s</span>"
+"e.g. Museum ticket, payable in cash";"for example: Museum ticket, payable in cash"
+"Dat er geen gezelschap is, kan heerlijk zijn.  Maar soms is het gezellig om met een clubje op pad te gaan.  Wat als je nieuw bent in de stad?  Of als je iemand zoekt in je directe omgeving met dezelfde interesses als jij?";"----Dat er geen gezelschap is, kan heerlijk zijn.  Maar soms is het gezellig om met een clubje op pad te gaan.  Wat als je nieuw bent in de stad?  Of als je iemand zoekt in je directe omgeving met dezelfde interesses als jij?"
+"Nieuw";"New"
+"e.g.";"for example:"
+"CORE_FORM_ADMIN_ADS_AD_MEDIATYPE_DESCRIPTION";"Upload a banner image from your computer or specify your advertisement HTML code (e.g. Google Adsense). If you choose to upload an image, it must be a valid GIF, JPG, JPEG, or PNG file under 200kb."
+"e.g. https://dandoenwedat.com";"for example URL:  https://teams.microsoft or zoom.com/meetup-join/etc"
+"You can change title of event maximum 2 time.";"You can change the title of the event up to 2 times."
+"You have 2 times remain to change event title.";"You can change the title of the event 2 more times."
+"You have 1 times remain to change event title.";"You can change the title of the event one more time."
+"You have 0 times remain to change event title.";"You can no longer change the title of the event."
+"_EMAIL_NOTIFY_FRIEND_ACCEPTED_TITLE";"Connection Approved"
+"Friend Approved";"Connection Approved"
+"_EMAIL_NOTIFY_FRIEND_FOLLOW_TITLE";"Connection Follow"
+"Friend Follow";"Connection Follow"
+"Cancel Friend Request";"Cancel Connection Request"
+"Do you want to cancel your friend request?";"Do you want to cancel your connection request?"
+"%s friend request";"%s connection request";"%s connection requests"
+"%1$s has sent you a friend request.";"%1$s has sent you a connection request."
+"Your friend request has been sent.";"Your connection request has been sent."
+"Your friend request has been cancelled.";"Your connection request has been cancelled."
+"You ignored a friend request from %1$s";"You ignored a connection request from %1$s"
+"You ignored a friend request from %s";"You ignored a connection request from %s"
+"_EMAIL_NOTIFY_FRIEND_REQUEST_TITLE";"Connection Request"
+"Approve Friend Request";"Approve Connection Request"
+"If the person you invited decide to join, he/she will automatically receive a friend request from you.";"If the person you invited decide to join, he/she will automatically receive a connection request from you.";"If the persons you invited decide to join, they will automatically receive a connection request from you."
+"ACTIVITY_TYPE_FRIEND_ACCEPTED";"When someone accepts my connection request."
+"ACTIVITY_TYPE_FRIEND_REQUEST";"When I receive a connection request."
+"See All Friend Request";"See All Connection Request"
+"Friend Requests";"Connection Requests"
+"You have no any friend request.";"You have no connection request."
+"Friend Request";"Connection Request"
+"_EMAIL_INVITE_CODE_SUBJECT";"You have received an invitation to join dan+doen+we+dat!"
+"_EMAIL_INVITE_CODE_BODYHTML";"[header] <br><br>You have been invited by [sender_title] to join dan+doen+we+dat. <br><br>To join, please follow the link below: <br>http://[host][object_link] <br><br>[message] <br><br>The dan+doen+we+dat committee recommends on the admission of new members. You will receive confirmation by e-mail and be able to log in and participate within 48 hours. <br><br>If you do not receive a confirmation e-mail within 48 hours, there is unfortunately no admission available at the moment. <br><br>Do not panic. <br><br>As soon as a spot becomes available, you will immediately receive a message by e-mail to participate. <br>If you do not receive a confirmation email, please check your spam folder. <br><br>[footer]"
+"Enter Address";"Event Location"
+"Enter a location";"Enter a location (Google Maps)"
+"Venue Name";"Venue Name or Website"
+"_EMAIL_SESEVENT_EVENT_ADMINAPPROVED_SUBJECT";"Your event '[event_title]' is approved!"
+"_EMAIL_SESEVENT_EVENT_ADMINAPPROVED_BODYHTML";"<p>[header]<br> <br>Your event [event_title] is now online.&nbsp;<br>You can Promote your event! by sending members a message or invitation.</p>
+<p><br><br>Click the following link and go to you event:<br> http://[host][object_link]<br> <br> [footer]</p>"
+"_EMAIL_SESEVENT_EVENT_CREATE_SUBJECT";"Thank you for creating an event '[event_title]' on dan+doen+we+dat!"
+"_EMAIL_SESEVENT_EVENT_CREATE_BODYHTML";"[header]<br> <br>Thank you for creating the event '[event_title]' on dan+doen+we+dat.<br>Your event is not online yet! It takes up to 24 hours. Events are reviewed and approved by the editors. This is done 3 times a day.<br><br>You will automatically receive a message when your event is online!<br><br>Click the following link and go to you event:<br> <br> http://[host][object_link]<br> <br> [footer]"
+"Select region(s) that you want to receive event notification from.";"Select the region(s) that you want to receive event notification from."
+"Region";"Province, County"
+"Regional";"Regional"
+"<p>To maximize the chance of like-minded people during the events, our system constantly checks for:<br><br>&bull";" Recognizable profile picture<br>&bull";" Fully completed profiles<br>&bull"
+"Nested Comments with Attachments";"Comments"
+"SES - Advanced Nested Comments with Attachments Plugin";"Comments"
+"Calendar";"Calendar"
+"_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_SUBJECT";"A Spot has opened up for [event_title]"
+"_EMAIL_JOIN_LEAVE_SPOT_AVAILABILITY_BODYHTML";"<p>[header]<br><br>A Spot has become available for [event_title]. <br>You can sign up on the event page: [event_url].</p>
+<p><br>Be quick and&nbsp;take your spot.<br><br>[footer]<br><br><br></p>"
 "_EMAIL_CORE_WELCOME_SUBJECT";"Welcome to dan+doen+we+dat!"
-"_EMAIL_CORE_WELCOME_BODYHTML";"<p>[header]<br><br>Thank you for joining dan+doen+we+dat.</p>
+"_EMAIL_CORE_WELCOME_BODYHTML";"<p>Welcome [header]<br><br>Thank you for joining dan+doen+we+dat.</p>
 <p>&nbsp;</p>
 <p>Click the following link and enter your information below to login:</p>
 <p><br><br>http://[host][object_link]<br><br>Email: [email]<br><br><br></p>
 <p class=""p1"">&nbsp;</p>
 <br>[footer]"
 "_EMAIL_CORE_WELCOME_PASSWORD_SUBJECT";"Welcome to dan+doen+we+dat!"
-"_EMAIL_CORE_WELCOME_PASSWORD_BODYHTML";"<p>[header]<br> <br> Thank you for joining dan+doen+we+dat.</p>
-<p>&nbsp;</p>
-<p>Click the following link and enter your information below to login:<br> <br> http://[host][object_link]</p>
-<p>&nbsp;</p>
-<p><br> Email: [email]<br> Password: [password]</p>
-<p>&nbsp;</p>
-<p class=""p1""><br> [footer]</p>"
+"_EMAIL_CORE_WELCOME_PASSWORD_BODYHTML";"Welcome [header]<br>Thank you for joining dan+doen+we+dat. <br><br>The dan+doen+we+dat committee recommends on the admission of new members.<br>You will receive confirmation by e-mail and be able to log in and participate within 48 hours. <br><br>Click the following link and enter your information below to login: <br>http://[host][object_link] <br>Email: [email] <br>Password: [password] <br><br>If you do not receive a confirmation e-mail within 48 hours, there is unfortunately no admission available at the moment. <br><br>Do not panic.<br><br> As soon as a spot becomes available you will immediately receive a message by e-mail to participate. <br>If you do not receive an email, please check your spam folder. <br><br>[footer]"
 "_EMAIL_USER_ACCOUNT_APPROVED_SUBJECT";"Your account has been approved."
-"_EMAIL_USER_ACCOUNT_APPROVED_BODYHTML";"<p>[header]<br> <br> Thank you for Joining dan+doen+we+dat!</p>
-<p>Your account has been approved, Welcome!</p>
+"_EMAIL_USER_ACCOUNT_APPROVED_BODYHTML";"<p>Welcome [header]<br> <br> Thank you for Joining dan+doen+we+dat!</p>
+<p>Your account has been approved,&nbsp;</p>
 <p>&nbsp;</p>
 <p>Please click the following link to sign in:<br> <br> http://[host][object_link]</p>
 <p>&nbsp;</p>
-<p>To maximize the chance of like-minded people during the events, our system constantly checks for:<br><br>&bull; Recognizable profile picture<br>&bull; Fully completed profiles<br>&bull; Balance in the different age categories and regions<br>&bull; Balance of men and women<br>&bull; Balance with regard to different interests<br>&bull; Balance of new versus long-time members.<br><br><br>-----------------------------------------------------------------------------------------------------------------------<br>It may therefore happen that you are temporarily unable to renew your membership. <br><br>Do not panic. <br><br>As soon as space becomes available, you will immediately receive a message via e-mail to participate.<br>-----------------------------------------------------------------------------------------------------------------------<br><br><br> [footer]</p>"
-"_EMAIL_INVITE_SUBJECT";"You have received an invitation to join dan+doen+we+dat."
-"_EMAIL_INVITE_BODYHTML";"<p>[header]<br> <br> You have been invited by [sender_title] to join dan+doen+we+dat.</p>
-<p>To join, please follow the link below:<br> <br> http://[host][object_link]<br> <br>-----------------------------------------------------------------------------------------------------------------------<br> [message]<br><br>If you don't receive a confirmation e-mail within 48 hours, there is unfortunately no place available at the moment.&nbsp;It may therefore happen that you are temporarily unable to become a member. Do not panic. As soon as space becomes available, you will immediately receive a message via e-mail to participate.<br>-----------------------------------------------------------------------------------------------------------------------</p>
-<p class=""p1"">&nbsp;</p>
-<p>If you do not receive a confirmation email, please check your spam folder before contacting us.<br><br> [footer]</p>"
-"_EMAIL_INVITE_CODE_SUBJECT";"You have received an invitation to join dan+doen+we+dat!"
-"_EMAIL_INVITE_CODE_BODYHTML";"<p>[header]<br> <br> You have been invited by [sender_title] to join dan+doen+we+dat.<br>To join, please follow the link below:<br> <br> http://[host][object_link]<br> <br> -----------------------------------------------------------------------------------------------------------------------<br> [message]</p>
-<p>If you don't receive a confirmation e-mail within 48 hours, there is unfortunately no place available at the moment.&nbsp;It may therefore happen that you are temporarily unable to become a member. Do not panic. As soon as space becomes available, you will immediately receive a message via e-mail to participate.<br>-----------------------------------------------------------------------------------------------------------------------</p>
-<p class=""p1"">If you do not receive a confirmation email, please check your spam folder before contacting us.<br><br> [footer]</p>"
-"0.00";"0.00"
-"notif_sescredit_send_by_site";"notif_sescredit_send_by_site"
-"notif_sescredit_send_by_site";"When I receive credit points from dan+doen+we+dat."
-"ACTIVITY_TYPE_NOTIF_SESCREDIT_SEND_BY_SITE";"When I receive credit points from dan+doen+we+dat."
-"_EMAIL_SESCREDIT_SEND_UPGRADE_REQUEST_TITLE ";"SES - Credits - New Membership Upgrade Request"
-"Make Payment";"Make Payment"
+<p>To maximize the chance of like-minded people during the events, our system constantly checks for:<br><br>&bull; Recognizable profile picture<br>&bull; Fully completed profiles<br>&bull; Balance in the different age categories and regions<br>&bull; Balance with regard to different interests,&nbsp;men and women,&nbsp;new versus long-time members<br><br><br><br><br> [footer]</p>"
+"saved the event";"saved the event"
+"{item:$subject} has requested to be your friend.";"{item:$subject} has requested to be your connection."
+"Add Overview";"Add Update"
+"There are currently no Overview.";"There are currently no Updates"
+"Overview";"Update"
+"Change Event Overview";"Event Update"
+"Detailed Overview";"Detailed Update"
+"Enter detailed overview about the Event.";"Enter Update about the Event."
+"_ACTIVITY_ACTIONTYPE_SESEVENT_EVENT_EDITEVENTOVERVIEW";"Editing event update."
+"ACTIVITY_TYPE_SESEVENT_EVENT_EDITEVENTOVERVIEW";"When someone edit event update."
+"Event Discussie";"Event Discussion"
+"Reacties";"Reactions"
+"photos";"photos"
+"&#187; Photos";"&#187; Photos"
+"Group Photos";"Group Photos"
+"Photos";"Photos"
+"No photos have been uploaded to this group yet.";"No photos have been uploaded to this group yet."
+"View All Photos";"View All Photos"
+"Upload Photos";"Upload Photos"
+"Add New Photos";"Add New Photos"
+"Choose photos on your computer to add to this album. (2MB maximum)";"Choose photos on your computer to add to this album. (2MB maximum)"
+"Save Photos";"Save Photos"
+"Who may upload photos to this group?";"Who may upload photos to this group?"
+"GROUP_FORM_ADMIN_LEVEL_AUTHPHOTO_DESCRIPTION";"Your users can choose from any of the options checked below when they decide who can upload photos to their groups. If you do not check any options, settings will default to the last saved configuration. If you select only one option, members of this level will not have a choice."
+"Group Profile Photos";"Group Profile Photos"
+"ITEM_TYPE_GROUP_PHOTO";"Group Photos"
+"photo";"photo";"photos"
+"Classified Photos";"Classified Photos"
+"Blog Photos";"Blog Photos"
+"Forum Photos";"Forum Photos"
+"Wall Photos";"Wall Photos"
+"ADMIN_ACTIVITY_TYPE_COMMENT_ALBUM_PHOTO";"When a user (subject) comments on another user's (object) photos."
+"ADMIN_ACTIVITY_TYPE_LIKE_ALBUM_PHOTO";"When a user (subject) likes another user's (object) photos."
+"ADMIN_ACTIVITY_TYPE_POST_SELF_MULTI_PHOTO";"When a user (subject) posts multiple photos to another profile (object)."
+"_ACTIVITY_ACTIONTYPE_COMMENT_ALBUM_PHOTO";"Comments on your photos"
+"_ACTIVITY_ACTIONTYPE_LIKE_ALBUM_PHOTO";"When I liked the photos"
+"ACTIVITY_TYPE_COMMENT_ALBUM_PHOTO";"When someone comments on one of my photos."
+"ACTIVITY_TYPE_LIKE_ALBUM_PHOTO";"When someone likes one of my photos."
+"%s photo";"%s photo";"%s photos"
+"Add More Photos";"Add More Photos"
+"Who may tag photos in this album?";"Who may tag photos in this album?"
+"Choose photos on your computer to add to this album.";"Choose photos on your computer to add to this album."
+"Click ""Add Photos"" to select one or more photos from your computer. After you have selected the photos, they will begin to upload right away. When your upload is finished, click the button below your photo list to save them to your album.";"Click ""Add Photos"" to select one or more photos from your computer. After you have selected the photos, they will begin to upload right away. When your upload is finished, click the button below your photo list to save them to your album."
+"ALBUM_FORM_ADMIN_LEVEL_AUTHCOMMENT_DESCRIPTION";"Your users can choose from any of the options checked below when they decide who can post comments on their albums and photos. If you do not check any options, settings will default to the last saved configuration. If you select only one option, members of this level will not have a choice."
+"ALBUM_FORM_ADMIN_LEVEL_AUTHTAG_DESCRIPTION";"Your users can choose from any of the options checked below when they decide who can post tags on their albums and photos. If you do not check any options, settings will default to the last saved configuration. If you select only one option, members of this level will not have a choice."
+"This plugin gives your users their own personal photo albums. These albums can be configured to store photos, videos, or any other file types you choose to allow. Users can interact by commenting on each others photos and viewing their friends' recent updates.";"This plugin gives your users their own personal photo albums. These albums can be configured to store photos, videos, or any other file types you choose to allow. Users can interact by commenting on each others photos and viewing their friends' recent updates."
+"Popular Photos";"Popular Photos"
+"Recent Photos";"Recent Photos"
+"{item:$subject} added {var:$count} {item:$action:new photos}.\r\n{body:$body}";"{item:$subject} added {var:$count} {item:$action:new photos}.\r\n{body:$body}"
+"{item:$subject} added {var:$count} {item:$action:new photos} to {item:$object}.\r\n{body:$body}";"{item:$subject} added {var:$count} {item:$action:new photos} to {item:$object}.\r\n{body:$body}"
+"ITEM_TYPE_ALBUM_PHOTO";"Album Photos"
+"Drag & Drop Photos Here";"Drag & Drop Photos Here"
+"Event Photos";"Event Photos"
+"No photos have been uploaded to this event yet.";"No photos have been uploaded to this event yet."
+"Who may upload photos to this event?";"Who may upload photos to this event?"
+"SESEVENT_FORM_ADMIN_LEVEL_AUTHUPHOTO_DESCRIPTION";"Your users can choose from any of the options checked below when they decide who can upload photos to their events. If you do not check any options, settings will default to the last saved configuration. If you select only one option, members of this level will not have a choice."
+"ITEM_TYPE_SESEVENT_PHOTO";"Event Photos"
+"Event Profile Photos";"Event Profile Photos"
+"Profile Photos";"Profile Photos"
+"Add Photos";"Add Photos"
+"Copy This Event";"Copy This Event"
+"Attending";"Going"
+"Attending Event";"Attending Event"
+"attending";"attending"
+"maybe attending";"maybe attending"
+"not attending";"not attending"
+"Maybe Attending";"Maybe Attending"
+"Not Attending";"Not Attending"
+"_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_SUBJECT";"Last Minute Online Event [object_title]"
+"_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_ONLINE_EVENT_BODYHTML";"[header]<br> <br>Online-Event ""[object_title]"" will start soon.<br><br> Check more here:<br> <br> http://[host][object_link]<br> <br> [footer]"
+"_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_SUBJECT";"New online Event [object_title]"
+"_EMAIL_NOTIFY_SESEVENT_NEW_ONLINE_EVENT_BODYHTML";"[header]<br> <br>Online-Event ""[object_title]""&nbsp;Is New, you can join the event and participate! <br><br>Check more here:<br> <br> http://[host][object_link]<br> <br> [footer]"
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_TITLE";"Organizer e-mail Minimum number of participants reached"
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_TITLE";"Participant e-mail Minimum number of participants reached"
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_TITLE";"Organizer e-mail Maximum number of participants reached"
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_TITLE";"Participant e-mail Maximum number of participants reached"
+"ACTIVITY_TYPE_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS";"When the event that you Organized reached the Minimum number of participants."
+"ACTIVITY_TYPE_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS";"When the event that you Organized reached the Maximum number of participants."
+"ACTIVITY_TYPE_SESEVENT_JOINED_REACH_MINIMUM_PARTIS";"When the event that you Joined reached the Minimum number of participants."
+"ACTIVITY_TYPE_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS";"When the event that you Joined reached the Maximum number of participants."
+"_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_SUBJECT";"New Event [object_title]"
+"_EMAIL_NOTIFY_SESEVENT_NEW_EVENT_BODYHTML";"<p>[header]<br> <br> Event ""[object_title]""&nbsp;Is New, you can join the event and participate!<br><br></p>
+<p>Check more here:<br> <br> http://[host][object_link]<br> <br> [footer]</p>"
+"_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_SUBJECT";"Last Minute Event [object_title]"
+"_EMAIL_NOTIFY_SESEVENT_LAST_MINUTE_EVENT_BODYHTML";"[header]<br> <br> Event ""[object_title]"" will start soon. <br><br><br>Check more here:<br> <br> http://[host][object_link]<br> <br> [footer]<br>"
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_SUBJECT";"Yes! The maximum number of participants has been reached for ""[object_title]""."
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MAXIMUM_PARTIS_BODYHTML";"<p>[header]<br> <br> Hi ""[recipient_title]"",<br> <br> You are going to ""[object_title]"" on ""[object_date]"" at ""[object_time]""<br> The event is full and Members can Sign Up for the waiting list.<br> <br> Are you still going?<br>If not,&nbsp;You can 'Leave' the Event so that a spot becomes available again.</p>
+<p><br> Click the following link and go to your event:<br> <br> http://[host][object_link]<br> <br> [footer]</p>"
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_SUBJECT";"Yes! The minimum number of participants has been reached for ""[object_title]""."
+"_EMAIL_NOTIFY_SESEVENT_JOINED_REACH_MINIMUM_PARTIS_BODYHTML";"[header]<br><br>Hi ""[recipient_title]"",<br><br>You are going to ""[object_title]"" on ""[object_date]"" at ""[object_time]""<br><br>The minimum number of participants has been reached! For ""[object_title]"".<br><br>Click the following link and go to your event:<br><br>http://[host][object_link]<br><br>[footer]"
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_SUBJECT";"Yes! Your maximum number of participants has been reached for ""[object_title]""."
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MAXIMUM_PARTIS_BODYHTML";"[header]<br> <br><br> Nice! The minimum number of participants that you have entered for your event has been reached.<br> Member can&nbsp;Sign Up for the waiting list!<br> <br> Have Lots of fun!<br> <br> Click the following link and go to your event:<br> <br> http://[host][object_link]<br> <br> [footer]"
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_SUBJECT";"Yes! Your minimum number of participants has been reached for ""[object_title]""."
+"_EMAIL_NOTIFY_SESEVENT_ORGANIZER_REACH_MINIMUM_PARTIS_BODYHTML";"[header]<br> <br><br> Nice! The minimum number of participants that you have entered for your event has been reached.<br> As soon as your event is full, you will receive another message.<br> <br> Have Lots of fun!<br> <br> Click the following link and go to your event:<br> <br> http://[host][object_link]<br> <br> [footer]"
