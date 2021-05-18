@@ -802,67 +802,72 @@ class User_SettingsController extends Core_Controller_Action_User
             return;
         }
 
+        $otpfeatures = Engine_Api::_()->getApi('settings', 'core')->getSetting('core.spam.otpfeatures',1);
         // Form
         $this->view->form = $form = new User_Form_Settings_Delete();
 
-        if( !$this->getRequest()->isPost() ) {
-          //2 step verfication check
-          $otpfeatures = Engine_Api::_()->getApi('settings', 'core')->getSetting('core.spam.otpfeatures',1);
-          if(!empty($otpfeatures)) {
-            $email = $user->email;
-            $codeTable = Engine_Api::_()->getDbTable('codes', 'user');
-            $isEmailExist = $codeTable->isEmailExist($email);
-            if($isEmailExist) {
-              $isEmailExist->delete();
+        if ($this->getRequest()->isPost() && $form->isValid($this->getRequest()->getPost())) {
+            if ($form->getElement('step')->getValue() == 1){
+                if(!empty($otpfeatures)) {
+                    $email = $user->email;
+                    $codeTable = Engine_Api::_()->getDbTable('codes', 'user');
+                    $isEmailExist = $codeTable->isEmailExist($email);
+                    if($isEmailExist) {
+                        $isEmailExist->delete();
+                    }
+                    $code = rand(100000, 999999);
+                    $row = $codeTable->createRow();
+                    $row->email = $email;
+                    $row->code = $code;
+                    $row->creation_date = date('Y-m-d H:i:s');
+                    $row->modified_date = date('Y-m-d H:i:s');
+                    $row->save();
+                    Engine_Api::_()->getApi('mail', 'core')->sendSystem($email, 'user_deleteotp', array('host' => $_SERVER['HTTP_HOST'], 'code' => $code));
+                }
+                $form->getElement('step')->setValue(2);
+                $form->addElement('Text', "code", array(
+                    'label' => 'Enter Verification Code',
+                    'description' => '',
+                    'allowEmpty' => false,
+                    'required' => true,
+                    'order' => 1
+                ));
+                $form->getElement('execute')->setLabel('Delete my Account');
+                $form->setDescription('');
+                return;
             }
-            $code = rand(100000, 999999);
-            $row = $codeTable->createRow();
-            $row->email = $email;
-            $row->code = $code;
-            $row->creation_date = date('Y-m-d H:i:s');
-            $row->modified_date = date('Y-m-d H:i:s');
-            $row->save();
-            Engine_Api::_()->getApi('mail', 'core')->sendSystem($email, 'user_deleteotp', array('host' => $_SERVER['HTTP_HOST'], 'code' => $code));
-          }
-          return;
+            if ($form->getElement('step')->getValue() == 2){
+                if(!empty($otpfeatures)) {
+                    $inputcode = $_POST['code'];
+                    $email = $user->email;
+                    $code_id = Engine_Api::_()->getDbtable('codes', 'user')->isExist($inputcode, $email);
+                    if(empty($code_id)) {
+                        $form->addError("The verification code you entered is invalid. Please enter the correct verification code.");
+                        return;
+                    } else {
+                        $code = Engine_Api::_()->getItem('user_code', $code_id);
+                        $code->delete();
+                    }
+                }
+                // Process
+                $db = Engine_Api::_()->getDbtable('users', 'user')->getAdapter();
+                $db->beginTransaction();
+
+                try {
+                    $user->delete();
+
+                    $db->commit();
+                } catch( Exception $e ) {
+                    $db->rollBack();
+                    throw $e;
+                }
+                // Unset viewer, remove auth, clear session
+                Engine_Api::_()->user()->setViewer(null);
+                Zend_Auth::getInstance()->getStorage()->clear();
+                Zend_Session::destroy();
+
+                return $this->_helper->redirector->gotoRoute(array(), 'default', true);
+            }
         }
-        if( !$form->isValid($this->getRequest()->getPost()) ) {
-            return;
-        }
-        
-        //2 step verfication check
-        $otpfeatures = Engine_Api::_()->getApi('settings', 'core')->getSetting('core.spam.otpfeatures', 1);
-        if(!empty($otpfeatures)) {
-          $inputcode = $_POST['code'];
-          $email = $user->email;
-          $code_id = Engine_Api::_()->getDbtable('codes', 'user')->isExist($inputcode, $email);
-          if(empty($code_id)) {
-            $form->addError("The verification code you entered is invalid. Please enter the correct verification code.");
-            return;
-          } else {
-            $code = Engine_Api::_()->getItem('user_code', $code_id);
-            $code->delete();
-          }
-        }
-
-        // Process
-        $db = Engine_Api::_()->getDbtable('users', 'user')->getAdapter();
-        $db->beginTransaction();
-
-        try {
-            $user->delete();
-
-            $db->commit();
-        } catch( Exception $e ) {
-            $db->rollBack();
-            throw $e;
-        }
-
-        // Unset viewer, remove auth, clear session
-        Engine_Api::_()->user()->setViewer(null);
-        Zend_Auth::getInstance()->getStorage()->clear();
-        Zend_Session::destroy();
-
-        return $this->_helper->redirector->gotoRoute(array(), 'default', true);
     }
 }
