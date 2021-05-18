@@ -105,6 +105,14 @@ class User_EditController extends Core_Controller_Action_User
         if(!$viewer->isAdmin()) {
             $fieldIdBirthDate = "1_1_" . $aliasedFields['birthdate']->field_id;
             $form->removeElement($fieldIdBirthDate);
+            $fieldIdFirstName = "1_1_" . $aliasedFields['first_name']->field_id;
+            $form->getElement($fieldIdFirstName)->setAttribs(array(
+                'readOnly' => ''
+            ));
+            $fieldIdLastName = "1_1_" . $aliasedFields['last_name']->field_id;
+            $form->getElement($fieldIdLastName)->setAttribs(array(
+                'readOnly' => ''
+            ));
         }
 
         if (empty($topLevelValue) && $changeUserProfileType) {
@@ -125,11 +133,23 @@ class User_EditController extends Core_Controller_Action_User
         }
 
         if ($this->getRequest()->isPost() && $form->isValid($this->getRequest()->getPost())) {
+
+            $oldValues = Engine_Api::_()->fields()->getFieldsValuesByAlias($user);
+
+            if (!$viewer->isAdmin()) {
+                $form->getElement($fieldIdFirstName)->setValue($oldValues['first_name']);
+                $form->getElement($fieldIdLastName)->setValue($oldValues['last_name']);
+                $form->setProcessedValues(array(
+                    $aliasedFields['first_name']->field_id => $oldValues['first_name'],
+                    $aliasedFields['last_name']->field_id => $oldValues['last_name'],
+                ));
+            }
+
             $form->saveValues();
 
             // Update display name
-            $aliasValues = Engine_Api::_()->fields()->getFieldsValuesByAlias($user);
-            $user->setDisplayName($aliasValues);
+            $newValues = Engine_Api::_()->fields()->getFieldsValuesByAlias($user);
+            $user->setDisplayName($newValues);
             //$user->modified_date = date('Y-m-d H:i:s');
             $user->save();
 
@@ -138,6 +158,14 @@ class User_EditController extends Core_Controller_Action_User
             if(!$viewer->isAdmin()) {
                 $fieldIdBirthDate = "1_1_" . $aliasedFields['birthdate']->field_id;
                 $form->removeElement($fieldIdBirthDate);
+                $fieldIdFirstName = "1_1_" . $aliasedFields['first_name']->field_id;
+                $form->getElement($fieldIdFirstName)->setAttribs(array(
+                    'readOnly' => ''
+                ));
+                $fieldIdLastName = "1_1_" . $aliasedFields['last_name']->field_id;
+                $form->getElement($fieldIdLastName)->setAttribs(array(
+                    'readOnly' => ''
+                ));
             }
             $form->addNotice(Zend_Registry::get('Zend_Translate')->_('Your changes have been saved.'));
         }
