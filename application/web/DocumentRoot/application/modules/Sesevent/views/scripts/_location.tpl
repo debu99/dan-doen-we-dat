@@ -67,7 +67,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 		<!-- Region -->
 		<div id="sesevent_location_region" class="form-wrapper" style="display:none">
 			<div id="region-label" class="form-label">
-				<label for="region"><?php echo $this->translate("Region"); ?></label>
+				<label class="required" for="region"><?php echo $this->translate("Region"); ?></label>
 			</div>
 			<select class="region required" id="region" name="region">
 				<?php foreach($regionOptions as $key => $region): ?>
@@ -108,7 +108,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 	 var region_value = '<?php echo $regionValue ?>';
 	 if (region_value){
 		 sesJqueryObject('#sesevent_location_region').show();
-		 // sesJqueryObject('#region').prop('required', true);
+		 sesJqueryObject('#region').addClass('required');
 		 sesJqueryObject('#region').val(region_value);
 	 }
 	 if (typeof locationcreatedata == 'undefined') {
@@ -122,7 +122,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			 sesJqueryObject('#sesevent_add_location').show();
 			 sesJqueryObject('#sesevent_enter_address').hide();
 			 sesJqueryObject('#sesevent_location_region').hide();
-			 // sesJqueryObject('#region').prop('required', false);
+			 sesJqueryObject('#region').removeClass('required');
 
 			 sesJqueryObject('#meeting_point-wrapper').hide();
 			 sesJqueryObject('#meeting_url-wrapper').show();
@@ -141,7 +141,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			 sesJqueryObject('#sesevent_add_location').hide();
 			 sesJqueryObject('#sesevent_enter_address').show();
 			 sesJqueryObject('#sesevent_location_region').hide();
-			 // sesJqueryObject('#region').prop('required', false);
+			 sesJqueryObject('#region').removeClass('required');
 
 			 sesJqueryObject('#meeting_point-wrapper').show();
 			 sesJqueryObject('#meeting_url-wrapper').hide();
@@ -157,10 +157,10 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 			 sesJqueryObject('#sesevent_location_data-wrapper').show();
 			 if(region_value){
 				 sesJqueryObject('#sesevent_location_region').show();
-				 // sesJqueryObject('#region').prop('required', true);
+				 sesJqueryObject('#region').addClass('required');
 			 } else {
 				 sesJqueryObject('#sesevent_location_region').hide();
-				 // sesJqueryObject('#region').prop('required', false);
+				 sesJqueryObject('#region').removeClass('required');
 			 }
 
 			 sesJqueryObject('#meeting_point-wrapper').show();
@@ -196,7 +196,7 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 				 sesJqueryObject('#sesevent_enter_address').show();
 				 sesJqueryObject('#sesevent_reset_location').hide();
 				 sesJqueryObject('#sesevent_location_region').hide();
-				 // sesJqueryObject('#region').prop('required', false);
+				 sesJqueryObject('#region').removeClass('required');
 
 				 sesJqueryObject('.location_value').val('');
 				 sesJqueryObject('#locationSes').val('');
@@ -297,7 +297,11 @@ $optionsenableglotion = unserialize(Engine_Api::_()->getApi('settings', 'core')-
 						 sesJqueryObject('#country').val(country);
 					 if (country_code === 'NL') {
 						 sesJqueryObject('#sesevent_location_region').show();
-						 // sesJqueryObject('#region').prop('required', true);
+						 sesJqueryObject('#region').addClass('required');
+					 } else {
+						 sesJqueryObject('#sesevent_location_region').hide();
+						 sesJqueryObject('#region').removeClass('required');
+						 sesJqueryObject('#region').val('');
 					 }
 				 }
 			 }
