@@ -1662,7 +1662,7 @@ http://[host][object_link]
 
 Hi ""[recipient_title]"",
 
-You are going to ""[object_title]"" on ""[object_date]"" at ""[object_time]""
+You are going to ""[object_title]"" on [object_date] at [object_time]
 Yes! The minimum number of participants has been reached! For ""[object_title]"".
 
 Click the following link and go to your event:
@@ -1679,7 +1679,7 @@ http://[host][object_link]
 
 Hi ""[recipient_title]"",
 
-You are going to ""[object_title]"" on ""[object_date]"" at ""[object_time]""
+You are going to ""[object_title]"" on [object_date] at [object_time]
 The event is full and Members can participate for the waiting list.
 
 Are you still going?

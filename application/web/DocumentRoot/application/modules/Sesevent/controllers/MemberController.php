@@ -99,7 +99,9 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
                 $event,
                 'sesevent_organizer_reach_minimum_partis',
                 array(
-                    'queue' => true
+                    'queue' => true,
+                    'object_date' => $event->getTime('starttime', 'j M'),
+                    'object_time' => $event->getTime('starttime', 'H:i')
                 )
             );
             //notification and email for joined when event reach minimum participants
@@ -111,7 +113,9 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
                         $event,
                         'sesevent_joined_reach_minimum_partis',
                         array(
-                            'queue' => true
+                            'queue' => true,
+                            'object_date' => $event->getTime('starttime', 'j M'),
+                            'object_time' => $event->getTime('starttime', 'H:i')
                         )
                     );
                 }

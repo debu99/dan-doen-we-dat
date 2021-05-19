@@ -631,4 +631,28 @@ class Sesevent_Model_Event extends Core_Model_Item_Abstract
         $startTime = $this->starttime;
         return (bool)((0 <= (strtotime($startTime) - $now) && (strtotime($startTime) - $now) <= 3 * 24 * 60 * 60));
     }
+    
+    public function getTime($style, $format = 'Y-m-d H:i:s') {
+        if (!in_array($style, ['starttime', 'endtime'])) {
+            return false;
+        }
+        
+        $offset = $this->get_timezone_offset($this->timezone);
+        $time = strtotime($this->$style) - $offset;
+        return date($format, $time);
+    }
+    
+    public function get_timezone_offset($remote_tz, $origin_tz = null) {
+        if($origin_tz === null) {
+            if(!is_string($origin_tz = date_default_timezone_get())) {
+                return false; // A UTC timestamp was returned -- bail out!
+            }
+        }
+        $origin_dtz = new DateTimeZone($origin_tz);
+        $remote_dtz = new DateTimeZone($remote_tz);
+        $origin_dt = new DateTime("now", $origin_dtz);
+        $remote_dt = new DateTime("now", $remote_dtz);
+        $offset = $origin_dtz->getOffset($origin_dt) - $remote_dtz->getOffset($remote_dt);
+        return $offset;
+    }
 }
