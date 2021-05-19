@@ -269,30 +269,56 @@ class Sesevent_AdminManageController extends Core_Controller_Action_Admin {
         $users = $userTable->fetchAll();
         //email to user
         foreach ($users as $user) {
-            if ($user->getIdentity() != $event->getOwner()->getIdentity()){
+            if ($user->getIdentity() != $event->getOwner()->getIdentity()) {
                 if ($event->is_webinar) {
-                    //notify and email to user register its for online event
-                    Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
-                        $user,
-                        $viewer,
-                        $event,
-                        'sesevent_new_online_event',
-                        array(
-                            'queue' => true
-                        )
-                    );
-                } elseif (isset($event->region_id)) {
-                    //notify and email to user register its for new event in their region
-                    if ($user->checkInRegion($event->region_id)) {
+                    if ($event->starttime <= date('Y-m-d h:m:s', time() + 3 * 24 * 60 * 60)) {
+                        //notify and email to user register its for last minute event
                         Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
                             $user,
                             $viewer,
                             $event,
-                            'sesevent_new_event',
+                            'sesevent_last_minute_online_event',
                             array(
                                 'queue' => true
                             )
                         );
+                    } else {
+                        //notify and email to user register its for online event
+                        Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                            $user,
+                            $viewer,
+                            $event,
+                            'sesevent_new_online_event',
+                            array(
+                                'queue' => true
+                            )
+                        );
+                    }
+                } elseif (isset($event->region_id)) {
+                    //notify and email to user register its for new event in their region
+                    if ($user->checkInRegion($event->region_id)) {
+                        if ($event->starttime <= date('Y-m-d h:m:s', time() + 3 * 24 * 60 * 60)) {
+                            //notify and email to user register its for new event in their region
+                            Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                                $user,
+                                $viewer,
+                                $event,
+                                'sesevent_last_minute_event',
+                                array(
+                                    'queue' => true
+                                )
+                            );
+                        } else {
+                            Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                                $user,
+                                $viewer,
+                                $event,
+                                'sesevent_new_event',
+                                array(
+                                    'queue' => true
+                                )
+                            );
+                        }
                     }
                 }
             }
