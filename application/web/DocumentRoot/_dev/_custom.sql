@@ -83,3 +83,19 @@ insert ignore into `engine4_core_mailtemplates` (`type`, `module`, `vars`, `defa
 ('notify_sesevent_organizer_reach_maximum_partis', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1),
 ('notify_sesevent_joined_reach_minimum_partis', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_date],[object_time],[object_link],[object_photo],[object_description]',1),
 ('notify_sesevent_joined_reach_maximum_partis', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1);
+
+-- 2021-05-18: update timeout for cron task Last Minute Event Mail
+update `engine4_core_tasks` set `timeout` = 21600
+where `plugin` = 'Sesevent_Plugin_Task_LastMinuteMail';
+alter table `engine4_sesevent_events` add `is_send_before_24h` tinyint default 0 after `is_send_lastminute`;
+alter table `engine4_sesevent_events` add `is_send_to_favorite` tinyint default 0 after `is_send_before_24h`;
+
+INSERT IGNORE INTO `engine4_activity_notificationtypes`
+(`type`, `module`, `body`, `is_request`, `handler`, `default`, `sesandoidapp_enable_pushnotification`)
+VALUES ('sesevent_organizer_remind', 'sesevent', 'Your event {item:$object} will start in the next 24 hours.', 0, '', 1, 1),
+       ('sesevent_joined_remind', 'sesevent', 'Your event {item:$object} you joined will start in the next 24 hours.', 0, '', 1, 1),
+       ('sesevent_fav_almost_full', 'sesevent', 'The event {item:$object} you favorite is almost full.', 0, '', 1, 1);
+insert ignore into `engine4_core_mailtemplates` (`type`, `module`, `vars`, `default`) values
+('notify_sesevent_organizer_remind', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1),
+('notify_sesevent_joined_remind', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1),
+('notify_sesevent_fav_almost_full', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1);

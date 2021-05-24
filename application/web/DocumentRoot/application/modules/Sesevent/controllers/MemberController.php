@@ -152,6 +152,32 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
             }
         }
 
+        //send email for favorite
+        if (floatval($event->getAttendingCount() / $event->max_participants) >= 0.8) {
+            $favTable = Engine_Api::_()->getDbtable('favourites', 'sesevent');
+            $favSelect = $favTable->select()
+                ->where("resource_type = 'sesevent_event'")
+                ->where('resource_id = ?', $event->getIdentity());
+            $favEvents = $favTable->fetchAll($favSelect);
+            
+            foreach ($favEvents as $user) {
+                if ($user->user_id != $owner->getIdentity()) {
+                    $fav_user = Engine_Api::_()->user()->getUser($user->user_id);
+                    Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                        $fav_user,
+                        $fav_user,
+                        $event,
+                        'sesevent_fav_almost_full',
+                        array(
+                            'queue' => true
+                        )
+                    );
+                }
+            }
+            $event->is_send_to_favorite = 1;
+            $event->save();
+        }
+
       $db->commit();
     }catch (Exception $e) {
       $db->rollBack();
