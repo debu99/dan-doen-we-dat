@@ -244,90 +244,92 @@ class Sesevent_AdminManageController extends Core_Controller_Action_Admin {
   }
 	
 	//Approved Action
-  public function approvedAction() {
-		$viewer = Engine_Api::_()->user()->getViewer();
-    $event_id = $this->_getParam('id');
-    if (!empty($event_id)) {
-      $event = Engine_Api::_()->getItem('sesevent_event', $event_id);
-      $event->is_approved = !$event->is_approved;
-      $event->save();
-      
-      if($event->is_approved) {
-	      $mailType = 'sesevent_event_adminapproved';
-				$activityApi = Engine_Api::_()->getDbtable('actions', 'activity');
-				$getActivity = $activityApi->getActionsByObject($event);
-				if(!count($getActivity)){
-					$action = $activityApi->addActivity($viewer, $event, 'sesevent_create');
-					if ($action) {
-						$activityApi->attachActivity($action, $event);
-					}
-				}
-      } else { 
-	      $mailType = 'sesevent_event_admindisapproved';
-      }
-        $userTable = Engine_Api::_()->getItemTable('user');
-        $users = $userTable->fetchAll();
-        //email to user
-        foreach ($users as $user) {
-            if ($user->getIdentity() != $event->getOwner()->getIdentity()) {
-                if ($event->is_webinar) {
-                    if ($event->starttime <= date('Y-m-d h:m:s', time() + 3 * 24 * 60 * 60)) {
-                        //notify and email to user register its for last minute event
-                        Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
-                            $user,
-                            $viewer,
-                            $event,
-                            'sesevent_last_minute_online_event',
-                            array(
-                                'queue' => true
-                            )
-                        );
-                    } else {
-                        //notify and email to user register its for online event
-                        Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
-                            $user,
-                            $viewer,
-                            $event,
-                            'sesevent_new_online_event',
-                            array(
-                                'queue' => true
-                            )
-                        );
+    public function approvedAction()
+    {
+        $viewer = Engine_Api::_()->user()->getViewer();
+        $event_id = $this->_getParam('id');
+        if (!empty($event_id)) {
+            $event = Engine_Api::_()->getItem('sesevent_event', $event_id);
+            $event->is_approved = !$event->is_approved;
+            $event->save();
+
+            if ($event->is_approved) {
+                $mailType = 'sesevent_event_adminapproved';
+                $activityApi = Engine_Api::_()->getDbtable('actions', 'activity');
+                $getActivity = $activityApi->getActionsByObject($event);
+                if (!count($getActivity)) {
+                    $action = $activityApi->addActivity($viewer, $event, 'sesevent_create');
+                    if ($action) {
+                        $activityApi->attachActivity($action, $event);
                     }
-                } elseif (isset($event->region_id)) {
-                    //notify and email to user register its for new event in their region
-                    if ($user->checkInRegion($event->region_id)) {
-                        if ($event->starttime <= date('Y-m-d h:m:s', time() + 3 * 24 * 60 * 60)) {
+                }
+
+                $userTable = Engine_Api::_()->getItemTable('user');
+                $users = $userTable->fetchAll();
+                //email to user
+                foreach ($users as $user) {
+                    if ($user->getIdentity() != $event->getOwner()->getIdentity()) {
+                        if ($event->is_webinar) {
+                            if ($event->starttime <= date('Y-m-d h:m:s', time() + 3 * 24 * 60 * 60)) {
+                                //notify and email to user register its for last minute event
+                                Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                                    $user,
+                                    $viewer,
+                                    $event,
+                                    'sesevent_last_minute_online_event',
+                                    array(
+                                        'queue' => true
+                                    )
+                                );
+                            } else {
+                                //notify and email to user register its for online event
+                                Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                                    $user,
+                                    $viewer,
+                                    $event,
+                                    'sesevent_new_online_event',
+                                    array(
+                                        'queue' => true
+                                    )
+                                );
+                            }
+                        } elseif (isset($event->region_id)) {
                             //notify and email to user register its for new event in their region
-                            Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
-                                $user,
-                                $viewer,
-                                $event,
-                                'sesevent_last_minute_event',
-                                array(
-                                    'queue' => true
-                                )
-                            );
-                        } else {
-                            Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
-                                $user,
-                                $viewer,
-                                $event,
-                                'sesevent_new_event',
-                                array(
-                                    'queue' => true
-                                )
-                            );
+                            if ($user->checkInRegion($event->region_id)) {
+                                if ($event->starttime <= date('Y-m-d h:m:s', time() + 3 * 24 * 60 * 60)) {
+                                    //notify and email to user register its for new event in their region
+                                    Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                                        $user,
+                                        $viewer,
+                                        $event,
+                                        'sesevent_last_minute_event',
+                                        array(
+                                            'queue' => true
+                                        )
+                                    );
+                                } else {
+                                    Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                                        $user,
+                                        $viewer,
+                                        $event,
+                                        'sesevent_new_event',
+                                        array(
+                                            'queue' => true
+                                        )
+                                    );
+                                }
+                            }
                         }
                     }
                 }
+            } else {
+                $mailType = 'sesevent_event_admindisapproved';
             }
+            //Event approved mail send to event owner
+            Engine_Api::_()->getApi('mail', 'core')->sendSystem($event->getOwner(), $mailType, array('event_title' => $event->title, 'object_link' => $event->getHref(), 'host' => $_SERVER['HTTP_HOST']));
         }
-      //Event approved mail send to event owner
-			Engine_Api::_()->getApi('mail', 'core')->sendSystem($event->getOwner(), $mailType, array('event_title' => $event->title, 'object_link' => $event->getHref(), 'host' => $_SERVER['HTTP_HOST']));
+        $this->_redirect('admin/sesevent/manage');
     }
-    $this->_redirect('admin/sesevent/manage');
-  }
 	
 	//Active slide Action
   public function slideactiveAction() {
