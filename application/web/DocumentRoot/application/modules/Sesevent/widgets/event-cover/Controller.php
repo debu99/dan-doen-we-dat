@@ -45,11 +45,8 @@ class Sesevent_Widget_EventCoverController extends Engine_Content_Widget_Abstrac
 		$params['image'] = '<img class="thumb_icon item_photo_user" alt="" src="'.$user->getPhotoUrl().'">';
 		$params['title'] = $user->getTitle();
 		$params['id'] = $user->getIdentity();
-		$params['description'] = $user->host_description;		
-		$sesevent_coverevent = Zend_Registry::isRegistered('sesevent_coverevent') ? Zend_Registry::get('sesevent_coverevent') : null;
-		if(empty($sesevent_coverevent)) {
-			return $this->setNoRender();
-		}
+		$params['description'] = $user->host_description;	
+                
 		$this->view->eventTags = $subject->tags()->getTagMaps();
 		$this->view->host = $params;
 		$currentTime = time();

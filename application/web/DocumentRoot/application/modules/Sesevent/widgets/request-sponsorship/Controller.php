@@ -21,10 +21,7 @@ class Sesevent_Widget_RequestSponsorshipController extends Engine_Content_Widget
 			return $this->setNoRender();	 
 	  }
 	 $currentTime = time();
-	  $seseventsponsorship_requestspo = Zend_Registry::isRegistered('seseventsponsorship_requestspo') ? Zend_Registry::get('seseventsponsorship_requestspo') : null;
-    if(empty($seseventsponsorship_requestspo)) {
-	    return $this->setNoRender();
-    }
+	  
 		//don't render widget if event ends
 		if(strtotime($event->endtime) < strtotime($currentTime))
 			return $this->setNoRender();

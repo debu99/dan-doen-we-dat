@@ -13,10 +13,6 @@ class Sesevent_Widget_AdvanceShareController extends Engine_Content_Widget_Abstr
   public function indexAction() {
     $this->view->viewer = Engine_Api::_()->user()->getViewer();
     $coreApi = Engine_Api::_()->core();
-    $sesevent_advsharewid = Zend_Registry::isRegistered('sesevent_advsharewid') ? Zend_Registry::get('sesevent_advsharewid') : null;
-    if(empty($sesevent_advsharewid)) {
-	    return $this->setNoRender();
-    }
       if (!$coreApi->hasSubject() && !isset($this->dashboard))
         return $this->setNoRender();
     	$this->view->allowAdvShareOptions = $allowAdvShareOptions = $this->_getParam('advShareOptions',array('privateMessage','siteShare','quickShare','addThis','tellAFriend'));

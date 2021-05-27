@@ -21,10 +21,7 @@ class Sesevent_Widget_EventCategoryIconsController extends Engine_Content_Widget
     $this->view->order = $order = isset($params['order']) ? $params['order'] : $this->_getParam('order', '');  
     
     $show_criterias = $this->_getParam('show_criteria', array('title', 'countEvents', 'icon'));
-		$sesevent_categoryevent = Zend_Registry::isRegistered('sesevent_categoryevent') ? Zend_Registry::get('sesevent_categoryevent') : null;
-    if(empty($sesevent_categoryevent)) {
-	    return $this->setNoRender();
-    }
+    
     if (in_array('countEvents', $show_criterias) || $params['criteria'] == 'most_event')
       $params['countEvents'] = true;
 

@@ -42,10 +42,7 @@ class Sesevent_Widget_CategoryAssociateEventController extends Engine_Content_Wi
     $this->view->title_truncation = $title_truncation = isset($params['title_truncation']) ? $params['title_truncation'] :$this->_getParam('title_truncation', '100');
     $this->view->description_truncation = $description_truncation = isset($params['description_truncation']) ? $params['description_truncation'] :$this->_getParam('description_truncation', '150');
     $show_criterias = isset($params['show_criterias']) ? $params['show_criterias'] : $this->_getParam('show_criteria',array('by','view','title','follow','followButton','featuredLabel','sponsoredLabel','description','eventPhoto','eventPhotos','photoThumbnail','eventCount','favourite'));
-    $sesevent_categoryevent = Zend_Registry::isRegistered('sesevent_categoryevent') ? Zend_Registry::get('sesevent_categoryevent') : null;
-    if(empty($sesevent_categoryevent)) {
-	    return $this->setNoRender();
-    }
+    
     foreach($show_criterias as $show_criteria)
       $this->view->{$show_criteria.'Active'} = $show_criteria;
 		$this->view->eventPhotoActive = true;

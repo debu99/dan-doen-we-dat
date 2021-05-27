@@ -27,10 +27,6 @@ class Sesevent_Widget_BuySponsorshipController extends Engine_Content_Widget_Abs
 		$params['event_id'] = $event->event_id;
 		$params['user_id'] = $viewer->getIdentity();
 		$this->view->sponsorship = $sponsorship = Engine_Api::_()->getDbtable('sponsorships', 'sesevent')->getSponsorship($params);
-		$seseventsponsorship_buyspo = Zend_Registry::isRegistered('seseventsponsorship_buyspo') ? Zend_Registry::get('seseventsponsorship_buyspo') : null;
-    if(empty($seseventsponsorship_buyspo)) {
-	    return $this->setNoRender();
-    }
 		//check validation event ticket 
 		if(!count($sponsorship))
 			return $this->setNoRender();

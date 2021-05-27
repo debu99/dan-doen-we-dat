@@ -15,10 +15,7 @@ class Sesevent_Widget_BrowseMenuController extends Engine_Content_Widget_Abstrac
     $this->view->navigation = $navigation = Engine_Api::_()
             ->getApi('menus', 'core')
             ->getNavigation('sesevent_main', array());
-		$sesevent_menu = Zend_Registry::isRegistered('sesevent_menu') ? Zend_Registry::get('sesevent_menu') : null;
-    if(empty($sesevent_menu)) {
-	    return $this->setNoRender();
-    }
+    
     $this->view->max = Engine_Api::_()->getApi('settings', 'core')->getSetting('sesevent.taboptions', 6);
     if (count($this->view->navigation) == 1) {
       $this->view->navigation = null;

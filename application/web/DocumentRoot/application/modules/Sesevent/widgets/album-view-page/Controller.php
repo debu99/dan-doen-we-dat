@@ -34,10 +34,7 @@ class Sesevent_Widget_AlbumViewPageController extends Engine_Content_Widget_Abst
 		$this->view->view_type = $view_type = isset($params['view_type']) ? $params['view_type'] : $this->_getParam('view_type', 'masonry');
 		$params = $this->view->params = array('height'=>$defaultHeight,'limit_data' => $limit_data,'pagging'=>$loadOptionData,'show_criterias'=>$show_criterias,'view_type'=>$view_type,'title_truncation' =>$title_truncation,'width'=>$defaultWidth,'insideOutside' =>$insideOutside,'fixHover'=>$fixHover);
 	}
-	$sesevent_eventalbumphotos = Zend_Registry::isRegistered('sesevent_eventalbumphotos') ? Zend_Registry::get('sesevent_eventalbumphotos') : null;
-	if(empty($sesevent_eventalbumphotos)) {
-		return $this->setNoRender();
-	}
+        
 	if(Engine_Api::_()->core()->hasSubject()){
 			$album = Engine_Api::_()->core()->getSubject();
 			$event =  Engine_Api::_()->getItem('sesevent_event', $album->event_id);		

@@ -31,10 +31,7 @@ class Sesevent_Widget_EventTicketBuyerController extends Engine_Content_Widget_A
 			return $this->setNoRender();
     $this->view->paginator = $paginator =Engine_Api::_()->getDbtable('orders', 'sesevent')->getOrders(array('event_id'=>$subject->getIdentity(),'groupBy'=>'owner_id'));		
 		$this->view->data_show = $limit_data = $this->_getParam('limitdata','10');
-	  $seseventticket_buytabbedwidget = Zend_Registry::isRegistered('seseventticket_buytabbedwidget') ? Zend_Registry::get('seseventticket_buytabbedwidget') : null;
-    if(empty($seseventticket_buytabbedwidget)) {
-	    return $this->setNoRender();
-    }
+	  
     // Set item count per page and current page number
     $paginator->setItemCountPerPage($limit_data);
     $paginator->setCurrentPageNumber(1);

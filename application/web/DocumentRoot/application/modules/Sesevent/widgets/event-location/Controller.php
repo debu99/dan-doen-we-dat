@@ -37,10 +37,7 @@ class Sesevent_Widget_EventLocationController extends Engine_Content_Widget_Abst
     $value['miles'] = isset($searchArray['miles']) ? $searchArray['miles'] : (isset($_GET['miles']) ? $_GET['miles'] : (isset($params['miles']) ? $params['miles'] : $this->_getParam('miles', '1000')));
     $value['text'] = $text = isset($searchArray['search']) ? $searchArray['search'] : (!empty($params['search']) ? $params['search'] : (isset($_GET['search']) && ($_GET['search'] != '') ? $_GET['search'] : ''));
 		$this->view->show_criterias =  $show_criterias = isset($_POST['show_criterias']) ? json_decode($_POST['show_criterias'],true) : $this->_getParam('show_criteria', array('like', 'comment','by','title','favouriteButton','likeButton','socialSharing','view','location'));
-	  $sesevent_locationevent = Zend_Registry::isRegistered('sesevent_locationevent') ? Zend_Registry::get('sesevent_locationevent') : null;
-    if(empty($sesevent_locationevent)) {
-	    return $this->setNoRender();
-    }
+	  
 		foreach ($show_criterias as $show_criteria)
    	 $this->view->{$show_criteria . 'Active'} = $show_criteria;
     $defaultOrder = $value['sort'];

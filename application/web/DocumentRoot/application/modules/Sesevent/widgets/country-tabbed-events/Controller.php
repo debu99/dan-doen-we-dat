@@ -58,10 +58,7 @@ class Sesevent_Widget_CountryTabbedEventsController extends Engine_Content_Widge
 		$this->view->advgrid_height = $advgrid_height = isset($params['advgrid_height']) ? $params['advgrid_height'] : $this->_getParam('advgrid_height', '222');
     $this->view->advgrid_width = $advgrid_width = isset($params['advgrid_width']) ? $params['advgrid_width'] : $this->_getParam('advgrid_width', '322');
     $show_criterias = isset($params['show_criterias']) ? $params['show_criterias'] : $this->_getParam('show_criteria', array('like', 'comment', 'rating', 'by', 'title', 'featuredLabel', 'sponsoredLabel', 'category', 'description','favouriteButton', 'likeButton', 'socialSharing', 'view'));
-   	$sesevent_tabbedwid = Zend_Registry::isRegistered('sesevent_tabbedwid') ? Zend_Registry::get('sesevent_tabbedwid') : null;
-    if(empty($sesevent_tabbedwid)) {
-	    return $this->setNoRender();
-    }
+    
     $this->view->identityForWidget = isset($_POST['identity']) ? $_POST['identity'] : '';
     $this->view->loadOptionData = $loadOptionData = isset($params['pagging']) ? $params['pagging'] : $this->_getParam('pagging', 'auto_load');
     $this->view->canCreate = Engine_Api::_()->authorization()->isAllowed('sesevent', null, 'create');

@@ -184,11 +184,6 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
     }
 
     public function calenderAction() {
-
-        $sesevent_clanderevent = Zend_Registry::isRegistered('sesevent_clanderevent') ? Zend_Registry::get('sesevent_clanderevent') : null;
-        if (empty($sesevent_clanderevent)) {
-            return $this->_forward('notfound', 'error', 'core');
-        }
         // Render
         $this->_helper->content->setEnabled();
     }

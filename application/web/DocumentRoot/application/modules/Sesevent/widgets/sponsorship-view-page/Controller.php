@@ -46,10 +46,7 @@ class Sesevent_Widget_SponsorshipViewPageController extends Engine_Content_Widge
 		$this->view->details = $details = isset($params['details']) ? $params['details'] : $this->_getParam('details', array('title','description','logo'));
  	  $this->view->params = array('pagging' => $loadOptionData, 'limit_data' => $limit_data,  'details' => $details,'subject_id'=>$subject->getIdentity());
     $this->view->page = $page;
-    $seseventsponsorship_spoviewpage = Zend_Registry::isRegistered('seseventsponsorship_spoviewpage') ? Zend_Registry::get('seseventsponsorship_spoviewpage') : null;
-    if(empty($seseventsponsorship_spoviewpage)) {
-	    return $this->setNoRender();
-    }
+    
     if ($is_ajax)
       $this->getElement()->removeDecorator('Container');
     // Get paginator

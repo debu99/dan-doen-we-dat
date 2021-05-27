@@ -66,10 +66,7 @@ class Sesevent_ProfileController extends Core_Controller_Action_Standard {
       $dbObject = Engine_Db_Table::getDefaultAdapter();
       $dbObject->query('INSERT INTO engine4_sesevent_recentlyviewitems (resource_id, resource_type,owner_id,creation_date ) VALUES ("' . $subject->getIdentity() . '", "'.$subject->getType().'","' . $viewer->getIdentity() . '",NOW())	ON DUPLICATE KEY UPDATE	creation_date = NOW()');
     }
-		$sesevent_eventprofilepage = Zend_Registry::isRegistered('sesevent_eventprofilepage') ? Zend_Registry::get('sesevent_eventprofilepage') : null;
-    if(empty($sesevent_eventprofilepage)) {
-	    return $this->_forward('notfound', 'error', 'core');
-    }
+    
     // Get styles
     $table = Engine_Api::_()->getDbtable('styles', 'core');
     $select = $table->select()

@@ -33,10 +33,6 @@ class Sesevent_Widget_BuyTicketController extends Engine_Content_Widget_Abstract
 		$params['event_id'] = $event->event_id;
 		$params['checkEndDateTime'] = date('Y-m-d H:i:s');
 		$this->view->ticket = $ticket = Engine_Api::_()->getDbtable('tickets', 'sesevent')->getTicket($params);
-		$seseventticket_buytickets = Zend_Registry::isRegistered('seseventticket_buytickets') ? Zend_Registry::get('seseventticket_buytickets') : null;
-		if(empty($seseventticket_buytickets)) {
-			//return $this->setNoRender();
-		}
 		//check validation event ticket 
 		if(!$viewer->userIsInAgeRange($event) || !count($ticket) && $this->view->type == 'button')
 			return $this->setNoRender();

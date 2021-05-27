@@ -42,10 +42,7 @@ class Sesevent_Widget_EventSponsorshipController extends Engine_Content_Widget_A
     $this->view->paginator = $paginator = Engine_Api::_()->getDbTable('sponsorshipdetails', 'sesevent')->getSponsorDetails(array('event_id'=>$subject->getIdentity()));
     $paginator->setItemCountPerPage($limit_data);
     $paginator->setCurrentPageNumber($page);
-    $seseventsponsorship_eventspo = Zend_Registry::isRegistered('seseventsponsorship_eventspo') ? Zend_Registry::get('seseventsponsorship_eventspo') : null;
-    if(empty($seseventsponsorship_eventspo)) {
-	    return $this->setNoRender();
-    }
+    
 		if(!$is_ajax && $paginator->getTotalItemCount() == 0){
 			return $this->setNoRender();
 		}

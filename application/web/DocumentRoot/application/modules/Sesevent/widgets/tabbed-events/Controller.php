@@ -115,10 +115,6 @@ class Sesevent_Widget_TabbedEventsController extends Engine_Content_Widget_Abstr
         $value['order'] = $defaultOpenTab;
         $value['info'] = str_replace('SP', '_', $defaultOpenTab);
         $show_criterias = isset($params['show_criterias']) ? $params['show_criterias'] : $this->_getParam('show_criteria', array('like', 'comment', 'rating', 'by', 'title', 'featuredLabel', 'sponsoredLabel', 'category', 'description', 'favouriteButton', 'likeButton', 'socialSharing', 'view'));
-        $sesevent_tabbedwid = Zend_Registry::isRegistered('sesevent_tabbedwid') ? Zend_Registry::get('sesevent_tabbedwid') : null;
-        if (empty($sesevent_tabbedwid)) {
-            return $this->setNoRender();
-        }
 
 
         $this->view->identityForWidget = isset($_POST['identity']) ? $_POST['identity'] : '';

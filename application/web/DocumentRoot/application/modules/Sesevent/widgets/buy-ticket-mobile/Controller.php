@@ -31,10 +31,6 @@ class Sesevent_Widget_BuyTicketMobileController extends Engine_Content_Widget_Ab
 		$params['checkEndDateTime'] = date('Y-m-d H:i:s');
 		$params['lowestPrice'] = true;
 		$this->view->ticket = $ticket = Engine_Api::_()->getDbtable('tickets', 'sesevent')->getTicket($params);
-		$seseventticket_buyticketsmobile = Zend_Registry::isRegistered('seseventticket_buyticketsmobile') ? Zend_Registry::get('seseventticket_buyticketsmobile') : null;
-    if(empty($seseventticket_buyticketsmobile)) {
-	    return $this->setNoRender();
-    }
 		//check validation event ticket 
 		if(!count($ticket) && $this->view->type == 'button')
 			return $this->setNoRender();

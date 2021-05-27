@@ -58,10 +58,7 @@ class Sesevent_DashboardController extends Core_Controller_Action_Standard {
       $this->view->subcat_id = $_POST['subcat_id'];
     else
       $this->view->subcat_id = 0;
-    $sesevent_editevent = Zend_Registry::isRegistered('sesevent_editevent') ? Zend_Registry::get('sesevent_editevent') : null;
-    if(empty($sesevent_editevent)) {
-	    return $this->_forward('notfound', 'error', 'core');
-    }
+    
     //Event category and profile fields
     $viewer = Engine_Api::_()->user()->getViewer();
     if (!($this->_helper->requireAuth()->setAuthParams(null, null, 'edit')->isValid() || $event->isOwner($viewer)))

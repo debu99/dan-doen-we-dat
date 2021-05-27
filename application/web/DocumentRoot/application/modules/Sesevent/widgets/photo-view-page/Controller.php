@@ -41,10 +41,7 @@ class Sesevent_Widget_photoViewPageController extends Engine_Content_Widget_Abst
 			$this->view->canTag = $canTag = $event->authorization()->isAllowed($viewer, 'tag');
 			$this->view->canCommentMemberLevelPermission = Engine_Api::_()->authorization()->getPermission($viewer, 'sesevent_event', 'comment');
 		}
-		$sesevent_eventalbumphotos = Zend_Registry::isRegistered('sesevent_eventalbumphotos') ? Zend_Registry::get('sesevent_eventalbumphotos') : null;
-		if(empty($sesevent_eventalbumphotos)) {
-			return $this->setNoRender();
-		}
+		
     $this->view->nextPhoto = $photo->getNextPhoto();
     $this->view->previousPhoto = $photo->getPreviousPhoto();
 		$this->view->photo_id = $photo->photo_id;
