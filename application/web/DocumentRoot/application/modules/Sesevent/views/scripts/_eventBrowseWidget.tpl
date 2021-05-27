@@ -74,9 +74,9 @@
         });
     </script>
   <?php } ?>
-  <?php if(!$this->is_ajax){?>
+  <?php if(!$this->is_ajax) :?>
   <script type="text/javascript">$$('.sesbasic_view_type_<?php echo $randonNumber ?>').setStyle('display', 'block');</script>
-  <?php } ?>
+  <?php endif; ?>
  <?php if( count($this->paginator) > 0 ): ?>
   <?php $prevEvent; ?>
   <?php foreach( $this->paginator as $key=>$event ): ?>
@@ -1156,27 +1156,29 @@ $pinboard .= "<div class=\"sesbasic_pinboard_list_item_poster sesbasic_text_ligh
    pinboardLayout_<?php echo $randonNumber ?>('',true);
   });
   function imageLoadedAll<?php echo $randonNumber ?>(force,checkEnablePinboard){
-		sesJqueryObject('#sesevent_pinboard_view_<?php echo $randonNumber; ?>').addClass('sesbasic_pinboard_<?php echo $randonNumber; ?>');
-		if (typeof wookmark<?php echo $randonNumber ?> == 'undefined' || typeof force != 'undefined') {
-				(function() {
-		function getWindowWidth_<?php echo $randonNumber; ?>() {
-			return Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-		}				
-		wookmark<?php echo $randonNumber ?> = new Wookmark('#sesevent_pinboard_view_<?php echo $randonNumber;?>', {
-			itemWidth:  <?php echo isset($this->pinboard_width) ? str_replace(array('px','%'),array(''),$this->pinboard_width) : '300'; ?>, // Optional min width of a grid item
-			outerOffset: 0, // Optional the distance from grid to parent
-			align:'left',
-			flexibleWidth: function () {
-				// Return a maximum width depending on the viewport
-				return getWindowWidth_<?php echo $randonNumber; ?>() < 1024 ? '100%' : '40%';
-			}
-			});
-		})();
-			}else {
-				wookmark<?php echo $randonNumber ?>.initItems();
-				wookmark<?php echo $randonNumber ?>.layout(true);
-			}	
-	}
+      sesJqueryObject('#sesevent_pinboard_view_<?php echo $randonNumber; ?>').addClass('sesbasic_pinboard_<?php echo $randonNumber; ?>');
+      if (typeof wookmark<?php echo $randonNumber ?> == 'undefined' || typeof force != 'undefined') {
+
+          function getWindowWidth_<?php echo $randonNumber; ?>() {
+              return Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+          }
+          wookmark<?php echo $randonNumber ?> = new Wookmark(
+              '#sesevent_pinboard_view_<?php echo $randonNumber;?>',
+              {
+                  itemWidth:  <?php echo isset($this->pinboard_width) ? str_replace(array('px','%'),array(''),$this->pinboard_width) : '300'; ?>, // Optional min width of a grid item
+      outerOffset: 0, // Optional the distance from grid to parent
+      align: 'left',
+      flexibleWidth: function () {
+              // Return a maximum width depending on the viewport
+              return getWindowWidth_<?php echo $randonNumber; ?>() < 1024 ? '100%' : '40%';
+          }
+      });
+
+      } else {
+              wookmark<?php echo $randonNumber ?>.initItems();
+              wookmark<?php echo $randonNumber ?>.layout(true);
+          }
+      }
    sesJqueryObject(window).resize(function(e){
     pinboardLayout_<?php echo $randonNumber ?>('',true);
    });
@@ -1214,10 +1216,10 @@ $pinboard .= "<div class=\"sesbasic_pinboard_list_item_poster sesbasic_text_ligh
 			if(typeof requestViewMore_<?php echo $randonNumber; ?>  != "undefined"){
               requestViewMore_<?php echo $randonNumber; ?>.cancel();
           }
-			requestViewMore_<?php echo $randonNumber; ?> = new Request.HTML({
+              sesJqueryObject.ajax({
 					method: 'post',
-					'url': en4.core.baseUrl + "widget/index/mod/sesevent/name/<?php echo $this->widgetName; ?>",
-					'data': {
+					url: en4.core.baseUrl + "widget/index/mod/sesevent/name/<?php echo $this->widgetName; ?>",
+					data: {
 						format: 'html',
 						page: page<?php echo $randonNumber; ?>,    
 						params : params<?php echo $randonNumber; ?>, 
@@ -1229,9 +1231,9 @@ $pinboard .= "<div class=\"sesbasic_pinboard_list_item_poster sesbasic_text_ligh
 						type:activeType_<?php echo $randonNumber ?>,
 						identityObject:'<?php echo isset($this->identityObject) ? $this->identityObject : "" ?>'
 					},
-							onSuccess: function(responseTree, responseElements, responseHTML, responseJavaScript) {
+                success: function(responseTree, responseElements, responseHTML, responseJavaScript) {
 								sesJqueryObject('#map-data_<?php echo $randonNumber;?>').removeClass('checked');
-								sesJqueryObject('#temporary-data-<?php echo $randonNumber?>').html(responseHTML);
+								sesJqueryObject('#temporary-data-<?php echo $randonNumber?>').html(responseTree);
 								if(sesJqueryObject('#error-message_<?php echo $randonNumber;?>').length > 0) {
 									var optionEnable = sesJqueryObject('.sesbasic_view_type_options_<?php echo $randonNumber; ?>').find('.active').attr('rel');
 									var optionEnableList = sesJqueryObject('.sesbasic_view_type_options_<?php echo $randonNumber; ?> > a');
@@ -1296,8 +1298,6 @@ $pinboard .= "<div class=\"sesbasic_pinboard_list_item_poster sesbasic_text_ligh
 								viewMoreHide_<?php echo $randonNumber; ?>();
 							}
 				});
-      requestViewMore_<?php echo $randonNumber; ?>.send();
-      return false;
     }
     <?php }else{ ?>
     function paggingNumber<?php echo $randonNumber; ?>(pageNum){
@@ -1311,10 +1311,10 @@ $pinboard .= "<div class=\"sesbasic_pinboard_list_item_poster sesbasic_text_ligh
           if(typeof requestViewMore_<?php echo $randonNumber; ?>  != "undefined"){
               requestViewMore_<?php echo $randonNumber; ?>.cancel();
           }
-      requestViewMore_<?php echo $randonNumber; ?> = (new Request.HTML({
+              sesJqueryObject.ajax({
 				method: 'post',
-				'url': en4.core.baseUrl + "widget/index/mod/sesevent/name/<?php echo $this->widgetName; ?>",
-				'data': {
+				url: en4.core.baseUrl + "widget/index/mod/sesevent/name/<?php echo $this->widgetName; ?>",
+				data: {
 					format: 'html',
 					page: pageNum,
 					params :params<?php echo $randonNumber; ?> , 
@@ -1326,9 +1326,9 @@ $pinboard .= "<div class=\"sesbasic_pinboard_list_item_poster sesbasic_text_ligh
 					height:'<?php echo $this->masonry_height;?>',
 					identityObject:'<?php echo isset($this->identityObject) ? $this->identityObject : "" ?>'
 				},
-				onSuccess: function(responseTree, responseElements, responseHTML, responseJavaScript) {
+				success: function(responseTree, responseElements, responseHTML, responseJavaScript) {
 					sesJqueryObject('#map-data_<?php echo $randonNumber;?>').removeClass('checked');
-					sesJqueryObject('#temporary-data-<?php echo $randonNumber?>').html(responseHTML);
+					sesJqueryObject('#temporary-data-<?php echo $randonNumber?>').html(responseTree);
 						if(!isSearch){
 									if($('loadingimgsesevent-wrapper'))
 										sesJqueryObject('#loadingimgsesevent-wrapper').hide();
@@ -1406,9 +1406,7 @@ $pinboard .= "<div class=\"sesbasic_pinboard_list_item_poster sesbasic_text_ligh
 					sesJqueryObject('#sesbasic_loading_cont_overlay_<?php echo $randonNumber?>').css('display', 'none');
 					sesJqueryObject('#loadingimgsesevent-wrapper').hide();
 					}
-      }));
-      requestViewMore_<?php echo $randonNumber; ?>.send();
-      return false;
+      });
     }
   <?php } ?>
   <?php if(!$this->is_ajax):?>
