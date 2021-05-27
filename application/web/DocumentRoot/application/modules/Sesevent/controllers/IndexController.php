@@ -672,7 +672,9 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
                                     $event,
                                     'sesevent_last_minute_online_event',
                                     array(
-                                        'queue' => true
+                                        'queue' => true,
+                                        'object_date' => $event->getTime('starttime', 'j M'),
+                                        'object_time' => $event->getTime('starttime', 'H:i')
                                     )
                                 );
                             } else {
@@ -683,7 +685,9 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
                                     $event,
                                     'sesevent_new_online_event',
                                     array(
-                                        'queue' => true
+                                        'queue' => true,
+                                        'object_date' => $event->getTime('starttime', 'j M'),
+                                        'object_time' => $event->getTime('starttime', 'H:i')
                                     )
                                 );
                             }
@@ -698,7 +702,9 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
                                         $event,
                                         'sesevent_last_minute_event',
                                         array(
-                                            'queue' => true
+                                            'queue' => true,
+                                            'object_date' => $event->getTime('starttime', 'j M'),
+                                            'object_time' => $event->getTime('starttime', 'H:i')
                                         )
                                     );
                                 } else {
@@ -708,7 +714,9 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
                                         $event,
                                         'sesevent_new_event',
                                         array(
-                                            'queue' => true
+                                            'queue' => true,
+                                            'object_date' => $event->getTime('starttime', 'j M'),
+                                            'object_time' => $event->getTime('starttime', 'H:i')
                                         )
                                     );
                                 }

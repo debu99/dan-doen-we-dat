@@ -57,133 +57,138 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
       'parentRefresh' => true,  
     ));
   }
-  
-  public function joinWidgetAction() {
-    $viewer = Engine_Api::_()->user()->getViewer();
-    $event = Engine_Api::_()->core()->getSubject();
 
-    // Check auth
-    if (!$this->_helper->requireUser()->isValid())
-      return;
-    if (!$this->_helper->requireSubject()->isValid())
-      return;
-    if (!$this->_helper->requireAuth()->setAuthParams($subject, $viewer, 'view')->isValid())
-      return;
-    if($event->getAttendingCount() >= $event->max_participants) 
-      return;
+    public function joinWidgetAction()
+    {
+        $viewer = Engine_Api::_()->user()->getViewer();
+        $event = Engine_Api::_()->core()->getSubject();
+
+        // Check auth
+        if (!$this->_helper->requireUser()->isValid())
+            return;
+        if (!$this->_helper->requireSubject()->isValid())
+            return;
+        if (!$this->_helper->requireAuth()->setAuthParams($subject, $viewer, 'view')->isValid())
+            return;
+        if ($event->getAttendingCount() >= $event->max_participants)
+            return;
 
 
-    $db =$event->membership()->getReceiver()->getTable()->getAdapter();
-    $db->beginTransaction();
-    try {
-      if(!$event->membership()->isMember($viewer)) {
-       $event->membership()
-        ->addMember($viewer)
-        ->setUserApproved($viewer);
-      }
-      $event->increaseGenderCount($viewer);
-
-      $row =$event->membership()
-      ->getRow($viewer);
-
-      $row->rsvp = 2; //attending
-      $row->save();
-
-        $owner = Engine_Api::_()->user()->getUser($event->user_id);
-        $members = $event->membership()->getMembership(array("event_id" => $event->getIdentity()));
-        if ($event->getAttendingCount() == $event->min_participants) {
-            //notification and email for organizer when event reach minimum participants
-            Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
-                $owner,
-                $viewer,
-                $event,
-                'sesevent_organizer_reach_minimum_partis',
-                array(
-                    'queue' => true,
-                    'object_date' => $event->getTime('starttime', 'j M'),
-                    'object_time' => $event->getTime('starttime', 'H:i')
-                )
-            );
-            //notification and email for joined when event reach minimum participants
-            foreach ($members as $member) {
-                if ($member->user_id != $event->user_id) {
-                    Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
-                        Engine_Api::_()->user()->getUser($member->user_id),
-                        $viewer,
-                        $event,
-                        'sesevent_joined_reach_minimum_partis',
-                        array(
-                            'queue' => true,
-                            'object_date' => $event->getTime('starttime', 'j M'),
-                            'object_time' => $event->getTime('starttime', 'H:i')
-                        )
-                    );
-                }
+        $db = $event->membership()->getReceiver()->getTable()->getAdapter();
+        $db->beginTransaction();
+        try {
+            if (!$event->membership()->isMember($viewer)) {
+                $event->membership()
+                    ->addMember($viewer)
+                    ->setUserApproved($viewer);
             }
-        }
-        if ($event->getAttendingCount() == $event->max_participants) {
-            //notification and email for organizer when event reach maximum participants
-            Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
-                $owner,
-                $viewer,
-                $event,
-                'sesevent_organizer_reach_maximum_partis',
-                array(
-                    'queue' => true,
-                    'object_date' => $event->getTime('starttime', 'j M'),
-                    'object_time' => $event->getTime('starttime', 'H:i')
-                )
-            );
-            //notification and email for joined when event reach maximum participants
-            foreach ($members as $member) {
-                if ($member->user_id != $event->user_id) {
-                    Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
-                        Engine_Api::_()->user()->getUser($member->user_id),
-                        $viewer,
-                        $event,
-                        'sesevent_joined_reach_maximum_partis',
-                        array(
-                            'queue' => true,
-                            'object_date' => $event->getTime('starttime', 'j M'),
-                            'object_time' => $event->getTime('starttime', 'H:i')
-                        )
-                    );
-                }
-            }
-        }
+            $event->increaseGenderCount($viewer);
 
-        //send email for favorite
-        if (floatval($event->getAttendingCount() / $event->max_participants) >= 0.8) {
-            $favTable = Engine_Api::_()->getDbtable('favourites', 'sesevent');
-            $favSelect = $favTable->select()
-                ->where("resource_type = 'sesevent_event'")
-                ->where('resource_id = ?', $event->getIdentity());
-            $favEvents = $favTable->fetchAll($favSelect);
-            
-            foreach ($favEvents as $user) {
-                if ($user->user_id != $owner->getIdentity()) {
-                    $fav_user = Engine_Api::_()->user()->getUser($user->user_id);
-                    Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
-                        $fav_user,
-                        $fav_user,
-                        $event,
-                        'sesevent_fav_almost_full',
-                        array(
-                            'queue' => true
-                        )
-                    );
-                }
-            }
-            $event->is_send_to_favorite = 1;
-            $event->save();
-        }
+            $row = $event->membership()
+                ->getRow($viewer);
 
-      $db->commit();
-    }catch (Exception $e) {
-      $db->rollBack();
-      throw $e;
+            $row->rsvp = 2; //attending
+            $row->save();
+
+            $owner = Engine_Api::_()->user()->getUser($event->user_id);
+            $members = $event->membership()->getMembership(array("event_id" => $event->getIdentity()));
+            if ($event->getAttendingCount() == $event->min_participants && $event->is_send_reach_min == 0) {
+                //notification and email for organizer when event reach minimum participants
+                Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                    $owner,
+                    $viewer,
+                    $event,
+                    'sesevent_organizer_reach_minimum_partis',
+                    array(
+                        'queue' => true,
+                        'object_date' => $event->getTime('starttime', 'j M'),
+                        'object_time' => $event->getTime('starttime', 'H:i')
+                    )
+                );
+                //notification and email for joined when event reach minimum participants
+                foreach ($members as $member) {
+                    if ($member->user_id != $event->user_id) {
+                        Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                            Engine_Api::_()->user()->getUser($member->user_id),
+                            $viewer,
+                            $event,
+                            'sesevent_joined_reach_minimum_partis',
+                            array(
+                                'queue' => true,
+                                'object_date' => $event->getTime('starttime', 'j M'),
+                                'object_time' => $event->getTime('starttime', 'H:i')
+                            )
+                        );
+                    }
+                }
+                $event->is_send_reach_min = 1;
+                $event->save();
+            }
+            if ($event->getAttendingCount() == $event->max_participants  && $event->is_send_reach_max == 0) {
+                //notification and email for organizer when event reach maximum participants
+                Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                    $owner,
+                    $viewer,
+                    $event,
+                    'sesevent_organizer_reach_maximum_partis',
+                    array(
+                        'queue' => true,
+                        'object_date' => $event->getTime('starttime', 'j M'),
+                        'object_time' => $event->getTime('starttime', 'H:i')
+                    )
+                );
+                //notification and email for joined when event reach maximum participants
+                foreach ($members as $member) {
+                    if ($member->user_id != $event->user_id) {
+                        Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                            Engine_Api::_()->user()->getUser($member->user_id),
+                            $viewer,
+                            $event,
+                            'sesevent_joined_reach_maximum_partis',
+                            array(
+                                'queue' => true,
+                                'object_date' => $event->getTime('starttime', 'j M'),
+                                'object_time' => $event->getTime('starttime', 'H:i')
+                            )
+                        );
+                    }
+                }
+                $event->is_send_reach_max = 1;
+                $event->save();
+            }
+
+            //send email for favorite
+            if (floatval($event->getAttendingCount() / $event->max_participants) >= 0.8) {
+                $favTable = Engine_Api::_()->getDbtable('favourites', 'sesevent');
+                $favSelect = $favTable->select()
+                    ->where("resource_type = 'sesevent_event'")
+                    ->where('resource_id = ?', $event->getIdentity());
+                $favEvents = $favTable->fetchAll($favSelect);
+
+                foreach ($favEvents as $user) {
+                    if ($user->user_id != $owner->getIdentity()) {
+                        $fav_user = Engine_Api::_()->user()->getUser($user->user_id);
+                        Engine_Api::_()->getDbtable('notifications', 'activity')->addNotification(
+                            $fav_user,
+                            $fav_user,
+                            $event,
+                            'sesevent_fav_almost_full',
+                            array(
+                                'queue' => true
+                            )
+                        );
+                    }
+                }
+                $event->is_send_to_favorite = 1;
+                $event->save();
+            }
+
+            $db->commit();
+        } catch (Exception $e) {
+            $db->rollBack();
+            throw $e;
+        }
     }
-}
   public function joinAction() {
     // Check resource approval
   $viewer = Engine_Api::_()->user()->getViewer();

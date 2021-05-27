@@ -99,3 +99,13 @@ insert ignore into `engine4_core_mailtemplates` (`type`, `module`, `vars`, `defa
 ('notify_sesevent_organizer_remind', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1),
 ('notify_sesevent_joined_remind', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1),
 ('notify_sesevent_fav_almost_full', 'sesevent', '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description]',1);
+
+-- 2021-05-25: DAN-31 - add check send reach min and max for event
+alter table `engine4_sesevent_events` add `is_send_reach_min` tinyint default 0 after `is_send_before_24h`;
+alter table `engine4_sesevent_events` add `is_send_reach_max` tinyint default 0 after `is_send_reach_min`;
+--  ađd params for last minute and new event
+update `engine4_core_mailtemplates` set `vars` = '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_date],[object_time],[object_link],[object_photo],[object_description]'
+where `type` = 'notify_sesevent_new_event'
+   or `type` = 'notify_sesevent_last_minute_event'
+   or `type` = 'notify_sesevent_new_online_event'
+   or `type` = 'notify_sesevent_last_minute_online_event';
