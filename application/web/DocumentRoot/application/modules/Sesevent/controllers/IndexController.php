@@ -355,10 +355,7 @@ class Sesevent_IndexController extends Core_Controller_Action_Standard {
         if ($event_id)
             $event = Engine_Api::_()->getItem('sesevent_event', $event_id);
         $this->view->defaultProfileId = $defaultProfileId = 1; //Engine_Api::_()->getDbTable('metas', 'sesevent')->profileFieldId();
-        $sesevent_createevent = Zend_Registry::isRegistered('sesevent_createevent') ? Zend_Registry::get('sesevent_createevent') : null;
-        if (empty($sesevent_createevent)) {
-            return $this->_forward('notfound', 'error', 'core');
-        }
+        
         if (isset($event->category_id) && $event->category_id != 0)
             $this->view->category_id = $event->category_id;
         else if (isset($_POST['category_id']) && $_POST['category_id'] != 0)
