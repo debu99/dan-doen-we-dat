@@ -16,9 +16,7 @@ class Sesadvancedcomment_Widget_CommentsController extends Engine_Content_Widget
   
     // Get subject
     $subject = null;
-    $sesadvancedcomment_eplycomment = Zend_Registry::isRegistered('sesadvancedcomment_eplycomment') ? Zend_Registry::get('sesadvancedcomment_eplycomment') : null;
-    if (empty($sesadvancedcomment_eplycomment))
-      return $this->setNoRender();
+    
     if( Engine_Api::_()->core()->hasSubject() ) {
       $subject = Engine_Api::_()->core()->getSubject();
     } else if( ($subject = $this->_getParam('subject')) ) {
@@ -34,9 +32,7 @@ class Sesadvancedcomment_Widget_CommentsController extends Engine_Content_Widget
         (!method_exists($subject, 'comments') && !method_exists($subject, 'likes')) ) {
       return $this->setNoRender();
     }
-    $sesadvancedcomment_loadcommntswidget = Zend_Registry::isRegistered('sesadvancedcomment_loadcommntswidget') ? Zend_Registry::get('sesadvancedcomment_loadcommntswidget') : null;
-    if (empty($sesadvancedcomment_loadcommntswidget))
-      return $this->setNoRender();
+    
     // Perms
     $viewer = Engine_Api::_()->user()->getViewer();
     $this->view->canComment = $canComment = $subject->authorization()->isAllowed($viewer, 'comment');
