@@ -1751,3 +1751,6 @@ Click the following link and go to you event: http://[host][object_link]
 "You have %s times remain to change event title.";"You have %s times remain to change event title."
 "You can change title of event maximum %s time.";"You can change title of event maximum %s time."
 "Please select region";"Please select region"
+"ACTIVITY_TYPE_SESEVENT_FAV_ALMOST_FULL";"When event that you're favorite is almost full"
+"ACTIVITY_TYPE_SESEVENT_JOINED_REMIND";"Remind before 24h of start time of event that you have joined"
+"ACTIVITY_TYPE_SESEVENT_ORGANIZER_REMIND";"Remind before 24h of start time of event that you are host"

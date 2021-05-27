@@ -116,3 +116,6 @@ Check the event to see who is coming and join the event.
 Click the following link and go to you event: http://[host][object_link]
 
 [footer]"
+"ACTIVITY_TYPE_SESEVENT_FAV_ALMOST_FULL";"When event that you're favorite is almost full"
+"ACTIVITY_TYPE_SESEVENT_JOINED_REMIND";"Remind before 24h of start time of event that you have joined"
+"ACTIVITY_TYPE_SESEVENT_ORGANIZER_REMIND";"Remind before 24h of start time of event that you are host"
