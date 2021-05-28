@@ -618,18 +618,17 @@ class Sesevent_Model_Event extends Core_Model_Item_Abstract
         return $interval;
     }
 
-    public function isNieuw(): bool
+    public function nieuwOrLastMinute(): int
     {
         $now = time();
         $creationDate = $this->getCreationDate();
-        return (bool)(($now - strtotime($creationDate)) <= 7 * 24 * 60 * 60);
-    }
-
-    public function isLastMinute(): bool
-    {
-        $now = time();
         $startTime = $this->starttime;
-        return (bool)((0 <= (strtotime($startTime) - $now) && (strtotime($startTime) - $now) <= 3 * 24 * 60 * 60));
+        if (0 <= (strtotime($startTime) - $now) && (strtotime($startTime) - $now) <= 3 * 24 * 60 * 60){
+            return 2;
+        } elseif (($now - strtotime($creationDate)) <= 7 * 24 * 60 * 60){
+            return 1;
+        }
+        return 0;
     }
     
     public function getTime($style, $format = 'Y-m-d H:i:s') {

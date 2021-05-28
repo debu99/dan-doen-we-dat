@@ -528,15 +528,15 @@
     ?>
     <!-- start list view item -->
     <?php 
-      $currentFormattedDate = $this->eventStartDate($event);
-      $currentDateString = "{$currentFormattedDate['day']} {$currentFormattedDate['date']} {$currentFormattedDate['month']}";
-        $nieuw = $event->isNieuw() ? "<span class='nieuw-label'>{$this->translate('Nieuw')}</span>" : "";
-      $shortLocation = ($event->is_webinar) ? $this->translate('Online Event') : $this->shortLocation($event->location);
-        $lastMinute = $event->isLastMinute() ? "<span class='last_minute-label'>{$this->translate('Last Minute')}</span>" : "";
+        $currentFormattedDate = $this->eventStartDate($event);
+        $currentDateString = "{$currentFormattedDate['day']} {$currentFormattedDate['date']} {$currentFormattedDate['month']}";
+
+        $shortLocation = ($event->is_webinar) ? $this->translate('Online Event') : $this->shortLocation($event->location);
+
         $ageCategory = $event->age_category_from . " - " . $event->age_category_to . " " . $this->translate('jr') . ".";
         $participants = Engine_Api::_()->getDbtable('membership', 'sesevent')->getMembership(array('event_id' => $event->getIdentity(), 'type' => 'attending'))->getTotalItemCount() ." / ". $event->max_participants;
-      $prevFormattedDate = $this->eventStartDate($prevEvent);
-      $prevDateString = "{$prevFormattedDate['day']} {$prevFormattedDate['date']} {$prevFormattedDate['month']}";
+        $prevFormattedDate = $this->eventStartDate($prevEvent);
+        $prevDateString = "{$prevFormattedDate['day']} {$prevFormattedDate['date']} {$prevFormattedDate['month']}";
         $favStatus = Engine_Api::_()->getDbtable('favourites', 'sesevent')->isFavourite(array('resource_type'=>'sesevent_event','resource_id'=>$event->getIdentity()));
         if ($favStatus){
             $favoriteIcon = "<i class='fas fa-star'></i>";
@@ -544,7 +544,16 @@
             $favoriteIcon = "<i class='far fa-star'></i>";
         };
         $favouriteElement = (Engine_Api::_()->user()->getViewer()->getIdentity()) ? "<a class='list-item-favourite' id='list-item-favourite-{$event->getIdentity()}' onclick='favouriteEvent({$event->getIdentity()});'>{$favoriteIcon}</a>" : "";
-
+        switch ($event->nieuwOrLastMinute()){
+            case 1:
+                $nieuwOrLastMinute = "<span class='nieuw-label'>{$this->translate('Nieuw')}</span>";
+                break;
+            case 2:
+                $nieuwOrLastMinute = "<span class='last_minute-label'>{$this->translate('Last Minute')}</span>";
+                break;
+            default:
+                $nieuwOrLastMinute = "";
+        }
       $sameDate = $prevDateString == $currentDateString;
       $listViewData .= 
         ($key > 0 && !$sameDate? '<div class=\'list-item divider\'></div>':"")
@@ -556,8 +565,7 @@
           <a href='{$event->getHref()}' class='list-item-info'>
               <div class='list-item-info--title--location'>
                   <div class='title-wrapper'>
-                      {$nieuw}
-                      {$this->translate($lastMinute)}
+                      {$nieuwOrLastMinute}
                       <h1>{$event->title}</h1>
                   </div>
                   <div class='list-item-info-location'>
