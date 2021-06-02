@@ -174,7 +174,9 @@ class Sesevent_MemberController extends Core_Controller_Action_Standard {
                             $event,
                             'sesevent_fav_almost_full',
                             array(
-                                'queue' => true
+                                'queue' => true,
+                                'object_date' => $event->getTime('starttime', 'j M'),
+                                'object_time' => $event->getTime('starttime', 'H:i')
                             )
                         );
                     }

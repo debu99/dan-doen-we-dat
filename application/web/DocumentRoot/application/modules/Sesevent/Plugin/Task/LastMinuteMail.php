@@ -31,7 +31,9 @@ class Sesevent_Plugin_Task_LastMinuteMail extends Core_Plugin_Task_Abstract
                     $event,
                     'sesevent_organizer_remind',
                     array(
-                        'queue' => true
+                        'queue' => true,
+                        'object_date' => $event->getTime('starttime', 'j M'),
+                        'object_time' => $event->getTime('starttime', 'H:i')
                     )
                 );
                 //send for member
@@ -43,7 +45,9 @@ class Sesevent_Plugin_Task_LastMinuteMail extends Core_Plugin_Task_Abstract
                             $event,
                             'sesevent_joined_remind',
                             array(
-                                'queue' => true
+                                'queue' => true,
+                                'object_date' => $event->getTime('starttime', 'j M'),
+                                'object_time' => $event->getTime('starttime', 'H:i')
                             )
                         );
                     }

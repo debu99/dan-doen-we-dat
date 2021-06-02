@@ -109,3 +109,13 @@ where `type` = 'notify_sesevent_new_event'
    or `type` = 'notify_sesevent_last_minute_event'
    or `type` = 'notify_sesevent_new_online_event'
    or `type` = 'notify_sesevent_last_minute_online_event';
+
+-- 2021-06-02: Add params to notify emails
+UPDATE engine4_core_mailtemplates SET `vars` = '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description],[object_date],[object_time]'
+WHERE `type` = 'notify_sesevent_organizer_remind';
+
+UPDATE engine4_core_mailtemplates SET `vars` = '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description],[object_date],[object_time]'
+WHERE `type` = 'notify_sesevent_joined_remind';
+
+UPDATE engine4_core_mailtemplates SET `vars` = '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description],[object_date],[object_time]'
+WHERE `type` = 'notify_sesevent_joined_remind';
