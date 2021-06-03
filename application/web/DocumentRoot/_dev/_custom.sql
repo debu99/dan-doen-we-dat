@@ -119,3 +119,7 @@ WHERE `type` = 'notify_sesevent_joined_remind';
 
 UPDATE engine4_core_mailtemplates SET `vars` = '[host],[email],[recipient_title],[recipient_link],[recipient_photo],[sender_title],[sender_link],[sender_photo],[object_title],[object_link],[object_photo],[object_description],[object_date],[object_time]'
 WHERE `type` = 'notify_sesevent_joined_remind';
+
+-- Update data type of starttime and endtime:
+ALTER TABLE `engine4_sesevent_events` CHANGE `starttime` `starttime` DATETIME  NOT NULL;
+ALTER TABLE `engine4_sesevent_events` CHANGE `endtime` `endtime` DATETIME  NOT NULL;
