@@ -114,16 +114,16 @@ class Fields_View_Helper_FieldValueLoop extends Fields_View_Helper_FieldAbstract
               $icon = '<i class="'. $field->icon .'"></i>';
             $label = $this->view->translate($icon . $field->label);
             $lastContents .= <<<EOF
-          <li data-field-id={$field->field_id} class=field_{$field->type}>
-            {$notice}
-            <span>
-              {$label}
-            </span>
-            <span>
-              {$tmp}
-            </span>
-          </li>
-        EOF;
+<li data-field-id={$field->field_id} class=field_{$field->type}>
+  {$notice}
+  <span>
+    {$label}
+  </span>
+  <span>
+    {$tmp}
+  </span>
+</li>
+EOF;
           }
         }
       }
