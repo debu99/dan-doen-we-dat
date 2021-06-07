@@ -176,14 +176,14 @@ class Fields_View_Helper_FieldValueLoop extends Fields_View_Helper_FieldAbstract
       return '<ul>' . $content . '</ul>';
     }
     return <<<EOF
-        <div class="profile_fields">
-          <h4>
-            <span>{$title}</span>
-          </h4>
-          <ul>
-            {$content}
-          </ul>
-        </div>
+<div class="profile_fields">
+  <h4>
+    <span>{$title}</span>
+  </h4>
+  <ul>
+    {$content}
+  </ul>
+</div>
 EOF;
   }
 }
