@@ -8,7 +8,7 @@ password: root
 msyqldatabase: tobecreatedbyyou
 
 ## Dev login info
-admin email: j.tonneyck@gmail.com
+admin email: .....@gmail.com
 admin password: DanDoenWeDat!1
 
 # #Admin
