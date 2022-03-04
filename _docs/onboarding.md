@@ -1,5 +1,5 @@
 ## Access
-There are different kinds of users who can be onboarded. A prospect developer needs the least amount of access, followed by a fully regular developer. Only an admin user has full access to github, AWS and other tools. A.Tarsi is the owner of the project and always should have admin privileges. As of current writing, ... ....is the main developer and has admin privileges too. If you need extra permissions, first contact the main developer and if not available, ask A. Tarsi. Store all the password you receive in a decent password manager.
+There are different kinds of users who can be onboarded. A prospect developer needs the least amount of access, followed by a fully regular developer. Only an admin user has full access to github, AWS and other tools. A.Tarsi is the owner of the project and always should have admin privileges. As of current writing, ....is the main developer and has admin privileges too. If you need extra permissions, first contact the main developer and if not available, ask A. Tarsi. Store all the password you receive in a decent password manager.
 ## Prospect Developer
 A prospect developer should only have read access to Github and Docker hub. The current free version of docker hub only always 1 admin user. It's advisable to go for the payed plan if budget allows it.
 
